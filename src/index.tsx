@@ -1,3 +1,3 @@
-export function multiply(a: number, b: number): Promise<number> {
-  return Promise.resolve(a * b);
-}
+export { default as SkiaChart } from './skiaChart';
+export { default as SvgChart } from './svgChart';
+export { SVGRenderer } from './SVGRenderer';

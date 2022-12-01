@@ -42,7 +42,7 @@
   ],
   "repository": "https://github.com/shinken008/wrn-echarts",
   "author": "shinken008@gmail.com <shinken008@gmail.com> (https://github.com/shinken008)",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/shinken008/wrn-echarts/issues"
   },
@@ -155,5 +155,12 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "@shopify/react-native-skia": "^0.1.163",
+    "@xmldom/xmldom": "^0.8.6",
+    "echarts": "^5.4.0",
+    "react-native-svg": "^13.6.0",
+    "zrender": "^5.4.1"
   }
 }
