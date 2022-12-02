@@ -1,6 +1,6 @@
 {
   "name": "wrn-echarts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -60,6 +60,7 @@
     "@types/react-native": "0.70.0",
     "commitlint": "^17.0.2",
     "del-cli": "^5.0.0",
+    "echarts": "^5.4.0",
     "eslint": "^8.4.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -77,7 +78,8 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "echarts": "*"
   },
   "engines": {
     "node": ">= 16.0.0"
@@ -159,8 +161,6 @@
   "dependencies": {
     "@shopify/react-native-skia": "^0.1.163",
     "@xmldom/xmldom": "^0.8.6",
-    "echarts": "^5.4.0",
-    "react-native-svg": "^13.6.0",
-    "zrender": "^5.4.1"
+    "react-native-svg": "^13.6.0"
   }
 }
