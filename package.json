@@ -1,7 +1,7 @@
 {
   "name": "wrn-echarts",
   "version": "0.1.1",
-  "description": "test",
+  "description": "Echarts for react native.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
@@ -55,6 +55,7 @@
     "@commitlint/config-conventional": "^17.0.2",
     "@react-native-community/eslint-config": "^3.0.2",
     "@release-it/conventional-changelog": "^5.0.0",
+    "@shopify/react-native-skia": "^0.1.163",
     "@types/jest": "^28.1.2",
     "@types/react": "~17.0.21",
     "@types/react-native": "0.70.0",
@@ -70,6 +71,7 @@
     "react": "18.1.0",
     "react-native": "0.70.5",
     "react-native-builder-bob": "^0.20.0",
+    "react-native-svg": "^13.6.0",
     "release-it": "^15.0.0",
     "typescript": "^4.5.2"
   },
@@ -77,9 +79,11 @@
     "@types/react": "17.0.21"
   },
   "peerDependencies": {
+    "@shopify/react-native-skia": "*",
+    "echarts": "*",
     "react": "*",
     "react-native": "*",
-    "echarts": "*"
+    "react-native-svg": "*"
   },
   "engines": {
     "node": ">= 16.0.0"
@@ -159,8 +163,6 @@
     ]
   },
   "dependencies": {
-    "@shopify/react-native-skia": "^0.1.163",
-    "@xmldom/xmldom": "^0.8.6",
-    "react-native-svg": "^13.6.0"
+    "@xmldom/xmldom": "^0.8.6"
   }
 }
