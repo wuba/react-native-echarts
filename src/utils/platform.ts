@@ -1,3 +1,7 @@
+// source from https://github.com/ecomfe/zrender/blob/master/src/core/platform.ts
+// under BSD-3-Clause license
+// add some patch for react native
+
 import { platformApi } from 'zrender/lib/core/platform';
 import { DEFAULT_FONT_FAMILY, defaultWidthMapStr } from './font';
 
