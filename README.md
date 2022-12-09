@@ -1,12 +1,14 @@
 # wrn-echarts
 
-react-native-echarts
+[React Native](https://reactnative.dev/) version of [Apache Echarts](https://github.com/apache/echarts), based on [react-native-svg](https://github.com/software-mansion/react-native-svg) and [react-native-skia](https://github.com/shopify/react-native-skia). Much better performance than webview based solution.
 
 ## Installation
 
 ```sh
-npm install wrn-echarts
+yarn add wrn-echarts
 ```
+
+Install [react-native-svg](https://github.com/software-mansion/react-native-svg#installation) or [react-native-skia](https://shopify.github.io/react-native-skia/docs/getting-started/installation/) according to your needs.
 
 ## Usage
 
