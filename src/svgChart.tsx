@@ -184,15 +184,9 @@ function SvgComponent(props: SVGVNodeProps, ref?: any) {
 
   useImperativeHandle(ref, () => ({
     elm: {
-      setAttribute: (name: string, value: any) => {
-        console.log(name, value);
-      },
-      setAttributeNS: (name: string, value: any) => {
-        console.log(name, value);
-      },
-      removeAttribute: (name: string) => {
-        console.log(name);
-      },
+      setAttribute: (_name: string, _value: any) => {},
+      setAttributeNS: (_name: string, _value: any) => {},
+      removeAttribute: (_name: string) => {},
       patch: (_oldVnode: SVGVNode, vnode: SVGVNode) => {
         setSvgNode(vnode);
       },

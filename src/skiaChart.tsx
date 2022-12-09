@@ -49,12 +49,8 @@ function SkiaComponent(props: SkiaProps, ref?: any) {
           setHeight(value);
         }
       },
-      setAttributeNS: (name: string, value: any) => {
-        console.log(name, value);
-      },
-      removeAttribute: (name: string) => {
-        console.log(name);
-      },
+      setAttributeNS: (_name: string, _value: any) => {},
+      removeAttribute: (_name: string) => {},
       patchString: (_oldVnode: string, vnode: string) => {
         const _svgString = getSkSvg(vnode);
         setSvgString(_svgString);
