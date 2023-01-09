@@ -12,6 +12,10 @@ Install [react-native-svg](https://github.com/software-mansion/react-native-svg#
 
 ## Usage
 
+![example](https://raw.githubusercontent.com/wuba/wrn-echarts/main/screenshots/example.jpg)
+
+Most of the charts in echarts are supported, and the usage remains largely consistent. For more use cases and demo previews, you can download the [Taro Playground](https://github.com/wuba/taro-playground) app.
+
 ### Skia echarts
 ```js
 // import { SkiaChart, SvgChart, SVGRenderer } from 'wrn-echarts';
