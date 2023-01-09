@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [14.x, 15.x, 16.x]
+        node-version: [16.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -34,7 +34,7 @@ jobs:
       - name: Setup Node ${{ matrix.node_version }}
         uses: actions/setup-node@v1
         with:
-          node-version: 14
+          node-version: 16
           registry-url: 'https://registry.npmjs.org'
       - name: npm install, build
         run: |
