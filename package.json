@@ -40,13 +40,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/shinken008/wrn-echarts",
-  "author": "shinken008@gmail.com <shinken008@gmail.com> (https://github.com/shinken008)",
+  "repository": "https://github.com/wuba/wrn-echarts",
+  "author": "wuba",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/shinken008/wrn-echarts/issues"
+    "url": "https://github.com/wuba/wrn-echarts/issues"
   },
-  "homepage": "https://github.com/shinken008/wrn-echarts#readme",
+  "homepage": "https://github.com/wuba/wrn-echarts#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
