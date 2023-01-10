@@ -2,6 +2,14 @@
 
 [React Native](https://reactnative.dev/) version of [Apache Echarts](https://github.com/apache/echarts), based on [react-native-svg](https://github.com/software-mansion/react-native-svg) and [react-native-skia](https://github.com/shopify/react-native-skia). Much better performance than webview based solution.
 
+## About
+
+* 🔥 The same way as Apache ECharts
+* 🎨 Rich charts, covering almost all usage scenarios
+* ✨ Optional rendering library, [Skia](https://github.com/shopify/react-native-skia) or [SVG](https://github.com/software-mansion/react-native-svg)
+* 🚀 Able to reuse code with web
+* 📱 Support for zoom gestures
+
 ## Installation
 
 ```sh
