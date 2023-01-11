@@ -26,28 +26,31 @@ Most of the charts in echarts are supported, and the usage remains largely consi
 
 ### Skia echarts
 ```js
-// import { SkiaChart, SvgChart, SVGRenderer } from 'wrn-echarts';
-import SkiaChart, { SVGRenderer } from 'wrn-echarts/skia';
+// import { SkiaChart, SVGRenderer } from 'wrn-echarts';
+import SkiaChart, { SVGRenderer } from 'wrn-echarts/lib/module/skiaChart';
 import * as echarts from 'echarts/core';
+import { useRef, useEffect } from 'react';
 import {
   BarChart,
 } from 'echarts/charts';
 import {
   TitleComponent,
-  TooltipComponent
+  TooltipComponent,
+  GridComponent,
 } from 'echarts/components';
 
 // register extensions
 echarts.use([
   TitleComponent,
   TooltipComponent,
+  GridComponent,
   SVGRenderer,
   // ...
   BarChart,
 ])
 
 const E_HEIGHT = 250;
-const E_WIDTH = Dimensions.get('screen').width;
+const E_WIDTH = 300;
 
 // initial
 function SkiaComponent({ option }) {
@@ -71,35 +74,53 @@ function SkiaComponent({ option }) {
 }
 
 // Component usage
-function App() {
-  const option = {}
+export default function App() {
+  const option = {
+    xAxis: {
+      type: 'category',
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    },
+    yAxis: {
+      type: 'value',
+    },
+    series: [
+      {
+        data: [120, 200, 150, 80, 70, 110, 130],
+        type: 'bar',
+      },
+    ],
+  }
   return <SkiaComponent option={option} />
 }
 ```
 
 ### SVG echarts
 ```js
-import SvgChart, { SVGRenderer } from 'wrn-echarts/skia';
+// import { SvgChart, SVGRenderer } from 'wrn-echarts';
+import SvgChart, { SVGRenderer } from 'wrn-echarts/lib/module/svgChart';
 import * as echarts from 'echarts/core';
+import { useRef, useEffect } from 'react';
 import {
   BarChart,
 } from 'echarts/charts';
 import {
   TitleComponent,
-  TooltipComponent
+  TooltipComponent,
+  GridComponent,
 } from 'echarts/components';
 
 // register extensions
 echarts.use([
   TitleComponent,
   TooltipComponent,
+  GridComponent,
   SVGRenderer,
   // ...
   BarChart,
 ])
 
 const E_HEIGHT = 250;
-const E_WIDTH = Dimensions.get('screen').width;
+const E_WIDTH = 300;
 
 // initial
 function SvgComponent({ option }) {
@@ -123,8 +144,22 @@ function SvgComponent({ option }) {
 }
 
 // Component usage
-function App() {
-  const option = {}
+export default function App() {
+  const option = {
+    xAxis: {
+      type: 'category',
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    },
+    yAxis: {
+      type: 'value',
+    },
+    series: [
+      {
+        data: [120, 200, 150, 80, 70, 110, 130],
+        type: 'bar',
+      },
+    ],
+  }
   return <SvgComponent option={option} />
 }
 ```

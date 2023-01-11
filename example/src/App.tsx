@@ -5,12 +5,17 @@ import { StyleSheet, View, Dimensions } from 'react-native';
 import { SVGRenderer, SkiaChart } from 'wrn-echarts';
 import * as echarts from 'echarts/core';
 import { BarChart } from 'echarts/charts';
-import { TitleComponent, TooltipComponent } from 'echarts/components';
+import {
+  TitleComponent,
+  TooltipComponent,
+  GridComponent,
+} from 'echarts/components';
 
 // register extensions
 echarts.use([
   TitleComponent,
   TooltipComponent,
+  GridComponent,
   SVGRenderer,
   // ...
   BarChart,
@@ -57,7 +62,7 @@ const option = {
 export default function App() {
   return (
     <View style={styles.container}>
-      <SkiaComponent option={option}></SkiaComponent>
+      <SkiaComponent option={option} />
     </View>
   );
 }
@@ -67,10 +72,5 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
   },
 });
