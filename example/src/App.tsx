@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useEffect, useRef } from 'react';
 
 import { StyleSheet, View, Dimensions } from 'react-native';
-import { SVGRenderer, SkiaChart } from 'wrn-echarts';
+import { SVGRenderer, SkiaChart, SvgChart } from 'wrn-echarts';
 import * as echarts from 'echarts/core';
 import { BarChart } from 'echarts/charts';
 import {
@@ -44,6 +44,26 @@ function SkiaComponent({ option }: any) {
   return <SkiaChart ref={skiaRef} />;
 }
 
+function SvgComponent({ option }: any) {
+  const svgRef = useRef<any>(null);
+
+  useEffect(() => {
+    let chart: any;
+    if (svgRef.current) {
+      // @ts-ignore
+      chart = echarts.init(svgRef.current, 'light', {
+        renderer: 'svg',
+        width: E_WIDTH,
+        height: E_HEIGHT,
+      });
+      chart.setOption(option);
+    }
+    return () => chart?.dispose();
+  }, [option]);
+
+  return <SvgChart ref={svgRef} />;
+}
+
 const option = {
   xAxis: {
     type: 'category',
@@ -63,6 +83,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <SkiaComponent option={option} />
+      <SvgComponent option={option} />
     </View>
   );
 }
