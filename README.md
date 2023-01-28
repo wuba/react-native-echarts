@@ -13,7 +13,7 @@
 ## Installation
 
 ```sh
-yarn add wrn-echarts
+yarn add wrn-echarts echarts
 ```
 
 Install [react-native-svg](https://github.com/software-mansion/react-native-svg#installation) or [react-native-skia](https://shopify.github.io/react-native-skia/docs/getting-started/installation/) according to your needs.
