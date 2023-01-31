@@ -165,6 +165,7 @@
     ]
   },
   "dependencies": {
-    "@xmldom/xmldom": "^0.8.6"
+    "@xmldom/xmldom": "^0.8.6",
+    "entities": "^4.4.0"
   }
 }

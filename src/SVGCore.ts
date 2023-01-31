@@ -1,6 +1,7 @@
 // source from https://github.com/ecomfe/zrender/blob/master/src/svg/core.ts
 // under BSD-3-Clause license
 // add some patch for skia
+import { encodeXML } from 'entities';
 
 export type SVGVNodeAttrs = Record<
   string,
@@ -77,6 +78,7 @@ export function vNodeToString(
       if (attrs['paint-order'] === 'stroke') {
         attrs['stroke-width'] = 0;
       }
+      el.text = encodeXML(el.text || '');
     }
     return (
       createElementOpen(tag, attrs) +
