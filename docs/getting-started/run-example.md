@@ -1,0 +1,39 @@
+---
+sidebar_position: 2
+---
+
+# Run the example
+
+1. clone wrn-echarts repo
+
+```shell
+git clone git@github.com:wuba/wrn-echarts.git
+```
+
+2. install dependencies
+
+```shell
+yarn
+```
+
+3. go to example directory
+
+```shell
+cd example
+```
+
+4. run ios or android
+
+```shell
+yarn ios
+# or
+yarn android
+```
+
+That's it! You should see the following screen:
+
+| iOS | Android |
+| --- | --- |
+| ![ios](./ios.png) | ![android](./ios.png) |
+
+Congratulations! You have successfully run the example.

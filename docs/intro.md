@@ -2,46 +2,19 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Introduction
 
-Let's discover **Docusaurus in less than 5 minutes**.
+WRN ECharts project is an open-source library for creating interactive charts in React Native applications. With a user-friendly design and simple API, developers can create a wide range of customizable charts. 
 
-## Getting Started
+## Features
+- 🎨 **Built with [Apache ECharts](https://github.com/apache/echarts)**, offering customization options to represent complex data visually. The usage is almost identical to ECharts.
+- 📱 **Designed for [React Native](https://reactnative.dev/)**, delivering chart visualization directly in the app for a seamless experience.
+- 🚀 Allows developers to **reuse their code with the web**, offering increased flexibility and cost-efficiency.
+- ✨ Offers the choice of **using either [Skia](https://github.com/shopify/react-native-skia) or [SVG](https://github.com/software-mansion/react-native-svg)** as the rendering library, providing greater flexibility in choosing the best option for a particular use case.
+- 🤳 **Supports mobile-specific operations** such as zooming, providing a more intuitive and interactive user experience for chart visualization on mobile devices.
 
-Get started by **creating a new site**.
+## Awesome Cases
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+1. Taro Playground App is a cross-platform application developed using Taro, to help developers develop and debug Taro applications. It contains most of the examples of WRN ECharts, You can [download and install the app](https://github.com/wuba/taro-playground/releases) for preview.
 
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+If you have other examples, please edit this page.

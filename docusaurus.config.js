@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'WRN ECharts',
-  tagline: 'WRN ECharts are cool, have fun!',
+  tagline: 'An Open Source Visualization Library for Recat Native',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
