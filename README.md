@@ -2,6 +2,8 @@
 
 [React Native](https://reactnative.dev/) version of [Apache Echarts](https://github.com/apache/echarts), based on [react-native-svg](https://github.com/software-mansion/react-native-svg) and [react-native-skia](https://github.com/shopify/react-native-skia). Much better performance than webview based solution.
 
+Checkout the full documentation [here](https://wuba.github.io/wrn-echarts/).
+
 ## About
 
 * 🔥 The same way as Apache ECharts
