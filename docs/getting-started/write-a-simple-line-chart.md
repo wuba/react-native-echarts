@@ -11,16 +11,17 @@ To see how it looks like in the browser, you can visit the [echarts editor](http
 1. import echarts, wrn-echarts, react. Here I have only import SkiaChart and SVGRenderer.
 
 ```tsx
-import { useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import * as echarts from 'echarts/core';
 import { LineChart } from 'echarts/charts';
-import SkiaChart, { SVGRenderer } from 'wrn-echarts/lib/module/skiaChart';
+import { GridComponent } from 'echarts/components';
+import { SVGRenderer, SkiaChart } from 'wrn-echarts';
 ```
 
 2. use echarts.use to register the renderer and chart.
 
 ```tsx
-echarts.use([ SVGRenderer, LineChart ])
+echarts.use([SVGRenderer, LineChart, GridComponent]);
 ```
 
 3. create a ref for the SkiaChart.
@@ -38,18 +39,18 @@ export default function App() {
 const option = {
   xAxis: {
     type: 'category',
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
   },
   yAxis: {
-    type: 'value'
+    type: 'value',
   },
   series: [
     {
       data: [150, 230, 224, 218, 135, 147, 260],
-      type: 'line'
-    }
-  ]
-}
+      type: 'line',
+    },
+  ],
+};
 ```
 
 5. create a chart instance and set the option.
@@ -57,8 +58,8 @@ const option = {
 ```tsx
 let chart = echarts.init(skiaRef.current, 'light', {
   renderer: 'svg',
-  width: 250,
-  height: 300,
+  width: 400,
+  height: 400,
 });
 chart.setOption(option);
 ```
@@ -73,12 +74,13 @@ useEffect(() => {
 
 That's it! Blow is the code:
 ```tsx
-import { useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import * as echarts from 'echarts/core';
 import { LineChart } from 'echarts/charts';
-import SkiaChart, { SVGRenderer } from 'wrn-echarts/lib/module/skiaChart';
+import { GridComponent } from 'echarts/components';
+import { SVGRenderer, SkiaChart } from 'wrn-echarts';
 
-echarts.use([ SVGRenderer, LineChart ])
+echarts.use([SVGRenderer, LineChart, GridComponent]);
 
 export default function App() {
   const skiaRef = useRef<any>(null);
@@ -86,18 +88,18 @@ export default function App() {
     const option = {
       xAxis: {
         type: 'category',
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       },
       yAxis: {
-        type: 'value'
+        type: 'value',
       },
       series: [
         {
           data: [150, 230, 224, 218, 135, 147, 260],
-          type: 'line'
-        }
-      ]
-    }
+          type: 'line',
+        },
+      ],
+    };
     let chart: any;
     if (skiaRef.current) {
       chart = echarts.init(skiaRef.current, 'light', {
@@ -117,12 +119,8 @@ You should see the following screen:
 
 | iOS | Android |
 | --- | --- |
-| ![ios](./ios-line.png) | ![android](./ios-line.png) |
+| ![ios](./ios-line.png) | ![android](./android-line.jpg) |
 
-If you want to use the SvgChart, you can import it from wrn-echarts/lib/module/svgChart.
-```tsx
-import SvgChart, { SVGRenderer } from 'wrn-echarts/lib/module/svgChart';
-```
-and replace the SkiaChart with SvgChart.
+If you want to use the react-native-svg, just replace the SkiaChart with SvgChart.
 
 Next you can find more configurations to use in wrn-echarts from the [echarts examples](https://echarts.apache.org/examples/en/index.html).

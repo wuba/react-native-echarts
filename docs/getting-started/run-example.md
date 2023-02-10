@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Run the example
+# Run example
 
 1. clone wrn-echarts repo
 
@@ -34,6 +34,6 @@ That's it! You should see the following screen:
 
 | iOS | Android |
 | --- | --- |
-| ![ios](./ios.png) | ![android](./ios.png) |
+| ![ios](./ios.png) | ![android](./android.jpg) |
 
 Congratulations! You have successfully run the example.

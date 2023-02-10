@@ -14,28 +14,25 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Built with Apache ECharts, offering customization options to represent complex data visually. The usage is almost identical to ECharts.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Creating interactive charts',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Experience the power of data visualization with our intuitive, interactive charts that bring your data to life.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Powered by React Native',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Designed for React Native, delivering chart visualization directly in the app for a seamless experience.
       </>
     ),
   },
