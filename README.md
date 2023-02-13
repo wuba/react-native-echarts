@@ -167,6 +167,16 @@ export default function App() {
   return <SvgComponent option={option} />
 }
 ```
+
+### Usually only one of SvgChart or SkiaChart libraries is used
+```js
+import { SvgChart, SVGRenderer } from 'wrn-echarts/svgChart';
+```
+or
+```js
+import { SkiaChart, SkiaRenderer } from 'wrn-echarts/skiaChart';
+```
+
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
