@@ -136,6 +136,11 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      algolia: {
+        appId: 'YG2O6W98E3',
+        apiKey: '54fbdc3a93e60ce0e694e30313baee31',
+        indexName: 'wrn-echarts',
+      }
     }),
 };
 
