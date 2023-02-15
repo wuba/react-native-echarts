@@ -2,13 +2,13 @@
 sidebar_position: 3
 ---
 
-# Write a simple line chart
+# 写一个简单的折线图
 
-Next let's try to draw the most basic diagram - Basic Line Chart.
+接下来让我们试着画一下最基本的图 -- 基本折线图。
 
-To see how it looks like in the browser, you can visit the [echarts editor](https://echarts.apache.org/examples/en/editor.html?c=line-simple) and try to modify the configuration to see the changes.
+为了看看它在浏览器中的样子，你可以访问 [echarts 编辑器](https://echarts.apache.org/examples/en/editor.html?c=line-simple)，并尝试修改配置，看看有什么变化。
 
-1. import echarts, wrn-echarts, react. Here I have only import SkiaChart and SVGRenderer.
+1. 导入 echarts、wrn-echarts、react。这里我只导入了 SkiaChart 和 SVGRenderer。
 
 ```tsx
 import React, { useRef, useEffect } from 'react';
@@ -18,13 +18,13 @@ import { GridComponent } from 'echarts/components';
 import { SVGRenderer, SkiaChart } from 'wrn-echarts';
 ```
 
-2. use echarts.use to register the renderer and chart.
+2. 使用 echarts.use 来注册渲染器和图表。
 
 ```tsx
 echarts.use([SVGRenderer, LineChart, GridComponent]);
 ```
 
-3. create a ref for the SkiaChart.
+3. 为 SkiaChart 组件创建一个 Ref。
 
 ```tsx
 export default function App() {
@@ -33,7 +33,7 @@ export default function App() {
 }
 ```
 
-4. write the chart option.
+4. 编写图表的选项。
 
 ```tsx
 const option = {
@@ -53,7 +53,7 @@ const option = {
 };
 ```
 
-5. create a chart instance and set the option.
+5. 创建一个图表实例并设置选项。
 
 ```tsx
 let chart = echarts.init(skiaRef.current, 'light', {
@@ -64,7 +64,7 @@ let chart = echarts.init(skiaRef.current, 'light', {
 chart.setOption(option);
 ```
 
-6. use useEffect to make sure the chart is initialized only once. And dispose the chart when the component is unmounted.
+6. 使用 useEffect 来确保图表只被初始化一次。并在组件卸载时释放图表。
 
 ```tsx
 useEffect(() => {
@@ -72,7 +72,7 @@ useEffect(() => {
 }, []);
 ```
 
-That's it! Here is the code:
+这就是了! 这里是代码：
 ```tsx
 import React, { useRef, useEffect } from 'react';
 import * as echarts from 'echarts/core';
@@ -115,12 +115,12 @@ export default function App() {
   return <SkiaChart ref={skiaRef} />;
 }
 ```
-You should see the following screen:
+你可以看到以下画面：
 
 | iOS | Android |
 | --- | --- |
 | ![ios](./ios-line.png) | ![android](./android-line.jpg) |
 
-If you want to use the react-native-svg, just replace the SkiaChart with SvgChart.
+如果你想使用 react-native-svg，只需将 SkiaChart 替换为 SvgChart。
 
-Next you can find more configurations to use in wrn-echarts from the [echarts examples](https://echarts.apache.org/examples/en/index.html).
+接下来你可以从 [echarts 示例](https://echarts.apache.org/examples/en/index.html) 中找到更多在wrn-echarts 中使用的配置。
