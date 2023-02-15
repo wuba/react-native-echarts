@@ -2,6 +2,8 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 
+import Translate, { translate } from '@docusaurus/Translate';
+
 type FeatureItem = {
   title: string;
   Svg: React.ComponentType<React.ComponentProps<'svg'>>;
@@ -10,29 +12,41 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: translate({
+      id: 'components.HomepageFeatures.easyToUse',
+      message: 'Easy to Use',
+      description: 'The title of the feature that is easy to use',
+    }),
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Built with Apache ECharts, offering customization options to represent complex data visually. The usage is almost identical to ECharts.
+        <Translate id="components.HomepageFeatures.easyToUseDesc">Built with Apache ECharts, offering customization options to represent complex data visually. The usage is almost identical to ECharts.</Translate>
       </>
     ),
   },
   {
-    title: 'Creating interactive charts',
+    title: translate({
+      id: 'components.HomepageFeatures.interactiveCharts',
+      message: 'Creating interactive charts',
+      description: 'The title of the feature that is creating interactive charts',
+    }),
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Experience the power of data visualization with our intuitive, interactive charts that bring your data to life.
+        <Translate id='components.HomepageFeatures.interactiveChartsDesc'>Experience the power of data visualization with our intuitive, interactive charts that bring your data to life.</Translate>
       </>
     ),
   },
   {
-    title: 'Powered by React Native',
+    title: translate({
+      id: 'components.HomepageFeatures.poweredByReactNative',
+      message: 'Powered by React Native',
+      description: 'The title of the feature that is powered by React Native',
+    }),
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Designed for React Native, delivering chart visualization directly in the app for a seamless experience.
+        <Translate id='components.HomepageFeatures.poweredByReactNativeDesc'>Designed for React Native, delivering chart visualization directly in the app for a seamless experience.</Translate>
       </>
     ),
   },

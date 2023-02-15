@@ -4,7 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
-
+import Translate, { translate } from '@docusaurus/Translate';
 import styles from './index.module.css';
 
 function HomepageHeader() {
@@ -13,12 +13,16 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className="hero__subtitle">{translate({
+          id: 'pages.index.tagline',
+          message: 'An Amazing Open Source Visualization Library for Recat Native',
+          description: 'The tagline of the site',
+        })}</p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            Tutorial
+            <Translate id='pages.index.link'>Tutorial</Translate>
           </Link>
         </div>
       </div>
@@ -30,8 +34,20 @@ export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={
+        translate({
+          id: 'pages.index.title',
+          message: 'Hello from WRN ECharts',
+          description: 'The title of the site',
+        })
+      }
+      description={
+        translate({
+          id: 'pages.index.description',
+          message: 'An Amazing Open Source Visualization Library for Recat Native',
+          description: 'The description of the site',
+        })
+      }>
       <HomepageHeader />
       <main>
         <HomepageFeatures />

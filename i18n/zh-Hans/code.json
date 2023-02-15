@@ -400,5 +400,41 @@
   "theme.tags.tagsPageTitle": {
     "message": "标签",
     "description": "The title of the tag list page"
+  },
+  "pages.index.tagline": {
+    "message": "一个惊艳的 Recat Native 开源图表库",
+    "description": "The tagline of the site"
+  },
+  "pages.index.link": {
+    "message": "使用教程"
+  },
+  "components.HomepageFeatures.easyToUse": {
+    "message": "易于使用",
+    "description": "The title of the feature that is easy to use"
+  },
+  "components.HomepageFeatures.easyToUseDesc": {
+    "message": "基于 Apache ECharts，提供自定义选项以直观地表示复杂的数据。其使用方法与 ECharts 几乎相同。"
+  },
+  "components.HomepageFeatures.interactiveCharts": {
+    "message": "创建交互式图表",
+    "description": "The title of the feature that is creating interactive charts"
+  },
+  "components.HomepageFeatures.interactiveChartsDesc": {
+    "message": "通过我们直观的互动式图表，体验数据可视化的力量，让你的数据变得生动。"
+  },
+  "components.HomepageFeatures.poweredByReactNative": {
+    "message": "由 React Native 驱动",
+    "description": "The title of the feature that is powered by React Native"
+  },
+  "components.HomepageFeatures.poweredByReactNativeDesc": {
+    "message": "专为 React Native 设计，直接在应用程序中提供图表可视化，实现无缝体验。"
+  },
+  "pages.index.title": {
+    "message": "欢迎使用 WRN ECharts",
+    "description": "The title of the site"
+  },
+  "pages.index.description": {
+    "message": "一个惊艳的 Recat Native 开源图表库",
+    "description": "The description of the site"
   }
 }
