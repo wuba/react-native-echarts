@@ -128,6 +128,10 @@ function SvgEle(props: SVGVEleProps) {
     if (attrs.paintOrder === 'stroke') {
       attrs.strokeWidth = 0;
     }
+    // fixed svg fillOpacity bug in some render processes
+    if (attrs.fillOpacity === undefined) {
+      attrs.fillOpacity = 1;
+    }
     return <Text {...attrs}>{text}</Text>;
   }
   // fix: https://github.com/react-native-svg/react-native-svg/issues/983
