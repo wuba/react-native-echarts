@@ -168,13 +168,13 @@ export default function App() {
 }
 ```
 
-### Usually only one of SvgChart or SkiaChart libraries is used
+### Use only one of SvgChart or SkiaChart
 ```js
-import { SvgChart, SVGRenderer } from 'wrn-echarts/svgChart';
+import SvgChart, { SVGRenderer } from 'wrn-echarts/svgChart';
 ```
 or
 ```js
-import { SkiaChart, SkiaRenderer } from 'wrn-echarts/skiaChart';
+import SkiaChart, { SkiaRenderer } from 'wrn-echarts/skiaChart';
 ```
 
 ## Contributing
