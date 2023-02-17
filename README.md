@@ -31,7 +31,7 @@ Most of the charts in echarts are supported, and the usage remains largely consi
 ### Skia echarts
 ```js
 // import { SkiaChart, SVGRenderer } from 'wrn-echarts';
-import SkiaChart, { SVGRenderer } from 'wrn-echarts/lib/module/skiaChart';
+import SkiaChart, { SVGRenderer } from 'wrn-echarts/skiaChart';
 import * as echarts from 'echarts/core';
 import { useRef, useEffect } from 'react';
 import {
@@ -101,7 +101,7 @@ export default function App() {
 ### SVG echarts
 ```js
 // import { SvgChart, SVGRenderer } from 'wrn-echarts';
-import SvgChart, { SVGRenderer } from 'wrn-echarts/lib/module/svgChart';
+import SvgChart, { SVGRenderer } from 'wrn-echarts/svgChart';
 import * as echarts from 'echarts/core';
 import { useRef, useEffect } from 'react';
 import {
@@ -174,7 +174,7 @@ import SvgChart, { SVGRenderer } from 'wrn-echarts/svgChart';
 ```
 or
 ```js
-import SkiaChart, { SkiaRenderer } from 'wrn-echarts/skiaChart';
+import SkiaChart, { SVGRenderer } from 'wrn-echarts/skiaChart';
 ```
 
 ## Contributing
