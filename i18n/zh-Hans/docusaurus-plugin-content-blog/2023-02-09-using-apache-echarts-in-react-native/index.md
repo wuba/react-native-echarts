@@ -49,7 +49,7 @@ tags: [intro]
 
 ```ts
 // import { SkiaChart, SVGRenderer } from 'wrn-echarts';
-import SkiaChart, { SVGRenderer } from 'wrn-echarts/lib/module/skiaChart';
+import SkiaChart, { SVGRenderer } from 'wrn-echarts/skiaChart';
 import * as echarts from 'echarts/core';
 import { useRef, useEffect } from 'react';
 import { LineChart } from 'echarts/charts';

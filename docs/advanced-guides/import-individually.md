@@ -6,10 +6,10 @@ sidebar_position: 1
 
 if you only need to use the react-native-skia renderer, you can import the SVGRenderer and SkiaChart individually.
 ```tsx
-import SkiaChart, { SVGRenderer } from 'wrn-echarts/lib/module/skiaChart';
+import SkiaChart, { SVGRenderer } from 'wrn-echarts/skiaChart';
 ```
 
 if you only need to use the react-native-svg renderer, you can import the SVGRenderer and SvgChart individually.
 ```tsx
-import SvgChart, { SVGRenderer } from 'wrn-echarts/lib/module/svgChart';
+import SvgChart, { SVGRenderer } from 'wrn-echarts/svgChart';
 ```
