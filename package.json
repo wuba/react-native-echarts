@@ -1,6 +1,6 @@
 {
   "name": "wrn-echarts",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Echarts for react native.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
