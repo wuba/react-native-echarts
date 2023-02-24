@@ -15,10 +15,6 @@
     "message": "教程",
     "description": "The label of footer link with label=Tutorial linking to /docs/intro"
   },
-  "link.item.label.Stack Overflow": {
-    "message": "Stack Overflow",
-    "description": "The label of footer link with label=Stack Overflow linking to https://stackoverflow.com/questions/tagged/wrn-echarts"
-  },
   "link.item.label.Jue jin": {
     "message": "掘金",
     "description": "The label of footer link with label=Jue jin linking to https://juejin.cn/user/4495228528238279"

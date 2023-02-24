@@ -109,10 +109,6 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/wrn-echarts',
-              },
-              {
                 label: 'Jue jin',
                 href: 'https://juejin.cn/user/4495228528238279',
               },
