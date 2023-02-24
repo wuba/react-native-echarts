@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
-        <title>WRN ECharts Blog</title>
+        <title>React Native ECharts Blog</title>
         <link>https://wuba.github.io/react-native-echarts/blog</link>
-        <description>WRN ECharts Blog</description>
+        <description>React Native ECharts Blog</description>
         <lastBuildDate>Thu, 09 Feb 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
@@ -25,8 +25,8 @@
             <link>https://wuba.github.io/react-native-echarts/blog/welcome</link>
             <guid>https://wuba.github.io/react-native-echarts/blog/welcome</guid>
             <pubDate>Wed, 08 Feb 2023 00:00:00 GMT</pubDate>
-            <description><![CDATA[Welcome to wrn-echarts!]]></description>
-            <content:encoded><![CDATA[<p>Welcome to wrn-echarts!</p>]]></content:encoded>
+            <description><![CDATA[Welcome to react-native-echarts!]]></description>
+            <content:encoded><![CDATA[<p>Welcome to react-native-echarts!</p>]]></content:encoded>
             <category>hello</category>
         </item>
     </channel>

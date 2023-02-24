@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wuba.github.io/react-native-echarts/zh-Hans/blog</id>
-    <title>WRN ECharts Blog</title>
+    <title>React Native ECharts Blog</title>
     <updated>2023-02-09T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wuba.github.io/react-native-echarts/zh-Hans/blog"/>
-    <subtitle>WRN ECharts Blog</subtitle>
+    <subtitle>React Native ECharts Blog</subtitle>
     <icon>https://wuba.github.io/react-native-echarts/zh-Hans/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[在 React Native 中使用 Apache ECharts]]></title>
@@ -28,8 +28,8 @@
         <id>https://wuba.github.io/react-native-echarts/zh-Hans/blog/welcome</id>
         <link href="https://wuba.github.io/react-native-echarts/zh-Hans/blog/welcome"/>
         <updated>2023-02-08T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[欢迎使用 wrn-echarts ！]]></summary>
-        <content type="html"><![CDATA[<p>欢迎使用 wrn-echarts ！</p>]]></content>
+        <summary type="html"><![CDATA[欢迎使用 react-native-echarts ！]]></summary>
+        <content type="html"><![CDATA[<p>欢迎使用 react-native-echarts ！</p>]]></content>
         <author>
             <name>Zhiqing Chen</name>
             <uri>https://github.com/zhiqingchen</uri>
