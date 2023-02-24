@@ -4,8 +4,8 @@
   <ShortName>WRN ECharts</ShortName>
   <Description>Search WRN ECharts</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://wuba.github.io/wrn-echarts/zh-Hans/img/favicon.ico</Image>
-  <Url type="text/html" method="get" template="https://wuba.github.io/wrn-echarts/zh-Hans/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://wuba.github.io/wrn-echarts/zh-Hans/opensearch.xml" />
-  <moz:SearchForm>https://wuba.github.io/wrn-echarts/zh-Hans/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://wuba.github.io/react-native-echarts/zh-Hans/img/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://wuba.github.io/react-native-echarts/zh-Hans/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://wuba.github.io/react-native-echarts/zh-Hans/opensearch.xml" />
+  <moz:SearchForm>https://wuba.github.io/react-native-echarts/zh-Hans/</moz:SearchForm>
 </OpenSearchDescription>

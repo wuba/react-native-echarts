@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwrn_echarts=self.webpackChunkwrn_echarts||[]).push([[518],{107:e=>{e.exports=JSON.parse('[{"label":"intro","permalink":"/wrn-echarts/blog/tags/intro","count":1},{"label":"hello","permalink":"/wrn-echarts/blog/tags/hello","count":1}]')}}]);

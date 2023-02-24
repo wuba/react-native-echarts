@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwrn_echarts=self.webpackChunkwrn_echarts||[]).push([[535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Using Apache ECharts in React Native","permalink":"/react-native-echarts/blog/using-apache-echarts-in-react-native"},{"title":"Welcome","permalink":"/react-native-echarts/blog/welcome"}]}')}}]);
