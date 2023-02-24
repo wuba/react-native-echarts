@@ -9,6 +9,9 @@ const config = {
   title: 'React Native ECharts',
   tagline: 'An Open Source Visualization Library for Recat Native',
   favicon: 'img/favicon.ico',
+  scripts: [
+    {src: 'https://snack.expo.dev/embed.js', defer: true},
+  ],
 
   // Set the production url of your site here
   url: 'https://wuba.github.io',
@@ -16,6 +19,9 @@ const config = {
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/react-native-echarts/',
 
+  clientModules: [
+    require.resolve('./snackPlayerInitializer.js'),
+  ],
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'wuba', // Usually your GitHub org/user name.
@@ -43,6 +49,7 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/wuba/react-native-echarts/tree/docs/',
+          remarkPlugins: [require('@react-native-website/remark-snackplayer')],
           editLocalizedFiles: true,
         },
         blog: {
@@ -139,9 +146,9 @@ const config = {
         darkTheme: darkCodeTheme,
       },
       algolia: {
-        appId: 'YG2O6W98E3',
-        apiKey: '54fbdc3a93e60ce0e694e30313baee31',
-        indexName: 'wrn-echarts',
+        appId: 'Q787ESQO0U',
+        apiKey: '2c04f87603852e296751cc01d11574ca',
+        indexName: 'react-native-echarts',
       }
     }),
 };
