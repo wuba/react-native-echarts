@@ -33,7 +33,7 @@
   },
   "link.item.label.GitHub": {
     "message": "GitHub",
-    "description": "The label of footer link with label=GitHub linking to https://github.com/wuba/wrn-echarts"
+    "description": "The label of footer link with label=GitHub linking to https://github.com/wuba/react-native-echarts"
   },
   "copyright": {
     "message": "Copyright © 2023 58.Com, Inc. Built with Docusaurus.",

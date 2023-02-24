@@ -42,7 +42,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/wuba/wrn-echarts/tree/docs/',
+            'https://github.com/wuba/react-native-echarts/tree/docs/',
           editLocalizedFiles: true,
         },
         blog: {
@@ -50,7 +50,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/wuba/wrn-echarts/tree/docs/',
+            'https://github.com/wuba/react-native-echarts/tree/docs/',
           editLocalizedFiles: true,
         },
         theme: {
@@ -87,7 +87,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://github.com/wuba/wrn-echarts',
+            href: 'https://github.com/wuba/react-native-echarts',
             label: 'GitHub',
             position: 'right',
           },
@@ -131,7 +131,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/wuba/wrn-echarts',
+                href: 'https://github.com/wuba/react-native-echarts',
               },
             ],
           },

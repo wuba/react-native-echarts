@@ -7,7 +7,7 @@ sidebar_position: 2
 1. clone wrn-echarts repo
 
 ```shell
-git clone git@github.com:wuba/wrn-echarts.git
+git clone git@github.com:wuba/react-native-echarts.git
 ```
 
 2. install dependencies

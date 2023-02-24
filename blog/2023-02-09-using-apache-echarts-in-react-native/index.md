@@ -5,7 +5,7 @@ authors: [zhiqing]
 tags: [intro]
 ---
 
-We have developed an [open source graphics library](https://github.com/wuba/wrn-echarts) for react native APP, which is based on [Apache ECharts](https://github.com/apache/echarts) and uses [RNSVG](https://github.com/react-native-svg/react-native-svg) or [RNSkia](https://github.com/shopify/react-native-skia) for rendering in a way that is almost identical to using it in the web, and can satisfy most graphics situations. The project source code is available at https://github.com/wuba/wrn-echarts.
+We have developed an [open source graphics library](https://github.com/wuba/react-native-echarts) for react native APP, which is based on [Apache ECharts](https://github.com/apache/echarts) and uses [RNSVG](https://github.com/react-native-svg/react-native-svg) or [RNSkia](https://github.com/shopify/react-native-skia) for rendering in a way that is almost identical to using it in the web, and can satisfy most graphics situations. The project source code is available at https://github.com/wuba/react-native-echarts.
 
 ![Examples](./examples.jpg)
 
@@ -26,7 +26,7 @@ Since we don’t want to write a graphics library from scratch, let’s look at 
 
 We know that ECharts supports SVG rendering, so if we get the SVG data before the chart is rendered and provide it to react-native-svg or react-native-skia for rendering, we will be able to achieve our goal.
 
-After a period of experimentation, we have developed [wrn-echart](https://github.com/wuba/wrn-echarts) with the following features：
+After a period of experimentation, we have developed [wrn-echart](https://github.com/wuba/react-native-echarts) with the following features：
 
 - 🔥 The same way as Apache ECharts
 - 🎨 Rich charts, covering almost all usage scenarios
@@ -209,6 +209,6 @@ function dispatchEvent(
 
 ## For more information
 
-Go to https://github.com/wuba/wrn-echarts to view the source code, and give us a star if you like it. If you encounter any problems, you can submit an [issue](https://github.com/wuba/wrn-echarts/issues).
+Go to https://github.com/wuba/react-native-echarts to view the source code, and give us a star if you like it. If you encounter any problems, you can submit an [issue](https://github.com/wuba/react-native-echarts/issues).
 
 The sample code in this post is on the https://github.com/wuba/taro-playground project, which is also open source, and interested parties can also install the new version of the Taro Playground app directly from the app store or from the [releases page](https://github.com/wuba/taro-playground/releases) to experience it.

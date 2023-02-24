@@ -5,7 +5,7 @@ authors: [zhiqing]
 tags: [intro]
 ---
 
-我们为 react native APP 开发了一个[开源图形库](https://github.com/wuba/wrn-echarts)，它基于 [Apache ECharts](https://github.com/apache/echarts)，使用 [RNSVG](https://github.com/react-native-svg/react-native-svg) 或 [RNSkia](https://github.com/shopify/react-native-skia) 进行渲染，其方式与在浏览器中中使用几乎相同，可以满足大多数绘图场景。该项目源代码可在 https://github.com/wuba/wrn-echarts 中查看。
+我们为 react native APP 开发了一个[开源图形库](https://github.com/wuba/react-native-echarts)，它基于 [Apache ECharts](https://github.com/apache/echarts)，使用 [RNSVG](https://github.com/react-native-svg/react-native-svg) 或 [RNSkia](https://github.com/shopify/react-native-skia) 进行渲染，其方式与在浏览器中中使用几乎相同，可以满足大多数绘图场景。该项目源代码可在 https://github.com/wuba/react-native-echarts 中查看。
 
 ![示例](./examples.jpg)
 
@@ -26,7 +26,7 @@ tags: [intro]
 
 我们知道 ECharts 支持 SVG 渲染，所以如果我们在图表渲染之前获得 SVG 数据并提供给 react-native-svg 或 react-native-skia 进行渲染，我们就能实现我们的目标了。
 
-经过一段时间的实验，我们开发了 [wrn-echart](https://github.com/wuba/wrn-echarts)，具有以下特点：
+经过一段时间的实验，我们开发了 [wrn-echart](https://github.com/wuba/react-native-echarts)，具有以下特点：
 
 - 🔥 与 Apache ECharts 的使用方式相同
 - 🎨 丰富的图表，几乎涵盖所有的使用场景
@@ -209,6 +209,6 @@ function dispatchEvent(
 
 ## 更多的信息
 
-去 https://github.com/wuba/wrn-echarts 查看源代码，如果你喜欢，请给我们一颗星。如果你遇到任何问题，你可以提交一个 [issue](https://github.com/wuba/wrn-echarts/issues)。
+去 https://github.com/wuba/react-native-echarts 查看源代码，如果你喜欢，请给我们一颗星。如果你遇到任何问题，你可以提交一个 [issue](https://github.com/wuba/react-native-echarts/issues)。
 
 本文的示例代码在 https://github.com/wuba/taro-playground 项目上，该项目也是开源的，感兴趣的朋友也可以直接从应用商店或从[发布页](https://github.com/wuba/taro-playground/releases)上安装新版的 Taro Playground 应用来体验它。
