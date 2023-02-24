@@ -5,4 +5,4 @@ authors: [zhiqing]
 tags: [hello]
 ---
 
-欢迎使用 wrn-echarts ！
+欢迎使用 react-native-echarts ！

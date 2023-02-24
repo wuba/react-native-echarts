@@ -5,4 +5,4 @@ authors: [zhiqing]
 tags: [hello]
 ---
 
-Welcome to wrn-echarts!
+Welcome to react-native-echarts!

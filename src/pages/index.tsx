@@ -37,7 +37,7 @@ export default function Home(): JSX.Element {
       title={
         translate({
           id: 'pages.index.title',
-          message: 'Hello from WRN ECharts',
+          message: 'Hello from React Native ECharts',
           description: 'The title of the site',
         })
       }

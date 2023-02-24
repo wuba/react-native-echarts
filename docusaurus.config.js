@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'WRN ECharts',
+  title: 'React Native ECharts',
   tagline: 'An Open Source Visualization Library for Recat Native',
   favicon: 'img/favicon.ico',
 
@@ -19,7 +19,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'wuba', // Usually your GitHub org/user name.
-  projectName: 'wrn-echarts', // Usually your repo name.
+  projectName: 'react-native-echarts', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -69,9 +69,9 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'WRN ECharts',
+        title: 'React Native ECharts',
         logo: {
-          alt: 'wrn-echarts Logo',
+          alt: 'react-native-echarts Logo',
           src: 'img/logo.svg',
         },
         items: [

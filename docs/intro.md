@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Introduction
 
-WRN ECharts project is an open-source library for creating interactive charts in React Native applications. With a user-friendly design and simple API, developers can create a wide range of customizable charts. 
+React Native ECharts project is an open-source library for creating interactive charts in React Native applications. With a user-friendly design and simple API, developers can create a wide range of customizable charts. 
 
 ## Features
 - 🎨 **Built with [Apache ECharts](https://github.com/apache/echarts)**, offering customization options to represent complex data visually. The usage is almost identical to ECharts.
@@ -15,6 +15,6 @@ WRN ECharts project is an open-source library for creating interactive charts in
 
 ## Awesome Cases
 
-1. Taro Playground App is a cross-platform application developed using Taro, to help developers develop and debug Taro applications. It contains most of the examples of WRN ECharts, You can [download and install the app](https://github.com/wuba/taro-playground/releases) for preview.
+1. Taro Playground App is a cross-platform application developed using Taro, to help developers develop and debug Taro applications. It contains most of the examples of React Native ECharts, You can [download and install the app](https://github.com/wuba/taro-playground/releases) for preview.
 
 If you have other examples, please edit this page.

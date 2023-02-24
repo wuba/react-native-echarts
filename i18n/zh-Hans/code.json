@@ -430,7 +430,7 @@
     "message": "专为 React Native 设计，直接在应用程序中提供图表可视化，实现无缝体验。"
   },
   "pages.index.title": {
-    "message": "欢迎使用 WRN ECharts",
+    "message": "欢迎使用 React Native ECharts",
     "description": "The title of the site"
   },
   "pages.index.description": {
