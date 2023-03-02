@@ -14,5 +14,9 @@
   "sidebar.tutorialSidebar.category.About": {
     "message": "关于我们",
     "description": "The label for category About in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Expo Snacks": {
+    "message": "在线示例",
+    "description": "The label for category Expo Snacks in sidebar tutorialSidebar"
   }
 }
