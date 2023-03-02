@@ -1,6 +1,6 @@
 {
   "name": "wrn-echarts",
-  "version": "0.1.6",
+  "version": "0.1.6-all.0",
   "description": "Echarts for react native.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -63,7 +63,6 @@
     "@types/react-native": "0.70.0",
     "commitlint": "^17.0.2",
     "del-cli": "^5.0.0",
-    "echarts": "^5.4.1",
     "eslint": "^8.4.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -75,19 +74,16 @@
     "react-native-builder-bob": "^0.20.0",
     "react-native-svg": "^13.6.0",
     "release-it": "^15.0.0",
-    "typescript": "^4.5.2",
-    "zrender": "^5.4.1"
+    "typescript": "^4.5.2"
   },
   "resolutions": {
     "@types/react": "17.0.21"
   },
   "peerDependencies": {
     "@shopify/react-native-skia": "*",
-    "echarts": "*",
     "react": "*",
     "react-native": "*",
-    "react-native-svg": "*",
-    "zrender": "*"
+    "react-native-svg": "*"
   },
   "engines": {
     "node": ">= 16.0.0"
@@ -168,6 +164,8 @@
   },
   "dependencies": {
     "@xmldom/xmldom": "^0.8.6",
-    "entities": "^4.4.0"
+    "echarts": "^5.4.1",
+    "entities": "^4.4.0",
+    "zrender": "^5.4.1"
   }
 }
