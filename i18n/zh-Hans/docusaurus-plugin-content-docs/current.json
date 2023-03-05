@@ -11,6 +11,10 @@
     "message": "进阶教程",
     "description": "The label for category Advanced Guides in sidebar tutorialSidebar"
   },
+  "sidebar.tutorialSidebar.category.Troubleshooting": {
+    "message": "常见错误",
+    "description": "The label for category Troubleshooting in sidebar tutorialSidebar"
+  },
   "sidebar.tutorialSidebar.category.About": {
     "message": "关于我们",
     "description": "The label for category About in sidebar tutorialSidebar"
