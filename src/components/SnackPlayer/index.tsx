@@ -1,6 +1,6 @@
 import React from 'react';
 
-const defaultDependencies = ['wrn-echarts@0.1.5-all.0', 'react-native-svg', 'react-native-reanimated', '@shopify/react-native-skia']
+const defaultDependencies = ['wrn-echarts@0.1.6-all.0', 'react-native-svg', 'react-native-reanimated', '@shopify/react-native-skia']
 
 type SnackPlayerProps = {
     name?: string;
@@ -32,8 +32,8 @@ export default function SnackPlayer(params: SnackPlayerProps): JSX.Element {
         })
     );
     const dependencies = params.dependencies || defaultDependencies.join(',');
-    const platform = params.platform || 'ios';
-    const supportedPlatforms = params.supportedPlatforms || 'ios,android';
+    const platform = params.platform || 'web';
+    const supportedPlatforms = params.supportedPlatforms || 'ios,android,web';
     const theme = params.theme || 'light';
     const preview = params.preview || 'true';
     const loading = params.loading || 'lazy';

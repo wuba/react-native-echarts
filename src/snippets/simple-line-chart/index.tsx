@@ -5,7 +5,7 @@ import { SVGRenderer, SkiaChart, echarts } from 'wrn-echarts';
 echarts.use([SVGRenderer]);
 
 const E_HEIGHT = 400;
-const E_WIDTH = Dimensions.get('screen').width;
+const E_WIDTH = Dimensions.get('window').width;
 
 export default function App() {
   const skiaRef = useRef<any>(null);
