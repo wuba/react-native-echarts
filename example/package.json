@@ -9,16 +9,20 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/webpack-config": "^18.0.1",
     "@shopify/react-native-skia": "0.1.172",
     "echarts": "^5.4.1",
     "expo": "~48.0.1",
     "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-native": "0.71.3",
     "react-native-svg": "13.4.0",
+    "react-native-web": "~0.18.10",
     "zrender": "^5.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "babel-loader": "^8.2.3",
     "babel-plugin-module-resolver": "^4.1.0"
   },
   "private": true

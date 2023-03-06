@@ -83,7 +83,6 @@ export interface SVGVNode {
 
 interface SVGVNodeProps {
   node?: SVGVNode;
-  chart?: any;
 }
 interface SVGVEleProps {
   node: SVGVNode;
