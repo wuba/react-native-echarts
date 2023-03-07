@@ -42,13 +42,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/wuba/wrn-echarts",
+  "repository": "https://github.com/wuba/react-native-echarts",
   "author": "wuba",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/wuba/wrn-echarts/issues"
+    "url": "https://github.com/wuba/react-native-echarts/issues"
   },
-  "homepage": "https://github.com/wuba/wrn-echarts#readme",
+  "homepage": "https://github.com/wuba/react-native-echarts#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
