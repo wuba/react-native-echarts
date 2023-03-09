@@ -121,7 +121,7 @@ const config = {
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/wrn_echarts',
+                href: 'https://twitter.com/RN_ECharts',
               },
             ],
           },

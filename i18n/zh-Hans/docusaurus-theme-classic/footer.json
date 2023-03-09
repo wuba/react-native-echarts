@@ -21,7 +21,7 @@
   },
   "link.item.label.Twitter": {
     "message": "Twitter",
-    "description": "The label of footer link with label=Twitter linking to https://twitter.com/wrn_echarts"
+    "description": "The label of footer link with label=Twitter linking to https://twitter.com/RN_ECharts"
   },
   "link.item.label.Blog": {
     "message": "博客",
