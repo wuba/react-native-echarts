@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useEffect, useRef } from 'react';
 
 import { StyleSheet, View, Dimensions } from 'react-native';
-import { SVGRenderer, SkiaChart, SvgChart } from 'wrn-echarts';
+import { SVGRenderer, SkiaChart, SvgChart } from '@wuba/react-native-echarts';
 import * as echarts from 'echarts/core';
 import { BarChart } from 'echarts/charts';
 import {

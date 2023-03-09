@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "wrn-echarts": ["./src/index"]
+      "@wuba/react-native-echarts": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

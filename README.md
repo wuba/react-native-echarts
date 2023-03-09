@@ -1,4 +1,4 @@
-# wrn-echarts
+# React Native Echarts
 
 [React Native](https://reactnative.dev/) version of [Apache Echarts](https://github.com/apache/echarts), based on [react-native-svg](https://github.com/software-mansion/react-native-svg) and [react-native-skia](https://github.com/shopify/react-native-skia). Much better performance than webview based solution.
 
@@ -15,7 +15,7 @@ Checkout the full documentation [here](https://wuba.github.io/react-native-echar
 ## Installation
 
 ```sh
-yarn add wrn-echarts echarts
+yarn add @wuba/react-native-echarts echarts
 ```
 
 Install [react-native-svg](https://github.com/software-mansion/react-native-svg#installation) or [react-native-skia](https://shopify.github.io/react-native-skia/docs/getting-started/installation/) according to your needs.
@@ -24,14 +24,14 @@ Install [react-native-svg](https://github.com/software-mansion/react-native-svg#
 
 ## Usage
 
-![example](https://raw.githubusercontent.com/wuba/wrn-echarts/main/screenshots/example.jpg)
+![example](https://raw.githubusercontent.com/wuba/react-native-echarts/main/screenshots/example.jpg)
 
 Most of the charts in echarts are supported, and the usage remains largely consistent. For more use cases and demo previews, you can download the [Taro Playground](https://github.com/wuba/taro-playground) app.
 
 ### Skia echarts
 ```js
-// import { SkiaChart, SVGRenderer } from 'wrn-echarts';
-import SkiaChart, { SVGRenderer } from 'wrn-echarts/skiaChart';
+// import { SkiaChart, SVGRenderer } from '@wuba/react-native-echarts';
+import SkiaChart, { SVGRenderer } from '@wuba/react-native-echarts/skiaChart';
 import * as echarts from 'echarts/core';
 import { useRef, useEffect } from 'react';
 import {
@@ -100,8 +100,8 @@ export default function App() {
 
 ### SVG echarts
 ```js
-// import { SvgChart, SVGRenderer } from 'wrn-echarts';
-import SvgChart, { SVGRenderer } from 'wrn-echarts/svgChart';
+// import { SvgChart, SVGRenderer } from '@wuba/react-native-echarts';
+import SvgChart, { SVGRenderer } from '@wuba/react-native-echarts/svgChart';
 import * as echarts from 'echarts/core';
 import { useRef, useEffect } from 'react';
 import {
@@ -170,11 +170,11 @@ export default function App() {
 
 ### Use only one of SvgChart or SkiaChart
 ```js
-import SvgChart, { SVGRenderer } from 'wrn-echarts/svgChart';
+import SvgChart, { SVGRenderer } from '@wuba/react-native-echarts/svgChart';
 ```
 or
 ```js
-import SkiaChart, { SVGRenderer } from 'wrn-echarts/skiaChart';
+import SkiaChart, { SVGRenderer } from '@wuba/react-native-echarts/skiaChart';
 ```
 
 ## Contributing

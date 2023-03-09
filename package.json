@@ -1,5 +1,5 @@
 {
-  "name": "wrn-echarts",
+  "name": "@wuba/react-native-echarts",
   "version": "0.1.6",
   "description": "Echarts for react native.",
   "main": "lib/commonjs/index",
