@@ -26,7 +26,7 @@ Since we don’t want to write a graphics library from scratch, let’s look at 
 
 We know that ECharts supports SVG rendering, so if we get the SVG data before the chart is rendered and provide it to react-native-svg or react-native-skia for rendering, we will be able to achieve our goal.
 
-After a period of experimentation, we have developed [wrn-echart](https://github.com/wuba/react-native-echarts) with the following features：
+After a period of experimentation, we have developed [@wuba/react-native-echart](https://github.com/wuba/react-native-echarts) with the following features：
 
 - 🔥 The same way as Apache ECharts
 - 🎨 Rich charts, covering almost all usage scenarios
@@ -36,20 +36,20 @@ After a period of experimentation, we have developed [wrn-echart](https://github
 
 ## How to use
 
-In practice, the overall process for wrn-echarts is similar to ECharts:
+In practice, the overall process for @wuba/react-native-echarts is similar to ECharts:
 
-1. yarn add wrn-echarts
+1. yarn add @wuba/react-native-echarts
 2. Choose to install react-native-svg or @shopify/react-native-skia
-3. Introduce the relevant components from wrn-echarts
-4. Replace the SVGRenderer of ECharts with the SVGRenderer of wrn-echarts
+3. Introduce the relevant components from @wuba/react-native-echarts
+4. Replace the SVGRenderer of ECharts with the SVGRenderer of @wuba/react-native-echarts
 5. Write the option configuration information for the chart
 6. Use SkiaChart / SvgChart component
 
 Here is the sample code：
 
 ```ts
-// import { SkiaChart, SVGRenderer } from 'wrn-echarts';
-import SkiaChart, { SVGRenderer } from 'wrn-echarts/skiaChart';
+// import { SkiaChart, SVGRenderer } from '@wuba/react-native-echarts';
+import SkiaChart, { SVGRenderer } from '@wuba/react-native-echarts/skiaChart';
 import * as echarts from 'echarts/core';
 import { useRef, useEffect } from 'react';
 import { LineChart } from 'echarts/charts';
@@ -111,7 +111,7 @@ The following are screenshots of the initialization process for the different im
 
 ![Performance](./performance.gif)
 
-After quite a few test cases, we found that wrn-echarts has performance advantages in regular usage scenarios, but in scenarios with large amounts of data, there will be significant lag because of the declarative UI rendering method, which we will continue to explore to improve performance subsequently.
+After quite a few test cases, we found that @wuba/react-native-echarts has performance advantages in regular usage scenarios, but in scenarios with large amounts of data, there will be significant lag because of the declarative UI rendering method, which we will continue to explore to improve performance subsequently.
 
 ## Implementation details
 

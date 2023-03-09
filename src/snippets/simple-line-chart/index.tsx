@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { StyleSheet, View, Dimensions } from 'react-native';
-import { SVGRenderer, SkiaChart, echarts } from 'wrn-echarts';
+import { SVGRenderer, SkiaChart, echarts } from '@wuba/react-native-echarts';
 
 echarts.use([SVGRenderer]);
 

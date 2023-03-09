@@ -26,7 +26,7 @@ tags: [intro]
 
 我们知道 ECharts 支持 SVG 渲染，所以如果我们在图表渲染之前获得 SVG 数据并提供给 react-native-svg 或 react-native-skia 进行渲染，我们就能实现我们的目标了。
 
-经过一段时间的实验，我们开发了 [wrn-echart](https://github.com/wuba/react-native-echarts)，具有以下特点：
+经过一段时间的实验，我们开发了 [@wuba/react-native-echart](https://github.com/wuba/react-native-echarts)，具有以下特点：
 
 - 🔥 与 Apache ECharts 的使用方式相同
 - 🎨 丰富的图表，几乎涵盖所有的使用场景
@@ -36,20 +36,20 @@ tags: [intro]
 
 ## 如何使用
 
-在实践中，wrn-echarts 的整体流程与 ECharts 类似：
+在实践中，@wuba/react-native-echarts 的整体流程与 ECharts 类似：
 
-1. 安装 wrn-echarts
+1. 安装 @wuba/react-native-echarts
 2. 选择安装 react-native-svg 或 @shopify/react-native-skia
-3. 引入 wrn-echarts 的相关组件
-4. 用 wrn-echarts 的 SVGRenderer 替换 ECharts 的 SVGRenderer
+3. 引入 @wuba/react-native-echarts 的相关组件
+4. 用 @wuba/react-native-echarts 的 SVGRenderer 替换 ECharts 的 SVGRenderer
 5. 编写图表的选项配置信息
 6. 使用 SkiaChart 或 SvgChart 组件
 
 下面是示例代码：
 
 ```ts
-// import { SkiaChart, SVGRenderer } from 'wrn-echarts';
-import SkiaChart, { SVGRenderer } from 'wrn-echarts/skiaChart';
+// import { SkiaChart, SVGRenderer } from '@wuba/react-native-echarts';
+import SkiaChart, { SVGRenderer } from '@wuba/react-native-echarts/skiaChart';
 import * as echarts from 'echarts/core';
 import { useRef, useEffect } from 'react';
 import { LineChart } from 'echarts/charts';
@@ -111,7 +111,7 @@ export default function App() {
 
 ![性能](./performance.gif)
 
-经过相当多的测试案例，我们发现 wrn-echarts 在常规使用场景中具有性能优势，但在有大量数据的场景中，由于声明式的 UI 渲染方法，会有明显的滞后性，后续我们会继续探索，以提高性能。
+经过相当多的测试案例，我们发现 @wuba/react-native-echarts 在常规使用场景中具有性能优势，但在有大量数据的场景中，由于声明式的 UI 渲染方法，会有明显的滞后性，后续我们会继续探索，以提高性能。
 
 ## 实现细节
 

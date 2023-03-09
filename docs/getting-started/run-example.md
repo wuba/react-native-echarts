@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Run example
 
-1. clone wrn-echarts repo
+1. clone wuba/react-native-echarts repo
 
 ```shell
 git clone git@github.com:wuba/react-native-echarts.git

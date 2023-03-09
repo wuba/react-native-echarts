@@ -18,7 +18,7 @@ import {
   TooltipComponent,
   DataZoomComponent,
 } from 'echarts/components';
-import { SVGRenderer, SvgChart } from 'wrn-echarts';
+import { SVGRenderer, SvgChart } from '@wuba/react-native-echarts';
 ```
 
 如果不知道该引入什么组件，遇到报错可以参考[这里](/docs/trouble-shooting/troubleshooting/#error-echarts-component-xxx-is-used-but-not-imported)
@@ -226,7 +226,7 @@ import {
   TooltipComponent,
   DataZoomComponent,
 } from 'echarts/components';
-import { SVGRenderer, SvgChart } from 'wrn-echarts';
+import { SVGRenderer, SvgChart } from '@wuba/react-native-echarts';
 
 echarts.use([
   SVGRenderer,
