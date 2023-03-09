@@ -149,7 +149,10 @@ const config = {
         appId: 'Q787ESQO0U',
         apiKey: '2c04f87603852e296751cc01d11574ca',
         indexName: 'react-native-echarts',
-      }
+      },
+      metadata: [{
+        name: 'keywords', content: 'React Native, echarts, chart, ios, android, web, Skia, SVG'
+      }],
     }),
 };
 
