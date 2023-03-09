@@ -8,14 +8,14 @@ Next let's try to draw the most basic diagram - Basic Line Chart.
 
 To see how it looks like in the browser, you can visit the [echarts editor](https://echarts.apache.org/examples/en/editor.html?c=line-simple) and try to modify the configuration to see the changes.
 
-1. import echarts, wrn-echarts, react. Here I have only import SkiaChart and SVGRenderer.
+1. import echarts, @wuba/react-native-echarts, react. Here I have only import SkiaChart and SVGRenderer.
 
 ```tsx
 import React, { useRef, useEffect } from 'react';
 import * as echarts from 'echarts/core';
 import { LineChart } from 'echarts/charts';
 import { GridComponent } from 'echarts/components';
-import { SVGRenderer, SkiaChart } from 'wrn-echarts';
+import { SVGRenderer, SkiaChart } from '@wuba/react-native-echarts';
 ```
 
 2. use echarts.use to register the renderer and chart.
@@ -78,7 +78,7 @@ import React, { useRef, useEffect } from 'react';
 import * as echarts from 'echarts/core';
 import { LineChart } from 'echarts/charts';
 import { GridComponent } from 'echarts/components';
-import { SVGRenderer, SkiaChart } from 'wrn-echarts';
+import { SVGRenderer, SkiaChart } from '@wuba/react-native-echarts';
 
 echarts.use([SVGRenderer, LineChart, GridComponent]);
 
@@ -123,4 +123,4 @@ You should see the following screen:
 
 If you want to use the react-native-svg, just replace the SkiaChart with SvgChart.
 
-Next you can find more configurations to use in wrn-echarts from the [echarts examples](https://echarts.apache.org/examples/en/index.html).
+Next you can find more configurations to use in @wuba/react-native-echarts from the [echarts examples](https://echarts.apache.org/examples/en/index.html).

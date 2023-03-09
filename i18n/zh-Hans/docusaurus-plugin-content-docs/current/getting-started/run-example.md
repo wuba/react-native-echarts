@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # 运行示例
 
-1. 克隆 wrn-echarts 仓库
+1. 克隆 wuba/react-native-echarts 仓库
 
 ```shell
 git clone git@github.com:wuba/react-native-echarts.git
