@@ -10,7 +10,7 @@ const config = {
   tagline: 'An Open Source Visualization Library for Recat Native',
   favicon: 'img/favicon.ico',
   scripts: [
-    {src: 'https://snack.expo.dev/embed.js', defer: true},
+    { src: 'https://snack.expo.dev/embed.js', defer: true },
   ],
 
   // Set the production url of your site here
@@ -59,6 +59,7 @@ const config = {
           editUrl:
             'https://github.com/wuba/react-native-echarts/tree/docs/',
           editLocalizedFiles: true,
+          sortPosts: 'ascending'
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -88,7 +89,7 @@ const config = {
             position: 'left',
             label: 'Tutorial',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          { to: '/blog', label: 'Blog', position: 'left' },
           {
             type: 'localeDropdown',
             position: 'right',
