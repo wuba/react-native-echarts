@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkreact_native_echarts=self.webpackChunkreact_native_echarts||[]).push([[763],{8236:e=>{e.exports=JSON.parse('{"permalink":"/react-native-echarts/zh-Hans/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":2,"blogDescription":"\u535a\u5ba2","blogTitle":"\u535a\u5ba2"}')}}]);
