@@ -59,7 +59,6 @@ const config = {
           editUrl:
             'https://github.com/wuba/react-native-echarts/tree/docs/',
           editLocalizedFiles: true,
-          sortPosts: 'ascending'
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
