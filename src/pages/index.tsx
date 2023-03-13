@@ -15,7 +15,7 @@ function HomepageHeader() {
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{translate({
           id: 'pages.index.tagline',
-          message: 'An Amazing Open Source Visualization Library for Recat Native',
+          message: 'An Amazing Open Source Visualization Library for React Native',
           description: 'The tagline of the site',
         })}</p>
         <div className={styles.buttons}>
@@ -44,7 +44,7 @@ export default function Home(): JSX.Element {
       description={
         translate({
           id: 'pages.index.description',
-          message: 'An Amazing Open Source Visualization Library for Recat Native',
+          message: 'An Amazing Open Source Visualization Library for React Native',
           description: 'The description of the site',
         })
       }>

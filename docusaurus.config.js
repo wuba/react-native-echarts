@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'React Native ECharts',
-  tagline: 'An Open Source Visualization Library for Recat Native',
+  tagline: 'An Open Source Visualization Library for React Native',
   favicon: 'img/favicon.ico',
   scripts: [
     { src: 'https://snack.expo.dev/embed.js', defer: true },

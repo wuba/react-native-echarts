@@ -402,7 +402,7 @@
     "description": "The title of the tag list page"
   },
   "pages.index.tagline": {
-    "message": "一个惊艳的 Recat Native 开源图表库",
+    "message": "一个惊艳的 React Native 开源图表库",
     "description": "The tagline of the site"
   },
   "pages.index.link": {
@@ -434,7 +434,7 @@
     "description": "The title of the site"
   },
   "pages.index.description": {
-    "message": "一个惊艳的 Recat Native 开源图表库",
+    "message": "一个惊艳的 React Native 开源图表库",
     "description": "The description of the site"
   }
 }
