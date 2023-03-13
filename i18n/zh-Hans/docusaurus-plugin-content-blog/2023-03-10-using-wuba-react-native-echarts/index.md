@@ -10,7 +10,8 @@ tags: [expo]
 平时写图表相关需求，用得最多的图表库就是**echarts**。echarts 在 web 端的表现已经相当成熟，官方对小程序端也提供了解决方案，而在 RN 方面却没有相应支持。市面上搜到的，大多本质还是基于 webview 实现，而我更倾向于基于 RN 的方案，毕竟原生的体验会比 Web 的更好一些。
 
 经过一番寻找发现 [**@wuba/react-native-echarts**](https://wuba.github.io/react-native-echarts/) 满足需求，于是上手试了下，效果还不错 ~ 对实现原理感兴趣的可以看[这里](https://juejin.cn/post/7199529508112711738)
-
+![](./example.png)
+<!--truncate-->
 ### Tips
 
 - 如果你已经有 APP 包，可以忽略前面的打包流程，直接跳到第 4 步。

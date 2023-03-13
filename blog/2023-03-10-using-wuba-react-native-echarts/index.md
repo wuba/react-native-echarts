@@ -8,7 +8,8 @@ tags: [expo]
 The most used chart library for writing chart-related requirements is **echarts**. The performance of echarts on the web side is quite mature, and the official solution is provided for the applet side, but there is no corresponding support in RN. On the market, most of the search is still based on the essence of the webview implementation, and I prefer the RN-based program, after all, the native experience will be better than the Web.
 
 Later found [**@wuba/react-native-echarts**](https://wuba.github.io/react-native-echarts/) to meet the needs, so try it out, the results are not bad. For those interested in the principle of implementation, click [here](https://wuba.github.io/react-native-echarts/blog/using-apache-echarts-in-react-native)
-
+![](./example.png)
+<!--truncate-->
 ### Tips
 
 - If you already have an APP package, you can ignore the previous packaging process and start directly from step 4.

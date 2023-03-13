@@ -8,7 +8,7 @@ tags: [intro]
 We have developed an [open source graphics library](https://github.com/wuba/react-native-echarts) for react native APP, which is based on [Apache ECharts](https://github.com/apache/echarts) and uses [RNSVG](https://github.com/react-native-svg/react-native-svg) or [RNSkia](https://github.com/shopify/react-native-skia) for rendering in a way that is almost identical to using it in the web, and can satisfy most graphics situations. The project source code is available at https://github.com/wuba/react-native-echarts.
 
 ![Examples](./examples.jpg)
-
+<!--truncate-->
 ## Introduction
 
 When drawing charts, the chart library we use most frequently is ECharts. As one of the most mature chart libraries on the market, mainly for web-side use, there is no best way to use it in React Native, in the face of this situation, our solutions are:

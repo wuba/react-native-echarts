@@ -8,7 +8,7 @@ tags: [intro]
 我们为 react native APP 开发了一个[开源图形库](https://github.com/wuba/react-native-echarts)，它基于 [Apache ECharts](https://github.com/apache/echarts)，使用 [RNSVG](https://github.com/react-native-svg/react-native-svg) 或 [RNSkia](https://github.com/shopify/react-native-skia) 进行渲染，其方式与在浏览器中中使用几乎相同，可以满足大多数绘图场景。该项目源代码可在 https://github.com/wuba/react-native-echarts 中查看。
 
 ![示例](./examples.jpg)
-
+<!--truncate-->
 ## 介绍
 
 在绘制图表时，我们最常使用的图表库是 ECharts。作为市场上最成熟的图表库之一，主要用于 Web 端，在 React Native 中并没有最好的使用方法，面对这种情况，我们的解决方案有两种：
