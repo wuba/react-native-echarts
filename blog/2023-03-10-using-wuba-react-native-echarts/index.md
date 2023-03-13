@@ -5,7 +5,7 @@ authors: [iambool]
 tags: [expo]
 ---
 
-The most used chart library for writing chart-related requirements is **echarts**. The performance of echarts on the web side is quite mature, and the official solution is provided for the applet side, but there is no corresponding support in RN. On the market, most of the search is still based on the essence of the webview implementation, and I prefer the RN-based program, after all, the native experience will be better than the Web.
+The most used chart library for writing chart-related requirements is **echarts**. The performance of echarts on the website is quite mature, and the official solution is provided for the applet side, but there is no corresponding support in RN. On the market, most of the search is still based on the essence of the webview implementation, and I prefer the RN-based program, after all, the native experience will be better than the Web.
 
 Later found [**@wuba/react-native-echarts**](https://wuba.github.io/react-native-echarts/) to meet the needs, so try it out, the results are not bad. For those interested in the principle of implementation, click [here](https://wuba.github.io/react-native-echarts/blog/using-apache-echarts-in-react-native)
 ![](./example.png)
@@ -13,17 +13,17 @@ Later found [**@wuba/react-native-echarts**](https://wuba.github.io/react-native
 ### Tips
 
 - If you already have an APP package, you can ignore the previous packaging process and start directly from step 4.
-- The full code for the trial is on github at: [https://github.com/iambool/TestApp](https://github.com/iambool/TestApp)
+- The full code for the trial is on GitHub at: [https://github.com/iambool/TestApp](https://github.com/iambool/TestApp)
 
 ## The steps to use are as follows
 
 ### Step 1. Development environment setup
 
-The process of building a local RN development environment is available on the Internet, so I won't go over it again. You can search for it by google :)
+The process of building a local RN development environment is available on the Internet, so I won't go over it again. You can search for it on google :)
 
 ### Step 2. Creating an RN project
 
-As it was a trial, I used expo to newly initialize an rn project called TestApp.
+As it was a trial, I used the expo to newly initialize an rn project called TestApp.
 
 ```
 npx create-expo-app TestApp
@@ -33,14 +33,14 @@ npx create-expo-app TestApp
 
 ### Step 3. Building an app on mobile devices
 
-Generate ios and android app package with command line. iOS is recommended to use the emulator (no need to match the certificate), while Android I was connected to the real machine.
+Generate ios and android app packages with a command line. iOS is recommended to use the emulator (no need to match the certificate), while Android I was connected to the real machine.
 
 ```
 yarn android
 yarn ios
 ```
 
-After generating the package, the app like the ones below is already installed on the phone, which means it is successful.
+After generating the package, the app like the one below is already installed on the phone, which means it is successful.
 
 ![picture](./expo-app.png)
 
@@ -60,7 +60,7 @@ yarn add react-native-svg
 
 - Introduce echarts, chart components and other dependencies.
 - Registering chart components.
-- Create a chart instance and set option.
+- Create a chart instance and set an option.
 - Synchronized destruction of chart instances when the page is destroyed.
 
 The specific code is as follows:
@@ -135,7 +135,7 @@ After writing the code, shaking the phone and reloading the bundle package, an e
 
 > ERROR Invariant Violation: requireNativeComponent: "SkiaDomView" was not found in the UIManager.
 
-I googled it and it says it requires a [version downgrade](https://stackoverflow.com/questions/74648194/shopify-react-native-skia-with-expo). In fact, it should correspond to the expo version, there will be a similar prompt when installing the dependency, install the prompted version and it will be fine.
+I googled it and it says it requires a [version downgrade](https://stackoverflow.com/questions/74648194/shopify-react-native-skia-with-expo). It should correspond to the expo version, there will be a similar prompt when installing the dependency, install the prompted version and it will be fine.
 ![warning](./warning.jpg)
 
 So I followed the instructions and did a version downgrade:
@@ -145,7 +145,7 @@ So I followed the instructions and did a version downgrade:
 react-native-svg@13.4.0
 ```
 
-It loaded up after rebuilding the app, which was nice.（but Android covers up the point, it seems that the screen width should be adaptive.）
+It loaded up after rebuilding the app, which was nice. (but Android covers up the point, it seems that the screen width should be adaptive.)
 
 | iOS                    | Android                        |
 | ---------------------- | ------------------------------ |
@@ -223,7 +223,7 @@ export default () => {
 };
 ```
 
-I can't see the difference between this two modes with my eyes.
+I can't see the difference between these two modes with my eyes.
 
 | iOS                                | Android                                |
 | ---------------------------------- | -------------------------------------- |
@@ -231,7 +231,7 @@ I can't see the difference between this two modes with my eyes.
 
 ### Step 7. Wrapping Chart Components
 
-So far the effect was quite good, but every time I used a bunch of things to import, It really bothered me. Let's wrap it up simply:
+So far the effect was quite good, but every time I used a bunch of things to import, It bothered me. Let's wrap it up simply:
 
 ```javascript
 import { useRef, useEffect } from 'react';
@@ -303,7 +303,7 @@ export { SkiaChart, SvgChart };
 
 ### Step 8. Using multiple charts
 
-Once it's wrapped, let's write a page with multiple charts and see how it works. Here is a page of "e-commerce data analysis", including line chart, bar chart and pie chart. Below is the main code written with svg mode, click [here](https://github.com/iambool/TestApp/tree/main/pages/ECdata) for detailed code.
+Once it’s wrapped, let’s write a page with multiple charts and see how it works. Here is a page for “e-commerce data analysis”, including a line chart, bar chart and pie chart. Below is the main code written with svg mode, click [here](https://github.com/iambool/TestApp/tree/main/pages/ECdata) for detailed code.
 
 ```javascript
 import { SkiaChart } from '../../components/Chart';
@@ -423,7 +423,7 @@ Try Skia mode again
 
 ![picture](./skia-chinese.png)
 
-Well, although it can, but it seems that Chinese can not be displayed properly, Android Chinese are not displayed, iOS is a mess of code. After reading the documentation, skia currently does not support Chinese on the Android side, We can display Chinese on iOS by setting the font to 'PingFang SC', for example:
+Well, although it can, it seems that Chinese can not be displayed properly, Android Chinese is not displayed, and iOS is a mess of code. After reading the documentation, skia currently does not support Chinese on the Android side, We can display Chinese on iOS by setting the font to ‘PingFang SC’, for example:
 
 ```javascript
 const option = {
@@ -444,9 +444,9 @@ After using it for a while, I summarized the following:
 
 - In terms of support, @wuba/react-native-echarts supports all types of charts except GL series and map charts which are not yet supported, which is very enough for daily business. The code to implement the various charts in echarts can be found in [taro-playground](https://github.com/wuba/taro-playground).
 - Interaction, iOS is very silky smooth, Android sometimes there are cases of frame drops.
-- Performance: Performance is officially reported as better than react-native-echarts-pro.
-  - Personally, I tried it, not a very large amount of data will not have any problems, but when the amount of data is too large (such as drawing a large amount of data heat map), the rendering speed significantly decreased a lot, which is a point waiting for the official to optimize.
-  - In addition, if there are many charts in the page, the loading speed will be slow when debugging on the real machine, so it is recommended to use the simulator first.
+- Performance: Performance is officially reported as better than other solutions.
+  - I tried it, not a very large amount of data will not have any problems, but when the amount of data is too large (such as drawing a large amount of data heat map), the rendering speed significantly decreased a lot, which is a point waiting for the official to optimize.
+  - In addition, if there are many charts on the page, the loading speed will be slow when debugging on the real machine, so it is recommended to use the simulator first.
 - Chinese support, Svg mode supports Chinese, but Skia mode is not available yet.
 
 The above is only a personal view, any questions welcome communication.
