@@ -26,6 +26,7 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'wuba', // Usually your GitHub org/user name.
   projectName: 'react-native-echarts', // Usually your repo name.
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
