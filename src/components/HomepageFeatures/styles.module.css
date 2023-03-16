@@ -7,5 +7,31 @@
 
 .featureImg {
   height: 170px;
-  width: 270px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.featureEasyToUse {
+  background-image: url('@site/static/img/easy-to-use@2x.png');
+}
+
+.featureCreatingInteractiveCharts {
+  background-image: url('@site/static/img/creating-interactive-charts@2x.png');
+}
+
+.featurePoweredByReactNative {
+  background-image: url('@site/static/img/powered-by-react-native@2x.png');
+}
+
+[data-theme='dark'] .featureEasyToUse {
+  background-image: url('@site/static/img/easy-to-use-dark@2x.png');
+}
+
+[data-theme='dark'] .featureCreatingInteractiveCharts {
+  background-image: url('@site/static/img/creating-interactive-charts-dark@2x.png');
+}
+
+[data-theme='dark'] .featurePoweredByReactNative {
+  background-image: url('@site/static/img/powered-by-react-native-dark@2x.png');
 }

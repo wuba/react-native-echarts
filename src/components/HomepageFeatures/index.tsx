@@ -6,7 +6,7 @@ import Translate, { translate } from '@docusaurus/Translate';
 
 type FeatureItem = {
   title: string;
-  img: string;
+  className: string;
   description: JSX.Element;
 };
 
@@ -17,7 +17,7 @@ const FeatureList: FeatureItem[] = [
       message: 'Easy to Use',
       description: 'The title of the feature that is easy to use',
     }),
-    img: require('@site/static/img/easy-to-use@2x.png').default,
+    className: styles.featureEasyToUse,
     description: (
       <>
         <Translate id="components.HomepageFeatures.easyToUseDesc">Built with Apache ECharts, offering customization options to represent complex data visually. The usage is almost identical to ECharts.</Translate>
@@ -30,7 +30,7 @@ const FeatureList: FeatureItem[] = [
       message: 'Creating interactive charts',
       description: 'The title of the feature that is creating interactive charts',
     }),
-    img: require('@site/static/img/creating-interactive-charts@2x.png').default,
+    className: styles.featureCreatingInteractiveCharts,
     description: (
       <>
         <Translate id='components.HomepageFeatures.interactiveChartsDesc'>Experience the power of data visualization with our intuitive, interactive charts that bring your data to life.</Translate>
@@ -43,7 +43,7 @@ const FeatureList: FeatureItem[] = [
       message: 'Powered by React Native',
       description: 'The title of the feature that is powered by React Native',
     }),
-    img: require('@site/static/img/powered-by-react-native@2x.png').default,
+    className: styles.featurePoweredByReactNative,
     description: (
       <>
         <Translate id='components.HomepageFeatures.poweredByReactNativeDesc'>Designed for React Native, delivering chart visualization directly in the app for a seamless experience.</Translate>
@@ -52,11 +52,11 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, img, description}: FeatureItem) {
+function Feature({title, className, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <img className={styles.featureImg} src={img} role="img" />
+        <div className={`${styles.featureImg} ${className}`} />
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
