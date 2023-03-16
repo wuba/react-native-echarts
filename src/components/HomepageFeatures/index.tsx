@@ -6,7 +6,7 @@ import Translate, { translate } from '@docusaurus/Translate';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  img: string;
   description: JSX.Element;
 };
 
@@ -17,7 +17,7 @@ const FeatureList: FeatureItem[] = [
       message: 'Easy to Use',
       description: 'The title of the feature that is easy to use',
     }),
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    img: require('@site/static/img/easy-to-use@2x.png').default,
     description: (
       <>
         <Translate id="components.HomepageFeatures.easyToUseDesc">Built with Apache ECharts, offering customization options to represent complex data visually. The usage is almost identical to ECharts.</Translate>
@@ -30,7 +30,7 @@ const FeatureList: FeatureItem[] = [
       message: 'Creating interactive charts',
       description: 'The title of the feature that is creating interactive charts',
     }),
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    img: require('@site/static/img/creating-interactive-charts@2x.png').default,
     description: (
       <>
         <Translate id='components.HomepageFeatures.interactiveChartsDesc'>Experience the power of data visualization with our intuitive, interactive charts that bring your data to life.</Translate>
@@ -43,7 +43,7 @@ const FeatureList: FeatureItem[] = [
       message: 'Powered by React Native',
       description: 'The title of the feature that is powered by React Native',
     }),
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    img: require('@site/static/img/powered-by-react-native@2x.png').default,
     description: (
       <>
         <Translate id='components.HomepageFeatures.poweredByReactNativeDesc'>Designed for React Native, delivering chart visualization directly in the app for a seamless experience.</Translate>
@@ -52,11 +52,11 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, img, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        <img className={styles.featureImg} src={img} role="img" />
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
