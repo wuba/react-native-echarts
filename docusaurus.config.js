@@ -59,6 +59,7 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/wuba/react-native-echarts/tree/docs/',
+          remarkPlugins: [require('@react-native-website/remark-snackplayer')],
           editLocalizedFiles: true,
         },
         theme: {
