@@ -11,7 +11,9 @@ tags: [expo]
 
 经过一番寻找发现 [**@wuba/react-native-echarts**](https://wuba.github.io/react-native-echarts/) 满足需求，于是上手试了下，效果还不错 ~ 对实现原理感兴趣的可以看[这里](https://juejin.cn/post/7199529508112711738)
 ![](./example.png)
+
 <!--truncate-->
+
 ### Tips
 
 - 如果你已经有 APP 包，可以忽略前面的打包流程，直接跳到第 4 步。
@@ -76,7 +78,7 @@ import { View } from 'react-native';
 import * as echarts from 'echarts/core';
 import { LineChart } from 'echarts/charts';
 import { GridComponent } from 'echarts/components';
-import { SVGRenderer, SkiaChart } from '@wuba/react-native-echarts';
+import SkiaChart, { SVGRenderer } from '@wuba/react-native-echarts/skiaChart';
 
 /**
  * 二、注册需要用到的组件
@@ -157,6 +159,7 @@ react-native-svg@13.4.0
 写个复杂点的动态排序柱状图，试试 Svg 模式，给 Svg 和 Skia 做个对比，完整代码看[这里](https://github.com/iambool/TestApp/blob/main/pages/barRace/index.js)。
 
 ```javascript
+import SvgChart, { SVGRenderer } from '@wuba/react-native-echarts/svgChart';
 // ...此处省略一些不重要的代码
 
 // 注册需要用到的组件，BarChart-柱状图 LegendComponent-图例
@@ -251,6 +254,9 @@ import {
   SvgChart as _SvgChart,
   SkiaChart as _SkiaChart,
 } from '@wuba/react-native-echarts';
+// 如果只安装了svg或skia中的一个，需要按如下方式单独引入
+// import _SkiaChart, { SVGRenderer } from '@wuba/react-native-echarts/skiaChart';
+// import _SvgChart, { SVGRenderer } from '@wuba/react-native-echarts/svgChart';
 import { Dimensions } from 'react-native';
 
 // 注册需要用到的组件

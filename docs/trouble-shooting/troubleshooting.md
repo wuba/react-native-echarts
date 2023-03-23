@@ -27,3 +27,11 @@ sidebar_position: 5
 
 - ### ERROR [ECharts] Unknown series undefined
   When the above error occurs during chart restoration, it is likely that the option was passed in as an empty object during the initialization of the chart object, or that the object was passed in without a series field, as in this case `chartInstance.setOption({})`. When initializing, the option should be passed into the series configuration as much as possible.
+
+<!-- 单独安装时的引入方式 -->
+
+- ### Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+
+  If only the Svg or Skia dependencies are installed, but introduced via the `import { SVGRenderer, XXXChart } from '@wuba/react-native-echarts'` write, the above error will occur.
+
+  Individual import reference [here](../advanced-guides/import-individually)

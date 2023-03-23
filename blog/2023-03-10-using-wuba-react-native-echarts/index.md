@@ -9,7 +9,9 @@ The most used chart library for writing chart-related requirements is **echarts*
 
 Later found [**@wuba/react-native-echarts**](https://wuba.github.io/react-native-echarts/) to meet the needs, so try it out, the results are excellent. For those interested in the principle of implementation, click [here](https://wuba.github.io/react-native-echarts/blog/using-apache-echarts-in-react-native)
 ![](./example.png)
+
 <!--truncate-->
+
 ### Tips
 
 - If you already have an APP package, you can ignore the previous packaging process and start directly from step 4.
@@ -74,7 +76,7 @@ import { View } from 'react-native';
 import * as echarts from 'echarts/core';
 import { LineChart } from 'echarts/charts';
 import { GridComponent } from 'echarts/components';
-import { SVGRenderer, SkiaChart } from '@wuba/react-native-echarts';
+import SkiaChart, { SVGRenderer } from '@wuba/react-native-echarts/skiaChart';
 
 /**
  * 2. Register the required components
@@ -156,6 +158,7 @@ It loaded up after rebuilding the app, which was nice. (but Android covers up th
 Write a more complex dynamic sorting bar chart with Svg mode, and compare Svg and Skia by the way. The full code is [here](https://github.com/iambool/TestApp/blob/main/pages/barRace/index.js)。
 
 ```javascript
+import SvgChart, { SVGRenderer } from '@wuba/react-native-echarts/svgChart';
 // ...Some unimportant code is omitted here
 
 // Register the required components, such as BarChart and LegendComponent
@@ -250,6 +253,10 @@ import {
   SvgChart as _SvgChart,
   SkiaChart as _SkiaChart,
 } from '@wuba/react-native-echarts';
+// Note: If only one of svg or skia is installed, it needs to be imported separately as follows.
+// import _SkiaChart, { SVGRenderer } from '@wuba/react-native-echarts/skiaChart';
+// import _SvgChart, { SVGRenderer } from '@wuba/react-native-echarts/svgChart';
+
 import { Dimensions } from 'react-native';
 
 // Register the required components
