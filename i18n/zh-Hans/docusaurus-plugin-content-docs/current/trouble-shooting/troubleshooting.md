@@ -25,3 +25,11 @@ sidebar_position: 5
 
 - ### ERROR [ECharts] Unknown series undefined
   在图表还原(restore)时出现上述错误，很可能是在图表对象初始化时，option 传入的是空的对象，或传入的对象中没有 series 字段，比如这样的写法 `chartInstance.setOption({})`。初始化时，option 应尽量传入 series 配置。
+
+<!-- 单独安装时的引入方式 -->
+
+- ### Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+
+  如果仅安装了 Svg 或 Skia 依赖，但是却通过 `import { SVGRenderer, XXXChart } from '@wuba/react-native-echarts'` 的写法引入，会出现上述错误；
+
+  单独导入参考[这里](../advanced-guides/import-individually)
