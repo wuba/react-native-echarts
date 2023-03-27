@@ -1,33 +1,33 @@
 ---
 slug: the-official-website-has-launched
-title: React Native Echarts 官网上线啦！
+title: React Native Echarts 官方网站正式上线！
 authors: [zhiqing]
 tags: [website]
 ---
 
 ![](@site/static/img/react-native-echarts-social-card.png)
 
-我们很高兴地宣布，React Native Echarts 的官方网站已经上线！
+我们非常高兴地宣布 React Native Echarts 的官方网站已经上线！
 
-我们会不断更新网站，为您提供有关我们项目的最新信息。在网站上，您将找到完整的文档、在线编辑演示以及查看常见问题的解决方案和其他相关信息。
+我们将不断更新网站，为您提供关于我们项目的最新信息。在网站上，您可以找到完整的文档、在线编辑示例、查看常见问题的解决方案以及其他相关信息。
 
 ## 全新的 Logo 与设计
 
 ![](@site/static/img/logo-with-title.svg)
 
-我们设计了一个标志，反映了我们项目的关键特点：高效、简洁和技术感。这个标志基于一个极坐标条形图，并被转化为现代化和技术感十足的风格。
+我们设计了一个体现项目核心特点的 Logo：高效、简洁和科技感。Logo 基于极坐标柱状图，经过改造，呈现出现代化和科技感。
 
-希望你会喜欢它！
+希望您喜欢！
 <!--truncate-->
-## 为 React Native 库建立一个现代的文档网站
+## 为 React Native 库构建现代化文档网站
 
-除了网站上线的信息外，我还会描述如何建立现代化的文档网站。如果您有兴趣为您的开源项目建立文档网站，本指南可以作为一个很好的参考。
+除了网站上线信息外，我还将介绍如何构建现代化文档网站。如果您对为开源项目构建文档网站感兴趣，本指南可以作为一个很好的参考。
 
 ### 使用 Docusaurus 初始化
 
 ![](https://docusaurus.io/img/slash-introducing.svg)
 
-为了建立现代化的文档网站，第一步是使用 [Docusaurus](https://docusaurus.io/zh-CN/) 初始化您的项目。Docusaurus 提供了一个快速、简便地构建文档网站的框架。您可以使用以下命令初始化您的项目：
+要构建现代化文档网站，第一步是使用 [Docusaurus](https://docusaurus.io/zh-CN/) 初始化您的项目。Docusaurus 提供了一个快速、简便地构建文档网站的框架。您可以使用以下命令初始化您的项目：
 
 ```bash
 npx create-docusaurus@latest my-website classic --typescript
@@ -37,7 +37,7 @@ npx create-docusaurus@latest my-website classic --typescript
 
 ### 集成 Expo Snack 到网站中
 
-[Expo Snack](https://snack.expo.dev/) 是一个在浏览器中运行 React Native 应用程序的开源平台。如果您正在为一个 React Native 库构建网站，这是一个非常好的功能，帮助开发人员在不必下载任何东西的情况下轻松尝试和测试他们的代码。
+[Expo Snack](https://snack.expo.dev/) 是一个在浏览器中运行 React Native 应用的开源平台。如果您正在为 React Native 库构建网站，这是一个非常好的功能，帮助开发者轻松尝试和测试代码，而无需在本地下载任何内容。
 
 在 Docusaurus 项目中集成 Snack 可能会具有挑战性。我参考了这个[问题](https://github.com/facebook/docusaurus/issues/3966)以及 [react-native-website](https://github.com/facebook/react-native-website) 的源代码。
 
@@ -63,7 +63,7 @@ export default function() {
 
 ### 使用 SnackPlayer 组件
 
-集成 Expo Snack 很酷，但有时我想将代码放在 tsx 文件中，然后将其导入到需要的文章中。这样我的代码更容易编辑和重用。
+集成 Expo Snack 很酷，但有时我想将代码放在 tsx 文件中，然后将其导入到我需要的文章中。这样我的代码更容易编辑，而且可重用。
 
 除了在线编辑器之外，我们还提供了一个 SnackPlayer 组件，可以像下面这样使用。
 
@@ -86,7 +86,7 @@ import SimpleLineChart from '!!raw-loader!@site/src/snippets/simple-line-chart/i
 
 ### 添加文档搜索
 
-Algolia 是一个搜索引擎，可以集成到您的 Docusaurus 项目中，为您的文档网站提供快速高效的搜索功能。这个功能可以帮助用户快速找到他们需要的信息。
+Algolia 是一款搜索引擎，可以集成到您的 Docusaurus 项目中，为您的文档网站提供快速高效的搜索功能。这个功能帮助用户快速轻松地找到所需信息。
 
 使用 Algolia 集成到 Docusaurus 很容易。您可以参考 [Docusaurus 文档搜索](https://docusaurus.io/zh-CN/docs/search)获取更多信息。
 

@@ -37,14 +37,14 @@ For more information, please refer to [Docusaurus Getting Started](https://docus
 
 ### Ember Expo Snack
 
-[Expo Snack](https://snack.expo.dev/) is an open-source platform for running React Native apps in the browser. If you are building a website for a React Native library, this is an excellent feature that helps developers to easily try out and test their code without having to download anything locally.
+[Expo Snack](https://snack.expo.dev/) is an open-source platform for running React Native apps in the browser. If you are building a website for a React Native library, this is an excellent feature that helps developers easily try out and test their code without having to download anything locally.
 
 Integrating Snack in a Docusaurus project can be challenging. I refer to this [issue](https://github.com/facebook/docusaurus/issues/3966) and the source code at [react-native-website](https://github.com/facebook/react-native-website).
 
 Integrating Snack involves the following steps.
 
 - Write a remarkPlugins call `@react-native-website/remark-snackplayer`. This plugin will visit all `code` nodes with `node.lang == 'SnackPlayer'` when compiling markdown files, and replace the node with a SnackPlayer `div`.
-- Write a clientModule call `snackPlayerInitializer`. This module listen for client-side events and call `initSnackPlayers`, `updateSnacksTheme` at the appropriate time.
+- Write a client module call `snackPlayerInitializer`. This module listens for client-side events and call `initSnackPlayers`, `updateSnacksTheme` at the appropriate time.
 - Modify the a configuration file `docusaurus.config.js`, add `@react-native-website/remark-snackplayer` to remarkPlugins, add `snackPlayerInitializer` to clientModules, and add `https://snack.expo.dev/embed.js` to `scripts`.
 - In the `src/css/custom.css` file, define some styles for snack-player.
 
@@ -63,7 +63,7 @@ If you are interested in the implementation principles, you can take a look at o
 
 ### Use a SnackPlayer Component
 
-Ember Expo Snack is cool, but sometimes I want to put the code in a tsx file and then import it to the article where I need it. In this way my code is easier to edit, and reusable.
+Ember Expo Snack is cool, but sometimes I want to put the code in a tsx file and then import it to the article where I need it. In this way, my code is easier to edit and reusable.
 
 In addition to the online editor, we provide a SnackPlayer component that can be used like below.
 
@@ -74,7 +74,7 @@ import SimpleLineChart from '!!raw-loader!@site/src/snippets/simple-line-chart/i
 <SnackPlayer name="Simple Line Chart">{SimpleLineChart}</SnackPlayer>
 ```
 
-Thanks to Webpack raw-loader, you can import any code file as raw text, and then insert it in a code block. This component is also very simple to implement, accepting snack-related props and code string, turning them into SnackPlayer `div`, refer to [this commit](https://github.com/wuba/react-native-echarts/commit/745d5c2d21bc03a42071af4e1da978ec93dbde9e).
+Thanks to Webpack raw-loader, you can import any code file as raw text, and then insert it in a code block. This component is also very simple to implement, accepting snack-related props and code string, and turning them into SnackPlayer `div`, refer to [this commit](https://github.com/wuba/react-native-echarts/commit/745d5c2d21bc03a42071af4e1da978ec93dbde9e).
 
 ![](./expo-snacks_simple-line-chart.png)
 
@@ -86,7 +86,7 @@ By the way, if you just want to have a live editor for react, [React Live](https
 
 ### Add Doc Search
 
-Algolia is a search engine that can be integrated into your Docusaurus project to provide fast and efficient search functionality for your documentation website. This feature helps users to quickly and easily find the information they need.
+Algolia is a search engine that can be integrated into your Docusaurus project to provide fast and efficient search functionality for your documentation website. This feature helps users quickly and easily find the information they need.
 
 It's easy to integrate Algolia with Docusaurus. You can refer to [Docusaurus Doc Search](https://docusaurus.io/docs/search) for more information.
 
@@ -94,7 +94,7 @@ It's easy to integrate Algolia with Docusaurus. You can refer to [Docusaurus Doc
 
 With the increase of international users, supporting multiple languages is becoming increasingly important. Docusaurus provides i18n support to help you create a website that can be easily translated into different languages.
 
-Currently we have only added 2 languages, Chinese and English, if you have other needs, please let us know.
+Currently, we have only added 2 languages, Chinese and English, if you have other needs, please let us know.
 
 For more information, please refer to [Docusaurus i18n](https://docusaurus.io/docs/i18n/introduction).
 
@@ -102,7 +102,7 @@ For more information, please refer to [Docusaurus i18n](https://docusaurus.io/do
 
 It's always important to give credit where credit is due. Showing the contributors of your project on your documentation website is a great way to acknowledge their hard work and dedication.
 
-We build a [react-native-echart team](https://opencollective.com/react-native-echarts) on https://opencollective.com/ and associate the team with the github repository.
+We build a [react-native-echart team](https://opencollective.com/react-native-echarts) on https://opencollective.com/ and associate the team with the GitHub repository.
 
 You can then get the contributor images for the project by assembling the following link:
 ```
@@ -115,7 +115,7 @@ Thanks to the following contributors, if you want to join us, please feel free t
 
 ## Deploying Your Website
 
-### Use Github Pages to Deploys
+### Use GitHub Pages to Deploys
 
 Deploying your website is an important step in making it accessible to the public. Docusaurus makes it easy to deploy your website using GitHub Pages. This is a fast and efficient way to get your website online quickly.
 
@@ -139,9 +139,9 @@ For more information, please refer to [Docusaurus SEO](https://docusaurus.io/doc
 
 ### Add Sitemap to Google Search Console
 
-A sitemap is a file that lists all the pages on our website and helps search engines like Google to index our website more efficiently. By adding a sitemap to Google Search Console, we can help Google to discover and index all the pages on our website.
+A sitemap is a file that lists all the pages on our website and helps search engines like Google index our website more efficiently. By adding a sitemap to Google Search Console, we can help Google to discover and index all the pages on our website.
 
-Docusaurus comes with a built-in plugin for generating a sitemap. You can get the sitemap by visiting the /sitemap.xml page on your website. Every language has its own sitemap, for example:
+Docusaurus comes with a built-in plugin for generating a sitemap. You can get the sitemap by visiting the /sitemap.xml page on your website. Every language has its sitemap, for example:
 
 - https://wuba.github.io/react-native-echarts/sitemap.xml
 - https://wuba.github.io/react-native-echarts/zh-Hans/sitemap.xml
