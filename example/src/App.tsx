@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useEffect, useRef } from 'react';
-
 import { StyleSheet, View, Dimensions } from 'react-native';
+import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 import { SVGRenderer, SkiaChart, SvgChart } from '@wuba/react-native-echarts';
 import * as echarts from 'echarts/core';
 import { BarChart } from 'echarts/charts';
@@ -61,7 +61,7 @@ function SvgComponent({ option }: any) {
     return () => chart?.dispose();
   }, [option]);
 
-  return <SvgChart ref={svgRef} />;
+  return <SvgChart ref={svgRef} useRNGH />;
 }
 
 const option = {
@@ -79,7 +79,7 @@ const option = {
     },
   ],
 };
-export default function App() {
+function App() {
   return (
     <View style={styles.container}>
       <SkiaComponent option={option} />
@@ -95,3 +95,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+export default gestureHandlerRootHOC(App);
