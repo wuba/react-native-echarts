@@ -32,7 +32,7 @@ import {
 } from 'zrender/lib/core/platform';
 import { measureText } from './utils/platform';
 // import { DEFAULT_FONT_FAMILY } from './utils/font';
-import { usePanResponder } from './utils/events';
+import { GestureHandler } from './components/GestureHandler';
 export { SVGRenderer } from './SVGRenderer';
 
 setPlatformAPI({ measureText });
@@ -83,6 +83,7 @@ export interface SVGVNode {
 
 interface SVGVNodeProps {
   node?: SVGVNode;
+  useRNGH?: boolean;
 }
 interface SVGVEleProps {
   node: SVGVNode;
@@ -180,10 +181,9 @@ function SvgRoot(props: SVGVEleProps) {
 }
 
 function SvgComponent(props: SVGVNodeProps, ref?: any) {
-  const { node } = props;
+  const { node, useRNGH = false } = props;
   const [svgNode, setSvgNode] = useState<SVGVNode | undefined>(node);
   const [zrenderId, setZrenderId] = useState(0);
-  const [panResponder] = usePanResponder(zrenderId);
 
   useImperativeHandle(ref, () => ({
     elm: {
@@ -199,9 +199,11 @@ function SvgComponent(props: SVGVNodeProps, ref?: any) {
     },
   }));
   return svgNode ? (
-    <View {...panResponder.panHandlers}>
-      <SvgRoot node={svgNode} />
-    </View>
+    <GestureHandler zrenderId={zrenderId} useRNGH={useRNGH}>
+      <View>
+        <SvgRoot node={svgNode} />
+      </View>
+    </GestureHandler>
   ) : null;
 }
 export default memo(forwardRef(SvgComponent));

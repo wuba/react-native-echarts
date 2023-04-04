@@ -10,7 +10,7 @@ import {
 } from 'zrender/lib/core/platform';
 // import { DEFAULT_FONT_FAMILY } from './utils/font';
 import { measureText } from './utils/platform';
-import { usePanResponder } from './utils/events';
+import { GestureHandler } from './components/GestureHandler';
 export { SVGRenderer } from './SVGRenderer';
 
 setPlatformAPI({ measureText });
@@ -19,6 +19,7 @@ interface SkiaProps {
   svg?: string;
   width?: number;
   height?: number;
+  useRNGH?: boolean;
 }
 
 function getSkSvg(svg?: string): SkSVG | undefined {
@@ -32,12 +33,11 @@ function getSkSvg(svg?: string): SkSVG | undefined {
 }
 
 function SkiaComponent(props: SkiaProps, ref?: any) {
-  const { svg } = props;
+  const { svg, useRNGH = false } = props;
   const [svgString, setSvgString] = useState<SkSVG | undefined>(getSkSvg(svg));
   const [width, setWidth] = useState<number>(props.width ?? 0);
   const [height, setHeight] = useState<number>(props.height ?? 0);
   const [zrenderId, setZrenderId] = useState(0);
-  const [panResponder] = usePanResponder(zrenderId);
 
   useImperativeHandle(ref, () => ({
     elm: {
@@ -63,12 +63,14 @@ function SkiaComponent(props: SkiaProps, ref?: any) {
   }));
 
   return svgString ? (
-    <View {...panResponder.panHandlers} style={{ width, height }}>
-      {/* @ts-ignore */}
-      <Canvas style={{ width, height }} pointerEvents="auto">
-        <ImageSVG svg={svgString} x={0} y={0} width={width} height={height} />
-      </Canvas>
-    </View>
+    <GestureHandler zrenderId={zrenderId} useRNGH={useRNGH}>
+      <View style={{ width, height }}>
+        {/* @ts-ignore */}
+        <Canvas style={{ width, height }} pointerEvents="auto">
+          <ImageSVG svg={svgString} x={0} y={0} width={width} height={height} />
+        </Canvas>
+      </View>
+    </GestureHandler>
   ) : null;
 }
 export default memo(forwardRef(SkiaComponent));
