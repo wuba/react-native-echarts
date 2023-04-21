@@ -29,25 +29,10 @@ export function calcCenter(x0: number, y0: number, x1: number, y1: number) {
   };
 }
 
-export function wrapTouch(event: any) {
-  if (event.touches) {
-    for (let i = 0; i < event.touches.length; ++i) {
-      const touch = event.touches[i];
-      touch.offsetX = touch.x;
-      touch.offsetY = touch.y;
-    }
-  }
-  event.preventDefault = noop;
-  event.stopPropagation = noop;
-  event.stopImmediatePropagation = noop;
-  return event;
-}
-
 export function dispatchEvent(
   zrenderId: number,
   types: HandlerName[],
   nativeEvent: any,
-  stage: 'start' | 'end' | 'change' | undefined,
   props: any = {
     zrX: nativeEvent.locationX || nativeEvent.x,
     zrY: nativeEvent.locationY || nativeEvent.y,
@@ -62,7 +47,6 @@ export function dispatchEvent(
         stopPropagation: noop,
         ...props,
       });
-      stage && handler.processGesture(wrapTouch(nativeEvent), stage);
     });
   }
 }
