@@ -63,14 +63,12 @@ function SkiaComponent(props: SkiaProps, ref?: any) {
   }));
 
   return svgString ? (
-    <GestureHandler zrenderId={zrenderId} useRNGH={useRNGH}>
-      <View style={{ width, height }}>
-        {/* @ts-ignore */}
-        <Canvas style={{ width, height }} pointerEvents="auto">
-          <ImageSVG svg={svgString} x={0} y={0} width={width} height={height} />
-        </Canvas>
-      </View>
-    </GestureHandler>
+    <View style={{ width, height }}>
+      <Canvas style={{ width, height }} pointerEvents="auto">
+        <ImageSVG svg={svgString} x={0} y={0} width={width} height={height} />
+      </Canvas>
+      <GestureHandler zrenderId={zrenderId} useRNGH={useRNGH} />
+    </View>
   ) : null;
 }
 export default memo(forwardRef(SkiaComponent));

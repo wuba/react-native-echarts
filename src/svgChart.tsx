@@ -183,6 +183,8 @@ function SvgRoot(props: SVGVEleProps) {
 function SvgComponent(props: SVGVNodeProps, ref?: any) {
   const { node, useRNGH = false } = props;
   const [svgNode, setSvgNode] = useState<SVGVNode | undefined>(node);
+  const width = Number(svgNode?.attrs?.width ?? 0);
+  const height = Number(svgNode?.attrs?.height ?? 0);
   const [zrenderId, setZrenderId] = useState(0);
 
   useImperativeHandle(ref, () => ({
@@ -199,11 +201,10 @@ function SvgComponent(props: SVGVNodeProps, ref?: any) {
     },
   }));
   return svgNode ? (
-    <GestureHandler zrenderId={zrenderId} useRNGH={useRNGH}>
-      <View>
-        <SvgRoot node={svgNode} />
-      </View>
-    </GestureHandler>
+    <View style={{ width, height }}>
+      <SvgRoot node={svgNode} />
+      <GestureHandler zrenderId={zrenderId} useRNGH={useRNGH} />
+    </View>
   ) : null;
 }
 export default memo(forwardRef(SvgComponent));

@@ -6,10 +6,11 @@ import {
   NativeTouchEvent,
 } from 'react-native';
 import { dispatchEvent, calcCenter, calcDistance } from './events';
+import { styles } from './styles';
 
-export function PanResponderHandler({ zrenderId, children }: any) {
+export function PanResponderHandler({ zrenderId }: any) {
   const [panResponder] = usePanResponder(zrenderId);
-  return <View {...panResponder.panHandlers}>{children}</View>;
+  return <View {...panResponder.panHandlers} style={styles.GestureView} />;
 }
 
 export function usePanResponder(zrenderId: number): [PanResponderInstance] {
@@ -28,12 +29,7 @@ export function usePanResponder(zrenderId: number): [PanResponderInstance] {
         onMoveShouldSetPanResponder: () => true,
         onMoveShouldSetPanResponderCapture: () => true,
         onPanResponderGrant: ({ nativeEvent }) => {
-          dispatchEvent(
-            zrenderId,
-            ['mousedown', 'mousemove'],
-            nativeEvent,
-            'start'
-          );
+          dispatchEvent(zrenderId, ['mousedown', 'mousemove'], nativeEvent);
         },
         onPanResponderMove: ({ nativeEvent }) => {
           const touches = nativeEvent.touches;
@@ -43,7 +39,7 @@ export function usePanResponder(zrenderId: number): [PanResponderInstance] {
               setMoving(true);
               setZooming(false);
             } else {
-              dispatchEvent(zrenderId, ['mousemove'], nativeEvent, 'change');
+              dispatchEvent(zrenderId, ['mousemove'], nativeEvent);
             }
           } else if (length === 2) {
             const [
@@ -63,7 +59,7 @@ export function usePanResponder(zrenderId: number): [PanResponderInstance] {
               const { initialX, initialY, prevDistance } = pan.current;
               const delta = distance - prevDistance;
               pan.current.prevDistance = distance;
-              dispatchEvent(zrenderId, ['mousewheel'], nativeEvent, undefined, {
+              dispatchEvent(zrenderId, ['mousewheel'], nativeEvent, {
                 zrX: initialX,
                 zrY: initialY,
                 zrDelta: delta / 120,
@@ -74,7 +70,7 @@ export function usePanResponder(zrenderId: number): [PanResponderInstance] {
         onPanResponderTerminationRequest: () => true,
         onPanResponderRelease: ({ nativeEvent }) => {
           if (!zooming) {
-            dispatchEvent(zrenderId, ['mouseup', 'click'], nativeEvent, 'end');
+            dispatchEvent(zrenderId, ['mouseup', 'click'], nativeEvent);
           }
           setMoving(false);
           setZooming(false);
