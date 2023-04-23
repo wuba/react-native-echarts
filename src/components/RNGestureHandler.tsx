@@ -8,18 +8,32 @@ interface RNGHType {
   GestureDetector: typeof GestureDetector;
 }
 
+function throttle(func: Function, wait: number) {
+  let lastExecution = 0;
+  return (...args: any) => {
+    const now = Date.now();
+    if (now - lastExecution >= wait) {
+      lastExecution = now;
+      func(...args);
+    }
+  };
+}
+
 export function RNGestureHandler({ zrenderId, RNGH }: any) {
   const { Gesture, GestureDetector } = RNGH as RNGHType;
   const dragGesture = useMemo(
     () =>
       Gesture.Pan()
         .runOnJS(true)
+        .maxPointers(1)
         .onBegin((e) => {
           dispatchEvent(zrenderId, ['mousedown', 'mousemove'], e);
         })
-        .onUpdate((e) => {
-          dispatchEvent(zrenderId, ['mousemove'], e);
-        })
+        .onUpdate(
+          throttle((e: any) => {
+            dispatchEvent(zrenderId, ['mousemove'], e);
+          }, 50)
+        )
         .onEnd((e) => {
           dispatchEvent(zrenderId, ['mouseup'], e);
         }),
@@ -50,7 +64,7 @@ export function RNGestureHandler({ zrenderId, RNGH }: any) {
         }),
     [Gesture, zrenderId]
   );
-  const composed = Gesture.Race(dragGesture, pinchGesture, tapGesture);
+  const composed = Gesture.Race(pinchGesture, dragGesture, tapGesture);
   return (
     <GestureDetector gesture={composed}>
       <View style={styles.GestureView} />
