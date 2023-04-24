@@ -1,6 +1,6 @@
 import React from 'react';
 
-const defaultDependencies = ['@wuba/react-native-echarts@1.0.0-all.0', 'react-native-svg', 'react-native-reanimated', '@shopify/react-native-skia']
+const defaultDependencies = ['@wuba/react-native-echarts@1.1.0-all.0', 'react-native-svg', 'react-native-reanimated', '@shopify/react-native-skia', 'react-native-gesture-handler']
 
 type SnackPlayerProps = {
     name?: string;
