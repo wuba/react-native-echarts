@@ -38,3 +38,7 @@ export default function App() {
 ```
 
 请注意，当 react-native-gesture-handler 没有安装或 useRNGH 被设置为 false 时，该组件将退回到使用内置的PanResponder。
+
+## 示例
+
+这是一个[使用 react-native-gesture-handler 的大面积图的例子](../expo-snacks/large-area-chart-use-rngh).

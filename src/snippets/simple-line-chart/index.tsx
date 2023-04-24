@@ -1,3 +1,7 @@
+// Original example: https://echarts.apache.org/examples/en/editor.html?c=line-simple
+// The following code is modified from
+// https://github.com/apache/echarts-examples/blob/gh-pages/public/examples/ts/line-simple.ts
+// under Apache License 2.0.
 import React, { useRef, useEffect } from 'react';
 import { StyleSheet, View, Dimensions } from 'react-native';
 import { SVGRenderer, SkiaChart, echarts } from '@wuba/react-native-echarts';

@@ -38,3 +38,7 @@ export default function App() {
 ```
 
 Please note that when react-native-gesture-handler is not installed or useRNGH is set to false, the component will gracefully fall back to using the built-in PanResponder.
+
+## Example
+
+Here is an [example of a large area chart using react-native-gesture-handler](../expo-snacks/large-area-chart-use-rngh).
