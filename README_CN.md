@@ -10,37 +10,37 @@
 
 [简体中文](./README_CN.md) | [English](./README.md)
 
-[React Native](https://reactnative.dev/) version of [Apache Echarts](https://github.com/apache/echarts), based on [react-native-svg](https://github.com/software-mansion/react-native-svg) and [react-native-skia](https://github.com/shopify/react-native-skia). This awesome library offers significantly improved performance compared to WebView-based solutions.
+[React Native](https://reactnative.dev/) 版本的 [Apache Echarts](https://github.com/apache/echarts)，基于 [react-native-svg](https://github.com/software-mansion/react-native-svg) 和 [react-native-skia](https://github.com/shopify/react-native-skia)。相比基于 WebView 的解决方案提供了显著的性能提升。
 
-Checkout the full documentation [here](https://wuba.github.io/react-native-echarts/).
+可在[官网查看完整的文档](https://wuba.github.io/react-native-echarts/zh-Hans/)。
 
-## About
+## 关于
 
-* 🔥 The same usage as Apache ECharts
-* 🎨 Rich charts, covering almost all usage scenarios
-* ✨ Optional rendering library: [Skia](https://github.com/shopify/react-native-skia) or [SVG](https://github.com/software-mansion/react-native-svg)
-* 🚀 Reusable code with web
-* 📱 Support gestures such as tapping, dragging and zooming
+* 🔥 与 Apache ECharts 的使用方式相同
+* 🎨 丰富的图表支持，涵盖几乎所有的使用场景
+* ✨ 可选的渲染库：[Skia](https://github.com/shopify/react-native-skia) 或 [SVG](https://github.com/software-mansion/react-native-svg)
+* 🚀 可与 Web 复用的代码
+* 📱 支持点击、拖拽、缩放等手势
 
-## Installation
+## 安装
 
 ```sh
 yarn add @wuba/react-native-echarts echarts
 ```
 
-Install [react-native-svg](https://github.com/software-mansion/react-native-svg#installation) or [react-native-skia](https://shopify.github.io/react-native-skia/docs/getting-started/installation/) according to your needs.
+根据您的需要安装 [react-native-svg](https://github.com/software-mansion/react-native-svg#installation) 或 [react-native-skia](https://shopify.github.io/react-native-skia/docs/getting-started/installation/)。
 
-> The latest versions of echarts, react-native-svg, and react-native-skia are recommended
+> 推荐使用最新版本的 echarts、react-native-svg 和 react-native-skia
 
-## Usage
+## 用法
 
 ![example](https://raw.githubusercontent.com/wuba/react-native-echarts/main/screenshots/example.jpg)
 
-Most of the charts in ECharts are supported, and the usage remains largely consistent. For more use cases and demo previews, you can download the [Taro Playground](https://github.com/wuba/taro-playground) app.
+大多数 ECharts 中的图表都受支持，使用方法基本保持一致。关于更多使用案例和演示预览，您可以下载 [Taro Playground](https://github.com/wuba/taro-playground) 应用程序。
 
-### Example
+### 示例
 ```js
-// Choose your preferred renderer
+// 选择您喜欢的渲染器
 // import { SkiaChart, SVGRenderer } from '@wuba/react-native-echarts';
 import { SvgChart, SVGRenderer } from '@wuba/react-native-echarts';
 import * as echarts from 'echarts/core';
@@ -54,7 +54,7 @@ import {
   GridComponent,
 } from 'echarts/components';
 
-// Register extensions
+// 注册扩展组件
 echarts.use([
   TitleComponent,
   TooltipComponent,
@@ -67,7 +67,7 @@ echarts.use([
 const E_HEIGHT = 250;
 const E_WIDTH = 300;
 
-// Initialize
+// 初始化
 function ChartComponent({ option }) {
   const chartRef = useRef<any>(null);
 
@@ -85,12 +85,12 @@ function ChartComponent({ option }) {
     return () => chart?.dispose();
   }, [option]);
 
-  // Choose your preferred chart component
+  // 选择你偏爱的图表组件
   // return <SkiaChart ref={chartRef} />;
   return <SvgChart ref={chartRef} />;
 }
 
-// Component usage
+// 组件使用
 export default function App() {
   const option = {
     xAxis: {
@@ -111,23 +111,23 @@ export default function App() {
 }
 ```
 
-### Use only one of SvgChart or SkiaChart
+### 只使用 SvgChart 或 SkiaChart 中的一个
 ```js
 import SvgChart, { SVGRenderer } from '@wuba/react-native-echarts/svgChart';
 ```
-or
+或
 ```js
 import SkiaChart, { SVGRenderer } from '@wuba/react-native-echarts/skiaChart';
 ```
 
-## Contributing
+## 贡献
 
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+请参阅 [贡献指南](CONTRIBUTING.md) 以了解如何为仓库做出贡献以及开发工作流程。
 
-## License
+## 许可
 
 Apache-2.0
 
 ---
 
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
+使用 [create-react-native-library](https://github.com/callstack/react-native-builder-bob) 创建。
