@@ -65,7 +65,7 @@ Below is a comparison of the two gesture solutions. Judging from the smoothness 
 
 We also support reusing the components of `@wuba/react-native-echart` in the web environment to meet cross-platform requirements and achieve code sharing across multiple platforms. This enables easy code unification, ensures consistency of charts across different platforms, and enhances our development efficiency.
 
-[ECharts, the charting library](https://echarts.apache.org/examples/en/index.html#chart-type-line), provides a wide range of online rendering examples for the web. But how well does it perform on React Native? To address this, we offer corresponding online preview and testing support. You can directly copy the chart configuration to see how it renders on React Native. [Online preview click here](https://wuba.github.io/react-native-echarts/zh-Hans/docs/expo-snacks/simple-line-chart)
+[ECharts, the charting library](https://echarts.apache.org/examples/en/index.html#chart-type-line), provides a wide range of online rendering examples for the web. But how well does it perform on React Native? To address this, we offer corresponding online preview and testing support. You can directly copy the chart configuration to see how it renders on React Native. [Online preview click here](https://wuba.github.io/react-native-echarts/docs/expo-snacks/simple-line-chart)
 
 ## Roadmap
 
