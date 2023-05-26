@@ -8,3 +8,8 @@ iambool:
   name: iambool
   url: https://github.com/iambool
   image_url: https://github.com/iambool.png
+
+yechunxi:
+  name: yechunxi
+  url: https://github.com/yechunxi
+  image_url: https://github.com/yechunxi.png
