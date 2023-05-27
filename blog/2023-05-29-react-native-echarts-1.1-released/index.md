@@ -9,7 +9,7 @@ tags: [website]
 
 We are excited to release a stable version of React Native ECharts 1.1 . In new version , we have added support for the [react-native-gesture-handler](https://github.com/software-mansion/react-native-gesture-handler) gesture solution, among other enhancements. Read on to learn more!
 
-[@wuba/react-native-echarts](https://github.com/wuba/react-native-echarts/), An awesome charting library for React Native, built upon Apache ECharts and leveraging [react-native-svg](https://github.com/software-mansion/react-native-svg) and [react-native-skia](https://github.com/shopify/react-native-skia). Offers significantly better performance compared to WebView-based solutions.If you want to learn more about the project's design principles, you can [click here](https://wuba.github.io/react-native-echarts/blog/using-wuba-react-native-echarts).
+[@wuba/react-native-echarts](https://github.com/wuba/react-native-echarts/), An awesome charting library for React Native, built upon Apache ECharts and leveraging [react-native-svg](https://github.com/software-mansion/react-native-svg) and [react-native-skia](https://github.com/shopify/react-native-skia). Offers significantly better performance compared to WebView-based solutions. If you want to learn more about the project's design principles, you can [click here](https://wuba.github.io/react-native-echarts/blog/using-wuba-react-native-echarts).
 
 
 To provide a more intuitive and accurate understanding of the project's features, we have decided to officially rename the initial version `wrn-echarts` to `@wuba/react-native-echarts`. In the new version.
@@ -82,7 +82,7 @@ Currently, the support for Echarts charting library is very comprehensive. Howev
 
 ### ECharts GL Supported
 
-With the increasing prevalence of 3D visualization and WebGL acceleration in various business scenarios, we are continuously exploring and expanding our support for ECharts GL. This will enable us to meet a broader range of business needs. [Click here](https://github.com/orgs/wuba/projects/10) to see the latest updates and progress. Below are some examples of 3D charts:
+With the widespread application of 3D visualization in various business scenarios, such as the displayed 3D chart below, we will continue to explore and enhance our support for ECharts GL to meet more business needs. You can click [here](https://github.com/orgs/wuba/projects/10) to check the latest progress.
 
 <img src="https://pic5.58cdn.com.cn/nowater/frs/n_v320b11894eaa24d36a40713c884eba3a2.png"  width="600"/>
 
