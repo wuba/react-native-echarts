@@ -6,11 +6,13 @@ zhiqing:
 
 iambool:
   name: iambool
+  title: react-native-echarts 的维护者
   url: https://github.com/iambool
   image_url: https://github.com/iambool.png
   
 yechunxi:
-   name: yechunxi
-   url: https://github.com/yechunxi
-   image_url: https://github.com/yechunxi.png
+  name: yechunxi
+  title: react-native-echarts 的维护者
+  url: https://github.com/yechunxi
+  image_url: https://github.com/yechunxi.png
 

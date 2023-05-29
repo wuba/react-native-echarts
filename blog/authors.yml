@@ -6,10 +6,12 @@ zhiqing:
 
 iambool:
   name: iambool
+  title: Maintainer of react-native-echarts
   url: https://github.com/iambool
   image_url: https://github.com/iambool.png
 
 yechunxi:
   name: yechunxi
+  title: Maintainer of react-native-echarts
   url: https://github.com/yechunxi
   image_url: https://github.com/yechunxi.png

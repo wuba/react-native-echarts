@@ -7,7 +7,7 @@ tags: [website]
 
 [<img src="https://pic8.58cdn.com.cn/nowater/frs/n_v372f426d05520420e9f009a64822028af.png" align="center" width="600"  />](https://wuba.github.io/react-native-echarts/)
 
-We are excited to release a stable version of React Native ECharts 1.1 . In new version , we have added support for the [react-native-gesture-handler](https://github.com/software-mansion/react-native-gesture-handler) gesture solution, among other enhancements. Read on to learn more!
+We are excited to release a stable version of React Native ECharts 1.1. In the new version, we have added support for the [react-native-gesture-handler](https://github.com/software-mansion/react-native-gesture-handler) gesture solution, among other enhancements. Read on to learn more!
 
 [@wuba/react-native-echarts](https://github.com/wuba/react-native-echarts/), An awesome charting library for React Native, built upon Apache ECharts and leveraging [react-native-svg](https://github.com/software-mansion/react-native-svg) and [react-native-skia](https://github.com/shopify/react-native-skia). Offers significantly better performance compared to WebView-based solutions. If you want to learn more about the project's design principles, you can [click here](https://wuba.github.io/react-native-echarts/blog/using-wuba-react-native-echarts).
 
@@ -18,9 +18,9 @@ The project source code is available at https://github.com/wuba/react-native-ech
 
 ## Features
 
-### Rich Chart Types Supportted
+### Rich Chart Types Supported
 
-[@wuba/react-native-echart](https://github.com/wuba/react-native-echarts) is a solution that brings the [Echarts](https://echarts.apache.org/en/index.html) charting library into React Native applications. It utilizes the rendering capabilities of React Native's native components, resulting in a significant improvement in rendering speed. It supports a wide range of commonly used chart types, including line charts, area charts, bar charts, scatter plots, as well as more complex charts such as candlestick charts and heat maps. It can fulfill various visualization requirements in different scenarios.
+[@wuba/react-native-echart](https://github.com/wuba/react-native-echarts) is a solution that brings the [ECharts](https://echarts.apache.org/en/index.html) charting library into React Native applications. It utilizes the rendering capabilities of React Native's native components, resulting in a significant improvement in rendering speed. It supports a wide range of commonly used chart types, including line charts, area charts, bar charts, and scatter plots, as well as more complex charts such as candlestick charts and heat maps. It can fulfill various visualization requirements in different scenarios.
 
 Here are some examples of common chart types:
 
@@ -30,13 +30,13 @@ In addition to the usual chart types, `@wuba/react-native-echart` supports a var
 
 <img src="https://pic6.58cdn.com.cn/nowater/frs/n_v38113ee8d7e384af3875e8083c0e3e4f1.png"  width="600" />
 
-In addition, we provide comprehensive support for various dynamic charts, and here are some examples. Chart 1 and Chart 2 demonstrate the dynamic changes in per capita income across multiple countries. Chart 1 presents the growth trend of per capita income over the past 70 years, while Chart 2 showcases the dynamic sorting of per capita income for 10 countries in the year 1982. Chart 3 displays a continuously updated speedometer that adapts to changing values over time, and Chart 4 demonstrates a dynamic node addition chart. These charts have the capability to dynamically re-render based on evolving data. Regardless of the data update frequency, they consistently deliver outstanding rendering performance.
+In addition, we provide comprehensive support for various dynamic charts, and here are some examples. Chart 1 and Chart 2 demonstrate the dynamic changes in per capita income across multiple countries. Chart 1 presents the growth trend of per capita income over the past 70 years, while Chart 2 showcases the dynamic sorting of per capita income for 10 countries in the year 1982. Chart 3 displays a continuously updated speedometer that adapts to changing values over time, and Chart 4 demonstrates a dynamic node addition chart. These charts can dynamically re-render based on evolving data. Regardless of the data update frequency, they consistently deliver outstanding rendering performance.
 
 
 <img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/fafab09190a1e94d45d08d392a595798_1684252121615.gif"  width="300" />
 <img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/e538355afcb295c1ad9753d518f31c3a_1684252222255.gif"  width="300" />
 
-`@wuba/react-native-echart` supports a wide range of chart types, but they are too numerous to display here. If you want to explore more comprehensive chart types, you can visit the [taro-playground](https://github.com/wuba/taro-playground) repository to check them out. There, you will find example demos showcasing various Echarts chart types.
+`@wuba/react-native-echart` supports a wide range of chart types, but they are too numerous to display here. If you want to explore more comprehensive chart types, you can visit the [taro-playground](https://github.com/wuba/taro-playground) repository to check them out. There, you will find example demos showcasing various ECharts chart types.
 
 
 ###  Svg and Skia Supported
@@ -69,7 +69,7 @@ We also support reusing the components of `@wuba/react-native-echart` in the web
 
 ## Roadmap
 
-Despite our already extensive and well-rounded support for Echarts, we are committed to further optimizing and enhancing it. In our upcoming work, we will focus on improvements and enhancements in the following areas to deliver even more refined functionality. [Click here](https://github.com/orgs/wuba/projects/10) to see more detailed information and progress updates.
+Despite our already extensive and well-rounded support for ECharts, we are committed to further optimizing and enhancing it. In our upcoming work, we will focus on improvements and enhancements in the following areas to deliver even more refined functionality. [Click here](https://github.com/orgs/wuba/projects/10) to see more detailed information and progress updates.
 
 ### Performance Enhancement
 
@@ -77,7 +77,7 @@ Compared to the rendering solution using Webview, `@wuba/react-native-echart` ha
 
 ### Known Issue Fixes
 
-Currently, the support for Echarts charting library is very comprehensive. However, there are still some issues that need to be improved in some chart rendering, such as not supporting map display and incorrect image display in Skia rendering mode. We take these issues very seriously and will continue to work on fixing them. to provide a better chart presentation experience.
+Currently, the support for the ECharts charting library is very comprehensive. However, there are still some issues that need to be improved in some chart rendering, such as not supporting map display and incorrect image display in Skia rendering mode. We take these issues very seriously and will continue to work on fixing them. to provide a better chart presentation experience.
 
 
 ### ECharts GL Supported
@@ -91,9 +91,9 @@ With the widespread application of 3D visualization in various business scenario
 In the future, we will continue to improve the infrastructure by refining test cases, adding user use cases and other content. Standardized test cases can check whether any changes made during the development process have an impact on other functions. We will gradually add more test cases, standardize the code and improve the quality of the code.
 
 
-## Acknowledgements 
+## Acknowledgments 
 
-We are deeply grateful to all the friends in the `@wuba/react-native-echarts` open-source community. Whether you have contributed to the codebase, provided bug reports along with contextual information, or shared ideas to enhance existing features, your contributions have been incredibly valuable to this project. We wholeheartedly welcome you to join us and actively participate in the project's discussions and collaborative development.
+We are deeply grateful to all our friends in the `@wuba/react-native-echarts` open-source community. Whether you have contributed to the codebase, provided bug reports along with contextual information, or shared ideas to enhance existing features, your contributions have been incredibly valuable to this project. We wholeheartedly welcome you to join us and actively participate in the project's discussions and collaborative development.
 
 Lastly, we would like to express our special thanks to the developers who have contributed to the project's success:
 
