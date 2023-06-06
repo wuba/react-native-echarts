@@ -39,28 +39,32 @@ function SkiaComponent(props: SkiaProps, ref?: any) {
   const [height, setHeight] = useState<number>(props.height ?? 0);
   const [zrenderId, setZrenderId] = useState(0);
 
-  useImperativeHandle(ref, () => ({
-    elm: {
-      setAttribute: (name: string, value: any) => {
-        if (name === 'width') {
-          setWidth(value);
-        }
-        if (name === 'height') {
-          setHeight(value);
-        }
+  useImperativeHandle(
+    ref,
+    () => ({
+      elm: {
+        setAttribute: (name: string, value: any) => {
+          if (name === 'width') {
+            setWidth(value);
+          }
+          if (name === 'height') {
+            setHeight(value);
+          }
+        },
+        setAttributeNS: (_name: string, _value: any) => {},
+        removeAttribute: (_name: string) => {},
+        patchString: (_oldVnode: string, vnode: string) => {
+          const _svgString = getSkSvg(vnode);
+          setSvgString(_svgString);
+        },
+        setZrenderId: (id: number) => {
+          setZrenderId(id);
+        },
       },
-      setAttributeNS: (_name: string, _value: any) => {},
-      removeAttribute: (_name: string) => {},
-      patchString: (_oldVnode: string, vnode: string) => {
-        const _svgString = getSkSvg(vnode);
-        setSvgString(_svgString);
-      },
-      setZrenderId: (id: number) => {
-        setZrenderId(id);
-      },
-    },
-    viewprot: {},
-  }));
+      viewprot: {},
+    }),
+    []
+  );
 
   return svgString ? (
     <View style={{ width, height }}>
