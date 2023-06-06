@@ -187,19 +187,23 @@ function SvgComponent(props: SVGVNodeProps, ref?: any) {
   const height = Number(svgNode?.attrs?.height ?? 0);
   const [zrenderId, setZrenderId] = useState(0);
 
-  useImperativeHandle(ref, () => ({
-    elm: {
-      setAttribute: (_name: string, _value: any) => {},
-      setAttributeNS: (_name: string, _value: any) => {},
-      removeAttribute: (_name: string) => {},
-      patch: (_oldVnode: SVGVNode, vnode: SVGVNode) => {
-        setSvgNode(vnode);
+  useImperativeHandle(
+    ref,
+    () => ({
+      elm: {
+        setAttribute: (_name: string, _value: any) => {},
+        setAttributeNS: (_name: string, _value: any) => {},
+        removeAttribute: (_name: string) => {},
+        patch: (_oldVnode: SVGVNode, vnode: SVGVNode) => {
+          setSvgNode(vnode);
+        },
+        setZrenderId: (id: number) => {
+          setZrenderId(id);
+        },
       },
-      setZrenderId: (id: number) => {
-        setZrenderId(id);
-      },
-    },
-  }));
+    }),
+    []
+  );
   return svgNode ? (
     <View style={{ width, height }}>
       <SvgRoot node={svgNode} />
