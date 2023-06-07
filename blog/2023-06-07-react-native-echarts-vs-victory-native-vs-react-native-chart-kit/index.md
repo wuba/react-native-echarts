@@ -27,7 +27,6 @@ tags: [website]
 
   Here is the comparison table for the basic data:
 
-
   | |  **React Native Chart Kit**   | **Victory Native**  | **React Native ECharts** |
   | --- |  :----:  | :----:  | :---: |
   | Creation Date | 2018  | 2015 | 2023 |
@@ -270,26 +269,30 @@ When we increase the test data to 2000 points, **React Native Chart Kit** exhibi
 - **React Native Chart Kit**
 Currently, **React Native Chart Kit** supports a relatively limited number of chart types. It mainly covers six specific types of charts, which can fulfill most basic business requirements. However, if there is a need for other types of charts, additional libraries may need to be introduced.
 
-    The following image shows most of the chart types that **React Native Chart Kit** can cover, and it can be seen that the variety is relatively limited. 😭 Currently, the developers are continuously maintaining the library and may add more chart types in the future.
+  The following image shows most of the chart types that **React Native Chart Kit** can cover, and it can be seen that the variety is relatively limited. 😭 Currently, the developers are continuously maintaining the library and may add more chart types in the future.
+
 ![描述2](https://pic2.58cdn.com.cn/nowater/frs/n_v3de70bac7538d48949b14227bd9bdb28d.png)
 <font size>(Image source: https://github.com/indiespirit/react-native-chart-kit)</font>
 
 - **Victory Native**
 When it comes to chart variety, **Victory Native** offers a greater range compared to **React Native Chart Kit**. However, due to the nature of Victory's approach, which involves assembling components to create different types of charts, developers need to have a good understanding of component composition and possess solid coding skills. Additionally, the examples provided on the official Victory website may not be beginner-friendly, as the supported chart instances may not be immediately intuitive. Overall, using **Victory Native** requires a higher level of coding proficiency and logical thinking.
 
-    The following image showcases the main components provided by Victory on their official website. It can be observed that there are significantly more options available compared to **React Native Chart Kit**. Moreover, **Victory Native** primarily relies on combining these components, such as points, lines, areas, and axes, to create various types of charts. This allows for a broader range of supported chart types.
-![描述2](https://pic3.58cdn.com.cn/nowater/frs/n_v316dafe8eaf0f435c962933baa233ecdd.png)
+  The following image showcases the main components provided by Victory on their official website. It can be observed that there are significantly more options available compared to **React Native Chart Kit**. Moreover, **Victory Native** primarily relies on combining these components, such as points, lines, areas, and axes, to create various types of charts. This allows for a broader range of supported chart types.
+![](https://pic3.58cdn.com.cn/nowater/frs/n_v316dafe8eaf0f435c962933baa233ecdd.png)
 <font size="2">(Image source: https://formidable.com/open-source/victory/docs/)</font>
 
 
 - **React Native ECharts**
 You can directly refer to the examples on the ECharts official website, where various types of charts are showcased in a highly intuitive manner. Developers can use the configuration options to customize the charts according to their needs. Currently, **React Native ECharts** supports rendering most of the chart types that ECharts offers.
 
-    **React Native ECharts** utilizes the SVG data from ECharts, which means users can render a wide range of different chart types by simply following the examples provided on the ECharts website and configuring their own settings😍
-![描述2](https://pic7.58cdn.com.cn/nowater/frs/n_v3d67cc17570b34bf2992455482ce5c494.png)
+  **React Native ECharts** utilizes the SVG data from ECharts, which means users can render a wide range of different chart types by simply following the examples provided on the ECharts website and configuring their own settings😍
+
+  ![](https://pic7.58cdn.com.cn/nowater/frs/n_v3d67cc17570b34bf2992455482ce5c494.png)
 <font size="2">(Image source: https://echarts.apache.org/examples/zh/index.html)</font>
-  The following image showcases some chart types that cannot be easily implemented or require complex combinations using other libraries. However, with **React Native ECharts**, you can effortlessly achieve these charts by referring to the documentation🚀
-![描述2](https://pic6.58cdn.com.cn/nowater/frs/n_v39593dce0b5c745ae8a304e7d337409d7.pic)
+
+  The following image showcases some chart types that cannot be easily implemented or require complex combinations using other libraries. However, with **React Native ECharts** , you can effortlessly achieve these charts by referring to the documentation🚀
+  
+  <img src="https://pic6.58cdn.com.cn/nowater/frs/n_v39593dce0b5c745ae8a304e7d337409d7.pic"  />
 
 ### Comparison of Guide
 
@@ -315,7 +318,7 @@ Compared to **Victory Native** and **React Native Chart Kit**, **React Native EC
 
     **React Native ECharts** supports two rendering modes: Svg and Skia. It is implemented based on react-native-svg and react-native-skia. react-native-skia utilizes the Skia Graphics Library, which is a high-performance graphics rendering engine that provides faster drawing and rendering speeds. It is a boon for developers who want to experience Skia's capabilities.
 
-### Conclusion
+## Conclusion
   Finally, let's compare the performance of these three chart libraries from the following perspectives:
 
 

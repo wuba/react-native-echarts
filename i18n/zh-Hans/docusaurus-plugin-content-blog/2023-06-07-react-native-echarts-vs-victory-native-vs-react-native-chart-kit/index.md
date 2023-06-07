@@ -1,6 +1,6 @@
 ---
 slug: react-native-echarts-vs-victory-native-vs-react-native-chart-kit
-title: React Native ECharts VS Victory Native VS React Native Chart Kit, Which solution is better?
+title: React Native ECharts 全方位对比 React Native 社区流行的绘图库
 authors: [xuanwei]
 tags: [website]
 ---
@@ -26,7 +26,6 @@ tags: [website]
   [ React Native ECharts ](https://wuba.github.io/react-native-echarts/)是今年新发布的的图表库,目前下载量为2565次, 在github上获得363的star, 作为 react-native 端图表库的新星, 它具有巨大的潜力, 相信随着时间推移, 它会成为最热门的图标库之一。
 
   基础数据对比表格如下：
-
 
   | |  **React Native Chart Kit**   | **Victory Native**  | **React Native ECharts** |
   | --- |  :----:  | :----:  | :---: |
@@ -281,18 +280,21 @@ export const LineCharts = props => {
 **Victory Native** 能覆盖的图表种类相比 **React Native Chart Kit** 是会多些, 但是由于 Victory 的写法需要自己组装组件, 组合成不同类型的图表需要开发者有一定的组合思维, 并且官网的示例对初学者还是不太友好的, 能支持的图表实例不是特别直观, 总而言之使用 **Victory Native** 的开发者需要有一定的代码功底和不错的思维逻辑, 使用门槛较高。
 
   下图是victory官方网站上的demo提供的主要组件的展示图, 可以看的出来相对 **React Native Chart Kit** 还是要多不少的, 更重要的是 **Victory Native** 主要是以这些组件类似于点、线、面、轴的组合, 让开发者去组合生成新的类型图表, 可以支持的图表种类就更多了✅
-![描述2](https://pic3.58cdn.com.cn/nowater/frs/n_v316dafe8eaf0f435c962933baa233ecdd.png)
-<font size="2">(图片来源: https://formidable.com/open-source/victory/docs/)</font>
+  ![描述2](https://pic3.58cdn.com.cn/nowater/frs/n_v316dafe8eaf0f435c962933baa233ecdd.png)
+  <font size="2">(图片来源: https://formidable.com/open-source/victory/docs/)</font>
 
 
 - **React Native ECharts**
 可以直接参照 Echarts 官网示例, 各种类型的图表示例非常直观, 开发者可以参照配置项配置自己需要的图表。目前 Echarts 支持的大部分图表, **React Native ECharts** 都是支持渲染的。
 
   **React Native ECharts** 使用了 Echarts 的svg数据, 所以使用者只要参照 Echarts 的网站示例来选择自己的配置便可以渲染大量不同类型的图表了😍
-![描述2](https://pic7.58cdn.com.cn/nowater/frs/n_v3d67cc17570b34bf2992455482ce5c494.png)
-<font size="2">(图片来源: https://echarts.apache.org/examples/zh/index.html)</font>
+
+  ![描述2](https://pic7.58cdn.com.cn/nowater/frs/n_v3d67cc17570b34bf2992455482ce5c494.png)
+  <font size="2">(图片来源: https://echarts.apache.org/examples/zh/index.html)</font>
+
   下图是一些使用其他库都无法实现或者需要很高难度的拼接组合才能实现的图表, 但是使用 **React Native ECharts** 完全可以参照文档轻松解决啦🚀
-![描述2](https://pic6.58cdn.com.cn/nowater/frs/n_v39593dce0b5c745ae8a304e7d337409d7.pic)
+
+  <img src="https://pic6.58cdn.com.cn/nowater/frs/n_v39593dce0b5c745ae8a304e7d337409d7.pic"  />
 
 ### 相关生态对比
 
@@ -315,7 +317,7 @@ export const LineCharts = props => {
 
   **React Native ECharts** 支持 Svg 和 Skia 两种渲染方式, 它基于 react-native-svg 和 react-native-skia 实现。react-native-skia 使用了 Skia Graphics Library, 这是一个高性能的图形渲染引擎可以提供更快的绘制和渲染速度, 对于想体验Skia的开发者无疑是一种福音。
 
-### 总结
+## 总结
   最后, 我们来看下这三个图表库的从下面几个角度上比较表现如何：
 
 
