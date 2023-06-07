@@ -22,7 +22,16 @@ import Svg, {
   Mask,
 } from 'react-native-svg';
 
-import React, { useState, useImperativeHandle, forwardRef, memo } from 'react';
+import React, {
+  ForwardedRef,
+  useState,
+  useImperativeHandle,
+  forwardRef,
+  memo,
+  useMemo,
+  useRef,
+  useCallback,
+} from 'react';
 
 import { Platform, View } from 'react-native';
 
@@ -33,7 +42,11 @@ import {
 import { measureText } from './utils/platform';
 // import { DEFAULT_FONT_FAMILY } from './utils/font';
 import { GestureHandler } from './components/GestureHandler';
+import { dispatchEventsToZRender } from './components/events';
+import type { ChartElement, CommonChartProps, DispatchEvents } from './types';
+
 export { SVGRenderer } from './SVGRenderer';
+export * from './types';
 
 setPlatformAPI({ measureText });
 
@@ -81,10 +94,6 @@ export interface SVGVNode {
   key?: string;
 }
 
-interface SVGVNodeProps {
-  node?: SVGVNode;
-  useRNGH?: boolean;
-}
 interface SVGVEleProps {
   node: SVGVNode;
   touchStart?: any;
@@ -180,12 +189,31 @@ function SvgRoot(props: SVGVEleProps) {
   );
 }
 
-function SvgComponent(props: SVGVNodeProps, ref?: any) {
-  const { node, useRNGH = false } = props;
+type SVGChartProps = CommonChartProps & {
+  node?: SVGVNode;
+};
+
+function SvgComponent(
+  props: SVGChartProps,
+  ref: ForwardedRef<ChartElement | null>
+) {
+  const { node, handleGesture = true, ...gestureProps } = props;
   const [svgNode, setSvgNode] = useState<SVGVNode | undefined>(node);
-  const width = Number(svgNode?.attrs?.width ?? 0);
-  const height = Number(svgNode?.attrs?.height ?? 0);
-  const [zrenderId, setZrenderId] = useState(0);
+  const width = useMemo(
+    () => Number(svgNode?.attrs?.width ?? 0),
+    [svgNode?.attrs?.width]
+  );
+  const height = useMemo(
+    () => Number(svgNode?.attrs?.height ?? 0),
+    [svgNode?.attrs?.height]
+  );
+  const zrenderId = useRef<number>();
+
+  const dispatchEvents = useCallback<DispatchEvents>((types, nativeEvent) => {
+    if (zrenderId.current === undefined) return;
+
+    dispatchEventsToZRender(zrenderId.current, types, nativeEvent);
+  }, []);
 
   useImperativeHandle(
     ref,
@@ -198,17 +226,22 @@ function SvgComponent(props: SVGVNodeProps, ref?: any) {
           setSvgNode(vnode);
         },
         setZrenderId: (id: number) => {
-          setZrenderId(id);
+          zrenderId.current = id;
         },
       },
+      dispatchEvents,
     }),
-    []
+    [dispatchEvents]
   );
+
   return svgNode ? (
     <View style={{ width, height }}>
       <SvgRoot node={svgNode} />
-      <GestureHandler zrenderId={zrenderId} useRNGH={useRNGH} />
+      {handleGesture ? (
+        <GestureHandler dispatchEvents={dispatchEvents} {...gestureProps} />
+      ) : null}
     </View>
   ) : null;
 }
+
 export default memo(forwardRef(SvgComponent));

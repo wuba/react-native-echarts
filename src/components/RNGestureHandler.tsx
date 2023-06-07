@@ -1,72 +1,112 @@
 import React, { useMemo } from 'react';
 import { View } from 'react-native';
 import type { Gesture, GestureDetector } from 'react-native-gesture-handler';
-import { dispatchEvent } from './events';
 import { styles } from './styles';
+import type { DispatchEvents, RNGestureHandlerGesture } from '../types';
+import { throttle } from '../utils/throttle';
+
 interface RNGHType {
   Gesture: typeof Gesture;
   GestureDetector: typeof GestureDetector;
 }
 
-function throttle(func: Function, wait: number) {
-  let lastExecution = 0;
-  return (...args: any) => {
-    const now = Date.now();
-    if (now - lastExecution >= wait) {
-      lastExecution = now;
-      func(...args);
-    }
-  };
-}
+export const getDefaultPanRNGesture = (
+  Gesture: RNGHType['Gesture'],
+  dispatchEvents: DispatchEvents
+) => {
+  return Gesture.Pan()
+    .runOnJS(true)
+    .maxPointers(1)
+    .onBegin((e) => {
+      dispatchEvents(['mousedown', 'mousemove'], e);
+    })
+    .onUpdate(
+      throttle((e: any) => {
+        dispatchEvents(['mousemove'], e);
+      }, 50)
+    )
+    .onEnd((e) => {
+      dispatchEvents(['mouseup'], e);
+    });
+};
 
-export function RNGestureHandler({ zrenderId, RNGH }: any) {
-  const { Gesture, GestureDetector } = RNGH as RNGHType;
-  const dragGesture = useMemo(
-    () =>
-      Gesture.Pan()
-        .runOnJS(true)
-        .maxPointers(1)
-        .onBegin((e) => {
-          dispatchEvent(zrenderId, ['mousedown', 'mousemove'], e);
-        })
-        .onUpdate(
-          throttle((e: any) => {
-            dispatchEvent(zrenderId, ['mousemove'], e);
-          }, 50)
-        )
-        .onEnd((e) => {
-          dispatchEvent(zrenderId, ['mouseup'], e);
-        }),
-    [Gesture, zrenderId]
+export const getDefaultPinchRNGesture = (
+  Gesture: RNGHType['Gesture'],
+  dispatchEvents: DispatchEvents
+) => {
+  return Gesture.Pinch()
+    .runOnJS(true)
+    .onUpdate((e) => {
+      dispatchEvents(['mousewheel'], e, {
+        zrX: e.focalX,
+        zrY: e.focalY,
+        zrDelta: e.velocity / 20,
+      });
+    });
+};
+
+export const getDefaultTapRNGesture = (
+  Gesture: RNGHType['Gesture'],
+  dispatchEvents: DispatchEvents
+) => {
+  return Gesture.Tap()
+    .runOnJS(true)
+    .onStart((e) => {
+      dispatchEvents(['mousedown', 'mousemove'], e);
+    })
+    .onEnd((e) => {
+      dispatchEvents(['mouseup', 'click'], e);
+    });
+};
+
+export const getDefaultRNGestures = (
+  Gesture: RNGHType['Gesture'],
+  dispatchEvents: DispatchEvents
+) => {
+  return [
+    getDefaultPanRNGesture(Gesture, dispatchEvents),
+    getDefaultPinchRNGesture(Gesture, dispatchEvents),
+    getDefaultTapRNGesture(Gesture, dispatchEvents),
+  ];
+};
+
+type RNGestureHandlerProps = {
+  RNGH: RNGHType;
+  dispatchEvents: DispatchEvents;
+  gesture?: RNGestureHandlerGesture;
+};
+
+export function RNGestureHandler({
+  RNGH,
+  dispatchEvents,
+  gesture: gestureProp,
+}: RNGestureHandlerProps) {
+  const { Gesture, GestureDetector } = RNGH;
+  const defaultGestures = useMemo(
+    () => getDefaultRNGestures(Gesture, dispatchEvents),
+    [dispatchEvents, Gesture]
   );
-  const pinchGesture = useMemo(
-    () =>
-      Gesture.Pinch()
-        .runOnJS(true)
-        .onUpdate((e) => {
-          dispatchEvent(zrenderId, ['mousewheel'], e, {
-            zrX: e.focalX,
-            zrY: e.focalY,
-            zrDelta: e.velocity / 20,
-          });
-        }),
-    [Gesture, zrenderId]
-  );
-  const tapGesture = useMemo(
-    () =>
-      Gesture.Tap()
-        .runOnJS(true)
-        .onStart((e) => {
-          dispatchEvent(zrenderId, ['mousedown', 'mousemove'], e);
-        })
-        .onEnd((e) => {
-          dispatchEvent(zrenderId, ['mouseup', 'click'], e);
-        }),
-    [Gesture, zrenderId]
-  );
-  const composed = Gesture.Race(pinchGesture, dragGesture, tapGesture);
+  const propGesture = useMemo(() => {
+    if (!gestureProp) {
+      return defaultGestures;
+    }
+
+    if (typeof gestureProp === 'function') {
+      return gestureProp(defaultGestures, dispatchEvents);
+    }
+
+    return gestureProp;
+  }, [defaultGestures, dispatchEvents, gestureProp]);
+  const gesture = useMemo(() => {
+    if (Array.isArray(propGesture)) {
+      return Gesture.Race(...propGesture);
+    }
+
+    return propGesture;
+  }, [Gesture, propGesture]);
+
   return (
-    <GestureDetector gesture={composed}>
+    <GestureDetector gesture={gesture}>
       <View style={styles.GestureView} />
     </GestureDetector>
   );
