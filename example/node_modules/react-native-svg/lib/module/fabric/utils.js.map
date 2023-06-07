@@ -1,0 +1,1 @@
+{"version":3,"names":[],"sources":["utils.ts"],"sourcesContent":["import type { ViewProps as VP } from 'react-native';\n\ninterface ViewProps extends Omit<VP, 'pointerEvents'> {}\n\nexport type { ViewProps };\n"],"mappings":""}

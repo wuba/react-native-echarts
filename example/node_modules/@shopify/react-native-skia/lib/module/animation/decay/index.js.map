@@ -1,0 +1,1 @@
+{"version":3,"names":["runDecay"],"sources":["index.ts"],"sourcesContent":["export { runDecay } from \"./runDecay\";\n"],"mappings":"AAAA,SAASA,QAAT,QAAyB,YAAzB"}

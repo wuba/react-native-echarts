@@ -1,0 +1,1 @@
+{"version":3,"names":["enumKey","k","charAt","toUpperCase","slice"],"sources":["Enum.ts"],"sourcesContent":["export const enumKey = <K extends string>(k: K) =>\n  (k.charAt(0).toUpperCase() + k.slice(1)) as Capitalize<K>;\n"],"mappings":";;;;;;;AAAO,MAAMA,OAAO,GAAsBC,CAAnB,IACpBA,CAAC,CAACC,MAAF,CAAS,CAAT,EAAYC,WAAZ,KAA4BF,CAAC,CAACG,KAAF,CAAQ,CAAR,CADxB"}

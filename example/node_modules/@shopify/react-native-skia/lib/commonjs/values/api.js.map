@@ -1,0 +1,1 @@
+{"version":3,"names":["SkiaValueApi","global","ValueApi"],"sources":["api.ts"],"sourcesContent":["import type { ISkiaValueApi } from \"./types\";\n\ndeclare global {\n  var SkiaValueApi: ISkiaValueApi;\n}\n\nconst { SkiaValueApi } = global;\nexport const ValueApi = SkiaValueApi;\n"],"mappings":";;;;;;AAMA,MAAM;EAAEA;AAAF,IAAmBC,MAAzB;AACO,MAAMC,QAAQ,GAAGF,YAAjB"}

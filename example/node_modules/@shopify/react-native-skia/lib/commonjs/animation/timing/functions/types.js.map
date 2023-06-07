@@ -1,0 +1,1 @@
+{"version":3,"names":[],"sources":["types.ts"],"sourcesContent":["export type EasingFunction = (value: number) => number;\n\nexport interface TimingConfig {\n  from?: number;\n  to?: number;\n  duration?: number;\n  easing?: EasingFunction;\n}\n"],"mappings":""}

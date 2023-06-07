@@ -1,0 +1,1 @@
+{"version":3,"names":["DEFAULT_FONT_FAMILY","exports","defaultWidthMapStr"],"sourceRoot":"../../../src","sources":["utils/font.ios.ts"],"mappings":";;;;;;AAAO,MAAMA,mBAAmB,GAAG,aAAa;AAACC,OAAA,CAAAD,mBAAA,GAAAA,mBAAA;AAC1C,MAAME,kBAAkB,GAC7B,mGAAmG;AAACD,OAAA,CAAAC,kBAAA,GAAAA,kBAAA"}

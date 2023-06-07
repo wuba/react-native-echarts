@@ -1,0 +1,33 @@
+/**
+ * Copyright (c) Nicolas Gallagher.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @noflow
+ */
+import AccessibilityUtil from '../AccessibilityUtil';
+import StyleSheet from '../../exports/StyleSheet';
+const emptyObject = {};
+const hasOwnProperty = Object.prototype.hasOwnProperty;
+const isArray = Array.isArray;
+const uppercasePattern = /[A-Z]/g;
+declare function toHyphenLower(match: any): any;
+declare function hyphenateString(str: string): string;
+declare function processIDRefList(idRefList: string | Array<string>): string;
+const pointerEventsStyles = StyleSheet.create({
+  auto: {
+    pointerEvents: 'auto'
+  },
+  'box-none': {
+    pointerEvents: 'box-none'
+  },
+  'box-only': {
+    pointerEvents: 'box-only'
+  },
+  none: {
+    pointerEvents: 'none'
+  }
+});
+declare var createDOMProps: (elementType: any, props: any, options: any) => any;
+export default createDOMProps;

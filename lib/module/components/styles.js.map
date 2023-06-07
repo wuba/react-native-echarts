@@ -1,0 +1,1 @@
+{"version":3,"names":["StyleSheet","styles","create","GestureView","width","height","position"],"sourceRoot":"../../../src","sources":["components/styles.ts"],"mappings":"AAAA,SAASA,UAAU,QAAQ,cAAc;AACzC,OAAO,MAAMC,MAAM,GAAGD,UAAU,CAACE,MAAM,CAAC;EACtCC,WAAW,EAAE;IACXC,KAAK,EAAE,MAAM;IACbC,MAAM,EAAE,MAAM;IACdC,QAAQ,EAAE;EACZ;AACF,CAAC,CAAC"}

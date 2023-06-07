@@ -1,0 +1,1 @@
+{"version":3,"file":"getTaskNames.d.ts","sourceRoot":"","sources":["../../../src/commands/runAndroid/getTaskNames.ts"],"names":[],"mappings":"AACA,OAAO,KAAK,EAAC,UAAU,EAAC,MAAM,iBAAiB,CAAC;AAEhD,wBAAgB,YAAY,CAC1B,OAAO,EAAE,MAAM,EACf,IAAI,oBAA8B,EAClC,KAAK,EAAE,UAAU,CAAC,OAAO,CAAC,EAC1B,UAAU,EAAE,UAAU,GAAG,SAAS,GACjC,KAAK,CAAC,MAAM,CAAC,CAMf"}

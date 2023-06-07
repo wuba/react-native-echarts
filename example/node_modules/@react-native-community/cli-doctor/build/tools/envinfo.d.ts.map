@@ -1,0 +1,1 @@
+{"version":3,"file":"envinfo.d.ts","sourceRoot":"","sources":["../../src/tools/envinfo.ts"],"names":[],"mappings":"AAEA,OAAO,EAAC,eAAe,EAAC,MAAM,UAAU,CAAC;AAEzC;;;;;GAKG;AACH,iBAAe,kBAAkB,IAAI,OAAO,CAAC,eAAe,CAAC,CAAC;AAC9D,iBAAe,kBAAkB,CAAC,IAAI,EAAE,IAAI,GAAG,OAAO,CAAC,eAAe,CAAC,CAAC;AACxE,iBAAe,kBAAkB,CAAC,IAAI,EAAE,KAAK,GAAG,OAAO,CAAC,MAAM,CAAC,CAAC;AAuChE,eAAe,kBAAkB,CAAC"}

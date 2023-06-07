@@ -1,0 +1,26 @@
+{
+  "name": "md5hex",
+  "version": "1.0.0",
+  "description": "Thin wrapper around the crypto module that creates an MD5 hex digest of a given string or buffer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/650Industries/md5hex.git"
+  },
+  "keywords": [
+    "md5hex",
+    "md5",
+    "hex",
+    "hash",
+    "crypto"
+  ],
+  "author": "exponent.team@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/650Industries/md5hex/issues"
+  },
+  "homepage": "https://github.com/650Industries/md5hex#readme"
+}

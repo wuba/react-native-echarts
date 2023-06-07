@@ -1,0 +1,1 @@
+{"version":3,"file":"getLatestRelease.d.ts","sourceRoot":"","sources":["../../src/releaseChecker/getLatestRelease.ts"],"names":[],"mappings":"AAKA,oBAAY,OAAO,GAAG;IACpB,OAAO,EAAE,MAAM,CAAC;IAChB,YAAY,EAAE,MAAM,CAAC;IACrB,OAAO,EAAE,MAAM,CAAC;CACjB,CAAC;AAEF;;;;;;GAMG;AACH,wBAA8B,gBAAgB,CAC5C,IAAI,EAAE,MAAM,EACZ,cAAc,EAAE,MAAM,GACrB,OAAO,CAAC,OAAO,GAAG,IAAI,CAAC,CAiDzB"}

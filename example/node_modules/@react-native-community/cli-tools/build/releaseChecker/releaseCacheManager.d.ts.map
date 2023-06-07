@@ -1,0 +1,1 @@
+{"version":3,"file":"releaseCacheManager.d.ts","sourceRoot":"","sources":["../../src/releaseChecker/releaseCacheManager.ts"],"names":[],"mappings":"AAMA,aAAK,eAAe,GAAG,MAAM,GAAG,aAAa,GAAG,eAAe,CAAC;AA4ChE,iBAAS,GAAG,CAAC,IAAI,EAAE,MAAM,EAAE,GAAG,EAAE,eAAe,GAAG,MAAM,GAAG,SAAS,CAMnE;AAED,iBAAS,GAAG,CAAC,IAAI,EAAE,MAAM,EAAE,GAAG,EAAE,eAAe,EAAE,KAAK,EAAE,MAAM,QAM7D;;;;;AAED,wBAGE"}

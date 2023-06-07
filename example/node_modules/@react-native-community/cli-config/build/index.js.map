@@ -1,0 +1,1 @@
+{"version":3,"names":["commands","config"],"sources":["../src/index.ts"],"sourcesContent":["import config from './commands/config';\n\nexport {default} from './loadConfig';\n\nexport const commands = [config];\n"],"mappings":";;;;;;;;;;;;AAAA;AAEA;AAAqC;AAE9B,MAAMA,QAAQ,GAAG,CAACC,eAAM,CAAC;AAAC"}

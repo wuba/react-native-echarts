@@ -1,0 +1,154 @@
+/**
+ * Copyright (c) Nicolas Gallagher.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @flow strict-local
+ */
+import createReactDOMStyle from './createReactDOMStyle';
+import hash from './hash';
+import hyphenateStyleName from './hyphenateStyleName';
+import normalizeValueWithProperty from './normalizeValueWithProperty';
+import prefixStyles from '../../../modules/prefixStyles';
+type Value = Object | Array<any> | string | number;
+type Style = {
+  [key: string]: Value
+};
+type Rule = string;
+type Rules = Array<Rule>;
+type RulesData = [Rules, number];
+type CompiledStyle = {
+  $$css: boolean,
+  $$css$localize?: boolean,
+  [key: string]: string | Array<string>,
+};
+type CompilerOutput = [CompiledStyle, Array<RulesData>];
+const cache = new Map();
+const emptyObject = {};
+const classicGroup = 1;
+const atomicGroup = 2.2;
+const customGroup: {
+  [key: string]: number
+} = {
+  borderColor: 2,
+  borderRadius: 2,
+  borderStyle: 2,
+  borderWidth: 2,
+  display: 2,
+  flex: 2,
+  margin: 2,
+  overflow: 2,
+  overscrollBehavior: 2,
+  padding: 2,
+  marginHorizontal: 2.1,
+  marginVertical: 2.1,
+  paddingHorizontal: 2.1,
+  paddingVertical: 2.1
+};
+const borderTopLeftRadius = 'borderTopLeftRadius';
+const borderTopRightRadius = 'borderTopRightRadius';
+const borderBottomLeftRadius = 'borderBottomLeftRadius';
+const borderBottomRightRadius = 'borderBottomRightRadius';
+const borderLeftColor = 'borderLeftColor';
+const borderLeftStyle = 'borderLeftStyle';
+const borderLeftWidth = 'borderLeftWidth';
+const borderRightColor = 'borderRightColor';
+const borderRightStyle = 'borderRightStyle';
+const borderRightWidth = 'borderRightWidth';
+const right = 'right';
+const marginLeft = 'marginLeft';
+const marginRight = 'marginRight';
+const paddingLeft = 'paddingLeft';
+const paddingRight = 'paddingRight';
+const left = 'left'; // Map of LTR property names to their BiDi equivalent.
+
+const PROPERTIES_FLIP: {
+  [key: string]: string
+} = {
+  [borderTopLeftRadius]: borderTopRightRadius,
+  [borderTopRightRadius]: borderTopLeftRadius,
+  [borderBottomLeftRadius]: borderBottomRightRadius,
+  [borderBottomRightRadius]: borderBottomLeftRadius,
+  [borderLeftColor]: borderRightColor,
+  [borderLeftStyle]: borderRightStyle,
+  [borderLeftWidth]: borderRightWidth,
+  [borderRightColor]: borderLeftColor,
+  [borderRightStyle]: borderLeftStyle,
+  [borderRightWidth]: borderLeftWidth,
+  [left]: right,
+  [marginLeft]: marginRight,
+  [marginRight]: marginLeft,
+  [paddingLeft]: paddingRight,
+  [paddingRight]: paddingLeft,
+  [right]: left
+}; // Map of I18N property names to their LTR equivalent.
+
+const PROPERTIES_I18N: {
+  [key: string]: string
+} = {
+  borderTopStartRadius: borderTopLeftRadius,
+  borderTopEndRadius: borderTopRightRadius,
+  borderBottomStartRadius: borderBottomLeftRadius,
+  borderBottomEndRadius: borderBottomRightRadius,
+  borderStartColor: borderLeftColor,
+  borderStartStyle: borderLeftStyle,
+  borderStartWidth: borderLeftWidth,
+  borderEndColor: borderRightColor,
+  borderEndStyle: borderRightStyle,
+  borderEndWidth: borderRightWidth,
+  end: right,
+  marginStart: marginLeft,
+  marginEnd: marginRight,
+  paddingStart: paddingLeft,
+  paddingEnd: paddingRight,
+  start: left
+};
+const PROPERTIES_VALUE = ['clear', 'float', 'textAlign'];
+declare export function atomic(style: Style): CompilerOutput;
+/**
+ * Compile simple style object to classic CSS rules.
+ * No support for 'placeholderTextColor', 'scrollbarWidth', or 'pointerEvents'.
+ */
+
+declare export function classic(style: Style, name: string): CompilerOutput;
+/**
+ * Compile simple style object to inline DOM styles.
+ * No support for 'animationKeyframes', 'placeholderTextColor', 'scrollbarWidth', or 'pointerEvents'.
+ */
+
+declare export function inline(originalStyle: Style, isRTL?: boolean): {
+  [key: string]: mixed
+};
+/**
+ * Create a value string that normalizes different input values with a common
+ * output.
+ */
+
+declare export function stringifyValueWithProperty(value: Value, property: ?string): string;
+/**
+ * Create the Atomic CSS rules needed for a given StyleSheet rule.
+ * Translates StyleSheet declarations to CSS.
+ */
+
+declare function createAtomicRules(identifier: string, property: any, value: any): Rules;
+/**
+ * Creates a CSS declaration block from a StyleSheet object.
+ */
+
+declare function createDeclarationBlock(style: Style): string;
+/**
+ * An identifier is associated with a unique set of styles.
+ */
+
+declare function createIdentifier(prefix: string, name: string, value: Value): string;
+/**
+ * Create individual CSS keyframes rules.
+ */
+
+declare function createKeyframes(keyframes: Object): [string, Rules];
+/**
+ * Create CSS keyframes rules and names from a StyleSheet keyframes object.
+ */
+
+declare function processKeyframesValue(keyframesValue: any): any;

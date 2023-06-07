@@ -1,0 +1,38 @@
+{
+  "name": "getenv",
+  "description": "Get and typecast environment variables.",
+  "author": "Christoph Tavan <dev@tavan.de>",
+  "contributors": [
+    "Moritz von Hase",
+    "Jonas Dohse <jonas@dohse.ch>",
+    "Jan Lehnardt",
+    "Tim Ruffles <timruffles@gmail.com>",
+    "Ashwani Agarwal <ashwani.a@outlook.com>"
+  ],
+  "version": "1.0.0",
+  "license": "MIT",
+  "homepage": "https://github.com/ctavan/node-getenv",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ctavan/node-getenv.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "prettier": "prettier --write *.{js,md} **/*.js",
+    "test": "bash -ec 'for F in test/*.js; do echo \"$F\": ; node $F; done;'"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  },
+  "keywords": [
+    "env",
+    "environment",
+    "config",
+    "configuration",
+    "12factor"
+  ]
+}

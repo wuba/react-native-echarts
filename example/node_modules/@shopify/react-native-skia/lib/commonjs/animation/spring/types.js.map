@@ -1,0 +1,1 @@
+{"version":3,"names":[],"sources":["types.ts"],"sourcesContent":["export interface SpringConfig {\n  mass?: number;\n  stiffness?: number;\n  velocity?: number;\n  damping?: number;\n}\n"],"mappings":""}

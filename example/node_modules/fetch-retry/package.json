@@ -1,0 +1,35 @@
+{
+  "name": "fetch-retry",
+  "version": "4.1.1",
+  "description": "Extend any fetch library with retry functionality",
+  "repository": "https://github.com/jonbern/fetch-retry.git",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "lint": "eslint index.js ./test/**/*.js",
+    "test": "nyc mocha test/**/**.js && npm run lint",
+    "integration-test": "mocha test/integration/"
+  },
+  "keywords": [
+    "fetch",
+    "retry",
+    "http",
+    "retry",
+    "Fetch API"
+  ],
+  "author": "Jon K. Bernhardsen",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^6.8.0",
+    "expectations": "^0.7.1",
+    "express": "^4.17.1",
+    "isomorphic-fetch": "^3.0.0",
+    "mocha": "^8.0.1",
+    "nyc": "^14.1.1",
+    "sinon": "^6.3.5"
+  }
+}

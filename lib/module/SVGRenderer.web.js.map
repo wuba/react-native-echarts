@@ -1,0 +1,1 @@
+{"version":3,"names":["SVGPainter","SVGRenderer","registers","registerPainter"],"sourceRoot":"../../src","sources":["SVGRenderer.web.ts"],"mappings":"AAAA,OAAOA,UAAU,MAAM,4BAA4B;AACnD,OAAO,SAASC,WAAWA,CAACC,SAAc,EAAE;EAC1CA,SAAS,CAACC,eAAe,CAAC,KAAK,EAAEH,UAAU,CAAC;AAC9C"}

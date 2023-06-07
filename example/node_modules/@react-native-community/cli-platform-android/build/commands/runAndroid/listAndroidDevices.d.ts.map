@@ -1,0 +1,1 @@
+{"version":3,"file":"listAndroidDevices.d.ts","sourceRoot":"","sources":["../../../src/commands/runAndroid/listAndroidDevices.ts"],"names":[],"mappings":"AAUA,aAAK,UAAU,GAAG;IAChB,QAAQ,EAAE,MAAM,GAAG,SAAS,CAAC;IAC7B,YAAY,EAAE,MAAM,CAAC;IACrB,SAAS,EAAE,OAAO,CAAC;IACnB,IAAI,EAAE,UAAU,GAAG,OAAO,CAAC;CAC5B,CAAC;AA2DF,iBAAe,kBAAkB,oCA6ChC;AAED,eAAe,kBAAkB,CAAC"}

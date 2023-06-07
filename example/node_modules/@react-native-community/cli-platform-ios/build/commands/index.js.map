@@ -1,0 +1,1 @@
+{"version":3,"names":["logIOS","runIOS","buildIOS"],"sources":["../../src/commands/index.ts"],"sourcesContent":["import logIOS from './logIOS';\nimport runIOS from './runIOS';\nimport buildIOS from './buildIOS';\n\nexport default [logIOS, runIOS, buildIOS];\n"],"mappings":";;;;;;AAAA;AACA;AACA;AAAkC;AAAA,eAEnB,CAACA,eAAM,EAAEC,eAAM,EAAEC,iBAAQ,CAAC;AAAA"}

@@ -1,0 +1,24 @@
+import bplistCreator from "bplist-creator";
+import bplistParser from "bplist-parser";
+import { parse } from "./parse";
+import { readFile } from "./readFile";
+import { readFileSync } from "./readFileSync";
+import { stringify } from "./stringify";
+import { writeBinaryFile } from "./writeBinaryFile";
+import { writeBinaryFileSync } from "./writeBinaryFileSync";
+import { writeFile } from "./writeFile";
+import { writeFileSync } from "./writeFileSync";
+declare const SimplePlist: {
+    bplistCreator: bplistCreator;
+    bplistParser: bplistParser;
+    parse: typeof parse;
+    readFile: typeof readFile;
+    readFileSync: typeof readFileSync;
+    stringify: typeof stringify;
+    writeBinaryFile: typeof writeBinaryFile;
+    writeBinaryFileSync: typeof writeBinaryFileSync;
+    writeFile: typeof writeFile;
+    writeFileSync: typeof writeFileSync;
+};
+export default SimplePlist;
+export type { callbackFn, PlistJsObj, StringOrBuffer } from "./types";

@@ -1,0 +1,1 @@
+{"version":3,"names":[],"sources":["Rect.ts"],"sourcesContent":["export interface SkRect {\n  readonly x: number;\n  readonly y: number;\n  readonly width: number;\n  readonly height: number;\n}\n"],"mappings":""}

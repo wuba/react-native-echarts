@@ -1,0 +1,1 @@
+{"version":3,"file":"createDebuggerProxyEndpoint.d.ts","sourceRoot":"","sources":["../../src/websocket/createDebuggerProxyEndpoint.ts"],"names":[],"mappings":"AAAA;;;;;;;GAOG;AAEH,OAAO,EAAE,MAAM,IAAI,CAAC;AAGpB,MAAM,CAAC,OAAO,UAAU,2BAA2B,IAAI;IACrD,MAAM,EAAE,EAAE,CAAC,MAAM,CAAC;IAClB,mBAAmB,EAAE,MAAM,OAAO,CAAC;CACpC,CAsEA"}

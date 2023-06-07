@@ -1,0 +1,1 @@
+{"version":3,"names":["Skia","JsiSkApi","global","CanvasKit"],"sources":["Skia.web.ts"],"sourcesContent":["import { JsiSkApi } from \"./web\";\n\nexport const Skia = JsiSkApi(global.CanvasKit);\n"],"mappings":";;;;;;;AAAA;;AAEO,MAAMA,IAAI,GAAG,IAAAC,aAAA,EAASC,MAAM,CAACC,SAAhB,CAAb"}

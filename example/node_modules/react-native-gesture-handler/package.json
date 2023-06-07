@@ -1,0 +1,152 @@
+{
+  "name": "react-native-gesture-handler",
+  "version": "2.9.0",
+  "description": "Experimental implementation of a new declarative API for gesture handling in react-native",
+  "scripts": {
+    "prepare": "bob build && husky install",
+    "test": "jest",
+    "build": "yarn tsc -p tsconfig.build.json",
+    "precommit": "lint-staged",
+    "release": "npm login && release-it",
+    "ts-check": "yarn tsc --noEmit",
+    "format:js": "prettier --write --list-different './{src,example,FabricExample}/**/*.{js,jsx,ts,tsx}'",
+    "format:android": "node ./scripts/format-android.js",
+    "format:ios": "find ios/ -iname *.h -o -iname *.m -o -iname *.cpp -o -iname *.mm | xargs clang-format -i",
+    "lint:js": "eslint --ext '.js,.ts,.tsx' src/ example/src FabricExample/src && yarn prettier --check './{src,example,FabricExample}/**/*.{js,jsx,ts,tsx}'",
+    "lint:js-root": "eslint --ext '.js,.ts,.tsx' src/ && yarn prettier --check './src/**/*.{js,jsx,ts,tsx}'",
+    "lint:android": "./android/gradlew -p android spotlessCheck -q"
+  },
+  "react-native": "src/index.ts",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "types": "lib/typescript/index.d.ts",
+  "files": [
+    "src",
+    "lib",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__",
+    "android/build.gradle",
+    "android/gradle.properties",
+    "android/src/main/AndroidManifest.xml",
+    "android/src/main/java/",
+    "android/src/main/jni/",
+    "android/src/fabric/java",
+    "android/src/paper/java",
+    "android/common/src/main/java/",
+    "android/reanimated/src/main/java/",
+    "android/noreanimated/src/main/java/",
+    "ios/",
+    "Swipeable/",
+    "jest-utils/",
+    "DrawerLayout/",
+    "README.md",
+    "jestSetup.js",
+    "RNGestureHandler.podspec"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/software-mansion/react-native-gesture-handler.git"
+  },
+  "author": {
+    "email": "krzys.magiera@gmail.com",
+    "name": "Krzysztof Magiera"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/software-mansion/react-native-gesture-handler/issues"
+  },
+  "homepage": "https://github.com/software-mansion/react-native-gesture-handler#readme",
+  "dependencies": {
+    "@egjs/hammerjs": "^2.0.17",
+    "hoist-non-react-statics": "^3.3.0",
+    "invariant": "^2.2.4",
+    "lodash": "^4.17.21",
+    "prop-types": "^15.7.2"
+  },
+  "jest": {
+    "preset": "react-native",
+    "modulePathIgnorePatterns": [
+      "<rootDir>/lib/"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-typescript": "^7.12.7",
+    "@babel/runtime": "^7.12.5",
+    "@testing-library/jest-native": "^4.0.4",
+    "@testing-library/react-native": "^9.0.0",
+    "@types/hammerjs": "^2.0.38",
+    "@types/hoist-non-react-statics": "^3.3.1",
+    "@types/jest": "^27.0.3",
+    "@types/react": "^18.0.24",
+    "@types/react-test-renderer": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "babel-jest": "^26.6.3",
+    "clang-format": "^1.8.0",
+    "eslint": "^7.15.0",
+    "eslint-config-satya164": "^3.1.8",
+    "eslint-import-resolver-babel-module": "^5.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^26.0.0",
+    "expo": "^35.0.1",
+    "husky": "^8.0.1",
+    "jest": "^26.6.3",
+    "lint-staged": "^12.3.2",
+    "metro-react-native-babel-preset": "^0.64.0",
+    "prettier": "^2.7.1",
+    "react": "18.2.0",
+    "react-dom": "^16.12.0",
+    "react-native": "0.71.0",
+    "react-native-builder-bob": "^0.17.1",
+    "react-native-reanimated": "^2.3.1",
+    "react-native-web": "^0.11.7",
+    "react-test-renderer": "17.0.2",
+    "release-it": "^13.6.5",
+    "typescript": "^4.5.5"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "lint-staged": {
+    "./{src,example,FabricExample}/**/*.{ts,tsx}": "yarn format:js",
+    "android/**/*.kt": "yarn format:android",
+    "ios/**/*.{h,m,mm,cpp}": "yarn format:ios"
+  },
+  "release-it": {
+    "hooks": {
+      "before:git:bump": [
+        "# check if version corresponds to changes in native files  \n if git diff --name-only ${latestVersion} HEAD | egrep \"(android/.*)|(ios/.*)\" -q; then egrep '\\.0$' -q <<< ${version}; else test $? -eq 1; fi"
+      ]
+    }
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "lib/",
+    "src/fabric/*NativeComponent.js"
+  ],
+  "codegenConfig": {
+    "name": "rngesturehandler_codegen",
+    "type": "components",
+    "jsSrcsDir": "./src/fabric"
+  }
+}

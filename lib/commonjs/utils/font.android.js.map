@@ -1,0 +1,1 @@
+{"version":3,"names":["DEFAULT_FONT_FAMILY","exports","defaultWidthMapStr"],"sourceRoot":"../../../src","sources":["utils/font.android.ts"],"mappings":";;;;;;AAAO,MAAMA,mBAAmB,GAAG,WAAW;AAACC,OAAA,CAAAD,mBAAA,GAAAA,mBAAA;AACxC,MAAME,kBAAkB,GAC7B,iGAAiG;AAACD,OAAA,CAAAC,kBAAA,GAAAA,kBAAA"}

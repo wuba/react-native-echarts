@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});exports.default=extractOpacity;function extractOpacity(opacity){var value=+opacity;return isNaN(value)?1:value;}
+//# sourceMappingURL=extractOpacity.js.map

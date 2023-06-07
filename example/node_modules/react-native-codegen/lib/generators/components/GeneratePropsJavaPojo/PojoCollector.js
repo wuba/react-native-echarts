@@ -1,0 +1,157 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ *
+ * @format
+ */
+
+'use strict';
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    enumerableOnly &&
+      (symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      })),
+      keys.push.apply(keys, symbols);
+  }
+  return keys;
+}
+function _objectSpread(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = null != arguments[i] ? arguments[i] : {};
+    i % 2
+      ? ownKeys(Object(source), !0).forEach(function (key) {
+          _defineProperty(target, key, source[key]);
+        })
+      : Object.getOwnPropertyDescriptors
+      ? Object.defineProperties(
+          target,
+          Object.getOwnPropertyDescriptors(source),
+        )
+      : ownKeys(Object(source)).forEach(function (key) {
+          Object.defineProperty(
+            target,
+            key,
+            Object.getOwnPropertyDescriptor(source, key),
+          );
+        });
+  }
+  return target;
+}
+function _defineProperty(obj, key, value) {
+  key = _toPropertyKey(key);
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true,
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+function _toPropertyKey(arg) {
+  var key = _toPrimitive(arg, 'string');
+  return typeof key === 'symbol' ? key : String(key);
+}
+function _toPrimitive(input, hint) {
+  if (typeof input !== 'object' || input === null) return input;
+  var prim = input[Symbol.toPrimitive];
+  if (prim !== undefined) {
+    var res = prim.call(input, hint || 'default');
+    if (typeof res !== 'object') return res;
+    throw new TypeError('@@toPrimitive must return a primitive value.');
+  }
+  return (hint === 'string' ? String : Number)(input);
+}
+const _require = require('../../Utils'),
+  capitalize = _require.capitalize;
+class PojoCollector {
+  constructor() {
+    _defineProperty(this, '_pojos', new Map());
+  }
+  process(namespace, pojoName, typeAnnotation) {
+    switch (typeAnnotation.type) {
+      case 'ObjectTypeAnnotation': {
+        this._insertPojo(namespace, pojoName, typeAnnotation);
+        return {
+          type: 'PojoTypeAliasTypeAnnotation',
+          name: pojoName,
+        };
+      }
+      case 'ArrayTypeAnnotation': {
+        const arrayTypeAnnotation = typeAnnotation;
+        // TODO: Flow assumes elementType can be any. Fix this.
+        const elementType = arrayTypeAnnotation.elementType;
+        const pojoElementType = (() => {
+          switch (elementType.type) {
+            case 'ObjectTypeAnnotation': {
+              this._insertPojo(namespace, `${pojoName}Element`, elementType);
+              return {
+                type: 'PojoTypeAliasTypeAnnotation',
+                name: `${pojoName}Element`,
+              };
+            }
+            case 'ArrayTypeAnnotation': {
+              const objectTypeAnnotation = elementType.elementType;
+              this._insertPojo(
+                namespace,
+                `${pojoName}ElementElement`,
+                objectTypeAnnotation,
+              );
+              return {
+                type: 'ArrayTypeAnnotation',
+                elementType: {
+                  type: 'PojoTypeAliasTypeAnnotation',
+                  name: `${pojoName}ElementElement`,
+                },
+              };
+            }
+            default: {
+              return elementType;
+            }
+          }
+        })();
+        return {
+          type: 'ArrayTypeAnnotation',
+          elementType: pojoElementType,
+        };
+      }
+      default:
+        return typeAnnotation;
+    }
+  }
+  _insertPojo(namespace, pojoName, objectTypeAnnotation) {
+    const properties = objectTypeAnnotation.properties.map(property => {
+      const propertyPojoName = pojoName + capitalize(property.name);
+      return _objectSpread(
+        _objectSpread({}, property),
+        {},
+        {
+          typeAnnotation: this.process(
+            namespace,
+            propertyPojoName,
+            property.typeAnnotation,
+          ),
+        },
+      );
+    });
+    this._pojos.set(pojoName, {
+      name: pojoName,
+      namespace,
+      properties,
+    });
+  }
+  getAllPojos() {
+    return [...this._pojos.values()];
+  }
+}
+module.exports = PojoCollector;
