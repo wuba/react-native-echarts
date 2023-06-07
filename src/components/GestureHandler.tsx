@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { RNGestureHandler } from './RNGestureHandler';
 import { PanResponderHandler } from './PanResponderHandler';
+import type { DispatchEvents, GestureProps } from '../types';
 
 let RNGH: any = null;
 try {
@@ -11,13 +12,24 @@ try {
   );
 }
 
+type GestureHandlerProps = GestureProps & {
+  dispatchEvents: DispatchEvents;
+};
+
 export const GestureHandler = memo(function GestureHandler({
-  zrenderId,
+  dispatchEvents,
+  gesture,
   useRNGH = false,
-}: any) {
+}: GestureHandlerProps) {
   if (useRNGH && RNGH) {
-    return <RNGestureHandler RNGH={RNGH} zrenderId={zrenderId} />;
+    return (
+      <RNGestureHandler
+        RNGH={RNGH}
+        dispatchEvents={dispatchEvents}
+        gesture={gesture}
+      />
+    );
   } else {
-    return <PanResponderHandler zrenderId={zrenderId} />;
+    return <PanResponderHandler dispatchEvents={dispatchEvents} />;
   }
 });

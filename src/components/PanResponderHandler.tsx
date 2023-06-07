@@ -5,15 +5,40 @@ import {
   PanResponderInstance,
   NativeTouchEvent,
 } from 'react-native';
-import { dispatchEvent, calcCenter, calcDistance } from './events';
 import { styles } from './styles';
+import type { DispatchEvents } from '../types';
 
-export function PanResponderHandler({ zrenderId }: any) {
-  const [panResponder] = usePanResponder(zrenderId);
+export function calcDistance(x0: number, y0: number, x1: number, y1: number) {
+  const dx = x0 - x1;
+  const dy = y0 - y1;
+  return Math.sqrt(dx * dx + dy * dy);
+}
+
+function calMiddle(p0: number, p1: number) {
+  return (p0 + p1) / 2;
+}
+
+export function calcCenter(x0: number, y0: number, x1: number, y1: number) {
+  return {
+    x: calMiddle(x1, x0),
+    y: calMiddle(y1, y0),
+  };
+}
+
+type PanResponderHandlerProps = {
+  dispatchEvents: DispatchEvents;
+};
+
+export function PanResponderHandler({
+  dispatchEvents,
+}: PanResponderHandlerProps) {
+  const [panResponder] = usePanResponder(dispatchEvents);
   return <View {...panResponder.panHandlers} style={styles.GestureView} />;
 }
 
-export function usePanResponder(zrenderId: number): [PanResponderInstance] {
+export function usePanResponder(
+  dispatchEvents: DispatchEvents
+): [PanResponderInstance] {
   const [zooming, setZooming] = useState(false);
   const [moving, setMoving] = useState(false);
   const pan = useRef({
@@ -29,7 +54,7 @@ export function usePanResponder(zrenderId: number): [PanResponderInstance] {
         onMoveShouldSetPanResponder: () => true,
         onMoveShouldSetPanResponderCapture: () => true,
         onPanResponderGrant: ({ nativeEvent }) => {
-          dispatchEvent(zrenderId, ['mousedown', 'mousemove'], nativeEvent);
+          dispatchEvents(['mousedown', 'mousemove'], nativeEvent);
         },
         onPanResponderMove: ({ nativeEvent }) => {
           const touches = nativeEvent.touches;
@@ -39,7 +64,7 @@ export function usePanResponder(zrenderId: number): [PanResponderInstance] {
               setMoving(true);
               setZooming(false);
             } else {
-              dispatchEvent(zrenderId, ['mousemove'], nativeEvent);
+              dispatchEvents(['mousemove'], nativeEvent);
             }
           } else if (length === 2) {
             const [
@@ -59,7 +84,7 @@ export function usePanResponder(zrenderId: number): [PanResponderInstance] {
               const { initialX, initialY, prevDistance } = pan.current;
               const delta = distance - prevDistance;
               pan.current.prevDistance = distance;
-              dispatchEvent(zrenderId, ['mousewheel'], nativeEvent, {
+              dispatchEvents(['mousewheel'], nativeEvent, {
                 zrX: initialX,
                 zrY: initialY,
                 zrDelta: delta / 120,
@@ -70,7 +95,7 @@ export function usePanResponder(zrenderId: number): [PanResponderInstance] {
         onPanResponderTerminationRequest: () => true,
         onPanResponderRelease: ({ nativeEvent }) => {
           if (!zooming) {
-            dispatchEvent(zrenderId, ['mouseup', 'click'], nativeEvent);
+            dispatchEvents(['mouseup', 'click'], nativeEvent);
           }
           setMoving(false);
           setZooming(false);
@@ -80,7 +105,7 @@ export function usePanResponder(zrenderId: number): [PanResponderInstance] {
           return false;
         },
       }),
-    [moving, zooming, zrenderId, pan]
+    [dispatchEvents, moving, zooming, pan]
   );
   return [panResponder];
 }
