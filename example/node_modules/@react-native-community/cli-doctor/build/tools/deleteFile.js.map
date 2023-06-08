@@ -1,1 +1,0 @@
-{"version":3,"names":["deleteFile","promisify","unlink"],"sources":["../../src/tools/deleteFile.ts"],"sourcesContent":["import {unlink} from 'fs';\nimport {promisify} from 'util';\n\nexport const deleteFile = promisify(unlink);\n"],"mappings":";;;;;;AAAA;EAAA;EAAA;IAAA;EAAA;EAAA;AAAA;AACA;EAAA;EAAA;IAAA;EAAA;EAAA;AAAA;AAEO,MAAMA,UAAU,GAAG,IAAAC,iBAAS,EAACC,YAAM,CAAC;AAAC"}

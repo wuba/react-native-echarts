@@ -1,1 +1,0 @@
-{"version":3,"file":"InvalidNameError.d.ts","sourceRoot":"","sources":["../../../../src/commands/init/errors/InvalidNameError.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,QAAQ,EAAC,MAAM,mCAAmC,CAAC;AAE3D,MAAM,CAAC,OAAO,OAAO,gBAAiB,SAAQ,QAAQ;gBACxC,IAAI,EAAE,MAAM;CAKzB"}

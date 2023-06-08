@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.ts"],"names":["getByGestureTestId","fireGestureHandler"],"mappings":"AAAA,SAASA,kBAAT,EAA6BC,kBAA7B,QAAuD,aAAvD","sourcesContent":["export { getByGestureTestId, fireGestureHandler } from './jestUtils';\n"]}

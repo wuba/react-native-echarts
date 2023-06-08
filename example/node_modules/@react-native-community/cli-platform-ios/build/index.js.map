@@ -1,1 +1,0 @@
-{"version":3,"names":[],"sources":["../src/index.ts"],"sourcesContent":["/**\n * iOS platform files\n */\n\nexport {default as commands} from './commands';\nexport {projectConfig, dependencyConfig, findPodfilePaths} from './config';\n"],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAIA;AACA;AAA2E"}
