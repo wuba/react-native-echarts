@@ -43,7 +43,12 @@ import { measureText } from './utils/platform';
 // import { DEFAULT_FONT_FAMILY } from './utils/font';
 import { GestureHandler } from './components/GestureHandler';
 import { dispatchEventsToZRender } from './components/events';
-import type { ChartElement, CommonChartProps, DispatchEvents } from './types';
+import type {
+  ChartElement,
+  DispatchEvents,
+  SVGChartProps,
+  SVGVNode,
+} from './types';
 
 export { SVGRenderer } from './SVGRenderer';
 export * from './types';
@@ -75,23 +80,11 @@ const tagMap = {
   mask: Mask,
 };
 
-type SVGVNodeAttrs = Record<string, string | number | undefined | boolean>;
-
 function toCamelCase(str: string) {
   var reg = /-(\w)/g;
   return str.replace(reg, function (_: any, $1: string) {
     return $1.toUpperCase();
   });
-}
-export interface SVGVNode {
-  tag: string;
-  attrs: SVGVNodeAttrs;
-  children?: SVGVNode[];
-  text?: string;
-
-  // For patching
-  elm?: Node;
-  key?: string;
 }
 
 interface SVGVEleProps {
@@ -189,13 +182,9 @@ function SvgRoot(props: SVGVEleProps) {
   );
 }
 
-type SVGChartProps = CommonChartProps & {
-  node?: SVGVNode;
-};
-
 function SvgComponent(
   props: SVGChartProps,
-  ref: ForwardedRef<ChartElement | null>
+  ref: ForwardedRef<(ChartElement & any) | null>
 ) {
   const { node, handleGesture = true, ...gestureProps } = props;
   const [svgNode, setSvgNode] = useState<SVGVNode | undefined>(node);
@@ -209,11 +198,14 @@ function SvgComponent(
   );
   const zrenderId = useRef<number>();
 
-  const dispatchEvents = useCallback<DispatchEvents>((types, nativeEvent) => {
-    if (zrenderId.current === undefined) return;
+  const dispatchEvents = useCallback<DispatchEvents>(
+    (types, nativeEvent, eventArgs) => {
+      if (zrenderId.current === undefined) return;
 
-    dispatchEventsToZRender(zrenderId.current, types, nativeEvent);
-  }, []);
+      dispatchEventsToZRender(zrenderId.current, types, nativeEvent, eventArgs);
+    },
+    []
+  );
 
   useImperativeHandle(
     ref,
