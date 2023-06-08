@@ -25,7 +25,7 @@ export const getDefaultPanRNGesture = (
       dispatchEvents(['mousedown', 'mousemove'], e);
     })
     .onUpdate(
-      throttle((e: any) => {
+      throttle((e) => {
         dispatchEvents(['mousemove'], e);
       }, 50)
     )
@@ -40,13 +40,15 @@ export const getDefaultPinchRNGesture = (
 ) => {
   return Gesture.Pinch()
     .runOnJS(true)
-    .onUpdate((e) => {
-      dispatchEvents(['mousewheel'], e, {
-        zrX: e.focalX,
-        zrY: e.focalY,
-        zrDelta: e.velocity / 20,
-      });
-    });
+    .onUpdate(
+      throttle((e) => {
+        dispatchEvents(['mousewheel'], e, {
+          zrX: e.focalX,
+          zrY: e.focalY,
+          zrDelta: e.velocity / 20,
+        });
+      }, 50)
+    );
 };
 
 export const getDefaultTapRNGesture = (
