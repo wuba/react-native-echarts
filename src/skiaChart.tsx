@@ -20,18 +20,12 @@ import {
 import { measureText } from './utils/platform';
 import { GestureHandler } from './components/GestureHandler';
 import { dispatchEventsToZRender } from './components/events';
-import type { ChartElement, CommonChartProps, DispatchEvents } from './types';
+import type { ChartElement, DispatchEvents, SkiaChartProps } from './types';
 
 export { SVGRenderer } from './SVGRenderer';
 export * from './types';
 
 setPlatformAPI({ measureText });
-
-export type SkiaChartProps = CommonChartProps & {
-  svg?: string;
-  width?: number;
-  height?: number;
-};
 
 function getSkSvg(svg?: string): SkSVG | undefined {
   // TODO: 全局替换字体做法比较暴力，或者实用定义字体，可能某些场景字体设置失效，需要修复
@@ -45,7 +39,7 @@ function getSkSvg(svg?: string): SkSVG | undefined {
 
 function SkiaComponent(
   props: SkiaChartProps,
-  ref: ForwardedRef<ChartElement | null>
+  ref: ForwardedRef<(ChartElement & any) | null>
 ) {
   const {
     svg,
@@ -59,11 +53,14 @@ function SkiaComponent(
   const [height, setHeight] = useState<number>(initialHeight ?? 0);
   const zrenderId = useRef<number>();
 
-  const dispatchEvents = useCallback<DispatchEvents>((types, nativeEvent) => {
-    if (zrenderId.current === undefined) return;
+  const dispatchEvents = useCallback<DispatchEvents>(
+    (types, nativeEvent, eventArgs) => {
+      if (zrenderId.current === undefined) return;
 
-    dispatchEventsToZRender(zrenderId.current, types, nativeEvent);
-  }, []);
+      dispatchEventsToZRender(zrenderId.current, types, nativeEvent, eventArgs);
+    },
+    []
+  );
 
   useImperativeHandle(
     ref,

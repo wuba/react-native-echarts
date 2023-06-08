@@ -2,7 +2,11 @@ import React, { useMemo } from 'react';
 import { View } from 'react-native';
 import type { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { styles } from './styles';
-import type { DispatchEvents, RNGestureHandlerGesture } from '../types';
+import type {
+  DefaultRNGestures,
+  DispatchEvents,
+  RNGestureHandlerGesture,
+} from '../types';
 import { throttle } from '../utils/throttle';
 
 interface RNGHType {
@@ -62,7 +66,7 @@ export const getDefaultTapRNGesture = (
 export const getDefaultRNGestures = (
   Gesture: RNGHType['Gesture'],
   dispatchEvents: DispatchEvents
-) => {
+): DefaultRNGestures => {
   return [
     getDefaultPanRNGesture(Gesture, dispatchEvents),
     getDefaultPinchRNGesture(Gesture, dispatchEvents),

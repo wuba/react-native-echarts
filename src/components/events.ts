@@ -7,7 +7,7 @@ export function dispatchEventsToZRender(
   zrenderId: number,
   types: HandlerName[],
   nativeEvent: any,
-  props: any = {
+  eventArgs: any = {
     zrX: nativeEvent.locationX || nativeEvent.x,
     zrY: nativeEvent.locationY || nativeEvent.y,
   }
@@ -19,7 +19,7 @@ export function dispatchEventsToZRender(
         preventDefault: noop,
         stopImmediatePropagation: noop,
         stopPropagation: noop,
-        ...props,
+        ...eventArgs,
       });
     });
   }

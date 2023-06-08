@@ -1,4 +1,9 @@
-import type { GestureType } from 'react-native-gesture-handler';
+import type {
+  GestureType,
+  PanGesture,
+  PinchGesture,
+  TapGesture,
+} from 'react-native-gesture-handler';
 
 export type HandlerName =
   | 'click'
@@ -13,12 +18,14 @@ export type HandlerName =
 export type DispatchEvents = (
   types: HandlerName[],
   nativeEvent: any,
-  props?: any
+  eventArgs?: any
 ) => void;
 
-type RNGestureHandlerGestureValue = GestureType | GestureType[];
-type RNGestureHandlerGestureFactory = (
-  defaultGestures: GestureType[],
+export type DefaultRNGestures = [PanGesture, PinchGesture, TapGesture];
+
+export type RNGestureHandlerGestureValue = GestureType | GestureType[];
+export type RNGestureHandlerGestureFactory = (
+  defaultGestures: DefaultRNGestures,
   dispatchEvents: DispatchEvents
 ) => GestureType | GestureType[];
 export type RNGestureHandlerGesture =
@@ -31,7 +38,7 @@ export type GestureBuiltinProps = {
 };
 
 export type GestureRNGHProps = {
-  useRNGH?: true;
+  useRNGH: true;
   gesture?: RNGestureHandlerGesture;
 };
 
@@ -42,6 +49,32 @@ type BaseChartProps = {
 };
 
 export type CommonChartProps = BaseChartProps & GestureProps;
+
+export type SkiaChartProps = CommonChartProps & {
+  svg?: string;
+  width?: number;
+  height?: number;
+};
+
+export type SVGVNodeAttrs = Record<
+  string,
+  string | number | undefined | boolean
+>;
+
+export interface SVGVNode {
+  tag: string;
+  attrs: SVGVNodeAttrs;
+  children?: SVGVNode[];
+  text?: string;
+
+  // For patching
+  elm?: Node;
+  key?: string;
+}
+
+export type SVGChartProps = CommonChartProps & {
+  node?: SVGVNode;
+};
 
 export type ChartElement = {
   dispatchEvents: DispatchEvents;
