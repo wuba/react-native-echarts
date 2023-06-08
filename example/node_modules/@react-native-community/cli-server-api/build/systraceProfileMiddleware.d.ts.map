@@ -1,1 +1,0 @@
-{"version":3,"file":"systraceProfileMiddleware.d.ts","sourceRoot":"","sources":["../src/systraceProfileMiddleware.ts"],"names":[],"mappings":";AAAA;;;;;GAKG;AACH,OAAO,IAAI,MAAM,MAAM,CAAC;AAIxB,MAAM,CAAC,OAAO,UAAU,yBAAyB,CAC/C,GAAG,EAAE,IAAI,CAAC,eAAe,GAAG;IAAC,OAAO,EAAE,MAAM,CAAA;CAAC,EAC7C,GAAG,EAAE,IAAI,CAAC,cAAc,QAYzB"}

@@ -1,1 +1,0 @@
-{"version":3,"sources":["RNRenderer.web.ts"],"names":["RNRenderer","findHostInstance_DEPRECATED","_ref"],"mappings":"AAAA,OAAO,MAAMA,UAAU,GAAG;AACxBC,EAAAA,2BAA2B,EAAGC,IAAD,IAAe;AADpB,CAAnB","sourcesContent":["export const RNRenderer = {\n  findHostInstance_DEPRECATED: (_ref: any) => null,\n};\n"]}

@@ -1,1 +1,0 @@
-{"version":3,"sources":["PressabilityDebugView.web.tsx"],"names":["PressabilityDebugView"],"mappings":";;;;;;;AAAA;AACO,SAASA,qBAAT,GAAiC;AACtC,SAAO,IAAP;AACD","sourcesContent":["// PressabilityDebugView is not implemented in react-native-web\nexport function PressabilityDebugView() {\n  return null;\n}\n"]}

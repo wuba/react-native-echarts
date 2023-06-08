@@ -1,1 +1,0 @@
-{"version":3,"file":"tryInstallAppOnDevice.d.ts","sourceRoot":"","sources":["../../../src/commands/runAndroid/tryInstallAppOnDevice.ts"],"names":[],"mappings":"AAKA,OAAO,KAAK,EAAC,cAAc,EAAE,KAAK,EAAC,MAAM,IAAI,CAAC;AAE9C,iBAAS,qBAAqB,CAC5B,IAAI,EAAE,KAAK,EACX,OAAO,EAAE,MAAM,EACf,MAAM,EAAE,MAAM,EACd,cAAc,EAAE,cAAc,QA+B/B;AA4BD,eAAe,qBAAqB,CAAC"}

@@ -1,1 +1,0 @@
-{"version":3,"file":"ReservedNameError.d.ts","sourceRoot":"","sources":["../../../../src/commands/init/errors/ReservedNameError.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,QAAQ,EAAC,MAAM,mCAAmC,CAAC;AAE3D,MAAM,CAAC,OAAO,OAAO,iBAAkB,SAAQ,QAAQ;gBACzC,IAAI,EAAE,MAAM;CAKzB"}

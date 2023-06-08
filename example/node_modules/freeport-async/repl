@@ -1,2 +1,0 @@
-#!/usr/bin/env sh
-node --experimental-repl-await -i -e "require('project-repl')('.', (x) => require(x));" $*

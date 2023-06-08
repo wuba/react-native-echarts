@@ -1,1 +1,0 @@
-{"version":3,"file":"tryLaunchEmulator.d.ts","sourceRoot":"","sources":["../../../src/commands/runAndroid/tryLaunchEmulator.ts"],"names":[],"mappings":"AAQA,eAAO,MAAM,YAAY,gBAOxB,CAAC;AA2DF,wBAA8B,iBAAiB,CAC7C,OAAO,EAAE,MAAM,EACf,YAAY,CAAC,EAAE,MAAM,EACrB,IAAI,CAAC,EAAE,MAAM,GACZ,OAAO,CAAC;IAAC,OAAO,EAAE,OAAO,CAAC;IAAC,KAAK,CAAC,EAAE,MAAM,CAAA;CAAC,CAAC,CAc7C"}
