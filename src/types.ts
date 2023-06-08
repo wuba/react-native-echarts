@@ -1,4 +1,5 @@
 import type {
+  ComposedGesture,
   GestureType,
   PanGesture,
   PinchGesture,
@@ -23,11 +24,14 @@ export type DispatchEvents = (
 
 export type DefaultRNGestures = [PanGesture, PinchGesture, TapGesture];
 
-export type RNGestureHandlerGestureValue = GestureType | GestureType[];
+export type RNGestureHandlerGestureValue =
+  | ComposedGesture
+  | GestureType
+  | GestureType[];
 export type RNGestureHandlerGestureFactory = (
   defaultGestures: DefaultRNGestures,
   dispatchEvents: DispatchEvents
-) => GestureType | GestureType[];
+) => ComposedGesture | GestureType | GestureType[];
 export type RNGestureHandlerGesture =
   | RNGestureHandlerGestureValue
   | RNGestureHandlerGestureFactory;
