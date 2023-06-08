@@ -57,4 +57,7 @@ It can take:
 
 If the `gesture` prop is a gesture array or returns a gesture array, they will be composed to a [Race gesture](https://docs.swmansion.com/react-native-gesture-handler/docs/gesture-composition/#race).
 
-Here is an [example of a large area chart using react-native-gesture-handler](../expo-snacks/large-area-chart-use-rngh).
+## Examples
+
+- [Large area chart using react-native-gesture-handler](../expo-snacks/large-area-chart-use-rngh).
+- [Custom gestures using react-native-gesture-handler](../expo-snacks/custom-gesture-use-rngh).
