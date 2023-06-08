@@ -39,6 +39,22 @@ export default function App() {
 
 Please note that when react-native-gesture-handler is not installed or useRNGH is set to false, the component will gracefully fall back to using the built-in PanResponder.
 
-## Example
+## Custom gestures
+
+> Custom gestures are only available when `useRNGH` is set to true.
+
+<!-- TODO: Set correct version -->
+Starting from version v1.x.x, you can specify custom gestures via the `gesture` prop.
+
+It can take:
+- A [gesture](https://docs.swmansion.com/react-native-gesture-handler/docs/api/gestures/gesture)
+- A gesture array
+- A [composed gesture](https://docs.swmansion.com/react-native-gesture-handler/docs/api/gestures/composed-gestures/)
+- A callback function returning a gesture, a gesture array or a composed gesture. It will provides you two args:
+  - `defaultGestures`, which are the default gestures set by React Native ECharts.
+  - `dispatchEvents`, which is a function to send events to ZRender. (You should only need it for complex cases)
+
+
+If the `gesture` prop is a gesture array or returns a gesture array, they will be composed to a [Race gesture](https://docs.swmansion.com/react-native-gesture-handler/docs/gesture-composition/#race).
 
 Here is an [example of a large area chart using react-native-gesture-handler](../expo-snacks/large-area-chart-use-rngh).
