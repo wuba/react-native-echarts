@@ -74,3 +74,6 @@ lib/
 
 # Eslint
 .eslintcache
+
+# Docusaurus (when switching from docs branches to code branches)
+.docusaurus/
