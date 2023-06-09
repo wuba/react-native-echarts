@@ -56,4 +56,7 @@ export default function App() {
 
 如果 `gesture` 属性是一个手势数组或返回一个手势数组，它们将被组成一个[竞争手势](https://docs.swmansion.com/react-native-gesture-handler/docs/gesture-composition/#race)。
 
-这是一个[使用 react-native-gesture-handler 的大面积图的例子](../expo-snacks/large-area-chart-use-rngh).
+## 示例
+
+- [使用 react-native-gesture-handler 的大面积图](../expo-snacks/large-area-chart-use-rngh)。
+- [使用 react-native-gesture-handler 自定义手势](../expo-snacks/custom-gesture-use-rngh)。
