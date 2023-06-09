@@ -43,8 +43,7 @@ Please note that when react-native-gesture-handler is not installed or useRNGH i
 
 > Custom gestures are only available when `useRNGH` is set to true.
 
-<!-- TODO: Set correct version -->
-Starting from version v1.x.x, you can specify custom gestures via the `gesture` prop.
+Starting from version v1.2.0, you can specify custom gestures via the `gesture` prop.
 
 It can take:
 - A [gesture](https://docs.swmansion.com/react-native-gesture-handler/docs/api/gestures/gesture)

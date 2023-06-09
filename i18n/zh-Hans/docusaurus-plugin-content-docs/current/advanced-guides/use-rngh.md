@@ -39,6 +39,21 @@ export default function App() {
 
 请注意，当 react-native-gesture-handler 没有安装或 useRNGH 被设置为 false 时，该组件将退回到使用内置的PanResponder。
 
-## 示例
+## 自定义手势
+
+> 自定义手势只有在 `useRNGH` 设置为 true 时才能使用。
+
+从 v1.2.0 版本开始，你可以通过 `gesture` 属性指定自定义手势。
+
+它可以接受：
+- 一个[手势](https://docs.swmansion.com/react-native-gesture-handler/docs/api/gestures/gesture)
+- 一个手势数组
+- 一个[组合手势](https://docs.swmansion.com/react-native-gesture-handler/docs/api/gestures/composed-gestures/)
+- 一个回调函数，返回一个手势、一个手势数组或一个组合手势。它将为你提供两个参数：
+  - `defaultGestures`，这是 React Native ECharts 设置的默认手势。
+  - `dispatchEvents`，这是一个向 ZRender 发送事件的函数。(你应该只在复杂情况下需要它)
+
+
+如果 `gesture` 属性是一个手势数组或返回一个手势数组，它们将被组成一个[竞争手势](https://docs.swmansion.com/react-native-gesture-handler/docs/gesture-composition/#race)。
 
 这是一个[使用 react-native-gesture-handler 的大面积图的例子](../expo-snacks/large-area-chart-use-rngh).
