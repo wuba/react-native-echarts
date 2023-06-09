@@ -22,7 +22,7 @@ export const getDefaultPanRNGesture = (
     .runOnJS(true)
     .maxPointers(1)
     .onBegin((e) => {
-      dispatchEvents(['mousedown', 'mousemove'], e);
+      dispatchEvents(['mousedown'], e);
     })
     .onUpdate(
       throttle((e) => {
@@ -58,7 +58,7 @@ export const getDefaultTapRNGesture = (
   return Gesture.Tap()
     .runOnJS(true)
     .onStart((e) => {
-      dispatchEvents(['mousedown', 'mousemove'], e);
+      dispatchEvents(['mousedown'], e);
     })
     .onEnd((e) => {
       dispatchEvents(['mouseup', 'click'], e);

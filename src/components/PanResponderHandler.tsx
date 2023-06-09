@@ -54,7 +54,7 @@ export function usePanResponder(
         onMoveShouldSetPanResponder: () => true,
         onMoveShouldSetPanResponderCapture: () => true,
         onPanResponderGrant: ({ nativeEvent }) => {
-          dispatchEvents(['mousedown', 'mousemove'], nativeEvent);
+          dispatchEvents(['mousedown'], nativeEvent);
         },
         onPanResponderMove: ({ nativeEvent }) => {
           const touches = nativeEvent.touches;
