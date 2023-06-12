@@ -41,10 +41,10 @@ tags: [website]
 The main approach is to utilize React Native's native view components to create the basic structure and layout of the charts, such as View, Text, etc. Additionally, libraries like react-native-svg and paths-js are used for rendering the charts with vector graphics.
 
 - **Victory Native**
-**Victory Native** also relies on React Native's native views combined with SVG for rendering. It also draws inspiration from D3 (Data-Driven Documents) by mapping data to chart elements and using scales to transform data values and positions.
+also relies on React Native's native views combined with SVG for rendering. It also draws inspiration from D3 (Data-Driven Documents) by mapping data to chart elements and using scales to transform data values and positions.
 
 - **React Native ECharts**
-**React Native ECharts** fetches the SVG graphic data of ECharts charts and rewrites the SVGPainter of ECharts. By utilizing the existing chart data of ECharts, it renders the charts on the React Native side using either react-native-svg or react-native-skia.
+fetches the SVG graphic data of ECharts charts and rewrites the SVGPainter of ECharts. By utilizing the existing chart data of ECharts, it renders the charts on the React Native side using either react-native-svg or react-native-skia.
 
 
 
