@@ -244,13 +244,13 @@ From a code-writing perspective, **Victory Native** is data-driven, so you typic
 
 React Native Echarts and **React Native Chart Kit** are similar in usage. Both libraries centralize data and styles within the configuration options. They are more like fully featured tools that allow you to transform the charts by modifying the configurations. Comparatively, the configuration code for **React Native Chart Kit** is simpler, but it may lack some advanced customization options. For example, enabling animation or setting a specific starting value for the y-axis might not be achievable.
 
-In terms of writing code, I personally prefer the configuration-based approach. It is straightforward, easy to grasp, and can improve development efficiency for developers.
+In terms of writing code, I prefer the configuration-based approach. It is straightforward, easy to grasp, and can improve development efficiency for developers.
 
 ## Development Experience
 
 ### Comparison of Rendering Performance 
 
-When it comes to regular charts such as area, bar, and pie charts, all three libraries perform well with small datasets, providing smooth rendering. However, as the data size reaches the order of thousands, noticeable performance differences become apparent. **Victory Native** and **React Native Chart Kit** experience significant lags and, in the case of larger datasets, Victory may even crash. On the other hand, **React Native ECharts** benefits from ECharts' default data sampling mechanism, which reduces the number of data points when rendering large amounts of data. This helps avoid overcrowding the chart and performance degradation. ECharts automatically samples a relatively small number of data points based on the width of the plotting area and the number of data points, reducing computational and rendering time. Leveraging this mechanism, **React Native ECharts** demonstrates significantly better rendering performance when dealing with large datasets.
+When it comes to regular charts such as area, bar, and pie charts, all three libraries perform well with small datasets, providing smooth rendering. However, as the data size reaches the order of thousands, noticeable performance differences become apparent. **Victory Native** and **React Native Chart Kit** experience significant lags and, in the case of larger datasets, Victory may even crash. On the other hand, **React Native ECharts** benefits from ECharts' default data sampling mechanism, which reduces the number of data points when rendering large amounts of data. This helps avoid overcrowding the chart and performance degradation. ECharts automatically sample a relatively small number of data points based on the width of the plotting area and the number of data points, reducing computational and rendering time. Leveraging this mechanism, **React Native ECharts** demonstrates significantly better rendering performance when dealing with large datasets.
 
 Here is an example of rendering an area chart using randomly generated 200 data points:
 
@@ -259,9 +259,9 @@ Here is an example of rendering an area chart using randomly generated 200 data 
 <img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/89d063de113ef9602d14b14a48ee1957_590x1087_v-100.gif"  width="200" height="300"  />
 
 
-As we can see, **React Native ECharts** still maintains relatively good rendering performance. On the other hand, adjustments to data and coordinates are required when using the other two libraries to meet specific business requirements.
+As we can see, **React Native ECharts** still maintain relatively good rendering performance. On the other hand, adjustments to data and coordinates are required when using the other two libraries to meet specific business requirements.
 
-When we increase the test data to 2000 points, **React Native Chart Kit** exhibits noticeable rendering lag, while **Victory Native** throws an error stating Maximum call stack size exceeded. Meanwhile, **React Native ECharts**, benefiting from data sampling, still delivers satisfactory rendering results:
+When we increase the test data to 2000 points, **React Native Chart Kit** exhibits noticeable rendering lag, while **Victory Native** throws an error stating Maximum call stack size is exceeded. Meanwhile, **React Native ECharts**, benefiting from data sampling, still deliver satisfactory rendering results:
 <img src="https://pic4.58cdn.com.cn/nowater/frs/n_v37998ba55137a48c5895e18d4c8aae3a8.png"  />
 
 ### Comparison of Chart Variety
@@ -271,7 +271,7 @@ Currently, **React Native Chart Kit** supports a relatively limited number of ch
 
   The following image shows most of the chart types that **React Native Chart Kit** can cover, and it can be seen that the variety is relatively limited. 😭 Currently, the developers are continuously maintaining the library and may add more chart types in the future.
 
-![描述2](https://pic2.58cdn.com.cn/nowater/frs/n_v3de70bac7538d48949b14227bd9bdb28d.png)
+![](https://pic2.58cdn.com.cn/nowater/frs/n_v3de70bac7538d48949b14227bd9bdb28d.png)
 <font size>(Image source: https://github.com/indiespirit/react-native-chart-kit)</font>
 
 - **Victory Native**
@@ -285,12 +285,12 @@ When it comes to chart variety, **Victory Native** offers a greater range compar
 - **React Native ECharts**
 You can directly refer to the examples on the ECharts official website, where various types of charts are showcased in a highly intuitive manner. Developers can use the configuration options to customize the charts according to their needs. Currently, **React Native ECharts** supports rendering most of the chart types that ECharts offers.
 
-  **React Native ECharts** utilizes the SVG data from ECharts, which means users can render a wide range of different chart types by simply following the examples provided on the ECharts website and configuring their own settings😍
+  **React Native ECharts** utilizes the SVG data from ECharts, which means users can render a wide range of different chart types by simply following the examples provided on the ECharts website and configuring their settings😍
 
   ![](https://pic7.58cdn.com.cn/nowater/frs/n_v3d67cc17570b34bf2992455482ce5c494.png)
 <font size="2">(Image source: https://echarts.apache.org/examples/zh/index.html)</font>
 
-  The following image showcases some chart types that cannot be easily implemented or require complex combinations using other libraries. However, with **React Native ECharts** , you can effortlessly achieve these charts by referring to the documentation🚀
+  The following image showcases some chart types that cannot be easily implemented or require complex combinations using other libraries. However, with **React Native ECharts**, you can effortlessly achieve these charts by referring to the documentation🚀
   
   <img src="https://pic6.58cdn.com.cn/nowater/frs/n_v39593dce0b5c745ae8a304e7d337409d7.pic"  />
 
@@ -299,7 +299,7 @@ You can directly refer to the examples on the ECharts official website, where va
 Getting started with **React Native Chart Kit** primarily involves using the documentation and configuration options provided by the library's authors, which can be found on GitHub or npm. By referring to these resources, developers can easily implement chart rendering in their projects.
 
 
-On the other hand, **Victory Native** has its own [website](https://formidable.com/open-source/victory/docs/), where developers can assemble charts by referring to the provided components and related code in the documentation. However, the website offers a large number of components and elements, making it difficult for developers to quickly find the desired examples. Implementing complex charts often requires developers to think of their own implementation methods, which can lower development efficiency.
+On the other hand, **Victory Native** has its [website](https://formidable.com/open-source/victory/docs/), where developers can assemble charts by referring to the provided components and related code in the documentation. However, the website offers a large number of components and elements, making it difficult for developers to quickly find the desired examples. Implementing complex charts often requires developers to think of their implementation methods, which can lower development efficiency.
 
 Compared to **Victory Native** and **React Native Chart Kit**, **React Native ECharts** has several advantages:
 
@@ -309,11 +309,11 @@ Compared to **Victory Native** and **React Native Chart Kit**, **React Native EC
 
 - Online Preview
 
-    Just like the ECharts library, **React Native ECharts** provides online preview and testing support. You can directly copy the chart configuration to see how it renders in React Native. [Click here for online preview](https://wuba.github.io/react-native-echarts/zh-Hans/docs/expo-snacks/simple-line-chart)
+    Just like the ECharts library, **React Native ECharts** provides an online preview and testing support. You can directly copy the chart configuration to see how it renders in React Native. [Click here for an online preview](https://wuba.github.io/react-native-echarts/zh-Hans/docs/expo-snacks/simple-line-chart)
 
 - Multiterminal code
 
-    **React Native ECharts** also supports component reuse on the web, enabling cross-platform requirements and achieving code sharing across multiple platforms. It effortlessly achieves code uniformity and ensures consistency of charts across different platforms, thus enhancing our development efficiency.
+    **React Native ECharts** also support component reuse on the web, enabling cross-platform requirements and achieving code sharing across multiple platforms. It effortlessly achieves code uniformity and ensures consistency of charts across different platforms, thus enhancing our development efficiency.
 - Support for two rendering modes
 
     **React Native ECharts** supports two rendering modes: Svg and Skia. It is implemented based on react-native-svg and react-native-skia. react-native-skia utilizes the Skia Graphics Library, which is a high-performance graphics rendering engine that provides faster drawing and rendering speeds. It is a boon for developers who want to experience Skia's capabilities.
