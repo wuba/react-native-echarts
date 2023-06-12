@@ -86,7 +86,7 @@ export const LineChart1 = props => {
                 data={data}
                 width={400}
                 height={200}
-                yAxisInterval={1} // 设置 y 轴的间隔值为 1
+                yAxisInterval={1}
                 animate
                 chartConfig={chartConfig}
                 withDots={false}
@@ -138,7 +138,6 @@ export const LineChart2 = props => {
         />
         <VictoryLine
           data={data}
-          //   interpolation="natural" // 使用曲线插值方法
           style={{ data: { stroke: "#d6d6d7", strokeWidth: 2 } }}
         />
         <VictoryScatter
@@ -158,20 +157,14 @@ export const LineChart2 = props => {
 ```js
 import { StyleSheet, Text, View } from 'react-native';
 import { useRef, useEffect } from 'react';
-/**
- * 一、引入echarts依赖, 这里先试下折线图
- */
 import * as echarts from 'echarts/core';
 import { LineChart } from 'echarts/charts';
 import { GridComponent } from 'echarts/components';
 import { SVGRenderer, SkiaChart } from '@wuba/react-native-echarts';
 echarts.use([SVGRenderer, LineChart, GridComponent]);
 export const LineCharts = props => {
-  const skiaRef = useRef(null); // Ref用于保存图表实例
+  const skiaRef = useRef(null);
   useEffect(() => {
-    /**
-     * 四、图表配置
-     */
     const option = {
       xAxis: {
         type: 'category',
@@ -184,7 +177,7 @@ export const LineCharts = props => {
       },
       yAxis: {
         type: 'value',
-        min: 'dataMin', // 设置 y 轴的最小值为数据中的最小值
+        min: 'dataMin',
         splitLine: {
           show: true,
           lineStyle: {
@@ -201,8 +194,8 @@ export const LineCharts = props => {
           lineStyle: {
             color: '#d6d6d7'
           },
-          symbol: 'circle', // 设置拐点的图形为圆形
-          symbolSize: 8, // 设置拐点的大小
+          symbol: 'circle',
+          symbolSize: 8,
           itemStyle: {
             color: '#24262a',
           },
@@ -211,9 +204,6 @@ export const LineCharts = props => {
     };
     let chart;
     if (skiaRef.current) {
-      /**
-       * 五、初始化图表, 指定下宽高
-       */
       chart = echarts.init(skiaRef.current, 'light', {
         renderer: 'svg',
         width: 400,
@@ -221,9 +211,6 @@ export const LineCharts = props => {
       });
       chart.setOption(option);
     }
-    /**
-     * 六、页面关闭后要销毁图表实例
-     */
     return () => chart?.dispose();
   }, []);
   return (
@@ -239,9 +226,6 @@ export const LineCharts = props => {
 
 <img src="https://pic4.58cdn.com.cn/nowater/frs/n_v36a21956e648c4a329da00fb41b166245.png"  width="48%" />
 <img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/a053ec4567fc99f7f75638973d72e26a_tutieshi_288x640_7s.gif"  width="48%" />
-
-
-
 
 从编写代码的角度, **Victory Native** 是基于数据驱动的类型, 所以通常是传入数据, 然后一些相关的样式由配置项传入。最最最重要的是, 它更像是一组可以自己diy的工具, 使用 Victory 暴露出的各个组件, 对自己需要绘制的图表进行diy, 如果在这个面积图中, 我如果需要增加折线以及拐点, 就需要再额外添加 **VictoryLine** 与 **VictoryScatter**。
 
