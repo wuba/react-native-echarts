@@ -23,7 +23,7 @@ tags: [website]
 
 - **React Native ECharts**
 
-  [ React Native ECharts ](https://wuba.github.io/react-native-echarts/)是今年新发布的的图表库,目前下载量为2565次, 在github上获得363的star, 作为 react-native 端图表库的新星, 它具有巨大的潜力, 相信随着时间推移, 它会成为最热门的图标库之一。
+  [ React Native ECharts ](https://wuba.github.io/react-native-echarts/)是今年新发布的的图表库,目前下载量为2565次, 在github上获得363的star, 作为 react-native 端图表库的新星, 它具有巨大的潜力, 相信随着时间推移, 它会成为最热门的图表库之一。
 
   基础数据对比表格如下：
 
