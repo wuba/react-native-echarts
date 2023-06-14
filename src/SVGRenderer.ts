@@ -13,7 +13,7 @@ interface SVGPainterOption {
   ssr?: boolean;
 }
 
-globalThis.DOMParser = DOMParser;
+global.DOMParser = DOMParser;
 class CustomSVGPainter extends SVGPainter {
   constructor(
     root: HTMLElement,

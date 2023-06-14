@@ -94,7 +94,7 @@ interface SVGVEleProps {
   touchEnd?: any;
 }
 
-const fontStyleReg = /([\w-]+):([\w-]+);/g;
+const fontStyleReg = /([\w-]+):([\w-]+)/g;
 function SvgEle(props: SVGVEleProps) {
   const { node } = props;
   if (!node) return null;
@@ -114,14 +114,19 @@ function SvgEle(props: SVGVEleProps) {
     if (attrs.style) {
       // TODO: 全局替换字体做法比较暴力，或者实用定义字体，可能某些场景字体设置失效，需要修复
       // attrs.style = attrs.style.replace(new RegExp(zrenderFontFamily, 'g'), DEFAULT_FONT_FAMILY);
-      // console.log('attrs.style', attrs.style);
 
-      [...attrs.style.matchAll(fontStyleReg)].forEach(([_, key, value]) => {
-        // 修复 text 属性无效的问题
-        if (key !== 'font-family') {
-          attrs[toCamelCase(key)] = value;
-        }
-      });
+      const matches = attrs.style.split(';');
+      matches
+        .filter((match: string) => fontStyleReg.test(match) && match.length > 0)
+        .forEach((match: string) => {
+          const parts = match.split(':');
+          const key = parts[0]?.trim();
+          const value = parts[1]?.trim();
+          // 修复 text 属性无效的问题
+          if (key && key !== 'font-family') {
+            attrs[toCamelCase(key)] = value;
+          }
+        });
     }
     if (!attrs.alignmentBaseline && attrs.dominantBaseline) {
       attrs.alignmentBaseline = 'middle';
