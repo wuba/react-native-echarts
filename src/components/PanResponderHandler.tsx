@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useMemo } from 'react';
 import {
   PanResponder,
   PanResponderInstance,
@@ -39,73 +39,71 @@ export function PanResponderHandler({
 export function usePanResponder(
   dispatchEvents: DispatchEvents
 ): [PanResponderInstance] {
-  const [zooming, setZooming] = useState(false);
-  const [moving, setMoving] = useState(false);
-  const pan = useRef({
-    initialX: 0,
-    initialY: 0,
-    prevDistance: 0,
-  });
-  const panResponder = useMemo(
-    () =>
-      PanResponder.create({
-        onStartShouldSetPanResponder: () => true,
-        onStartShouldSetPanResponderCapture: () => true,
-        onMoveShouldSetPanResponder: () => true,
-        onMoveShouldSetPanResponderCapture: () => true,
-        onPanResponderGrant: ({ nativeEvent }) => {
-          dispatchEvents(['mousedown', 'mousemove'], nativeEvent);
-        },
-        onPanResponderMove: ({ nativeEvent }) => {
-          const touches = nativeEvent.touches;
-          const length = touches.length;
-          if (length === 1) {
-            if (!moving || zooming) {
-              setMoving(true);
-              setZooming(false);
-            } else {
-              dispatchEvents(['mousemove'], nativeEvent);
-            }
-          } else if (length === 2) {
-            const [
-              { locationX: x0, locationY: y0 },
-              { locationX: x1, locationY: y1 },
-            ] = touches as [NativeTouchEvent, NativeTouchEvent];
-            const distance = calcDistance(x0, y0, x1, y1);
-            const { x, y } = calcCenter(x0, y0, x1, y1);
-            if (!zooming) {
-              pan.current = {
-                initialX: x,
-                initialY: y,
-                prevDistance: distance,
-              };
-              setZooming(true);
-            } else {
-              const { initialX, initialY, prevDistance } = pan.current;
-              const delta = distance - prevDistance;
-              pan.current.prevDistance = distance;
-              dispatchEvents(['mousewheel'], nativeEvent, {
-                zrX: initialX,
-                zrY: initialY,
-                zrDelta: delta / 120,
-              });
-            }
+  const panResponder = useMemo(() => {
+    let zooming = false;
+    let moving = false;
+    let pan = {
+      initialX: 0,
+      initialY: 0,
+      prevDistance: 0,
+    };
+    return PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onStartShouldSetPanResponderCapture: () => true,
+      onMoveShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponderCapture: () => true,
+      onPanResponderGrant: ({ nativeEvent }) => {
+        dispatchEvents(['mousedown', 'mousemove'], nativeEvent);
+      },
+      onPanResponderMove: ({ nativeEvent }) => {
+        const touches = nativeEvent.touches;
+        const length = touches.length;
+        if (length === 1) {
+          if (!moving || zooming) {
+            moving = true;
+            zooming = false;
+          } else {
+            dispatchEvents(['mousemove'], nativeEvent);
           }
-        },
-        onPanResponderTerminationRequest: () => true,
-        onPanResponderRelease: ({ nativeEvent }) => {
+        } else if (length === 2) {
+          const [
+            { locationX: x0, locationY: y0 },
+            { locationX: x1, locationY: y1 },
+          ] = touches as [NativeTouchEvent, NativeTouchEvent];
+          const distance = calcDistance(x0, y0, x1, y1);
+          const { x, y } = calcCenter(x0, y0, x1, y1);
           if (!zooming) {
-            dispatchEvents(['mouseup', 'click'], nativeEvent);
+            pan = {
+              initialX: x,
+              initialY: y,
+              prevDistance: distance,
+            };
+            zooming = true;
+          } else {
+            const { initialX, initialY, prevDistance } = pan;
+            const delta = distance - prevDistance;
+            pan.prevDistance = distance;
+            dispatchEvents(['mousewheel'], nativeEvent, {
+              zrX: initialX,
+              zrY: initialY,
+              zrDelta: delta / 120,
+            });
           }
-          setMoving(false);
-          setZooming(false);
-        },
-        onPanResponderTerminate: () => {},
-        onShouldBlockNativeResponder: () => {
-          return false;
-        },
-      }),
-    [dispatchEvents, moving, zooming, pan]
-  );
+        }
+      },
+      onPanResponderTerminationRequest: () => true,
+      onPanResponderRelease: ({ nativeEvent }) => {
+        if (!zooming) {
+          dispatchEvents(['mouseup', 'click'], nativeEvent);
+        }
+        moving = false;
+        zooming = false;
+      },
+      onPanResponderTerminate: () => {},
+      onShouldBlockNativeResponder: () => {
+        return false;
+      },
+    });
+  }, [dispatchEvents]);
   return [panResponder];
 }
