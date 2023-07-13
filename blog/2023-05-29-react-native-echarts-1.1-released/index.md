@@ -5,7 +5,7 @@ authors: [yechunxi]
 tags: [website]
 ---
 
-[<img src="https://pic8.58cdn.com.cn/nowater/frs/n_v372f426d05520420e9f009a64822028af.png" align="center" width="600"  />](https://wuba.github.io/react-native-echarts/)
+![](@site/static/img/logo-with-title.svg)
 
 We are excited to release a stable version of React Native ECharts 1.1. In the new version, we have added support for the [react-native-gesture-handler](https://github.com/software-mansion/react-native-gesture-handler) gesture solution, among other enhancements. Read on to learn more!
 
@@ -24,17 +24,17 @@ The project source code is available at https://github.com/wuba/react-native-ech
 
 Here are some examples of common chart types:
 
-<img src="https://pic4.58cdn.com.cn/nowater/frs/n_v3f0ad5813ae87437c844b785a76fc5d4f.png" width="600" align="center"  />
+![](./examples.png)
 
 In addition to the usual chart types, `@wuba/react-native-echart` supports a variety of other graphs, such as tree, heat and K-line charts, with excellent rendering performance.
 
-<img src="https://pic6.58cdn.com.cn/nowater/frs/n_v38113ee8d7e384af3875e8083c0e3e4f1.png"  width="600" />
+![](examples_specialty.png)
 
 In addition, we provide comprehensive support for various dynamic charts, and here are some examples. Chart 1 and Chart 2 demonstrate the dynamic changes in per capita income across multiple countries. Chart 1 presents the growth trend of per capita income over the past 70 years, while Chart 2 showcases the dynamic sorting of per capita income for 10 countries in the year 1982. Chart 3 displays a continuously updated speedometer that adapts to changing values over time, and Chart 4 demonstrates a dynamic node addition chart. These charts can dynamically re-render based on evolving data. Regardless of the data update frequency, they consistently deliver outstanding rendering performance.
 
 
-<img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/fafab09190a1e94d45d08d392a595798_1684252121615.gif"  width="300" />
-<img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/e538355afcb295c1ad9753d518f31c3a_1684252222255.gif"  width="300" />
+![](./animation_1.gif)
+![](./animation_2.gif)
 
 `@wuba/react-native-echart` supports a wide range of chart types, but they are too numerous to display here. If you want to explore more comprehensive chart types, you can visit the [taro-playground](https://github.com/wuba/taro-playground) repository to check them out. There, you will find example demos showcasing various ECharts chart types.
 
@@ -43,12 +43,9 @@ In addition, we provide comprehensive support for various dynamic charts, and he
 
 `@wuba/react-native-echart` supports two rendering modes: Svg and Skia. It is implemented based on `react-native-svg` and `react-native-skia`. How do you choose between the two rendering modes? From the perspective of rendering speed, Svg and Skia have similar performance, as shown in the following figure. However, it's important to note that Skia rendering has some limitations in terms of Chinese language support. To display Chinese characters correctly, you need to set up fonts separately. Therefore, when choosing a rendering library, please consider the language requirements of your project and the importance of Chinese language support. We recommend selecting the appropriate rendering mode based on specific circumstances to achieve optimal performance and user experience.
 
-<img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/cc26413b0283b1bf6627382ec658b405_1684323587137.gif" height="300" />
-
-<img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/4ea29ec083262db49fbf4e609dd9af8c_1684300800328.gif" height="300" />
-
-<img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/b9f4f9174ab305f92bd05f2fad14f01a_1684301227461.gif" height="300" />
-
+![](./animation_3.gif)
+![](./animation_4.gif)
+![](./animation_5.gif)
 
 ### Support various gestures
 
@@ -56,10 +53,9 @@ Support for various gestures such as tapping, dragging, and scaling is available
 
 Below is a comparison of the two gesture solutions. Judging from the smoothness of chart scrolling, both the default gesture handling and the use of `react-native-gesture-handler` provide excellent fluidity. You can choose the approach that best suits your needs.
 
-
-<img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/e82eac73cc429bea39699aaa962ffd4c_1684337433785.gif" height="300" />
-<img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/7126b8247d595689f16a4b905effc929_168433791331.gif" height="300" />
-<img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/af6a25132f5157d15f936660a9369ec5_16843385448361.gif" height="300"/>
+![](./animation_6.gif)
+![](./animation_7.gif)
+![](./animation_8.gif)
 
 ### Web Support
 
@@ -84,7 +80,7 @@ Currently, the support for the ECharts charting library is very comprehensive. H
 
 With the widespread application of 3D visualization in various business scenarios, such as the displayed 3D chart below, we will continue to explore and enhance our support for ECharts GL to meet more business needs. You can click [here](https://github.com/orgs/wuba/projects/10) to check the latest progress.
 
-<img src="https://pic5.58cdn.com.cn/nowater/frs/n_v320b11894eaa24d36a40713c884eba3a2.png"  width="600"/>
+![](./gl.png)
 
 ### Improve the Infrastructure
 
@@ -97,4 +93,4 @@ We are deeply grateful to all our friends in the `@wuba/react-native-echarts` op
 
 Lastly, we would like to express our special thanks to the developers who have contributed to the project's success:
 
-<img src="https://pic2.58cdn.com.cn/nowater/frs/n_v309c7ce0f3ef34fe4a5e5c1a02f217a2f.png" height="40"/>
+<a href="https://github.com/wuba/react-native-echarts/graphs/contributors"><img src="https://opencollective.com/react-native-echarts/contributors.svg?button=false" /></a>

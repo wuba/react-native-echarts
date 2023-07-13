@@ -224,8 +224,8 @@ export const LineCharts = props => {
 
 效果展示如下：  
 
-<img src="https://pic4.58cdn.com.cn/nowater/frs/n_v36a21956e648c4a329da00fb41b166245.png"  width="48%" />
-<img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/a053ec4567fc99f7f75638973d72e26a_tutieshi_288x640_7s.gif"  width="48%" />
+![](./demo.png)
+![](./animation.gif)
 
 从编写代码的角度, **Victory Native** 是基于数据驱动的类型, 所以通常是传入数据, 然后一些相关的样式由配置项传入。最最最重要的是, 它更像是一组可以自己diy的工具, 使用 Victory 暴露出的各个组件, 对自己需要绘制的图表进行diy, 如果在这个面积图中, 我如果需要增加折线以及拐点, 就需要再额外添加 **VictoryLine** 与 **VictoryScatter**。
 
@@ -241,15 +241,14 @@ export const LineCharts = props => {
 
 使用随机生成200组数据来渲染面积图效果如下：
 
-<img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/7e14bf4b496e5a3ff528096e7ccfd875_590x1087_rn-echart-100-5s.gif"  width="200" height="300" />
-<img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/426c93a792c0d35a2f6f86237d099657_590x1087_kit-100_5s.gif"  width="200" height="300" />
-<img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/89d063de113ef9602d14b14a48ee1957_590x1087_v-100.gif"  width="200" height="300"  />
-
+![](./animation_1.gif)
+![](./animation_2.gif)
+![](./animation_3.gif)
 
   可以看到 **React Native ECharts** 的渲染效果还是相对较好的, 使用另外两个库还是要对数据以及坐标进行一些调整才能保证业务需求。
 
   当我们把测试数据加到2000时, **React Native Chart Kit** 出现渲染的明显卡顿, 而 **Victory Native** 则是直接报错 **Maximum call stack size exceede**。而此时的 **React Native ECharts** 得益于数据抽样仍然可以有不错的渲染成果：
-<img src="https://pic4.58cdn.com.cn/nowater/frs/n_v37998ba55137a48c5895e18d4c8aae3a8.png" />
+![](./large_examole.png)
 
 ### 图表丰富性对比
 
@@ -257,14 +256,14 @@ export const LineCharts = props => {
 - **React Native Chart Kit**
 目前 **React Native Chart Kit** 支持的图表类型还是相对较少的, 目前主要支持6种特定种类的图表, 虽然能涵盖大部分基础业务, 但是如果有些业务需要其他类型的图表, 可能还需要引入其他的库了。
   下图是 **React Native Chart Kit** 能覆盖到的大部分图表,看的出来还是相对较少的😭。目前开发者还在持续维护后续会新增一些。
-![](https://pic2.58cdn.com.cn/nowater/frs/n_v3de70bac7538d48949b14227bd9bdb28d.png)
+![](./chartkit.png)
 <font size="2">(图片来源: https://github.com/indiespirit/react-native-chart-kit)</font>
 
 - **Victory Native**
 **Victory Native** 能覆盖的图表种类相比 **React Native Chart Kit** 是会多些, 但是由于 Victory 的写法需要自己组装组件, 组合成不同类型的图表需要开发者有一定的组合思维, 并且官网的示例对初学者还是不太友好的, 能支持的图表实例不是特别直观, 总而言之使用 **Victory Native** 的开发者需要有一定的代码功底和不错的思维逻辑, 使用门槛较高。
 
   下图是victory官方网站上的demo提供的主要组件的展示图, 可以看的出来相对 **React Native Chart Kit** 还是要多不少的, 更重要的是 **Victory Native** 主要是以这些组件类似于点、线、面、轴的组合, 让开发者去组合生成新的类型图表, 可以支持的图表种类就更多了✅
-  ![](https://pic3.58cdn.com.cn/nowater/frs/n_v316dafe8eaf0f435c962933baa233ecdd.png)
+  ![](./victory.png)
   <font size="2">(图片来源: https://formidable.com/open-source/victory/docs/)</font>
 
 
@@ -273,12 +272,12 @@ export const LineCharts = props => {
 
   **React Native ECharts** 使用了 Echarts 的svg数据, 所以使用者只要参照 Echarts 的网站示例来选择自己的配置便可以渲染大量不同类型的图表了😍
 
-  ![](https://pic7.58cdn.com.cn/nowater/frs/n_v3d67cc17570b34bf2992455482ce5c494.png)
+  ![](./echarts.png)
   <font size="2">(图片来源: https://echarts.apache.org/examples/zh/index.html)</font>
 
   下图是一些使用其他库都无法实现或者需要很高难度的拼接组合才能实现的图表, 但是使用 **React Native ECharts** 完全可以参照文档轻松解决啦🚀
 
-  <img src="https://pic6.58cdn.com.cn/nowater/frs/n_v39593dce0b5c745ae8a304e7d337409d7.pic"  />
+  ![](./examles.jpg)
 
 ### 相关生态对比
 

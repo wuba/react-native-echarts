@@ -5,7 +5,7 @@ authors: [yechunxi]
 tags: [website]
 ---
 
-[<img src="https://pic8.58cdn.com.cn/nowater/frs/n_v372f426d05520420e9f009a64822028af.png" align="center" width="600"  />](https://wuba.github.io/react-native-echarts/)
+![](@site/static/img/logo-with-title.svg)
 
 [@wuba/react-native-echart](https://github.com/wuba/react-native-echarts/) 开源项目公开发布已经有一段时间了，我们非常高兴的宣布稳定版 1.1 正式发布了 🎉🎉🎉。
 
@@ -25,19 +25,19 @@ tags: [website]
 
 以下是一些常见的图表类型示例：
 
-<img src="https://pic4.58cdn.com.cn/nowater/frs/n_v3f0ad5813ae87437c844b785a76fc5d4f.png" width="600" align="center"  />
+![](./examples.png)
 
 除了常用的图表类型外，`@wuba/react-native-echart` 还支持其他各种图形，如树图、热力图和 K线图 等，下面是对应的图表示例：
 
-<img src="https://pic6.58cdn.com.cn/nowater/frs/n_v38113ee8d7e384af3875e8083c0e3e4f1.png"  width="600"/>
+![](examples_specialty.png)
 
 
 此外，我们还支持各种动态图表，以下是一些图表示例。图一和图二展示了关于多个国家人均收入的动态变化。图一呈现了近 70 年人均收入的增长趋势，而图二展示了近 82 年时 10 个国家人均收入的动态排序。图三展示了随着时间变化而不断更新的速度仪表盘，而图四则展示了动态增加节点的图表。
 
 这些图表能够根据不断变化的数据实现动态重新渲染。无论数据更新频率如何，它们都能够表现出色的渲染性能。
 
-<img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/fafab09190a1e94d45d08d392a595798_1684252121615.gif"  width="300"  />
-<img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/e538355afcb295c1ad9753d518f31c3a_1684252222255.gif"  width="300"/>
+![](./animation_1.gif)
+![](./animation_2.gif)
 
 `@wuba/react-native-echart` 支持图表类型非常丰富，不一一在此展示。如果想了解更全面的图表类型，可以去[taro-playground](https://github.com/wuba/taro-playground)这里查看。在这里可以找到包含各种 Echarts 图表类型的示例 Demo。
 
@@ -46,11 +46,9 @@ tags: [website]
 
 `@wuba/react-native-echart` 支持 Svg 和 Skia 两种渲染方式，它基于 `react-native-svg` 和 `react-native-skia` 实现。两种渲染方式如何选择？从渲染速度的角度来看，Svg 和 Skia 的性能表现相对接近，如下图所示。但是，需要注意的是，比如在中文支持方面，Skia 渲染存在一些限制，需要去声明设置字体才能正确显示中文字符。因此，在选择渲染库时，考虑项目的语言需求和对中文支持的重要性，根据具体情况选择合适的渲染方式，以实现最佳的性能和用户体验。
 
-<img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/cc26413b0283b1bf6627382ec658b405_1684323587137.gif" height="300" />
-
-<img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/4ea29ec083262db49fbf4e609dd9af8c_1684300800328.gif" height="300" />
-
-<img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/b9f4f9174ab305f92bd05f2fad14f01a_1684301227461.gif" height="300" />
+![](./animation_3.gif)
+![](./animation_4.gif)
+![](./animation_5.gif)
 
 ###  支持各种手势
 
@@ -58,9 +56,9 @@ tags: [website]
 
 下面是对比两种手势方案的效果，从图表滑动的流畅程度来看，无论是默认手势处理还是采用 `react-native-gesture-handler` 处理，手势滑动都非常的流畅，您可以根据自己的需求选择采用哪种方式。
 
-<img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/e82eac73cc429bea39699aaa962ffd4c_1684337433785.gif" height="300" />
-<img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/7126b8247d595689f16a4b905effc929_168433791331.gif" height="300" />
-<img src="https://wos2.58cdn.com.cn/DeFazYxWvDti/frsupload/af6a25132f5157d15f936660a9369ec5_16843385448361.gif" height="300"/>
+![](./animation_6.gif)
+![](./animation_7.gif)
+![](./animation_8.gif)
 
 ###  支持 Web 复用
 
@@ -84,8 +82,7 @@ ECharts 图表库在 Web 端提供了丰富的在线渲染案例，那么在 Rea
 
 随着 3D 可视化在各个业务场景中的广泛应用，例如下方展示的 3D 图表，我们将持续探索并增加对 ECharts GL 的支持，以满足更多场景下的业务需求。您可以点击 [这里](https://github.com/orgs/wuba/projects/10) 查看最新的进展情况。
 
-<img src="https://pic5.58cdn.com.cn/nowater/frs/n_v320b11894eaa24d36a40713c884eba3a2.png"  width="600"/>
-
+![](./gl.png)
 
 ### 完善用例
 
@@ -97,4 +94,4 @@ ECharts 图表库在 Web 端提供了丰富的在线渲染案例，那么在 Rea
 
 最后，特别感谢为项目做出贡献的开发者:
 
-<img src="https://pic2.58cdn.com.cn/nowater/frs/n_v309c7ce0f3ef34fe4a5e5c1a02f217a2f.png" height="40"/>
+<a href="https://github.com/wuba/react-native-echarts/graphs/contributors"><img src="https://opencollective.com/react-native-echarts/contributors.svg?button=false" /></a>
