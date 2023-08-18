@@ -4,13 +4,6 @@ import { PanResponderHandler } from './PanResponderHandler';
 import type { DispatchEvents, GestureProps } from '../types';
 
 let RNGH: any = null;
-try {
-  RNGH = require('react-native-gesture-handler');
-} catch (error) {
-  console.warn(
-    'react-native-gesture-handler is not installed. Falling back to PanResponder.'
-  );
-}
 
 type GestureHandlerProps = GestureProps & {
   dispatchEvents: DispatchEvents;
@@ -33,3 +26,11 @@ export const GestureHandler = memo(function GestureHandler({
     return <PanResponderHandler dispatchEvents={dispatchEvents} />;
   }
 });
+
+try {
+  RNGH = require('react-native-gesture-handler');
+} catch (error) {
+  console.warn(
+    'react-native-gesture-handler is not installed. Falling back to PanResponder.'
+  );
+}
