@@ -6,7 +6,7 @@ sidebar_position: 1
 
 [Expo Snack](https://snack.expo.dev/) is an open-source platform for running React Native apps in the browser.
 
-To make @wuba/react-native-echarts work in snack, we packaged echarts into @wuba/react-native-ehcarts and published it under the `all` tag, which you can install by doing the following:
+To make @wuba/react-native-echarts work in snack, we packaged echarts into @wuba/react-native-echarts and published it under the `all` tag, which you can install by doing the following:
 
 ```bash
 yarn add @wuba/react-native-echarts@all
