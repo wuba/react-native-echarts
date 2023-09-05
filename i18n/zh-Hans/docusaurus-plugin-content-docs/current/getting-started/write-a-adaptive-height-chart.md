@@ -115,6 +115,17 @@ const handleDimensionsChange = (e) => {
 };
 ```
 
+8. 重新绘制图表
+
+```tsx
+useEffect(() => {
+  chartRef.current.resize({
+    width: chartWidth,
+    height: chartHeight,
+  });
+}, [chartWidth, chartHeight]);
+```
+
 完整代码如下：
 
 ```tsx
@@ -129,6 +140,7 @@ echarts.use([SVGRenderer, LineChart, GridComponent]);
 
 export default function App() {
   const skiaRef = useRef<any>(null);
+  const chartRef = useRef<any>(null);
   const [chartWidth, setChartWidth] = useState<number>(0);
   const [chartHeight, setChartHeight] = useState<number>(0);
 
@@ -187,13 +199,19 @@ export default function App() {
         height: chartHeight,
       });
       chart.setOption(option);
+      chartRef.current = chart;
     }
-    chart.resize({
+    return () => chart?.dispose();
+  }, []);
+
+  // 监听尺寸变化 重置图表
+  useEffect(() => {
+    chartRef.current.resize({
       width: chartWidth,
       height: chartHeight,
     });
-    return () => chart?.dispose();
-  }, [chartWidth, chartHeight]);
+  }, [chartWidth, chartHeight])
+
   // 获取容器的宽高
   const handleLayout = (e) => {
     const { width, height } = e.nativeEvent.layout;
@@ -224,12 +242,10 @@ const styles = StyleSheet.create({
 
 这是最终的效果：
 
-| iOS                            | Android                                |
-| ------------------------------ | -------------------------------------- |
+| iOS                      | Android                          |
+| ------------------------ | -------------------------------- |
 | ![ios](./ios_rotate.gif) | ![android](./android_rotate.gif) |
 
 如果你想使用 react-native-skia，只需将 SvgChart 替换为 SkiaChart。
 
 更多图表配置，可以参考[echarts 文档](https://echarts.apache.org/zh/option.html#title)。
-
-

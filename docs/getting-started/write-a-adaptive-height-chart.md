@@ -28,6 +28,7 @@ echarts.use([SVGRenderer, LineChart, GridComponent]);
 ```tsx
 export default function App() {
   const skiaRef = useRef<any>(null);
+  const chartRef = useRef<any>(null);
   const [chartWidth, setChartWidth] = useState<number>(0);
   const [chartHeight, setChartHeight] = useState<number>(0);
 }
@@ -115,6 +116,17 @@ const handleDimensionsChange = (e) => {
 };
 ```
 
+8. Redraw the chart.
+
+```tsx
+useEffect(() => {
+  chartRef.current.resize({
+    width: chartWidth,
+    height: chartHeight,
+  });
+}, [chartWidth, chartHeight]);
+```
+
 The complete code is as follows:
 
 ```tsx
@@ -129,6 +141,7 @@ echarts.use([SVGRenderer, LineChart, GridComponent]);
 
 export default function App() {
   const skiaRef = useRef<any>(null);
+  const chartRef = useRef<any>(null);
   const [chartWidth, setChartWidth] = useState<number>(0);
   const [chartHeight, setChartHeight] = useState<number>(0);
 
@@ -187,12 +200,18 @@ export default function App() {
         height: chartHeight,
       });
       chart.setOption(option);
+      chartRef.current = chart;
     }
-    chart.resize({
+    return () => chart?.dispose();
+  }, []);
+
+
+  // watching for size changes, redraw the chart.
+  useEffect(() => {
+    chartRef.current.resize({
       width: chartWidth,
       height: chartHeight,
     });
-    return () => chart?.dispose();
   }, [chartWidth, chartHeight]);
 
   // Get the width and height of the container
@@ -228,8 +247,8 @@ const styles = StyleSheet.create({
 
 You should see the following screen:
 
-| iOS                            | Android                                |
-| ------------------------------ | -------------------------------------- |
+| iOS                      | Android                          |
+| ------------------------ | -------------------------------- |
 | ![ios](./ios_rotate.gif) | ![android](./android_rotate.gif) |
 
 If you want to use the react-native-skia，just replace the SvgChart with SkiaChart。

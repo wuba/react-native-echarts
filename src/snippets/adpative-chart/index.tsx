@@ -11,6 +11,7 @@ echarts.use([SVGRenderer]);
 
 export default function App() {
     const skiaRef = useRef<any>(null);
+    const chartRef = useRef<any>(null);
     const [chartWidth, setChartWidth] = useState<number>(0);
     const [chartHeight, setChartHeight] = useState<number>(0);
   
@@ -69,13 +70,18 @@ export default function App() {
           height: chartHeight,
         });
         chart.setOption(option);
+        chartRef.current = chart;
       }
-      chart.resize({
+      return () => chart?.dispose();
+    }, []);
+
+    // watching for size changes, redraw the chart.
+    useEffect(() => {
+      chartRef.current.resize({
         width: chartWidth,
         height: chartHeight,
       });
-      return () => chart?.dispose();
-    }, [chartWidth, chartHeight]);
+    }, [chartWidth, chartHeight])
 
     // Get the width and height of the container
     const handleLayout = (e) => {
