@@ -13,15 +13,28 @@ interface SVGPainterOption {
   ssr?: boolean;
 }
 
+interface RootProps extends HTMLElement {
+  getChartSize: () => {
+    width: number,
+    height: number
+  }
+}
+
+
 global.DOMParser = DOMParser;
 class CustomSVGPainter extends SVGPainter {
   constructor(
-    root: HTMLElement,
+    root: RootProps,
     storage: Storage,
     opts: SVGPainterOption,
     id: number
   ) {
     if (isRn) {
+      // Prioritize taking the width and height set in the configuration;
+      // if not available, then take the width and height set in the styles.
+      const { width, height } = root.getChartSize();
+      opts.width = opts.width || width;
+      opts.height = opts.height || height;
       // @ts-ignore
       super(null, storage, opts);
       // @ts-ignore

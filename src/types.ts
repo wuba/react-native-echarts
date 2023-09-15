@@ -58,6 +58,9 @@ export type SkiaChartProps = CommonChartProps & {
   svg?: string;
   width?: number;
   height?: number;
+  style?: {
+    [key in string]: string | number;
+  };
 };
 
 export type SVGVNodeAttrs = Record<
@@ -78,6 +81,9 @@ export interface SVGVNode {
 
 export type SVGChartProps = CommonChartProps & {
   node?: SVGVNode;
+  style?: {
+    [key in string]: string | number;
+  };
 };
 
 export type ChartElement = {

@@ -191,15 +191,15 @@ function SvgComponent(
   props: SVGChartProps,
   ref: ForwardedRef<(ChartElement & any) | null>
 ) {
-  const { node, handleGesture = true, ...gestureProps } = props;
+  const { node, style, handleGesture = true, ...gestureProps } = props;
   const [svgNode, setSvgNode] = useState<SVGVNode | undefined>(node);
   const width = useMemo(
-    () => Number(svgNode?.attrs?.width ?? 0),
-    [svgNode?.attrs?.width]
+    () => Number((svgNode?.attrs?.width || style?.width) ?? 0),
+    [svgNode?.attrs?.width, style?.width]
   );
   const height = useMemo(
-    () => Number(svgNode?.attrs?.height ?? 0),
-    [svgNode?.attrs?.height]
+    () => Number((svgNode?.attrs?.height || style?.height) ?? 0),
+    [svgNode?.attrs?.height, style?.height]
   );
   const zrenderId = useRef<number>();
 
@@ -227,12 +227,18 @@ function SvgComponent(
         },
       },
       dispatchEvents,
+      getChartSize: () => {
+        return {
+          width,
+          height,
+        };
+      },
     }),
     [dispatchEvents]
   );
 
   return svgNode ? (
-    <View style={{ width, height }}>
+    <View style={{...style, width, height }}>
       <SvgRoot node={svgNode} />
       {handleGesture ? (
         <GestureHandler dispatchEvents={dispatchEvents} {...gestureProps} />
