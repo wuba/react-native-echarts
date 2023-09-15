@@ -1,3 +1,5 @@
+import type { ViewStyle } from 'react-native';
+
 import type {
   ComposedGesture,
   GestureType,
@@ -58,6 +60,7 @@ export type SkiaChartProps = CommonChartProps & {
   svg?: string;
   width?: number;
   height?: number;
+  style?: ViewStyle;
 };
 
 export type SVGVNodeAttrs = Record<
@@ -78,6 +81,7 @@ export interface SVGVNode {
 
 export type SVGChartProps = CommonChartProps & {
   node?: SVGVNode;
+  style?: ViewStyle;
 };
 
 export type ChartElement = {
