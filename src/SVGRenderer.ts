@@ -15,11 +15,10 @@ interface SVGPainterOption {
 
 interface RootProps extends HTMLElement {
   getChartSize: () => {
-    width: number,
-    height: number
-  }
+    width: number;
+    height: number;
+  };
 }
-
 
 global.DOMParser = DOMParser;
 class CustomSVGPainter extends SVGPainter {

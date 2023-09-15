@@ -49,8 +49,8 @@ function SkiaComponent(
     style,
     ...gestureProps
   } = props;
-  const initialWidth = inlineWidth || style?.width as number;
-  const initialHeight = inlineHeight || style?.height as number;
+  const initialWidth = inlineWidth || (style?.width as number);
+  const initialHeight = inlineHeight || (style?.height as number);
   const [svgString, setSvgString] = useState<SkSVG | undefined>(getSkSvg(svg));
   const [width, setWidth] = useState<number>(initialWidth ?? 0);
   const [height, setHeight] = useState<number>(initialHeight ?? 0);
@@ -100,8 +100,8 @@ function SkiaComponent(
   );
 
   return svgString ? (
-    <View style={{...style, width, height }}>
-      <Canvas style={{...style, width, height }} pointerEvents="auto">
+    <View style={{ ...style, width, height }}>
+      <Canvas style={{ ...style, width, height }} pointerEvents="auto">
         <ImageSVG svg={svgString} x={0} y={0} width={width} height={height} />
       </Canvas>
       {handleGesture ? (

@@ -234,11 +234,11 @@ function SvgComponent(
         };
       },
     }),
-    [dispatchEvents]
+    [dispatchEvents, width, height]
   );
 
   return svgNode ? (
-    <View style={{...style, width, height }}>
+    <View style={{ ...style, width, height }}>
       <SvgRoot node={svgNode} />
       {handleGesture ? (
         <GestureHandler dispatchEvents={dispatchEvents} {...gestureProps} />
