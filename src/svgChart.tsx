@@ -146,6 +146,7 @@ function SvgEle(props: SVGVEleProps) {
     attrs.clipRule = 'nonzero';
   }
   if (tag === 'path') {
+    if (!attrs.d) return null;
     return <Path {...attrs} />;
   }
   if (tag === 'linearGradient' || tag === 'radialGradient') {
