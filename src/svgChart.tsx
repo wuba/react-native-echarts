@@ -146,6 +146,8 @@ function SvgEle(props: SVGVEleProps) {
     attrs.clipRule = 'nonzero';
   }
   if (tag === 'path') {
+    // 全部数据为空，iOS渲染有问题，无效的path过滤掉
+    if (!attrs.d) return null;
     return <Path {...attrs} />;
   }
   if (tag === 'linearGradient' || tag === 'radialGradient') {
