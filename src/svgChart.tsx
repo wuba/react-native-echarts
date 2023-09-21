@@ -121,9 +121,16 @@ function SvgEle(props: SVGVEleProps) {
         .forEach((match: string) => {
           const parts = match.split(':');
           const key = parts[0]?.trim();
-          const value = parts[1]?.trim();
-
+          let value = parts[1]?.trim();
           if (key) {
+            // echart里默认字体sans-serif，ios无法识别
+            if (
+              Platform.OS === 'ios' &&
+              key === 'font-family' &&
+              value === 'sans-serif'
+            ) {
+              value = 'Helvetica Neue';
+            }
             attrs[toCamelCase(key)] = value;
           }
         });
