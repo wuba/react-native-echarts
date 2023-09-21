@@ -94,7 +94,7 @@ interface SVGVEleProps {
   touchEnd?: any;
 }
 
-const fontStyleReg = /([\w-]+):([\w-]+)/g;
+const fontStyleReg = /([\w-]+):([\w-]+)/;
 function SvgEle(props: SVGVEleProps) {
   const { node } = props;
   if (!node) return null;
@@ -117,13 +117,20 @@ function SvgEle(props: SVGVEleProps) {
 
       const matches = attrs.style.split(';');
       matches
-        .filter((match: string) => fontStyleReg.test(match) && match.length > 0)
+        .filter((match: string) => fontStyleReg.test(match))
         .forEach((match: string) => {
           const parts = match.split(':');
           const key = parts[0]?.trim();
-          const value = parts[1]?.trim();
-          // 修复 text 属性无效的问题
-          if (key && key !== 'font-family') {
+          let value = parts[1]?.trim();
+          if (key) {
+            // iOS不支持默认字体'sans-serif', 修改为iOS的默认字体
+            if (
+              Platform.OS === 'ios' &&
+              key === 'font-family' &&
+              value === 'sans-serif'
+            ) {
+              value = 'Helvetica Neue';
+            }
             attrs[toCamelCase(key)] = value;
           }
         });
