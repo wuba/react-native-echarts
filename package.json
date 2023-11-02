@@ -67,11 +67,11 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^28.1.1",
-    "metro-react-native-babel-preset": "0.76.5",
+    "metro-react-native-babel-preset": "0.76.8",
     "pod-install": "^0.1.0",
     "prettier": "^2.0.5",
     "react": "18.2.0",
-    "react-native": "0.72.1",
+    "react-native": "0.72.6",
     "react-native-builder-bob": "^0.20.0",
     "react-native-gesture-handler": "~2.12.0",
     "react-native-svg": "13.9.0",
@@ -91,7 +91,6 @@
   "engines": {
     "node": ">= 14.0.0"
   },
-  "packageManager": "^yarn@1.22.15",
   "jest": {
     "preset": "react-native",
     "modulePathIgnorePatterns": [
