@@ -1,6 +1,6 @@
 import React from 'react';
 
-const defaultDependencies = ['@wuba/react-native-echarts@1.2.1-all.0', 'react-native-svg', 'react-native-reanimated', '@shopify/react-native-skia', 'react-native-gesture-handler']
+const defaultDependencies = ['@wuba/react-native-echarts@1.2.5-all.0', 'react-native-svg', 'react-native-reanimated', '@shopify/react-native-skia', 'react-native-gesture-handler']
 
 type SnackPlayerProps = {
     name?: string;
@@ -27,8 +27,12 @@ export default function SnackPlayer(params: SnackPlayerProps): JSX.Element {
         JSON.stringify({
             [filename]: {
                 type: 'CODE',
-                contents: params.children,
+                contents: `import './polyfills';// temporary fixes for snack error\n${params.children}`,
             },
+            'polyfills.js': {
+                type: 'CODE',
+                contents: `global.__reanimatedWorkletInit = function () {};export default {}`,
+            }
         })
     );
     const dependencies = params.dependencies || defaultDependencies.join(',');

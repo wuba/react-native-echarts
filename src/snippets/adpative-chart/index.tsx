@@ -3,7 +3,7 @@
 // https://github.com/apache/echarts-examples/blob/gh-pages/public/examples/ts/area-simple.ts
 // under Apache License 2.0.
 
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { StyleSheet, View, Dimensions } from "react-native";
 import { SVGRenderer, SkiaChart, echarts } from "@wuba/react-native-echarts";
 
