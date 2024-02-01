@@ -113,7 +113,7 @@ export function RNGestureHandler({
 
   return (
     <GestureDetector gesture={gesture}>
-      <View style={styles.GestureView} />
+      <View testID="gesture-handler" style={styles.GestureView} />
     </GestureDetector>
   );
 }

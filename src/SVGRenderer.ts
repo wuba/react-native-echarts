@@ -5,7 +5,7 @@ import { updateAttrs } from 'zrender/lib/svg/patch';
 import type Storage from 'zrender/lib/Storage';
 import { DOMParser } from '@xmldom/xmldom';
 
-const isRn = navigator?.product === 'ReactNative';
+const isRn = globalThis.navigator?.product === 'ReactNative';
 
 interface SVGPainterOption {
   width?: number;
