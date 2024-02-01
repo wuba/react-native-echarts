@@ -55,6 +55,7 @@
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.7",
     "@commitlint/config-conventional": "^17.0.2",
+    "@react-native/babel-preset": "0.73.19",
     "@react-native-community/eslint-config": "^3.0.2",
     "@release-it/conventional-changelog": "^5.0.0",
     "@shopify/react-native-skia": "0.1.221",
@@ -62,12 +63,11 @@
     "@types/react": "~18.2.14",
     "commitlint": "^17.0.2",
     "del-cli": "^5.0.0",
-    "echarts": "^5.4.1",
+    "echarts": "^5.5.0",
     "eslint": "^8.4.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^28.1.1",
-    "metro-react-native-babel-preset": "0.76.8",
     "pod-install": "^0.1.0",
     "prettier": "^2.0.5",
     "react": "18.2.0",
@@ -76,8 +76,8 @@
     "react-native-gesture-handler": "~2.14.0",
     "react-native-svg": "14.1.0",
     "release-it": "^15.0.0",
-    "typescript": "^4.5.2",
-    "zrender": "^5.4.1"
+    "typescript": "^5.0.4",
+    "zrender": "^5.5.0"
   },
   "peerDependencies": {
     "@shopify/react-native-skia": "*",

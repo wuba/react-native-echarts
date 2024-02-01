@@ -11,7 +11,7 @@
   "dependencies": {
     "@expo/webpack-config": "~19.0.1",
     "@shopify/react-native-skia": "0.1.221",
-    "echarts": "^5.4.1",
+    "echarts": "^5.5.0",
     "expo": "^50.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -19,7 +19,7 @@
     "react-native-gesture-handler": "~2.14.0",
     "react-native-svg": "14.1.0",
     "react-native-web": "~0.19.6",
-    "zrender": "^5.4.1"
+    "zrender": "^5.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

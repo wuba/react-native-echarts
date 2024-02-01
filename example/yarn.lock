@@ -4042,13 +4042,13 @@ dotenv@~16.0.3:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.3.tgz#115aec42bac5053db3c456db30cc243a5a836a07"
   integrity sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==
 
-echarts@^5.4.1:
-  version "5.4.3"
-  resolved "https://registry.yarnpkg.com/echarts/-/echarts-5.4.3.tgz#f5522ef24419164903eedcfd2b506c6fc91fb20c"
-  integrity sha512-mYKxLxhzy6zyTi/FaEbJMOZU1ULGEQHaeIeuMR5L+JnJTpz+YR03mnnpBhbR4+UYJAgiXgpyTVLffPAjOTLkZA==
+echarts@^5.5.0:
+  version "5.5.0-rc.1"
+  resolved "https://registry.yarnpkg.com/echarts/-/echarts-5.5.0-rc.1.tgz#31ee2c4e09da24fe8149bb011c1fbd271a2bf10f"
+  integrity sha512-Fnfls+zDAg9HLuWK27JakdjLjpkEZsKTk+eeSA6eOqphBNA9iXCI1CvQJZ5xD8WJY40bqdh4zCaE4AxSDjJslw==
   dependencies:
     tslib "2.3.0"
-    zrender "5.4.4"
+    zrender "5.5.0"
 
 ee-first@1.1.1:
   version "1.1.1"
@@ -8834,9 +8834,9 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zrender@5.4.4, zrender@^5.4.1:
-  version "5.4.4"
-  resolved "https://registry.yarnpkg.com/zrender/-/zrender-5.4.4.tgz#8854f1d95ecc82cf8912f5a11f86657cb8c9e261"
-  integrity sha512-0VxCNJ7AGOMCWeHVyTrGzUgrK4asT4ml9PEkeGirAkKNYXYzoPJCLvmyfdoOXcjTHPs10OZVMfD1Rwg16AZyYw==
+zrender@5.5.0, zrender@^5.5.0:
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/zrender/-/zrender-5.5.0.tgz#54d0d6c4eda81a96d9f60a9cd74dc48ea026bc1e"
+  integrity sha512-O3MilSi/9mwoovx77m6ROZM7sXShR/O/JIanvzTwjN3FORfLSr81PsUGd7jlaYOeds9d8tw82oP44+3YucVo+w==
   dependencies:
     tslib "2.3.0"
