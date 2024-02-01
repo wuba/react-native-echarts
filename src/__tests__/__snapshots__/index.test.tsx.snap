@@ -1,0 +1,368 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SkiaChart Component does not render Canvas when svgString is not provided 1`] = `null`;
+
+exports[`SkiaChart Component does not render GestureHandler when handleGesture is false 1`] = `
+<View
+  style={
+    {
+      "height": 0,
+      "width": 0,
+    }
+  }
+  testID="component"
+/>
+`;
+
+exports[`SkiaChart Component renders Canvas when svgString is provided 1`] = `
+<View
+  style={
+    {
+      "height": 0,
+      "width": 0,
+    }
+  }
+  testID="component"
+>
+  <View
+    onMoveShouldSetResponder={[Function]}
+    onMoveShouldSetResponderCapture={[Function]}
+    onResponderEnd={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderReject={[Function]}
+    onResponderRelease={[Function]}
+    onResponderStart={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    onStartShouldSetResponderCapture={[Function]}
+    style={
+      {
+        "backgroundColor": "rgba(0,0,0,0)",
+        "height": "100%",
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+    testID="pan-responder-handler"
+  />
+</View>
+`;
+
+exports[`SkiaChart Component renders GestureHandler when handleGesture is true and useRNGH is ture 1`] = `
+<View
+  style={
+    {
+      "height": 0,
+      "width": 0,
+    }
+  }
+  testID="component"
+>
+  <View
+    collapsable={false}
+    style={
+      {
+        "backgroundColor": "rgba(0,0,0,0)",
+        "height": "100%",
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+    testID="gesture-handler"
+  />
+</View>
+`;
+
+exports[`SkiaChart Component renders PanResponderHandler when handleGesture is true and useRNGH is false 1`] = `
+<View
+  style={
+    {
+      "height": 0,
+      "width": 0,
+    }
+  }
+  testID="component"
+>
+  <View
+    onMoveShouldSetResponder={[Function]}
+    onMoveShouldSetResponderCapture={[Function]}
+    onResponderEnd={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderReject={[Function]}
+    onResponderRelease={[Function]}
+    onResponderStart={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    onStartShouldSetResponderCapture={[Function]}
+    style={
+      {
+        "backgroundColor": "rgba(0,0,0,0)",
+        "height": "100%",
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+    testID="pan-responder-handler"
+  />
+</View>
+`;
+
+exports[`SkiaChart Component renders correctly 1`] = `null`;
+
+exports[`SvgChart Component does not render Canvas when svgString is not provided 1`] = `null`;
+
+exports[`SvgChart Component does not render GestureHandler when handleGesture is false 1`] = `
+<View
+  style={
+    {
+      "height": 100,
+      "width": 100,
+    }
+  }
+  testID="component"
+>
+  <RNSVGSvgView
+    align="xMidYMid"
+    bbHeight="100"
+    bbWidth="100"
+    focusable={false}
+    height={100}
+    meetOrSlice={0}
+    minX={0}
+    minY={0}
+    style={
+      [
+        {
+          "backgroundColor": "transparent",
+          "borderWidth": 0,
+        },
+        {
+          "flex": 0,
+          "height": 100,
+          "width": 100,
+        },
+      ]
+    }
+    vbHeight={100}
+    vbWidth={100}
+    width={100}
+  >
+    <RNSVGGroup
+      fill={
+        {
+          "payload": 4278190080,
+          "type": 0,
+        }
+      }
+    />
+  </RNSVGSvgView>
+</View>
+`;
+
+exports[`SvgChart Component renders Canvas when svgString is provided 1`] = `
+<View
+  style={
+    {
+      "height": 100,
+      "width": 100,
+    }
+  }
+  testID="component"
+>
+  <RNSVGSvgView
+    align="xMidYMid"
+    bbHeight="100"
+    bbWidth="100"
+    focusable={false}
+    height={100}
+    meetOrSlice={0}
+    minX={0}
+    minY={0}
+    style={
+      [
+        {
+          "backgroundColor": "transparent",
+          "borderWidth": 0,
+        },
+        {
+          "flex": 0,
+          "height": 100,
+          "width": 100,
+        },
+      ]
+    }
+    vbHeight={100}
+    vbWidth={100}
+    width={100}
+  >
+    <RNSVGGroup
+      fill={
+        {
+          "payload": 4278190080,
+          "type": 0,
+        }
+      }
+    />
+  </RNSVGSvgView>
+  <View
+    onMoveShouldSetResponder={[Function]}
+    onMoveShouldSetResponderCapture={[Function]}
+    onResponderEnd={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderReject={[Function]}
+    onResponderRelease={[Function]}
+    onResponderStart={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    onStartShouldSetResponderCapture={[Function]}
+    style={
+      {
+        "backgroundColor": "rgba(0,0,0,0)",
+        "height": "100%",
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+    testID="pan-responder-handler"
+  />
+</View>
+`;
+
+exports[`SvgChart Component renders GestureHandler when handleGesture is true and useRNGH is ture 1`] = `
+<View
+  style={
+    {
+      "height": 100,
+      "width": 100,
+    }
+  }
+  testID="component"
+>
+  <RNSVGSvgView
+    align="xMidYMid"
+    bbHeight="100"
+    bbWidth="100"
+    focusable={false}
+    height={100}
+    meetOrSlice={0}
+    minX={0}
+    minY={0}
+    style={
+      [
+        {
+          "backgroundColor": "transparent",
+          "borderWidth": 0,
+        },
+        {
+          "flex": 0,
+          "height": 100,
+          "width": 100,
+        },
+      ]
+    }
+    vbHeight={100}
+    vbWidth={100}
+    width={100}
+  >
+    <RNSVGGroup
+      fill={
+        {
+          "payload": 4278190080,
+          "type": 0,
+        }
+      }
+    />
+  </RNSVGSvgView>
+  <View
+    collapsable={false}
+    style={
+      {
+        "backgroundColor": "rgba(0,0,0,0)",
+        "height": "100%",
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+    testID="gesture-handler"
+  />
+</View>
+`;
+
+exports[`SvgChart Component renders PanResponderHandler when handleGesture is true and useRNGH is false 1`] = `
+<View
+  style={
+    {
+      "height": 100,
+      "width": 100,
+    }
+  }
+  testID="component"
+>
+  <RNSVGSvgView
+    align="xMidYMid"
+    bbHeight="100"
+    bbWidth="100"
+    focusable={false}
+    height={100}
+    meetOrSlice={0}
+    minX={0}
+    minY={0}
+    style={
+      [
+        {
+          "backgroundColor": "transparent",
+          "borderWidth": 0,
+        },
+        {
+          "flex": 0,
+          "height": 100,
+          "width": 100,
+        },
+      ]
+    }
+    vbHeight={100}
+    vbWidth={100}
+    width={100}
+  >
+    <RNSVGGroup
+      fill={
+        {
+          "payload": 4278190080,
+          "type": 0,
+        }
+      }
+    />
+  </RNSVGSvgView>
+  <View
+    onMoveShouldSetResponder={[Function]}
+    onMoveShouldSetResponderCapture={[Function]}
+    onResponderEnd={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderReject={[Function]}
+    onResponderRelease={[Function]}
+    onResponderStart={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    onStartShouldSetResponderCapture={[Function]}
+    style={
+      {
+        "backgroundColor": "rgba(0,0,0,0)",
+        "height": "100%",
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+    testID="pan-responder-handler"
+  />
+</View>
+`;
+
+exports[`SvgChart Component renders correctly 1`] = `null`;

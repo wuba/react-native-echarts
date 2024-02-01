@@ -247,7 +247,7 @@ function SvgComponent(
   );
 
   return svgNode ? (
-    <View style={{ ...style, width, height }}>
+    <View testID="component" style={{ ...style, width, height }}>
       <SvgRoot node={svgNode} />
       {handleGesture ? (
         <GestureHandler dispatchEvents={dispatchEvents} {...gestureProps} />
@@ -256,4 +256,6 @@ function SvgComponent(
   ) : null;
 }
 
-export default memo(forwardRef(SvgComponent));
+const SvgChart = memo(forwardRef(SvgComponent));
+SvgChart.displayName = 'SvgChart';
+export default SvgChart;

@@ -100,7 +100,7 @@ function SkiaComponent(
   );
 
   return svgString ? (
-    <View style={{ ...style, width, height }}>
+    <View testID="component" style={{ ...style, width, height }}>
       <Canvas style={{ ...style, width, height }} pointerEvents="auto">
         <ImageSVG svg={svgString} x={0} y={0} width={width} height={height} />
       </Canvas>
@@ -111,4 +111,6 @@ function SkiaComponent(
   ) : null;
 }
 
-export default memo(forwardRef(SkiaComponent));
+const SkiaChart = memo(forwardRef(SkiaComponent));
+SkiaChart.displayName = 'SkiaChart';
+export default SkiaChart;
