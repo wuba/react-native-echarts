@@ -20,6 +20,7 @@ export const getDefaultPanRNGesture = (
 ) => {
   return Gesture.Pan()
     .runOnJS(true)
+    .withTestId('RNGH-pan-handler')
     .maxPointers(1)
     .onBegin((e) => {
       dispatchEvents(['mousedown', 'mousemove'], e);
@@ -40,6 +41,7 @@ export const getDefaultPinchRNGesture = (
 ) => {
   return Gesture.Pinch()
     .runOnJS(true)
+    .withTestId('RNGH-pinch-handler')
     .onUpdate(
       throttle((e) => {
         dispatchEvents(['mousewheel'], e, {
@@ -57,6 +59,7 @@ export const getDefaultTapRNGesture = (
 ) => {
   return Gesture.Tap()
     .runOnJS(true)
+    .withTestId('RNGH-tap-handler')
     .onStart((e) => {
       dispatchEvents(['mousedown', 'mousemove'], e);
     })

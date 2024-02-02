@@ -5,9 +5,9 @@ runs:
   using: composite
   steps:
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: 16.x
+        node-version: lts/*
 
     - name: Cache dependencies
       id: yarn-cache
@@ -15,13 +15,13 @@ runs:
       with:
         path: |
           **/node_modules
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        key: ${{ runner.os }}-yarn-v1-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
-          ${{ runner.os }}-yarn-
+          ${{ runner.os }}-yarn-v1-
 
     - name: Install dependencies
       if: steps.yarn-cache.outputs.cache-hit != 'true'
       run: |
         yarn install --cwd example --frozen-lockfile
-        yarn install --frozen-lockfile
+        yarn install --frozen-lockfile --ignore-engines
       shell: bash

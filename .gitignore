@@ -77,3 +77,6 @@ lib/
 
 # Docusaurus (when switching from docs branches to code branches)
 .docusaurus/
+
+# jest
+coverage/

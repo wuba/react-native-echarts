@@ -1,8 +1,8 @@
 module.exports = {
-  preset: "react-native",
+  preset: 'react-native',
   modulePathIgnorePatterns: [
-    "<rootDir>/example/node_modules",
-    "<rootDir>/lib/"
+    '<rootDir>/example/node_modules',
+    '<rootDir>/lib/',
   ],
   transformIgnorePatterns: [
     'node_modules/(?!(react-native|react-native.*|@react-native.*|@?react-navigation.*|@shopify/react-native-skia|zrender|echarts)/)',
@@ -10,7 +10,7 @@ module.exports = {
   setupFiles: [
     '@shopify/react-native-skia/jestSetup.js',
     'react-native-gesture-handler/jestSetup.js',
-    './jestSetup.js'
+    './jestSetup.js',
   ],
-  testTimeout: 30000,
+  testTimeout: 10000,
 };

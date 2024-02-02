@@ -8,7 +8,13 @@ import React, {
   useRef,
 } from 'react';
 
-import { Canvas, ImageSVG, Skia, SkSVG, useCanvasRef } from '@shopify/react-native-skia';
+import {
+  Canvas,
+  ImageSVG,
+  Skia,
+  SkSVG,
+  useCanvasRef,
+} from '@shopify/react-native-skia';
 
 import { View } from 'react-native';
 
@@ -55,7 +61,7 @@ function SkiaComponent(
   const [width, setWidth] = useState<number>(initialWidth ?? 0);
   const [height, setHeight] = useState<number>(initialHeight ?? 0);
   const zrenderId = useRef<number>();
-  const canvasRef = useCanvasRef();
+  const canvasRef = useCanvasRef?.();
 
   const dispatchEvents = useCallback<DispatchEvents>(
     (types, nativeEvent, eventArgs) => {
@@ -88,9 +94,11 @@ function SkiaComponent(
           zrenderId.current = id;
         },
         makeImageSnapshot: () => {
-          const image = canvasRef.current?.makeImageSnapshot();
-          return image ? `data:image/png;base64,${image.encodeToBase64()}` : null;
-        }
+          const image = canvasRef?.current?.makeImageSnapshot();
+          return image
+            ? `data:image/png;base64,${image.encodeToBase64()}`
+            : null;
+        },
       },
       viewprot: {},
       dispatchEvents,
@@ -101,12 +109,16 @@ function SkiaComponent(
         };
       },
     }),
-    [dispatchEvents, initialWidth, initialHeight]
+    [dispatchEvents, initialWidth, initialHeight, canvasRef]
   );
 
   return svgString ? (
     <View testID="component" style={{ ...style, width, height }}>
-      <Canvas style={{ ...style, width, height }} pointerEvents="auto" ref={canvasRef}>
+      <Canvas
+        style={{ ...style, width, height }}
+        pointerEvents="auto"
+        ref={canvasRef}
+      >
         <ImageSVG svg={svgString} x={0} y={0} width={width} height={height} />
       </Canvas>
       {handleGesture ? (
