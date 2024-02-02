@@ -5,7 +5,6 @@ import { updateAttrs } from 'zrender/lib/svg/patch';
 import type Storage from 'zrender/lib/Storage';
 import { DOMParser } from '@xmldom/xmldom';
 
-const isRn = globalThis.navigator?.product === 'ReactNative';
 env.svgSupported = true;
 
 interface SVGPainterOption {
@@ -29,55 +28,42 @@ class CustomSVGPainter extends SVGPainter {
     opts: SVGPainterOption,
     id: number
   ) {
-    if (isRn) {
-      // Prioritize taking the width and height set in the configuration;
-      // if not available, then take the width and height set in the styles.
-      const { width, height } = root.getChartSize();
-      opts.width = opts.width || width;
-      opts.height = opts.height || height;
-      // @ts-ignore
-      super(null, storage, opts);
-      // @ts-ignore
-      this._svgDom = this._oldVNode.elm = root.elm;
-      // @ts-ignore
-      this._svgDom.setZrenderId?.(id);
-      // @ts-ignore
-      updateAttrs(null, this._oldVNode);
-      this.root = root;
-    } else {
-      super(root, storage, opts);
-    }
+    // Prioritize taking the width and height set in the configuration;
+    // if not available, then take the width and height set in the styles.
+    const { width, height } = root.getChartSize();
+    opts.width = opts.width || width;
+    opts.height = opts.height || height;
+    // @ts-ignore
+    super(null, storage, opts);
+    // @ts-ignore
+    this._svgDom = this._oldVNode.elm = root.elm;
+    // @ts-ignore
+    this._svgDom.setZrenderId?.(id);
+    // @ts-ignore
+    updateAttrs(null, this._oldVNode);
+    this.root = root;
   }
   refresh() {
-    if (isRn) {
-      const vnode = this.renderToVNode({
-        willUpdate: true,
-      });
-      // Disable user selection.
-      vnode.attrs.style = 'position:absolute;left:0;top:0;user-select:none';
-      // @ts-ignore
-      if (this._svgDom.patch) {
-        // @ts-ignore
-        this._svgDom.patch(this._oldVNode, vnode);
-        // @ts-ignore
-      } else if (this._svgDom.patchString) {
-        // @ts-ignore
-        this._svgDom.patchString(this._oldVNode, vNodeToString(vnode));
-      }
-      // @ts-ignore
-      this._oldVNode = vnode;
-    } else {
-      super.refresh();
-    }
-  }
-  toDataURL(base64?: boolean):string {
+    const vnode = this.renderToVNode({
+      willUpdate: true,
+    });
+    // Disable user selection.
+    vnode.attrs.style = 'position:absolute;left:0;top:0;user-select:none';
     // @ts-ignore
-    if (isRn && this._svgDom.makeImageSnapshot) {
+    if (this._svgDom.patch) {
       // @ts-ignore
-      return this._svgDom.makeImageSnapshot() || super.toDataURL(base64);
-    } else {
-      return super.toDataURL(base64);
+      this._svgDom.patch(this._oldVNode, vnode);
+      // @ts-ignore
+    } else if (this._svgDom.patchString) {
+      // @ts-ignore
+      this._svgDom.patchString(this._oldVNode, vNodeToString(vnode));
     }
+    // @ts-ignore
+    this._oldVNode = vnode;
+  }
+  toDataURL(base64?: boolean): string {
+    // @ts-ignore
+    return this._svgDom.makeImageSnapshot?.() || super.toDataURL(base64);
   }
 }
 

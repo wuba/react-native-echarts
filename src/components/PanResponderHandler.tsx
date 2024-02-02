@@ -33,7 +33,13 @@ export function PanResponderHandler({
   dispatchEvents,
 }: PanResponderHandlerProps) {
   const [panResponder] = usePanResponder(dispatchEvents);
-  return <View testID="pan-responder-handler" {...panResponder.panHandlers} style={styles.GestureView} />;
+  return (
+    <View
+      testID="pan-responder-handler"
+      {...panResponder.panHandlers}
+      style={styles.GestureView}
+    />
+  );
 }
 
 export function usePanResponder(
