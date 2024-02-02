@@ -1,11 +1,12 @@
+import env from 'zrender/lib/core/env';
 import SVGPainter from 'zrender/lib/svg/Painter';
-
 import { vNodeToString } from './SVGCore';
 import { updateAttrs } from 'zrender/lib/svg/patch';
 import type Storage from 'zrender/lib/Storage';
 import { DOMParser } from '@xmldom/xmldom';
 
 const isRn = globalThis.navigator?.product === 'ReactNative';
+env.svgSupported = true;
 
 interface SVGPainterOption {
   width?: number;
@@ -67,6 +68,15 @@ class CustomSVGPainter extends SVGPainter {
       this._oldVNode = vnode;
     } else {
       super.refresh();
+    }
+  }
+  toDataURL(base64?: boolean):string {
+    // @ts-ignore
+    if (isRn && this._svgDom.makeImageSnapshot) {
+      // @ts-ignore
+      return this._svgDom.makeImageSnapshot() || super.toDataURL(base64);
+    } else {
+      return super.toDataURL(base64);
     }
   }
 }
