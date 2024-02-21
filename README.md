@@ -3,6 +3,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@wuba/react-native-echarts.svg?style=flat)](https://www.npmjs.com/package/@wuba/react-native-echarts)
 [![npm downloads](https://img.shields.io/npm/dm/@wuba/react-native-echarts)](https://www.npmjs.com/package/@wuba/react-native-echarts)
+[![codecov](https://codecov.io/gh/wuba/react-native-echarts/graph/badge.svg?token=BF6LGEXO55)](https://codecov.io/gh/wuba/react-native-echarts)
 [![issues](https://img.shields.io/github/issues/wuba/react-native-echarts.svg?style=flat)](https://github.com/wuba/react-native-echarts/issues)
 [![GitHub contributors](https://img.shields.io/github/contributors/wuba/react-native-echarts.svg?style=flat)](https://github.com/wuba/react-native-echarts/graphs/contributors)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/wuba/react-native-echarts/pulls)
