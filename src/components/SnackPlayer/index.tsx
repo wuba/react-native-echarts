@@ -27,12 +27,8 @@ export default function SnackPlayer(params: SnackPlayerProps): JSX.Element {
         JSON.stringify({
             [filename]: {
                 type: 'CODE',
-                contents: `import './polyfills';// temporary fixes for snack error\n${params.children}`,
+                contents: params.children,
             },
-            'polyfills.js': {
-                type: 'CODE',
-                contents: `global.__reanimatedWorkletInit = function () {};export default {}`,
-            }
         })
     );
     const dependencies = params.dependencies || defaultDependencies.join(',');
