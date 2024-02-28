@@ -125,6 +125,12 @@ import SkiaChart, { SVGRenderer } from '@wuba/react-native-echarts/skiaChart';
 
 请参阅 [贡献指南](CONTRIBUTING.md) 以了解如何为仓库做出贡献以及开发工作流程。
 
+## 贡献者
+
+这个项目的存在要感谢所有做出贡献的人：
+
+[![](https://opencollective.com/react-native-echarts/contributors.svg?width=890&showBtn=false)](https://github.com/wuba/react-native-echarts/graphs/contributors)
+
 ## 许可
 
 Apache-2.0
