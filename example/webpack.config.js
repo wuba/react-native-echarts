@@ -18,7 +18,6 @@ module.exports = async function (env, argv) {
   // So we alias them to the versions in example's node_modules
   Object.assign(config.resolve.alias, {
     ...resolver.extraNodeModules,
-    'react-native-web': path.join(node_modules, 'react-native-web'),
   });
 
   return config;
