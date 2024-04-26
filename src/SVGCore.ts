@@ -56,7 +56,7 @@ export function vNodeToString(
         attrs['stroke-opacity'] = 0;
       }
       // fix: https://github.com/wuba/react-native-echarts/issues/161
-      if (attrs['fill'] === 'transparent') {
+      if (attrs.fill === 'transparent') {
         attrs['fill-opacity'] = 0;
       }
     }

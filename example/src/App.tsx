@@ -74,7 +74,7 @@ const option = {
     type: 'value',
   },
   tooltip: {
-    trigger: 'axis'
+    trigger: 'axis',
   },
   series: [
     {
@@ -84,7 +84,7 @@ const option = {
     {
       data: [220, 100, 180, 160, 150, 120, 110],
       type: 'line',
-    }
+    },
   ],
 };
 function App() {
