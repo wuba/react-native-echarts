@@ -4,7 +4,7 @@ import { StyleSheet, View, Dimensions } from 'react-native';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 import { SVGRenderer, SkiaChart, SvgChart } from '@wuba/react-native-echarts';
 import * as echarts from 'echarts/core';
-import { BarChart } from 'echarts/charts';
+import { BarChart, LineChart } from 'echarts/charts';
 import {
   TitleComponent,
   TooltipComponent,
@@ -19,6 +19,7 @@ echarts.use([
   SVGRenderer,
   // ...
   BarChart,
+  LineChart,
 ]);
 
 const E_HEIGHT = 250;
@@ -72,10 +73,17 @@ const option = {
   yAxis: {
     type: 'value',
   },
+  tooltip: {
+    trigger: 'axis',
+  },
   series: [
     {
       data: [120, 200, 150, 80, 70, 110, 130],
       type: 'bar',
+    },
+    {
+      data: [220, 100, 180, 160, 150, 120, 110],
+      type: 'line',
     },
   ],
 };
