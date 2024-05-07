@@ -167,8 +167,8 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
   testID="component"
 >
   <RNSVGSvgView
-    bbHeight="250"
-    bbWidth="430"
+    bbHeight={250}
+    bbWidth={430}
     focusable={false}
     height={250}
     style={
@@ -196,13 +196,13 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
     >
       <RNSVGRect
         fill={null}
-        height="250"
+        height={250}
         propList={
           [
             "fill",
           ]
         }
-        width="430"
+        width={430}
         x="0"
         y="0"
       />
@@ -247,7 +247,7 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
             }
           }
           strokeOpacity={0.5}
-          strokeWidth="6.006150297905054"
+          strokeWidth={6.006150297905054}
         />
         <RNSVGPath
           d="M2.5 0A2.5 2.5 0 1 1 2.5 -0.0002"
@@ -395,7 +395,7 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
             }
           }
           strokeMiterlimit={2}
-          strokeWidth="0"
+          strokeWidth={0}
           x={[]}
           y={[]}
         >
@@ -461,7 +461,7 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
             }
           }
           strokeMiterlimit={2}
-          strokeWidth="0"
+          strokeWidth={0}
           x={[]}
           y={[]}
         >
@@ -529,11 +529,11 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
           }
           strokeMiterlimit={2}
           strokeOpacity={0.5}
-          strokeWidth="0"
+          strokeWidth={0}
           x={[]}
           y={
             [
-              "-10",
+              -10,
             ]
           }
         >
@@ -603,8 +603,8 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
     testID="component"
   >
     <RNSVGSvgView
-      bbHeight="250"
-      bbWidth="430"
+      bbHeight={250}
+      bbWidth={430}
       focusable={false}
       height={250}
       style={
@@ -632,13 +632,13 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
       >
         <RNSVGRect
           fill={null}
-          height="250"
+          height={250}
           propList={
             [
               "fill",
             ]
           }
-          width="430"
+          width={430}
           x="0"
           y="0"
         />
@@ -683,7 +683,7 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
               }
             }
             strokeOpacity={0.5}
-            strokeWidth="6.056201550387597"
+            strokeWidth={6.056201550387597}
           />
           <RNSVGPath
             d="M2.5 0A2.5 2.5 0 1 1 2.5 -0.0002"
@@ -864,11 +864,11 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
             }
             strokeMiterlimit={2}
             strokeOpacity={0.5}
-            strokeWidth="0"
+            strokeWidth={0}
             x={[]}
             y={
               [
-                "-10",
+                -10,
               ]
             }
           >
@@ -958,7 +958,7 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
               }
             }
             strokeMiterlimit={2}
-            strokeWidth="0"
+            strokeWidth={0}
             x={[]}
             y={[]}
           >
@@ -1008,8 +1008,8 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
   testID="component"
 >
   <RNSVGSvgView
-    bbHeight="250"
-    bbWidth="430"
+    bbHeight={250}
+    bbWidth={430}
     focusable={false}
     height={250}
     style={
@@ -1037,13 +1037,13 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
     >
       <RNSVGRect
         fill={null}
-        height="250"
+        height={250}
         propList={
           [
             "fill",
           ]
         }
-        width="430"
+        width={430}
         x="0"
         y="0"
       />
@@ -1067,6 +1067,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -1075,6 +1076,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M43 150.5L387 150.5"
@@ -1088,6 +1090,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -1096,6 +1099,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M43 120.5L387 120.5"
@@ -1109,6 +1113,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -1117,6 +1122,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M43 90.5L387 90.5"
@@ -1130,6 +1136,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -1138,6 +1145,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M43 60.5L387 60.5"
@@ -1151,6 +1159,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -1159,6 +1168,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M43 180.5L387 180.5"
@@ -1172,6 +1182,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
               "strokeLinecap",
             ]
           }
@@ -1182,6 +1193,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
             }
           }
           strokeLinecap={1}
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M43.5 180L43.5 185"
@@ -1195,6 +1207,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -1203,6 +1216,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M215.5 180L215.5 185"
@@ -1216,6 +1230,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -1224,6 +1239,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M387.5 180L387.5 185"
@@ -1237,6 +1253,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -1245,6 +1262,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGText
           alignmentBaseline="middle"
@@ -1560,7 +1578,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           x={[]}
           y={
             [
-              "6",
+              6,
             ]
           }
         >
@@ -1619,7 +1637,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           x={[]}
           y={
             [
-              "6",
+              6,
             ]
           }
         >
@@ -1707,8 +1725,8 @@ exports[`SvgChart Chart renders correctly 2`] = `
   testID="component"
 >
   <RNSVGSvgView
-    bbHeight="250"
-    bbWidth="430"
+    bbHeight={250}
+    bbWidth={430}
     focusable={false}
     height={250}
     style={
@@ -1736,13 +1754,13 @@ exports[`SvgChart Chart renders correctly 2`] = `
     >
       <RNSVGRect
         fill={null}
-        height="250"
+        height={250}
         propList={
           [
             "fill",
           ]
         }
-        width="430"
+        width={430}
         x="0"
         y="0"
       />
@@ -1766,6 +1784,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -1774,6 +1793,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M43 150.5L387 150.5"
@@ -1787,6 +1807,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -1795,6 +1816,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M43 120.5L387 120.5"
@@ -1808,6 +1830,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -1816,6 +1839,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M43 90.5L387 90.5"
@@ -1829,6 +1853,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -1837,6 +1862,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M43 60.5L387 60.5"
@@ -1850,6 +1876,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -1858,6 +1885,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M43 180.5L387 180.5"
@@ -1871,6 +1899,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
               "strokeLinecap",
             ]
           }
@@ -1881,6 +1910,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
             }
           }
           strokeLinecap={1}
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M43.5 180L43.5 185"
@@ -1894,6 +1924,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -1902,6 +1933,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M215.5 180L215.5 185"
@@ -1915,6 +1947,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -1923,6 +1956,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M387.5 180L387.5 185"
@@ -1936,6 +1970,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -1944,6 +1979,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGText
           alignmentBaseline="middle"
@@ -2259,7 +2295,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
           x={[]}
           y={
             [
-              "6",
+              6,
             ]
           }
         >
@@ -2318,7 +2354,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
           x={[]}
           y={
             [
-              "6",
+              6,
             ]
           }
         >
@@ -2370,7 +2406,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
               }
             }
             strokeLinejoin={2}
-            strokeWidth="2"
+            strokeWidth={2}
           />
         </RNSVGGroup>
         <RNSVGPath
@@ -2395,6 +2431,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -2403,6 +2440,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M1 0A1 1 0 1 1 1 -0.0001"
@@ -2426,6 +2464,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -2434,6 +2473,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
       </RNSVGGroup>
       <RNSVGDefs>
@@ -2501,8 +2541,8 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
   testID="component"
 >
   <RNSVGSvgView
-    bbHeight="250"
-    bbWidth="430"
+    bbHeight={250}
+    bbWidth={430}
     focusable={false}
     height={250}
     style={
@@ -2530,13 +2570,13 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
     >
       <RNSVGRect
         fill={null}
-        height="250"
+        height={250}
         propList={
           [
             "fill",
           ]
         }
-        width="430"
+        width={430}
         x="0"
         y="0"
       />
@@ -2560,6 +2600,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -2568,6 +2609,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M43 150.5L387 150.5"
@@ -2581,6 +2623,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -2589,6 +2632,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M43 120.5L387 120.5"
@@ -2602,6 +2646,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -2610,6 +2655,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M43 90.5L387 90.5"
@@ -2623,6 +2669,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -2631,6 +2678,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M43 60.5L387 60.5"
@@ -2644,6 +2692,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -2652,6 +2701,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M43 180.5L387 180.5"
@@ -2665,6 +2715,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
               "strokeLinecap",
             ]
           }
@@ -2675,6 +2726,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
             }
           }
           strokeLinecap={1}
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M43.5 180L43.5 185"
@@ -2688,6 +2740,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -2696,6 +2749,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M215.5 180L215.5 185"
@@ -2709,6 +2763,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -2717,6 +2772,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGPath
           d="M387.5 180L387.5 185"
@@ -2730,6 +2786,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
@@ -2738,6 +2795,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
               "type": 0,
             }
           }
+          strokeWidth={1}
         />
         <RNSVGText
           alignmentBaseline="middle"
@@ -3053,7 +3111,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           x={[]}
           y={
             [
-              "6",
+              6,
             ]
           }
         >
@@ -3112,7 +3170,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           x={[]}
           y={
             [
-              "6",
+              6,
             ]
           }
         >

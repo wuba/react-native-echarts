@@ -127,8 +127,8 @@ exports[`SvgChart Component does not render GestureHandler when handleGesture is
 >
   <RNSVGSvgView
     align="xMidYMid"
-    bbHeight="100"
-    bbWidth="100"
+    bbHeight={100}
+    bbWidth={100}
     focusable={false}
     height={100}
     meetOrSlice={0}
@@ -175,8 +175,8 @@ exports[`SvgChart Component renders Canvas when svgString is provided 1`] = `
 >
   <RNSVGSvgView
     align="xMidYMid"
-    bbHeight="100"
-    bbWidth="100"
+    bbHeight={100}
+    bbWidth={100}
     focusable={false}
     height={100}
     meetOrSlice={0}
@@ -246,8 +246,8 @@ exports[`SvgChart Component renders GestureHandler when handleGesture is true an
 >
   <RNSVGSvgView
     align="xMidYMid"
-    bbHeight="100"
-    bbWidth="100"
+    bbHeight={100}
+    bbWidth={100}
     focusable={false}
     height={100}
     meetOrSlice={0}
@@ -306,8 +306,8 @@ exports[`SvgChart Component renders PanResponderHandler when handleGesture is tr
 >
   <RNSVGSvgView
     align="xMidYMid"
-    bbHeight="100"
-    bbWidth="100"
+    bbHeight={100}
+    bbWidth={100}
     focusable={false}
     height={100}
     meetOrSlice={0}

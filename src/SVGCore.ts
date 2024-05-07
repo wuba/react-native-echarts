@@ -50,9 +50,15 @@ export function vNodeToString(
   const S = opts.newline ? '\n' : '';
   function convertElToString(el: SVGVNode): string {
     const { children, tag, attrs } = el;
-    // fix: https://github.com/Shopify/react-native-skia/issues/888
-    if (attrs['stroke-width'] === 0) {
-      attrs['stroke-opacity'] = 0;
+    if (tag === 'path') {
+      // fix: https://github.com/Shopify/react-native-skia/issues/888
+      if (attrs['stroke-width'] === 0) {
+        attrs['stroke-opacity'] = 0;
+      }
+      // fix: https://github.com/wuba/react-native-echarts/issues/161
+      if (attrs.fill === 'transparent') {
+        attrs['fill-opacity'] = 0;
+      }
     }
     if (tag === 'text') {
       if (typeof attrs.style === 'string') {
