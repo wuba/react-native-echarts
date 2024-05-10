@@ -172,9 +172,7 @@ function SvgEle(props: SVGVEleProps) {
   }
   return (
     <Tag key={node.key} {...attrs}>
-      {children?.map((child) => (
-        <SvgEle key={child.key} node={child} />
-      ))}
+      {children?.map((child) => <SvgEle key={child.key} node={child} />)}
     </Tag>
   );
 }
@@ -189,9 +187,7 @@ function SvgRoot(props: SVGVEleProps) {
       height={height as string}
       viewBox={viewBox as string}
     >
-      {children?.map((child) => (
-        <SvgEle key={child.key} node={child} />
-      ))}
+      {children?.map((child) => <SvgEle key={child.key} node={child} />)}
     </Svg>
   );
 }
