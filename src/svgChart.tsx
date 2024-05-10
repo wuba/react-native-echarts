@@ -155,10 +155,6 @@ function SvgEle(props: SVGVEleProps) {
   if (tag === 'path') {
     // 全部数据为空，iOS渲染有问题，无效的path过滤掉
     if (!attrs.d) return null;
-    // fix: add default strokeWidth for stroke
-    if (attrs.stroke && attrs.strokeWidth === undefined) {
-      attrs.strokeWidth = 1;
-    }
     return <Path {...attrs} />;
   }
   if (tag === 'linearGradient' || tag === 'radialGradient') {
