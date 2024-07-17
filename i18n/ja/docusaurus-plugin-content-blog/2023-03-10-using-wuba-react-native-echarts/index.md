@@ -7,7 +7,7 @@ tags: [expo]
 
 チャート関連の要件を書くために最も使用されるチャートライブラリは**echarts**です。ウェブサイト上でのechartsのパフォーマンスは非常に成熟しており、アプレット側には公式のソリューションが提供されていますが、RNでは対応がありません。市場では、検索のほとんどがまだWebビューの実装の本質に基づいていますが、私はRNベースのプログラムを好みます。なぜなら、ネイティブのエクスペリエンスの方がWebよりも優れているからです。
 
-後で[**@wuba/react-native-echarts**](https://wuba.github.io/react-native-echarts/)を見つけてニーズを満たすために試してみましたが、結果は素晴らしかったです。実装の原理に興味がある方は[こちら](https://wuba.github.io/react-native-echarts/blog/using-apache-echarts-in-react-native)をクリックしてください。
+後で[**@wuba/react-native-echarts**](https://wuba.github.io/react-native-echarts/)を見つけてニーズを満たすために試してみましたが、結果は素晴らしかったです。実装の原理に興味がある方は[こちら](https://wuba.github.io/react-native-echarts/js/blog/using-apache-echarts-in-react-native)をクリックしてください。
 ![](./example.png)
 
 <!--truncate-->

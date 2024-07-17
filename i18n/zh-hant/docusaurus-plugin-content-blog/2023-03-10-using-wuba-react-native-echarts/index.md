@@ -7,7 +7,7 @@ tags: [expo]
 
 寫作與圖表相關需求最常用的圖表庫是**echarts**。 echarts 在網站上的性能非常成熟，並提供了官方解決方案以支持小程序端，但在 RN 中卻沒有相應的支援。市場上，大多數搜索仍然基於 webview 實現的本質，而我更喜歡基於 RN 的程式，畢竟原生體驗會比 Web 更好。
 
-後來發現 [**@wuba/react-native-echarts**](https://wuba.github.io/react-native-echarts/) 能夠滿足需求，因此嘗試使用它，結果非常出色。對於那些對實現原理感興趣的人，請點擊[這裡](../using-apache-echarts-in-react-native)
+後來發現 [**@wuba/react-native-echarts**](https://wuba.github.io/react-native-echarts/) 能夠滿足需求，因此嘗試使用它，結果非常出色。對於那些對實現原理感興趣的人，請點擊[這裡](https://wuba.github.io/react-native-echarts/zh-hant/blog/using-apache-echarts-in-react-native)
 
 ![](./example.png)
 
