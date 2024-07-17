@@ -1,0 +1,26 @@
+{
+  "version.label": {
+    "message": "次へ",
+    "description": "version currentのラベル"
+  },
+  "sidebar.tutorialSidebar.category.Getting Started": {
+    "message": "はじめに",
+    "description": "sidebar tutorialSidebarのカテゴリ「はじめに」のラベル"
+  },
+  "sidebar.tutorialSidebar.category.Expo Snacks": {
+    "message": "Expo Snacks",
+    "description": "sidebar tutorialSidebarのカテゴリ「Expo Snacks」のラベル"
+  },
+  "sidebar.tutorialSidebar.category.Advanced Guides": {
+    "message": "高度なガイド",
+    "description": "sidebar tutorialSidebarのカテゴリ「高度なガイド」のラベル"
+  },
+  "sidebar.tutorialSidebar.category.Troubleshooting": {
+    "message": "トラブルシューティング",
+    "description": "sidebar tutorialSidebarのカテゴリ「トラブルシューティング」のラベル"
+  },
+  "sidebar.tutorialSidebar.category.About": {
+    "message": "について",
+    "description": "sidebar tutorialSidebarのカテゴリ「について」のラベル"
+  }
+}

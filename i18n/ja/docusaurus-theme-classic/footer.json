@@ -1,0 +1,38 @@
+{
+  "link.title.Docs": {
+    "message": "ドキュメント",
+    "description": "フッターのリンク列のタイトル=ドキュメント"
+  },
+  "link.title.Community": {
+    "message": "コミュニティ",
+    "description": "フッターのリンク列のタイトル=コミュニティ"
+  },
+  "link.title.More": {
+    "message": "その他",
+    "description": "フッターのリンク列のタイトル=その他"
+  },
+  "link.item.label.Tutorial": {
+    "message": "チュートリアル",
+    "description": "フッターリンクのラベル=チュートリアル、リンク先=/docs/intro"
+  },
+  "link.item.label.Jue jin": {
+    "message": "Jue jin",
+    "description": "フッターリンクのラベル=Jue jin、リンク先=https://juejin.cn/user/4495228528238279"
+  },
+  "link.item.label.Twitter": {
+    "message": "Twitter",
+    "description": "フッターリンクのラベル=Twitter、リンク先=https://twitter.com/RN_ECharts"
+  },
+  "link.item.label.Blog": {
+    "message": "ブログ",
+    "description": "フッターリンクのラベル=ブログ、リンク先=/blog"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "フッターリンクのラベル=GitHub、リンク先=https://github.com/wuba/react-native-echarts"
+  },
+  "copyright": {
+    "message": "著作権 © 2024 58.Com, Inc. Docusaurusで作成されました。",
+    "description": "フッターの著作権表示"
+  }
+}
