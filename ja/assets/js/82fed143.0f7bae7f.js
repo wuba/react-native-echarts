@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreact_native_echarts=self.webpackChunkreact_native_echarts||[]).push([[9597],{303:e=>{e.exports=JSON.parse('{"permalink":"/react-native-echarts/ja/blog/tags/website","page":1,"postsPerPage":10,"totalPages":1,"totalCount":3,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

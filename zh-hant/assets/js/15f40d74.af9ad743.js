@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreact_native_echarts=self.webpackChunkreact_native_echarts||[]).push([[5152],{4060:a=>{a.exports=JSON.parse('{"label":"\u7db2\u7ad9","permalink":"/react-native-echarts/zh-hant/blog/tags/\u7db2\u7ad9","allTagsPath":"/react-native-echarts/zh-hant/blog/tags","count":1}')}}]);

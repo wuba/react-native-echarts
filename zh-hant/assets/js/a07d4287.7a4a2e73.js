@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreact_native_echarts=self.webpackChunkreact_native_echarts||[]).push([[7099],{7958:a=>{a.exports=JSON.parse('{"label":"hello","permalink":"/react-native-echarts/zh-hant/blog/tags/hello","allTagsPath":"/react-native-echarts/zh-hant/blog/tags","count":1}')}}]);
