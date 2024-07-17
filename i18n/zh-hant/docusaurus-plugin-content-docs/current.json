@@ -1,0 +1,26 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Getting Started": {
+    "message": "開始",
+    "description": "The label for category Getting Started in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Expo Snacks": {
+    "message": "線上示例",
+    "description": "The label for category Expo Snacks in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Advanced Guides": {
+    "message": "高級指南",
+    "description": "The label for category Advanced Guides in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Troubleshooting": {
+    "message": "故障排除",
+    "description": "The label for category Troubleshooting in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.About": {
+    "message": "關於我們",
+    "description": "The label for category About in sidebar tutorialSidebar"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "title": {
+    "message": "React Native ECharts",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "react-native-echarts Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Tutorial": {
+    "message": "教學",
+    "description": "Navbar item with label Tutorial"
+  },
+  "item.label.Blog": {
+    "message": "部落格",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}
