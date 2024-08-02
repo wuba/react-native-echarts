@@ -4,8 +4,8 @@
 // tests for basic props
 import React from 'react';
 import { render } from '@testing-library/react-native';
-import SkiaComponent from '../skiaChart';
-import SVGComponent from '../svgChart';
+import SkiaComponent from '../skia/skiaChart';
+import SVGComponent from '../svg/svgChart';
 const Components = [SkiaComponent, SVGComponent];
 const svg = `<svg width="100" height="100" viewBox="0 0 100 100">`;
 const node = {

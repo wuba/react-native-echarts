@@ -1,2 +1,2 @@
-export * from './lib/typescript/svgChart';
-export { default } from './lib/typescript/svgChart';
+export * from './lib/typescript/svg/svgChart';
+export { default } from './lib/typescript/svg/svgChart';

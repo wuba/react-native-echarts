@@ -23,13 +23,13 @@ import {
   // DEFAULT_FONT_FAMILY as zrenderFontFamily,
 } from 'zrender/lib/core/platform';
 // import { DEFAULT_FONT_FAMILY } from './utils/font';
-import { measureText } from './utils/platform';
-import { GestureHandler } from './components/GestureHandler';
-import { dispatchEventsToZRender } from './components/events';
-import type { ChartElement, DispatchEvents, SkiaChartProps } from './types';
+import { measureText } from '../utils/platform';
+import { GestureHandler } from '../components/GestureHandler';
+import { dispatchEventsToZRender } from '../components/events';
+import type { ChartElement, DispatchEvents, SkiaChartProps } from '../types';
 
-export { SVGRenderer } from './SVGRenderer';
-export * from './types';
+export { SVGRenderer } from '../svg/SVGRenderer';
+export * from '../types';
 
 setPlatformAPI({ measureText });
 
