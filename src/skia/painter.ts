@@ -59,11 +59,13 @@ export class SkiaPainter implements PainterBase {
   refresh(): void {
     const scope = createBrushScope(this._id);
     const list = this.storage.getDisplayList(true);
-    const children: ReactElement[] = [];
+    let children: ReactElement[] = [];
     for (const el of list) {
       if (!el.invisible) {
         const ret = brush(el, scope);
-        if (ret) children.push(ret);
+        if (ret) {
+          if (ret instanceof Array) { children = children.concat(ret) } else { children.push(ret) }
+        };
       }
     }
     // @ts-ignore

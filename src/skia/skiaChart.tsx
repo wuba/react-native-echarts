@@ -11,12 +11,8 @@ import React, {
 
 import {
   Canvas,
-  ImageSVG,
-  Skia,
-  SkSVG,
   useCanvasRef,
 } from '@shopify/react-native-skia';
-
 import { View } from 'react-native';
 
 import {
@@ -33,16 +29,6 @@ export { SkiaRender } from './SkiaRender';
 export * from '../types';
 
 setPlatformAPI({ measureText });
-
-function getSkSvg(svg?: string): SkSVG | undefined {
-  // TODO: 全局替换字体做法比较暴力，或者实用定义字体，可能某些场景字体设置失效，需要修复
-  // if (svg) {
-  //   svg = svg.replace(new RegExp(zrenderFontFamily, 'g'), DEFAULT_FONT_FAMILY)
-  //   console.log('svg', svg)
-  // }
-  const initString = svg ? Skia.SVG.MakeFromString(svg) : undefined;
-  return initString ?? undefined;
-}
 
 function SkiaComponent(
   props: SkiaChartProps,
@@ -88,6 +74,7 @@ function SkiaComponent(
         setAttributeNS: (_name: string, _value: any) => {},
         removeAttribute: (_name: string) => {},
         patch: (elms: ReactElement[]) => {
+          // console.log('patch', elms);
           setChildren(elms);
         },
         setZrenderId: (id: number) => {
