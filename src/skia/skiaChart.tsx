@@ -6,6 +6,7 @@ import React, {
   memo,
   useCallback,
   useRef,
+  ReactElement,
 } from 'react';
 
 import {
@@ -28,7 +29,7 @@ import { GestureHandler } from '../components/GestureHandler';
 import { dispatchEventsToZRender } from '../components/events';
 import type { ChartElement, DispatchEvents, SkiaChartProps } from '../types';
 
-export { SVGRenderer } from '../svg/SVGRenderer';
+export { SkiaRender } from './SkiaRender';
 export * from '../types';
 
 setPlatformAPI({ measureText });
@@ -57,7 +58,7 @@ function SkiaComponent(
   } = props;
   const initialWidth = inlineWidth || (style?.width as number);
   const initialHeight = inlineHeight || (style?.height as number);
-  const [svgString, setSvgString] = useState<SkSVG | undefined>(getSkSvg(svg));
+  const [children, setChildren] = useState<ReactElement[]>([]);
   const [width, setWidth] = useState<number>(initialWidth ?? 0);
   const [height, setHeight] = useState<number>(initialHeight ?? 0);
   const zrenderId = useRef<number>();
@@ -86,9 +87,8 @@ function SkiaComponent(
         },
         setAttributeNS: (_name: string, _value: any) => {},
         removeAttribute: (_name: string) => {},
-        patchString: (_oldVnode: string, vnode: string) => {
-          const _svgString = getSkSvg(vnode);
-          setSvgString(_svgString);
+        patch: (elms: ReactElement[]) => {
+          setChildren(elms);
         },
         setZrenderId: (id: number) => {
           zrenderId.current = id;
@@ -112,20 +112,20 @@ function SkiaComponent(
     [dispatchEvents, initialWidth, initialHeight, canvasRef]
   );
 
-  return svgString ? (
+  return (
     <View testID="component" style={{ ...style, width, height }}>
       <Canvas
         style={{ ...style, width, height }}
         pointerEvents="auto"
         ref={canvasRef}
       >
-        <ImageSVG svg={svgString} x={0} y={0} width={width} height={height} />
+        {children}
       </Canvas>
       {handleGesture ? (
         <GestureHandler dispatchEvents={dispatchEvents} {...gestureProps} />
       ) : null}
     </View>
-  ) : null;
+  )
 }
 
 const SkiaChart = memo(forwardRef(SkiaComponent));
