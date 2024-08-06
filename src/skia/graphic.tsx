@@ -112,7 +112,10 @@ function setTransform(
   }
 }
 
-export function brush(el: Displayable, scope: BrushScope): ReactElement | null {
+export function brush(
+  el: Displayable,
+  scope: BrushScope
+): ReactElement | ReactElement[] | null {
   if (el instanceof Path) {
     return brushSVGPath(el, scope);
   } else if (el instanceof ZRImage) {
@@ -129,7 +132,10 @@ interface PathWithSVGBuildPath extends Path {
   __svgPathStrokePercent: number;
 }
 
-export function brushSVGPath(el: Path, scope: BrushScope): ReactElement | null {
+export function brushSVGPath(
+  el: Path,
+  scope: BrushScope
+): ReactElement | ReactElement[] | null {
   const style = el.style;
   const attrs: Record<string, string | number | boolean> = {};
   const strokePercent = el.style.strokePercent as number;
@@ -169,10 +175,20 @@ export function brushSVGPath(el: Path, scope: BrushScope): ReactElement | null {
 
   setTransform(attrs, el.transform);
   setStyleAttrs(attrs, style, el, scope);
-  let effects: ReactElement[] = [];
-  const pathColor = attrs.fill === 'none' ? attrs.stroke : attrs.fill;
-  const pathStyle = attrs.fill === 'none' ? 'stroke' : 'fill';
+  let paths: ReactElement[] = [];
+  if (attrs.fill && attrs.fill !== 'none') {
+    paths.push(
+      <SkiaPath
+        {...attrs}
+        key={`f-${el.id}`}
+        path={d}
+        color={attrs.fill}
+        style="fill"
+      ></SkiaPath>
+    );
+  }
   if (attrs.stroke) {
+    let effects: ReactElement[] = [];
     if (attrs['stroke-width']) {
       attrs.strokeWidth = attrs['stroke-width'];
     }
@@ -200,20 +216,20 @@ export function brushSVGPath(el: Path, scope: BrushScope): ReactElement | null {
         );
       }
     }
+    paths.push(
+      <SkiaPath
+        {...attrs}
+        key={`s-${el.id}`}
+        path={d}
+        color={attrs.stroke}
+        style={'stroke'}
+      >
+        {effects}
+      </SkiaPath>
+    );
   }
 
-  // @ts-ignore
-  return (
-    <SkiaPath
-      {...attrs}
-      key={el.id}
-      path={d}
-      color={pathColor}
-      style={pathStyle}
-    >
-      {effects}
-    </SkiaPath>
-  );
+  return paths;
 }
 
 export function brushSVGImage(
@@ -237,6 +253,7 @@ export function brushSVGTSpan(
     text,
     fill,
     textAlign,
+    textBaseline,
   } = el.style;
   const font = matchFont({
     fontFamily,
@@ -247,19 +264,25 @@ export function brushSVGTSpan(
   const attrs: SVGVNodeAttrs = {};
   const { id } = el;
   setTransform(attrs, el.transform);
-  const textWidth = font.measureText(text).width;
+  const { width: textWidth, height: textHeigh } = font.measureText(text);
   const adjustX =
     textAlign === 'center'
       ? textWidth / 2
       : textAlign === 'start' || textAlign === 'left'
         ? 0
         : textWidth;
+  const adjustY =
+    textBaseline === 'middle'
+      ? textHeigh / 2
+      : textBaseline === 'bottom'
+        ? textHeigh
+        : 0;
   return (
     <SkiaText
       {...attrs}
       key={id}
       x={x - adjustX}
-      y={y}
+      y={y + adjustY}
       text={text}
       font={font}
       color={fill}
