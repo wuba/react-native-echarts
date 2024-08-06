@@ -12,6 +12,7 @@ import {
   isPattern,
   round3,
   round4,
+  hasShadow,
   isAroundZero,
 } from 'zrender/lib/svg/helper';
 import SVGPathRebuilder from 'zrender/lib/svg/SVGPathRebuilder';
@@ -22,12 +23,16 @@ import {
   Text as SkiaText,
   DashPathEffect,
   matchFont,
+  Shadow,
 } from '@shopify/react-native-skia';
 import React from 'react';
 
 const round = Math.round;
 
-type SVGVNodeAttrs = Record<string, string | number | boolean>;
+type SVGVNodeAttrs = Record<
+  string,
+  string | number | boolean | Record<string, string | number | boolean>
+>;
 
 type AllStyleOption = PathStyleProps | TSpanStyleProps | ImageStyleProps;
 
@@ -59,7 +64,30 @@ function setStyleAttrs(
     false
   );
 
-  // setShadow(el, attrs, scope);
+  setShadow(el, attrs, scope);
+}
+
+function setShadow(el: Displayable, attrs: SVGVNodeAttrs, scope: BrushScope) {
+  const style = el.style;
+  if (hasShadow(style)) {
+    const globalScale = el.getGlobalScale();
+    const scaleX = globalScale[0];
+    const scaleY = globalScale[1];
+    if (!scaleX || !scaleY) {
+      return;
+    }
+
+    const offsetX = style.shadowOffsetX || 0;
+    const offsetY = style.shadowOffsetY || 0;
+    const blur = style.shadowBlur;
+    const stdDx = blur / 2 / scaleX;
+    attrs.filter = {
+      dx: offsetX / scaleX,
+      dy: offsetY / scaleY,
+      blur: stdDx,
+      color: style.shadowColor,
+    };
+  }
 }
 
 function noRotateScale(m: MatrixArray) {
@@ -177,6 +205,10 @@ export function brushSVGPath(
   setStyleAttrs(attrs, style, el, scope);
   let paths: ReactElement[] = [];
   if (attrs.fill && attrs.fill !== 'none') {
+    let filter: ReactElement | null = null;
+    if (attrs.filter) {
+      filter = <Shadow {...attrs.filter} />;
+    }
     paths.push(
       <SkiaPath
         {...attrs}
@@ -184,7 +216,9 @@ export function brushSVGPath(
         path={d}
         color={attrs.fill}
         style="fill"
-      ></SkiaPath>
+      >
+        {filter}
+      </SkiaPath>
     );
   }
   if (attrs.stroke) {
