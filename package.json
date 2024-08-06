@@ -1,6 +1,6 @@
 {
   "name": "@wuba/react-native-echarts",
-  "version": "1.3.1",
+  "version": "2.0.0",
   "description": "Echarts for react native.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
