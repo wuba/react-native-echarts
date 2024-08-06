@@ -26,8 +26,8 @@ export class SkiaPainter implements PainterBase {
   storage: Storage;
   private _opts: SVGPainterOption;
   private _id: string;
-  private _width: number
-  private _height: number
+  private _width: number;
+  private _height: number;
   private _svgDom: any;
   constructor(
     root: RootProps,
@@ -48,14 +48,16 @@ export class SkiaPainter implements PainterBase {
   getType() {
     return this.type;
   }
-  setBackgroundColor(backgroundColor: string | GradientObject | PatternObject): void {
-  }
+  setBackgroundColor(
+    backgroundColor: string | GradientObject | PatternObject
+  ): void {}
   getViewportRoot: () => HTMLElement = () => {
     return this.root as HTMLElement;
-  }
-  getViewportRootOffset: () => { offsetLeft: number; offsetTop: number } = () => {
-    return { offsetLeft: 0, offsetTop: 0 };
-  }
+  };
+  getViewportRootOffset: () => { offsetLeft: number; offsetTop: number } =
+    () => {
+      return { offsetLeft: 0, offsetTop: 0 };
+    };
   refresh(): void {
     const scope = createBrushScope(this._id);
     const list = this.storage.getDisplayList(true);
@@ -64,15 +66,18 @@ export class SkiaPainter implements PainterBase {
       if (!el.invisible) {
         const ret = brush(el, scope);
         if (ret) {
-          if (ret instanceof Array) { children = children.concat(ret) } else { children.push(ret) }
-        };
+          if (ret instanceof Array) {
+            children = children.concat(ret);
+          } else {
+            children.push(ret);
+          }
+        }
       }
     }
     // @ts-ignore
     this.root.elm.patch(children);
   }
-  clear(): void {
-  }
+  clear(): void {}
   toDataURL(base64?: boolean): string {
     return '';
   }
@@ -84,16 +89,19 @@ export class SkiaPainter implements PainterBase {
       this._svgDom.setAttribute('height', height);
     }
   }
-  dispose(): void {
-  }
+  dispose(): void {}
   getWidth() {
     return this._width;
   }
   getHeight() {
     return this._height;
   }
-  refreshHover = createMethodNotSupport('refreshHover') as PainterBase['refreshHover'];
-  configLayer = createMethodNotSupport('configLayer') as PainterBase['configLayer'];
+  refreshHover = createMethodNotSupport(
+    'refreshHover'
+  ) as PainterBase['refreshHover'];
+  configLayer = createMethodNotSupport(
+    'configLayer'
+  ) as PainterBase['configLayer'];
 }
 
 // Not supported methods
