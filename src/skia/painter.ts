@@ -40,6 +40,7 @@ export class SkiaPainter implements PainterBase {
     this._opts = opts;
     this._id = 'zr' + svgId++;
     this._svgDom = root.elm;
+    this._svgDom.setZrenderId?.(id);
     this._width = 0;
     this._height = 0;
     this.resize(opts.width ?? 0, opts.height ?? 0);
