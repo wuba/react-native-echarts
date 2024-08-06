@@ -9,10 +9,7 @@ import React, {
   ReactElement,
 } from 'react';
 
-import {
-  Canvas,
-  useCanvasRef,
-} from '@shopify/react-native-skia';
+import { Canvas, useCanvasRef } from '@shopify/react-native-skia';
 import { View } from 'react-native';
 
 import {
@@ -35,7 +32,6 @@ function SkiaComponent(
   ref: ForwardedRef<(ChartElement & any) | null>
 ) {
   const {
-    svg,
     handleGesture = true,
     width: inlineWidth,
     height: inlineHeight,
@@ -112,7 +108,7 @@ function SkiaComponent(
         <GestureHandler dispatchEvents={dispatchEvents} {...gestureProps} />
       ) : null}
     </View>
-  )
+  );
 }
 
 const SkiaChart = memo(forwardRef(SkiaComponent));

@@ -64,10 +64,10 @@ function setStyleAttrs(
     false
   );
 
-  setShadow(el, attrs, scope);
+  setShadow(el, attrs);
 }
 
-function setShadow(el: Displayable, attrs: SVGVNodeAttrs, scope: BrushScope) {
+function setShadow(el: Displayable, attrs: SVGVNodeAttrs) {
   const style = el.style;
   if (hasShadow(style)) {
     const globalScale = el.getGlobalScale();
