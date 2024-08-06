@@ -1,9 +1,11 @@
 import Displayable from 'zrender/lib/graphic/Displayable';
 import { BrushScope } from './core';
+import { DEFAULT_FONT_FAMILY, DEFAULT_FONT_SIZE } from '../utils/font';
 import Path, { PathStyleProps } from 'zrender/lib/graphic/Path';
 import ZRImage, { ImageStyleProps } from 'zrender/lib/graphic/Image';
 import TSpan, { TSpanStyleProps } from 'zrender/lib/graphic/TSpan';
 import { MatrixArray } from 'zrender/lib/core/matrix';
+import { getLineDash } from 'zrender/lib/canvas/dashStyle';
 import {
   getPathPrecision,
   isGradient,
@@ -18,6 +20,7 @@ import mapStyleToAttrs from 'zrender/lib/svg/mapStyleToAttrs';
 import {
   Path as SkiaPath,
   Text as SkiaText,
+  DashPathEffect,
   matchFont,
 } from '@shopify/react-native-skia';
 import React from 'react';
@@ -166,7 +169,7 @@ export function brushSVGPath(el: Path, scope: BrushScope): ReactElement | null {
 
   setTransform(attrs, el.transform);
   setStyleAttrs(attrs, style, el, scope);
-
+  let effects: ReactElement[] = [];
   const pathColor = attrs.fill === 'none' ? attrs.stroke : attrs.fill;
   const pathStyle = attrs.fill === 'none' ? 'stroke' : 'fill';
   if (attrs.stroke) {
@@ -185,6 +188,18 @@ export function brushSVGPath(el: Path, scope: BrushScope): ReactElement | null {
     if (!attrs.strokeWidth) {
       attrs.strokeWidth = 1;
     }
+    if (style.lineDash) {
+      let [lineDash, lineDashOffset] = getLineDash(el);
+      if (lineDash) {
+        effects.push(
+          <DashPathEffect
+            key="stroke-dasharray"
+            intervals={lineDash}
+            phase={lineDashOffset}
+          />
+        );
+      }
+    }
   }
 
   // @ts-ignore
@@ -195,7 +210,9 @@ export function brushSVGPath(el: Path, scope: BrushScope): ReactElement | null {
       path={d}
       color={pathColor}
       style={pathStyle}
-    />
+    >
+      {effects}
+    </SkiaPath>
   );
 }
 
@@ -213,10 +230,10 @@ export function brushSVGTSpan(
   const {
     x,
     y,
-    fontFamily,
-    fontSize,
-    fontStyle,
-    fontWeight,
+    fontFamily = DEFAULT_FONT_FAMILY,
+    fontSize = DEFAULT_FONT_SIZE,
+    fontStyle = 'normal',
+    fontWeight = 'normal',
     text,
     fill,
     textAlign,
@@ -246,7 +263,6 @@ export function brushSVGTSpan(
       text={text}
       font={font}
       color={fill}
-      textAlign={textAlign}
     />
   );
 }
