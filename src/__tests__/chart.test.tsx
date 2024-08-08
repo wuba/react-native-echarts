@@ -12,10 +12,10 @@ declare global {
 import React, { useEffect, useRef } from 'react';
 import { ReactTestInstance } from 'react-test-renderer';
 import { render, fireEvent, act } from '@testing-library/react-native';
-import SkiaComponent from '../skiaChart';
-import SVGComponent from '../svgChart';
+import SkiaComponent from '../skia/skiaChart';
+import SVGComponent from '../svg/svgChart';
 import { dispatchEventsToZRender } from '../components/events';
-import { SVGRenderer } from '../SVGRenderer';
+import { SVGRenderer } from '../svg/SVGRenderer';
 import * as echarts from 'echarts/core';
 import { BarChart, LineChart, GraphChart, ScatterChart } from 'echarts/charts';
 import {

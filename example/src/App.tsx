@@ -2,7 +2,12 @@ import * as React from 'react';
 import { useEffect, useRef } from 'react';
 import { StyleSheet, View, Dimensions } from 'react-native';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
-import { SVGRenderer, SkiaChart, SvgChart } from '@wuba/react-native-echarts';
+import {
+  SVGRenderer,
+  SvgChart,
+  SkiaRender,
+  SkiaChart,
+} from '@wuba/react-native-echarts';
 import * as echarts from 'echarts/core';
 import { BarChart, LineChart } from 'echarts/charts';
 import {
@@ -17,6 +22,7 @@ echarts.use([
   TooltipComponent,
   GridComponent,
   SVGRenderer,
+  SkiaRender,
   // ...
   BarChart,
   LineChart,
@@ -31,9 +37,9 @@ function SkiaComponent({ option }: any) {
   useEffect(() => {
     let chart: any;
     if (skiaRef.current) {
-      // @ts-ignore
       chart = echarts.init(skiaRef.current, 'light', {
-        renderer: 'svg',
+        // @ts-ignore
+        renderer: 'skia',
         width: E_WIDTH,
         height: E_HEIGHT,
       });
@@ -51,7 +57,6 @@ function SvgComponent({ option }: any) {
   useEffect(() => {
     let chart: any;
     if (svgRef.current) {
-      // @ts-ignore
       chart = echarts.init(svgRef.current, 'light', {
         renderer: 'svg',
         width: E_WIDTH,

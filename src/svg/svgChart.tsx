@@ -39,19 +39,19 @@ import {
   setPlatformAPI,
   // DEFAULT_FONT_FAMILY as zrenderFontFamily,
 } from 'zrender/lib/core/platform';
-import { measureText } from './utils/platform';
+import { measureText } from '../utils/platform';
 // import { DEFAULT_FONT_FAMILY } from './utils/font';
-import { GestureHandler } from './components/GestureHandler';
-import { dispatchEventsToZRender } from './components/events';
+import { GestureHandler } from '../components/GestureHandler';
+import { dispatchEventsToZRender } from '../components/events';
 import type {
   ChartElement,
   DispatchEvents,
   SVGChartProps,
   SVGVNode,
-} from './types';
+} from '../types';
 
 export { SVGRenderer } from './SVGRenderer';
-export * from './types';
+export * from '../types';
 
 setPlatformAPI({ measureText });
 

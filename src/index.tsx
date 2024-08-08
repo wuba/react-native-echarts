@@ -1,4 +1,3 @@
-export { default as SkiaChart } from './skiaChart';
-export { default as SvgChart } from './svgChart';
-export { SVGRenderer } from './SVGRenderer';
+export { default as SkiaChart, SkiaRender } from './skia/skiaChart';
+export { default as SvgChart, SVGRenderer } from './svg/svgChart';
 export * from './types';
