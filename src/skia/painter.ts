@@ -2,6 +2,7 @@ import { PatternObject } from 'zrender/lib/graphic/Pattern';
 import { GradientObject } from 'zrender/lib/graphic/Gradient';
 import { PainterBase } from 'zrender/lib/PainterBase';
 import type Storage from 'zrender/lib/Storage';
+import { logError } from 'zrender/lib/core/util';
 import { createBrushScope } from './core';
 import { brush } from './graphic';
 import { ReactElement } from 'react';
@@ -78,8 +79,8 @@ export class SkiaPainter implements PainterBase {
     this.root.elm.patch(children);
   }
   clear(): void {}
-  toDataURL(base64?: boolean): string {
-    return '';
+  toDataURL(): string {
+    return this._svgDom.makeImageSnapshot?.();
   }
   resize(width: number, height: number) {
     if (this._width !== width || this._height !== height) {
@@ -105,11 +106,6 @@ export class SkiaPainter implements PainterBase {
 }
 
 // Not supported methods
-function logError(...args: any[]) {
-  if (typeof console !== 'undefined') {
-    console.error.apply(console, args);
-  }
-}
 function createMethodNotSupport(method: string): any {
   return function () {
     if (process.env.NODE_ENV !== 'production') {
