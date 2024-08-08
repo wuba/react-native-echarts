@@ -5,6 +5,13 @@ import Path, { PathStyleProps } from 'zrender/lib/graphic/Path';
 import ZRImage, { ImageStyleProps } from 'zrender/lib/graphic/Image';
 import TSpan, { TSpanStyleProps } from 'zrender/lib/graphic/TSpan';
 import { MatrixArray } from 'zrender/lib/core/matrix';
+import { GradientObject } from 'zrender/lib/graphic/Gradient';
+import {
+  isString,
+  isFunction,
+  logError,
+  retrieve2,
+} from 'zrender/lib/core/util';
 import { getLineDash } from 'zrender/lib/canvas/dashStyle';
 import {
   getPathPrecision,
@@ -13,6 +20,8 @@ import {
   round3,
   round4,
   hasShadow,
+  isRadialGradient,
+  isLinearGradient,
   isAroundZero,
 } from 'zrender/lib/svg/helper';
 import SVGPathRebuilder from 'zrender/lib/svg/SVGPathRebuilder';
@@ -24,14 +33,29 @@ import {
   DashPathEffect,
   matchFont,
   Shadow,
+  useImage,
+  Image,
+  LinearGradient,
+  RadialGradient,
 } from '@shopify/react-native-skia';
 import React from 'react';
 
 const round = Math.round;
 
+function isImageLike(val: any): val is HTMLImageElement {
+  return val && isString(val.src);
+}
+function isCanvasLike(val: any): val is HTMLCanvasElement {
+  return val && isFunction(val.toDataURL);
+}
+
 type SVGVNodeAttrs = Record<
   string,
-  string | number | boolean | Record<string, string | number | boolean>
+  | string
+  | number
+  | boolean
+  | Record<string, string | number | boolean>
+  | ReactElement
 >;
 
 type AllStyleOption = PathStyleProps | TSpanStyleProps | ImageStyleProps;
@@ -46,7 +70,7 @@ function setStyleAttrs(
     (key, val) => {
       const isFillStroke = key === 'fill' || key === 'stroke';
       if (isFillStroke && isGradient(val)) {
-        // setGradient(style, attrs, key, scope);
+        setGradient(style, attrs, key);
       } else if (isFillStroke && isPattern(val)) {
         // setPattern(el, attrs, key, scope);
       } else {
@@ -205,21 +229,38 @@ export function brushSVGPath(
   setStyleAttrs(attrs, style, el, scope);
   let paths: ReactElement[] = [];
   if (attrs.fill && attrs.fill !== 'none') {
-    let filter: ReactElement | null = null;
+    let effects: ReactElement[] = [];
     if (attrs.filter) {
-      filter = <Shadow {...attrs.filter} />;
+      effects.push(<Shadow {...attrs.filter} />);
     }
-    paths.push(
-      <SkiaPath
-        {...attrs}
-        key={`f-${el.id}`}
-        path={d}
-        color={attrs.fill}
-        style="fill"
-      >
-        {filter}
-      </SkiaPath>
-    );
+    if (attrs['fill-opacity'] !== undefined) {
+      attrs.opacity = attrs['fill-opacity'];
+    }
+    if(typeof attrs.fill === 'string') {
+      paths.push(
+        <SkiaPath
+          {...attrs}
+          key={`f-${el.id}`}
+          path={d}
+          color={attrs.fill}
+          style="fill"
+        >
+          {effects}
+        </SkiaPath>
+      );
+    } else {
+      effects.push(attrs.fill);
+      paths.push(
+        <SkiaPath
+          {...attrs}
+          key={`f-${el.id}`}
+          path={d}
+          style="fill"
+        >
+          {effects}
+        </SkiaPath>
+      );
+    }
   }
   if (attrs.stroke) {
     let effects: ReactElement[] = [];
@@ -234,6 +275,9 @@ export function brushSVGPath(
     }
     if (attrs['stroke-miterlimit']) {
       attrs.strokeMiter = attrs['stroke-miterlimit'];
+    }
+    if (attrs['stroke-opacity'] !== undefined) {
+      attrs.opacity = attrs['stroke-opacity'];
     }
     if (!attrs.strokeWidth) {
       attrs.strokeWidth = 1;
@@ -270,7 +314,50 @@ export function brushSVGImage(
   el: ZRImage,
   scope: BrushScope
 ): ReactElement | null {
-  return null;
+  const style = el.style;
+  let image = style.image;
+
+  if (image && !isString(image)) {
+    if (isImageLike(image)) {
+      image = image.src;
+    }
+    // heatmap layer in geo may be a canvas
+    else if (isCanvasLike(image)) {
+      image = image.toDataURL();
+    }
+  }
+
+  if (!image) {
+    return null;
+  }
+
+  const x = style.x || 0;
+  const y = style.y || 0;
+
+  const dw = style.width;
+  const dh = style.height;
+
+  const attrs: SVGVNodeAttrs = {
+    width: dw,
+    height: dh,
+  };
+  if (x) {
+    attrs.x = x;
+  }
+  if (y) {
+    attrs.y = y;
+  }
+
+  setTransform(attrs, el.transform);
+  setStyleAttrs(attrs, style, el, scope);
+  // setMetaData(attrs, el);
+  // scope.animation && createCSSAnimation(el, attrs, scope);
+  return <SkiaImage image={image} {...attrs} />;
+}
+
+function SkiaImage({ image, ...attrs }) {
+  const href = useImage(image);
+  return <Image image={href} {...attrs} />;
 }
 
 export function brushSVGTSpan(
@@ -298,6 +385,7 @@ export function brushSVGTSpan(
   const attrs: SVGVNodeAttrs = {};
   const { id } = el;
   setTransform(attrs, el.transform);
+  setStyleAttrs(attrs, el.style, el, scope);
   const { width: textWidth, height: textHeigh } = font.measureText(text);
   const adjustX =
     textAlign === 'center'
@@ -322,4 +410,47 @@ export function brushSVGTSpan(
       color={fill}
     />
   );
+}
+
+export function setGradient(
+  style: PathStyleProps,
+  attrs: SVGVNodeAttrs,
+  target: 'fill' | 'stroke'
+) {
+  const val = style[target] as GradientObject;
+  const colors = val.colorStops.map((c) => c.color);
+  const positions = val.colorStops.map((c) => c.offset);
+  if (isLinearGradient(val)) {
+    attrs[target] = (
+      <LinearGradient
+        start={{
+          x: val.x,
+          y: val.y,
+        }}
+        end={{
+          x: val.x2 * 100,
+          y: val.y2 * 100,
+        }}
+        colors={colors}
+        positions={positions}
+      />
+    );
+  } else if (isRadialGradient(val)) {
+    attrs[target] = (
+      <RadialGradient
+        c={{
+          x: retrieve2(val.x, 0.5),
+          y: retrieve2(val.y, 0.5),
+        }}
+        r={retrieve2(val.r, 0.5)}
+        colors={colors}
+        positions={positions}
+      />
+    );
+  } else {
+    if (process.env.NODE_ENV !== 'production') {
+      logError('Illegal gradient type.');
+    }
+    return;
+  }
 }
