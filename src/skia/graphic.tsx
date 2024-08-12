@@ -37,6 +37,9 @@ import {
   Image,
   LinearGradient,
   RadialGradient,
+  Skia,
+  processTransform3d,
+  SkPath,
 } from '@shopify/react-native-skia';
 import React from 'react';
 
@@ -186,8 +189,9 @@ interface PathWithSVGBuildPath extends Path {
 
 export function brushSVGPath(
   el: Path,
-  scope: BrushScope
-): ReactElement | ReactElement[] | null {
+  scope: BrushScope,
+  returnString = false,
+): ReactElement | ReactElement[] | null | SkPath {
   const style = el.style;
   const attrs: Record<string, string | number | boolean> = {};
   const strokePercent = el.style.strokePercent as number;
@@ -224,8 +228,17 @@ export function brushSVGPath(
   }
 
   const d = svgPathBuilder.getStr();
-
+  const p = Skia.Path.MakeFromSVGString(d);
   setTransform(attrs, el.transform);
+
+  if ((attrs.transform && typeof attrs.fill === 'string') || returnString) {
+    p?.transform(processTransform3d(attrs.transform));
+    attrs.transform = undefined;
+  }
+  if(returnString) {
+    return p;
+  }
+
   setStyleAttrs(attrs, style, el, scope);
   let paths: ReactElement[] = [];
   if (attrs.fill && attrs.fill !== 'none') {
@@ -236,12 +249,12 @@ export function brushSVGPath(
     if (attrs['fill-opacity'] !== undefined) {
       attrs.opacity = attrs['fill-opacity'];
     }
-    if(typeof attrs.fill === 'string') {
+    if (typeof attrs.fill === 'string') {
       paths.push(
         <SkiaPath
           {...attrs}
           key={`f-${el.id}`}
-          path={d}
+          path={p}
           color={attrs.fill}
           style="fill"
         >
@@ -251,12 +264,7 @@ export function brushSVGPath(
     } else {
       effects.push(attrs.fill);
       paths.push(
-        <SkiaPath
-          {...attrs}
-          key={`f-${el.id}`}
-          path={d}
-          style="fill"
-        >
+        <SkiaPath {...attrs} key={`f-${el.id}`} path={p} style="fill">
           {effects}
         </SkiaPath>
       );
@@ -298,7 +306,7 @@ export function brushSVGPath(
       <SkiaPath
         {...attrs}
         key={`s-${el.id}`}
-        path={d}
+        path={p}
         color={attrs.stroke}
         style={'stroke'}
       >
@@ -399,6 +407,9 @@ export function brushSVGTSpan(
       : textBaseline === 'bottom'
         ? textHeigh
         : 0;
+  if (attrs['fill-opacity'] !== undefined) {
+    attrs.opacity = attrs['fill-opacity'];
+  }
   return (
     <SkiaText
       {...attrs}
@@ -453,4 +464,18 @@ export function setGradient(
     }
     return;
   }
+}
+export function setClipPath(
+  clipPath: Path,
+  attrs: SVGVNodeAttrs,
+  scope: BrushScope
+) {
+  const { clipPathCache, defs } = scope;
+  let clipPathId = clipPathCache[clipPath.id];
+  if (!clipPathId) {
+    clipPathId = scope.zrId + '-c' + scope.clipPathIdx++;
+    clipPathCache[clipPath.id] = clipPathId;
+    defs[clipPathId] = brushSVGPath(clipPath, scope, true);
+  }
+  attrs['clip-path'] = defs[clipPathId];
 }
