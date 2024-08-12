@@ -1,11 +1,18 @@
 import { PatternObject } from 'zrender/lib/graphic/Pattern';
 import { GradientObject } from 'zrender/lib/graphic/Gradient';
+import { BrushScope } from 'zrender/lib/svg/core';
+import Displayable from 'zrender/lib/graphic/Displayable';
+import Path from 'zrender/lib/graphic/Path';
 import { PainterBase } from 'zrender/lib/PainterBase';
 import type Storage from 'zrender/lib/Storage';
 import { logError } from 'zrender/lib/core/util';
 import { createBrushScope } from './core';
-import { brush } from './graphic';
+import { brush, setClipPath } from './graphic';
 import { ReactElement } from 'react';
+import {
+  Group,
+  Skia,
+} from '@shopify/react-native-skia';
 let svgId = 0;
 
 interface SVGPainterOption {
@@ -63,20 +70,69 @@ export class SkiaPainter implements PainterBase {
     const scope = createBrushScope(this._id);
     const list = this.storage.getDisplayList(true);
     let children: ReactElement[] = [];
-    for (const el of list) {
-      if (!el.invisible) {
-        const ret = brush(el, scope);
+    this._paintList(list, scope, children);
+    // @ts-ignore
+    this.root.elm.patch(children);
+  }
+  _paintList(list: Displayable[], scope: BrushScope, out?: ReactElement[]) {
+    const clipPathsGroupsStack: any[] = [];
+    const outGroups: any[] = [];
+    let clipPathsGroupsStackDepth = 0;
+    let currentClipPathGroup;
+    let prevClipPaths: Path[] | undefined = [];
+    let clipGroupNodeIdx = 0;
+    for (const displayable of list) {
+      if (!displayable.invisible) {
+        const clipPaths = displayable.__clipPaths;
+        const len = clipPaths && clipPaths.length || 0;
+        const prevLen = prevClipPaths && prevClipPaths.length || 0;
+        let lca;
+        // Find the lowest common ancestor
+        for (lca = Math.max(len - 1, prevLen - 1); lca >= 0; lca--) {
+            if (clipPaths && prevClipPaths
+                && clipPaths[lca] === prevClipPaths[lca]
+            ) {
+                break;
+            }
+        }
+        // pop the stack
+        for (let i = prevLen - 1; i > lca; i--) {
+            clipPathsGroupsStackDepth--;
+            // svgEls.push(closeGroup);
+            currentClipPathGroup = clipPathsGroupsStack[clipPathsGroupsStackDepth - 1];
+        }
+        // Pop clip path group for clipPaths not match the previous.
+        for (let i = lca + 1; i < len; i++) {
+            const groupAttrs: any = {};
+            setClipPath(
+                clipPaths[i],
+                groupAttrs,
+                scope
+            );
+            const g = {
+              clip: groupAttrs['clip-path'],
+              children: [],
+              index: out?.length,
+            };
+            clipPathsGroupsStack[clipPathsGroupsStackDepth++] = g;
+            outGroups.push(g);
+            currentClipPathGroup = g;
+        }
+        prevClipPaths = clipPaths;
+        const ret = brush(displayable, scope);
         if (ret) {
           if (ret instanceof Array) {
-            children = children.concat(ret);
+            (currentClipPathGroup ? currentClipPathGroup.children : out)?.push(...ret);
           } else {
-            children.push(ret);
+            (currentClipPathGroup ? currentClipPathGroup.children : out)?.push(ret);
           }
         }
       }
     }
-    // @ts-ignore
-    this.root.elm.patch(children);
+    for (let i = outGroups.length - 1; i >= 0; i--) {
+      const group = outGroups[i];
+      out?.splice(group.index, 0, <Group clip={group.clip}>{group.children}</Group>);
+    }
   }
   clear(): void {}
   toDataURL(): string {
