@@ -190,7 +190,7 @@ interface PathWithSVGBuildPath extends Path {
 export function brushSVGPath(
   el: Path,
   scope: BrushScope,
-  returnString = false,
+  returnString = false
 ): ReactElement | ReactElement[] | null | SkPath {
   const style = el.style;
   const attrs: Record<string, string | number | boolean> = {};
@@ -231,11 +231,11 @@ export function brushSVGPath(
   const p = Skia.Path.MakeFromSVGString(d);
   setTransform(attrs, el.transform);
 
-  if ((attrs.transform && typeof attrs.fill === 'string') || returnString) {
+  if (attrs.transform && (typeof attrs.fill === 'string' || returnString)) {
     p?.transform(processTransform3d(attrs.transform));
     attrs.transform = undefined;
   }
-  if(returnString) {
+  if (returnString) {
     return p;
   }
 
