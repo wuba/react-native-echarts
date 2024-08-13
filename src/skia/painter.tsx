@@ -209,7 +209,14 @@ function createBackgroundVNode(
     }
     if (typeof attrs.fill === 'string') {
       return (
-        <Rect key="bg" x={0} y={0} width={width} height={height} color={attrs.fill} />
+        <Rect
+          key="bg"
+          x={0}
+          y={0}
+          width={width}
+          height={height}
+          color={attrs.fill}
+        />
       );
     } else {
       return (
