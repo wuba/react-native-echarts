@@ -117,7 +117,7 @@ export class SkiaPainter implements PainterBase {
         }
         // Pop clip path group for clipPaths not match the previous.
         for (let i = lca + 1; i < len; i++) {
-          const groupAttrs: any = {};
+          const groupAttrs: Record<string, string | number | boolean> = {};
           setClipPath(clipPaths[i], groupAttrs, scope);
           const g = {
             id: 'clip-g-' + clipGroupNodeIdx++,
@@ -209,11 +209,11 @@ function createBackgroundVNode(
     }
     if (typeof attrs.fill === 'string') {
       return (
-        <Rect x={0} y={0} width={width} height={height} color={attrs.fill} />
+        <Rect key="bg" x={0} y={0} width={width} height={height} color={attrs.fill} />
       );
     } else {
       return (
-        <Rect x={0} y={0} width={width} height={height}>
+        <Rect key="bg" x={0} y={0} width={width} height={height}>
           {attrs.fill}
         </Rect>
       );
