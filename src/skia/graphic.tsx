@@ -130,6 +130,11 @@ function noTranslate(m: MatrixArray) {
   return isAroundZero(m[4]) && isAroundZero(m[5]);
 }
 
+function convertSvgMatrixToMatrix4(svgMatrix: MatrixArray) {
+  const [a, b, c, d, e, f] = svgMatrix;
+  return [a, c, 0, e, b, d, 0, f, 0, 0, 1, 0, 0, 0, 0, 1];
+}
+
 function setTransform(
   attrs: SVGVNodeAttrs,
   m: MatrixArray,
@@ -146,22 +151,7 @@ function setTransform(
         ]
       : [
           {
-            translateX: round4(m[4]),
-          },
-          {
-            translateY: round4(m[5]),
-          },
-          {
-            scaleX: round3(m[0]),
-          },
-          {
-            scaleY: round3(m[3]),
-          },
-          {
-            skewX: round3(m[1]),
-          },
-          {
-            skewY: round3(m[2]),
+            matrix: convertSvgMatrixToMatrix4(m),
           },
         ];
   }
@@ -244,7 +234,7 @@ export function brushSVGPath(
   if (attrs.fill && attrs.fill !== 'none') {
     let effects: ReactElement[] = [];
     if (attrs.filter) {
-      effects.push(<Shadow {...attrs.filter} />);
+      effects.push(<Shadow key={`d-${el.id}`} {...attrs.filter} />);
     }
     if (attrs['fill-opacity'] !== undefined) {
       attrs.opacity = attrs['fill-opacity'];
@@ -322,7 +312,7 @@ export function brushSVGImage(
   el: ZRImage,
   scope: BrushScope
 ): ReactElement | null {
-  const style = el.style;
+  const { style, id, transform } = el;
   let image = style.image;
 
   if (image && !isString(image)) {
@@ -342,8 +332,8 @@ export function brushSVGImage(
   const x = style.x || 0;
   const y = style.y || 0;
 
-  const dw = style.width;
-  const dh = style.height;
+  const dw = style.width || 0;
+  const dh = style.height || 0;
 
   const attrs: SVGVNodeAttrs = {
     width: dw,
@@ -356,11 +346,11 @@ export function brushSVGImage(
     attrs.y = y;
   }
 
-  setTransform(attrs, el.transform);
+  setTransform(attrs, transform);
   setStyleAttrs(attrs, style, el, scope);
   // setMetaData(attrs, el);
   // scope.animation && createCSSAnimation(el, attrs, scope);
-  return <SkiaImage image={image} {...attrs} />;
+  return <SkiaImage key={id} image={image} {...attrs} />;
 }
 
 function SkiaImage({ image, ...attrs }) {
@@ -373,8 +363,8 @@ export function brushSVGTSpan(
   scope: BrushScope
 ): ReactElement | null {
   const {
-    x,
-    y,
+    x = 0,
+    y = 0,
     fontFamily = DEFAULT_FONT_FAMILY,
     fontSize = DEFAULT_FONT_SIZE,
     fontStyle = 'normal',
@@ -384,6 +374,7 @@ export function brushSVGTSpan(
     textAlign,
     textBaseline,
   } = el.style;
+  if (!text) return null;
   const font = matchFont({
     fontFamily,
     fontSize,
@@ -434,6 +425,7 @@ export function setGradient(
   if (isLinearGradient(val)) {
     attrs[target] = (
       <LinearGradient
+        key="lg"
         start={{
           x: val.x,
           y: val.y,
@@ -449,6 +441,7 @@ export function setGradient(
   } else if (isRadialGradient(val)) {
     attrs[target] = (
       <RadialGradient
+        key="rg"
         c={{
           x: retrieve2(val.x, 0.5),
           y: retrieve2(val.y, 0.5),
