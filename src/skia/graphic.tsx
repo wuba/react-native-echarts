@@ -17,8 +17,6 @@ import {
   getPathPrecision,
   isGradient,
   isPattern,
-  round3,
-  round4,
   hasShadow,
   isRadialGradient,
   isLinearGradient,
@@ -42,8 +40,6 @@ import {
   SkPath,
 } from '@shopify/react-native-skia';
 import React from 'react';
-
-const round = Math.round;
 
 function isImageLike(val: any): val is HTMLImageElement {
   return val && isString(val.src);
@@ -135,18 +131,13 @@ function convertSvgMatrixToMatrix4(svgMatrix: MatrixArray) {
   return [a, c, 0, e, b, d, 0, f, 0, 0, 1, 0, 0, 0, 0, 1];
 }
 
-function setTransform(
-  attrs: SVGVNodeAttrs,
-  m: MatrixArray,
-  compress?: boolean
-) {
+function setTransform(attrs: SVGVNodeAttrs, m: MatrixArray) {
   if (m && !(noTranslate(m) && noRotateScale(m))) {
-    const mul = compress ? 10 : 1e4;
     // Use translate possible to reduce the size a bit.
     attrs.transform = noRotateScale(m)
       ? [
           {
-            translate: [round(m[4] * mul) / mul, round(m[5] * mul) / mul],
+            translate: [m[4], m[5]],
           },
         ]
       : [
