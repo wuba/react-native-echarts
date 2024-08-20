@@ -14,30 +14,30 @@ import {
 } from 'zrender/lib/core/util';
 import { getLineDash } from 'zrender/lib/canvas/dashStyle';
 import {
-  getPathPrecision,
   isGradient,
   isPattern,
   hasShadow,
   isRadialGradient,
   isLinearGradient,
-  isAroundZero,
 } from 'zrender/lib/svg/helper';
-import SVGPathRebuilder from 'zrender/lib/svg/SVGPathRebuilder';
+import SkiaPathRebuilder from './SkiaPathRebuilder';
 import { ReactElement } from 'react';
 import mapStyleToAttrs from 'zrender/lib/svg/mapStyleToAttrs';
 import {
   Path as SkiaPath,
   Text as SkiaText,
-  DashPathEffect,
   matchFont,
   Shadow,
   useImage,
   Image,
   LinearGradient,
   RadialGradient,
-  Skia,
   processTransform3d,
+  Transforms3d,
+  Matrix4,
   SkPath,
+  SkiaProps,
+  ImageProps,
 } from '@shopify/react-native-skia';
 import React from 'react';
 
@@ -55,6 +55,7 @@ type SVGVNodeAttrs = Record<
   | boolean
   | Record<string, string | number | boolean>
   | ReactElement
+  | SkPath
 >;
 
 type AllStyleOption = PathStyleProps | TSpanStyleProps | ImageStyleProps;
@@ -86,11 +87,9 @@ function setStyleAttrs(
     el,
     false
   );
-
-  setShadow(el, attrs);
 }
 
-function setShadow(el: Displayable, attrs: SVGVNodeAttrs) {
+function getShadow(el: Displayable): ReactElement | undefined {
   const style = el.style;
   if (hasShadow(style)) {
     const globalScale = el.getGlobalScale();
@@ -104,48 +103,40 @@ function setShadow(el: Displayable, attrs: SVGVNodeAttrs) {
     const offsetY = style.shadowOffsetY || 0;
     const blur = style.shadowBlur;
     const stdDx = blur / 2 / scaleX;
-    attrs.filter = {
-      dx: offsetX / scaleX,
-      dy: offsetY / scaleY,
-      blur: stdDx,
-      color: style.shadowColor,
-    };
+    return (
+      <Shadow
+        key={`s-${el.id}`}
+        dx={offsetX / scaleX}
+        dy={offsetY / scaleY}
+        blur={stdDx}
+        color={style.shadowColor}
+      />
+    );
   }
+  return;
 }
 
-function noRotateScale(m: MatrixArray) {
-  return (
-    isAroundZero(m[0] - 1) &&
-    isAroundZero(m[1]) &&
-    isAroundZero(m[2]) &&
-    isAroundZero(m[3] - 1)
-  );
-}
-
-function noTranslate(m: MatrixArray) {
-  return isAroundZero(m[4]) && isAroundZero(m[5]);
-}
-
-function convertSvgMatrixToMatrix4(svgMatrix: MatrixArray) {
-  const [a, b, c, d, e, f] = svgMatrix;
+function convertSvgMatrixToMatrix4(svgMatrix: MatrixArray): Matrix4 {
+  const [a, b, c, d, e, f] = svgMatrix as [
+    number,
+    number,
+    number,
+    number,
+    number,
+    number,
+  ];
   return [a, c, 0, e, b, d, 0, f, 0, 0, 1, 0, 0, 0, 0, 1];
 }
 
-function setTransform(attrs: SVGVNodeAttrs, m: MatrixArray) {
-  if (m && !(noTranslate(m) && noRotateScale(m))) {
-    // Use translate possible to reduce the size a bit.
-    attrs.transform = noRotateScale(m)
-      ? [
-          {
-            translate: [m[4], m[5]],
-          },
-        ]
-      : [
-          {
-            matrix: convertSvgMatrixToMatrix4(m),
-          },
-        ];
+function getTransform(m: MatrixArray): Transforms3d | undefined {
+  if (m) {
+    return [
+      {
+        matrix: convertSvgMatrixToMatrix4(m),
+      },
+    ];
   }
+  return;
 }
 
 export function brush(
@@ -164,20 +155,16 @@ export function brush(
 
 interface PathWithSVGBuildPath extends Path {
   __svgPathVersion: number;
-  __svgPathBuilder: SVGPathRebuilder;
+  __svgPathBuilder: SkiaPathRebuilder;
   __svgPathStrokePercent: number;
 }
 
-export function brushSVGPath(
+export function buildPath(
   el: Path,
-  scope: BrushScope,
-  returnString = false
-): ReactElement | ReactElement[] | null | SkPath {
+  transform: Transforms3d | undefined
+): SkPath {
   const style = el.style;
-  const attrs: Record<string, string | number | boolean> = {};
-  const strokePercent = el.style.strokePercent as number;
-  const precision = (scope.compress && getPathPrecision(el)) || 4;
-
+  const strokePercent = style.strokePercent as number;
   const needBuildPath = !el.path || el.shapeChanged();
   if (!el.path) {
     el.createPathProxy();
@@ -191,7 +178,7 @@ export function brushSVGPath(
   }
   const pathVersion = path.getVersion();
   const elExt = el as PathWithSVGBuildPath;
-
+  const __svgPathVersion = elExt.__svgPathVersion;
   let svgPathBuilder = elExt.__svgPathBuilder;
   if (
     elExt.__svgPathVersion !== pathVersion ||
@@ -199,111 +186,92 @@ export function brushSVGPath(
     strokePercent !== elExt.__svgPathStrokePercent
   ) {
     if (!svgPathBuilder) {
-      svgPathBuilder = elExt.__svgPathBuilder = new SVGPathRebuilder();
+      svgPathBuilder = elExt.__svgPathBuilder = new SkiaPathRebuilder();
     }
-    svgPathBuilder.reset(precision);
+    svgPathBuilder.reset();
     path.rebuildPath(svgPathBuilder, strokePercent);
-    svgPathBuilder.generateStr();
     elExt.__svgPathVersion = pathVersion;
     elExt.__svgPathStrokePercent = strokePercent;
   }
-
-  const d = svgPathBuilder.getStr();
-  const p = Skia.Path.MakeFromSVGString(d);
-  setTransform(attrs, el.transform);
-
-  if (attrs.transform && (typeof attrs.fill === 'string' || returnString)) {
-    p?.transform(processTransform3d(attrs.transform));
-    attrs.transform = undefined;
+  const p = svgPathBuilder.getPath();
+  if (transform && !__svgPathVersion) {
+    p?.transform(processTransform3d(transform));
   }
-  if (returnString) {
-    return p;
-  }
+  return p;
+}
 
+export function brushSVGPath(
+  el: Path,
+  scope: BrushScope
+): ReactElement | ReactElement[] | null {
+  const style = el.style;
+  const attrs: SVGVNodeAttrs = {};
+  const transform = getTransform(el.transform);
+  const p = buildPath(
+    el,
+    typeof attrs.fill === 'string' || typeof attrs.stroke === 'string'
+      ? transform
+      : undefined
+  );
+  attrs.path = p;
   setStyleAttrs(attrs, style, el, scope);
+  const shadow = getShadow(el);
   let paths: ReactElement[] = [];
   if (attrs.fill && attrs.fill !== 'none') {
-    let effects: ReactElement[] = [];
-    if (attrs.filter) {
-      effects.push(<Shadow key={`d-${el.id}`} {...attrs.filter} />);
-    }
-    if (attrs['fill-opacity'] !== undefined) {
-      attrs.opacity = attrs['fill-opacity'];
-    }
-    if (typeof attrs.fill === 'string') {
-      paths.push(
-        <SkiaPath
-          {...attrs}
-          key={`f-${el.id}`}
-          path={p}
-          color={attrs.fill}
-          style="fill"
-        >
-          {effects}
-        </SkiaPath>
-      );
-    } else {
-      effects.push(attrs.fill);
-      paths.push(
-        <SkiaPath {...attrs} key={`f-${el.id}`} path={p} style="fill">
-          {effects}
-        </SkiaPath>
-      );
-    }
-  }
-  if (attrs.stroke) {
-    let effects: ReactElement[] = [];
-    if (attrs['stroke-width']) {
-      attrs.strokeWidth = attrs['stroke-width'];
-    }
-    if (attrs['stroke-linecap']) {
-      attrs.strokeCap = attrs['stroke-linecap'];
-    }
-    if (attrs['stroke-linejoin']) {
-      attrs.strokeJoin = attrs['stroke-linejoin'];
-    }
-    if (attrs['stroke-miterlimit']) {
-      attrs.strokeMiter = attrs['stroke-miterlimit'];
-    }
-    if (attrs['stroke-opacity'] !== undefined) {
-      attrs.opacity = attrs['stroke-opacity'];
-    }
-    if (!attrs.strokeWidth) {
-      attrs.strokeWidth = 1;
-    }
-    if (style.lineDash) {
-      let [lineDash, lineDashOffset] = getLineDash(el);
-      if (lineDash) {
-        effects.push(
-          <DashPathEffect
-            key="stroke-dasharray"
-            intervals={lineDash}
-            phase={lineDashOffset}
-          />
-        );
-      }
-    }
+    const effects: ReactElement[] = [];
+    if (shadow) effects.push(shadow);
+    const fillEffect = typeof attrs.fill === 'string' ? null : attrs.fill;
+    if (fillEffect) effects.push(fillEffect as ReactElement);
     paths.push(
       <SkiaPath
-        {...attrs}
-        key={`s-${el.id}`}
+        opacity={(attrs['fill-opacity'] as number) ?? 1}
+        key={`f-${el.id}`}
         path={p}
-        color={attrs.stroke}
-        style={'stroke'}
+        color={typeof attrs.fill === 'string' ? attrs.fill : undefined}
+        style="fill"
+        transform={transform}
       >
         {effects}
       </SkiaPath>
     );
   }
-
-  return paths;
+  if (attrs.stroke && attrs['stroke-width'] !== 0) {
+    const effects: ReactElement[] = [];
+    if (shadow) effects.push(shadow);
+    if (style.lineDash) {
+      const [lineDash, lineDashOffset] = getLineDash(el);
+      if (lineDash) p.dash(lineDash[0] || 0, lineDash[1] || 0, lineDashOffset);
+    }
+    const strokeColor =
+      typeof attrs.stroke === 'string' ? attrs.stroke : undefined;
+    if (!strokeColor) {
+      effects.push(attrs.stroke as ReactElement);
+    }
+    paths.push(
+      <SkiaPath
+        opacity={(attrs['stroke-opacity'] as number) ?? 1}
+        strokeMiter={attrs['stroke-miterlimit'] as number}
+        strokeCap={attrs['stroke-linecap'] as any}
+        strokeJoin={attrs['stroke-linejoin'] as any}
+        strokeWidth={(attrs['stroke-width'] as number) ?? 1}
+        transform={transform}
+        key={`s-${el.id}`}
+        path={p}
+        color={strokeColor}
+        style="stroke"
+      >
+        {effects}
+      </SkiaPath>
+    );
+  }
+  return style.strokeFirst ? paths.reverse() : paths;
 }
 
 export function brushSVGImage(
   el: ZRImage,
   scope: BrushScope
 ): ReactElement | null {
-  const { style, id, transform } = el;
+  const { style, id } = el;
   let image = style.image;
 
   if (image && !isString(image)) {
@@ -326,27 +294,41 @@ export function brushSVGImage(
   const dw = style.width || 0;
   const dh = style.height || 0;
 
-  const attrs: SVGVNodeAttrs = {
-    width: dw,
-    height: dh,
-  };
-  if (x) {
-    attrs.x = x;
-  }
-  if (y) {
-    attrs.y = y;
-  }
+  const attrs: SVGVNodeAttrs = {};
 
-  setTransform(attrs, transform);
+  const transform = getTransform(el.transform);
   setStyleAttrs(attrs, style, el, scope);
+  const effects: ReactElement[] = [];
+  const shadow = getShadow(el);
+  if (shadow) effects.push(shadow);
   // setMetaData(attrs, el);
   // scope.animation && createCSSAnimation(el, attrs, scope);
-  return <SkiaImage key={id} image={image} {...attrs} />;
+  return (
+    <SkiaImage
+      image={null}
+      key={id}
+      href={image as string}
+      transform={transform}
+      x={x}
+      y={y}
+      width={dw}
+      height={dh}
+    >
+      {effects}
+    </SkiaImage>
+  );
 }
-
-function SkiaImage({ image, ...attrs }) {
-  const href = useImage(image);
-  return <Image image={href} {...attrs} />;
+type CustomImageProps = SkiaProps<ImageProps> & {
+  href: string;
+  children?: ReactElement[];
+};
+function SkiaImage({ href, children, ...attrs }: CustomImageProps) {
+  const skiaImage = useImage(href);
+  return (
+    <Image {...attrs} image={skiaImage}>
+      {children}
+    </Image>
+  );
 }
 
 export function brushSVGTSpan(
@@ -370,13 +352,13 @@ export function brushSVGTSpan(
     fontFamily,
     fontSize,
     fontStyle,
-    fontWeight,
+    fontWeight: fontWeight as any,
   });
   const attrs: SVGVNodeAttrs = {};
   const { id } = el;
-  setTransform(attrs, el.transform);
+  const transform = getTransform(el.transform);
   setStyleAttrs(attrs, el.style, el, scope);
-  const { width: textWidth, height: textHeigh } = font.measureText(text);
+  const { width: textWidth, y: textY } = font.measureText(text);
   const adjustX =
     textAlign === 'center'
       ? textWidth / 2
@@ -385,9 +367,9 @@ export function brushSVGTSpan(
         : textWidth;
   const adjustY =
     textBaseline === 'middle'
-      ? textHeigh / 2
+      ? textY / 2
       : textBaseline === 'bottom'
-        ? textHeigh
+        ? textY
         : 0;
   if (attrs['fill-opacity'] !== undefined) {
     attrs.opacity = attrs['fill-opacity'];
@@ -395,12 +377,13 @@ export function brushSVGTSpan(
   return (
     <SkiaText
       {...attrs}
+      transform={transform}
       key={id}
       x={x - adjustX}
-      y={y + adjustY}
+      y={y - adjustY}
       text={text}
       font={font}
-      color={fill}
+      color={typeof fill === 'string' ? fill : undefined}
     />
   );
 }
@@ -414,17 +397,30 @@ export function setGradient(
   const colors = val.colorStops.map((c) => c.color);
   const positions = val.colorStops.map((c) => c.offset);
   if (isLinearGradient(val)) {
+    let start = {
+      x: val.x,
+      y: val.y,
+    };
+    let end = {
+      x: val.x2,
+      y: val.y2,
+    };
+    if (!val.global) {
+      const { width, height, x, y } = (attrs.path as SkPath)?.getBounds();
+      start = {
+        x: start.x * width + x,
+        y: start.y * height + y,
+      };
+      end = {
+        x: end.x * width + x,
+        y: end.y * height + y,
+      };
+    }
     attrs[target] = (
       <LinearGradient
         key="lg"
-        start={{
-          x: val.x,
-          y: val.y,
-        }}
-        end={{
-          x: val.x2 * 100,
-          y: val.y2 * 100,
-        }}
+        start={start}
+        end={end}
         colors={colors}
         positions={positions}
       />
@@ -449,17 +445,14 @@ export function setGradient(
     return;
   }
 }
-export function setClipPath(
-  clipPath: Path,
-  attrs: SVGVNodeAttrs,
-  scope: BrushScope
-) {
-  const { clipPathCache, defs } = scope;
-  let clipPathId = clipPathCache[clipPath.id];
-  if (!clipPathId) {
-    clipPathId = scope.zrId + '-c' + scope.clipPathIdx++;
-    clipPathCache[clipPath.id] = clipPathId;
-    defs[clipPathId] = brushSVGPath(clipPath, scope, true);
+export function getClipPath(clipPath: Path | undefined, scope: BrushScope) {
+  if (!clipPath) {
+    return;
   }
-  attrs['clip-path'] = defs[clipPathId];
+  const { clipPathCache } = scope;
+  if (!clipPathCache[clipPath.id]) {
+    const transform = getTransform(clipPath.transform);
+    clipPathCache[clipPath.id] = buildPath(clipPath, transform);
+  }
+  return clipPathCache[clipPath.id];
 }

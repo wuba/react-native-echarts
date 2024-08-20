@@ -1,5 +1,6 @@
 export type CSSSelectorVNode = Record<string, string>;
 export type CSSAnimationVNode = Record<string, Record<string, string>>;
+import type { SkPath } from '@shopify/react-native-skia';
 export type SVGVNodeAttrs = Record<
   string,
   string | number | undefined | boolean
@@ -20,7 +21,7 @@ export interface BrushScope {
   shadowCache: Record<string, string>;
   gradientCache: Record<string, string>;
   patternCache: Record<string, string>;
-  clipPathCache: Record<string, string>;
+  clipPathCache: Record<string, SkPath>;
 
   defs: Record<string, SVGVNode>;
 
