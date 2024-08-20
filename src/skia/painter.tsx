@@ -1,6 +1,6 @@
 import { PatternObject } from 'zrender/lib/graphic/Pattern';
 import { GradientObject } from 'zrender/lib/graphic/Gradient';
-import { BrushScope } from 'zrender/lib/svg/core';
+import { BrushScope } from './core';
 import Displayable from 'zrender/lib/graphic/Displayable';
 import Path from 'zrender/lib/graphic/Path';
 import { PainterBase } from 'zrender/lib/PainterBase';
@@ -8,7 +8,7 @@ import type Storage from 'zrender/lib/Storage';
 import { logError } from 'zrender/lib/core/util';
 import { isGradient, isPattern } from 'zrender/lib/svg/helper';
 import { createBrushScope } from './core';
-import { brush, setClipPath, setGradient } from './graphic';
+import { brush, getClipPath, setGradient } from './graphic';
 import { ReactElement } from 'react';
 import { Group, Rect } from '@shopify/react-native-skia';
 import React from 'react';
@@ -32,13 +32,11 @@ export class SkiaPainter implements PainterBase {
   type: string = 'svg';
   root: HTMLElement;
   storage: Storage;
-  private _opts: SVGPainterOption;
   private _id: string;
   private _width: number;
   private _height: number;
   private _svgDom: any;
   private _backgroundColor: SVGPainterBackgroundColor = 'none';
-  private _bgVNode: ReactElement | undefined;
   constructor(
     root: RootProps,
     storage: Storage,
@@ -47,8 +45,8 @@ export class SkiaPainter implements PainterBase {
   ) {
     this.root = root;
     this.storage = storage;
-    this._opts = opts;
     this._id = 'zr' + svgId++;
+    // @ts-ignore
     this._svgDom = root.elm;
     this._svgDom.setZrenderId?.(id);
     this._width = 0;
@@ -74,12 +72,12 @@ export class SkiaPainter implements PainterBase {
     const width = this._width;
     const height = this._height;
     let children: ReactElement[] = [];
-    const bgVNode = (this._bgVNode = createBackgroundVNode(
+    const bgVNode = createBackgroundVNode(
       width,
       height,
       this._backgroundColor,
       scope
-    ));
+    );
     bgVNode && children.push(bgVNode);
     this._paintList(list, scope, children);
     // @ts-ignore
@@ -117,11 +115,10 @@ export class SkiaPainter implements PainterBase {
         }
         // Pop clip path group for clipPaths not match the previous.
         for (let i = lca + 1; i < len; i++) {
-          const groupAttrs: Record<string, string | number | boolean> = {};
-          setClipPath(clipPaths[i], groupAttrs, scope);
+          const clip = clipPaths && getClipPath(clipPaths[i], scope);
           const g = {
             id: 'clip-g-' + clipGroupNodeIdx++,
-            clip: groupAttrs['clip-path'],
+            clip,
             children: [],
             index: out?.length,
           };
