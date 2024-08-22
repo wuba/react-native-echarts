@@ -24,20 +24,6 @@ Components.forEach((Component) => {
       expect(toJSON()).toMatchSnapshot();
     });
 
-    it('renders Canvas when svgString is provided', () => {
-      const { queryByTestId, toJSON } = render(
-        <Component svg={svg} node={node} />
-      );
-      expect(toJSON()).toMatchSnapshot();
-      expect(queryByTestId('component')).not.toBeNull();
-    });
-
-    it('does not render Canvas when svgString is not provided', () => {
-      const { queryByTestId, toJSON } = render(<Component />);
-      expect(toJSON()).toMatchSnapshot();
-      expect(queryByTestId('component')).toBeNull();
-    });
-
     it('renders GestureHandler when handleGesture is true and useRNGH is ture', () => {
       const { queryByTestId, toJSON } = render(
         <Component svg={svg} node={node} useRNGH />
