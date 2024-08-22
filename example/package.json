@@ -12,7 +12,7 @@
     "@expo/webpack-config": "~19.0.1",
     "@shopify/react-native-skia": "1.2.3",
     "echarts": "^5.5.0",
-    "expo": "~51.0.26",
+    "expo": "~51.0.28",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.74.5",
