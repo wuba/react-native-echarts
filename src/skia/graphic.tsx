@@ -24,6 +24,7 @@ import SkiaPathRebuilder from './SkiaPathRebuilder';
 import { ReactElement } from 'react';
 import mapStyleToAttrs from 'zrender/lib/svg/mapStyleToAttrs';
 import {
+  Skia,
   Path as SkiaPath,
   Text as SkiaText,
   matchFont,
@@ -313,6 +314,7 @@ export function brushSVGImage(
       y={y}
       width={dw}
       height={dh}
+      {...attrs}
     >
       {effects}
     </SkiaImage>
@@ -320,10 +322,24 @@ export function brushSVGImage(
 }
 type CustomImageProps = SkiaProps<ImageProps> & {
   href: string;
+  height?: number;
+  width?: number;
   children?: ReactElement[];
 };
 function SkiaImage({ href, children, ...attrs }: CustomImageProps) {
-  const skiaImage = useImage(href);
+  let skiaImage = useImage(href);
+  // Base64 image
+  if (href.indexOf(';base64') > -1) {
+    const base64Data = href.split(',')[1] || '';
+    const binaryData = Skia.Data.fromBase64(base64Data);
+    skiaImage = Skia.Image.MakeImageFromEncoded(binaryData);
+  }
+  const imageInfo = skiaImage?.getImageInfo();
+  if (imageInfo && !attrs.width) {
+    const { height: oriHeight, width: oriWidth } = imageInfo;
+    attrs.width = attrs.height ? (attrs.height / oriHeight) * oriWidth : 0;
+  }
+  // attrs.fit = 'fill'; // Here you can set 'Image' fit mode
   return (
     <Image {...attrs} image={skiaImage}>
       {children}
