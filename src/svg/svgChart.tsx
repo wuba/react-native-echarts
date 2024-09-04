@@ -33,7 +33,7 @@ import React, {
   useCallback,
 } from 'react';
 
-import { Platform, View } from 'react-native';
+import { Platform, View, Image as RNImage } from 'react-native';
 
 import {
   setPlatformAPI,
@@ -79,6 +79,32 @@ const tagMap = {
   pattern: Pattern,
   mask: Mask,
 };
+
+const imageSizeMap: any = {};
+
+interface ImageSize {
+  width: number;
+  height: number;
+}
+
+// 使用 async/await 获取图片尺寸
+const getImageSize = async (uri: string): Promise<ImageSize> => {
+  return new Promise((resolve, reject) => {
+    RNImage.getSize(
+      uri,
+      (width, height) => resolve({ width, height }),
+      (error) => reject(error)
+    );
+  });
+};
+
+async function imageInit(url: string) {
+  const { width, height } = await getImageSize(url);
+  imageSizeMap[url] = {
+    width,
+    height,
+  };
+}
 
 function toCamelCase(str: string) {
   var reg = /-(\w)/g;
@@ -169,6 +195,17 @@ function SvgEle(props: SVGVEleProps) {
         )}
       </Tag>
     );
+  }
+  if (tag === 'image' && !attrs.width) {
+    if (imageSizeMap[attrs.href]) {
+      const { width, height } = imageSizeMap[attrs.href];
+      attrs.width = (attrs.height / height) * width;
+      if (attrs.height === 0) {
+        attrs.opacity = 0;
+      }
+    } else {
+      imageInit(attrs.href);
+    }
   }
   return (
     <Tag key={node.key} {...attrs}>
