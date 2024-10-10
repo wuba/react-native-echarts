@@ -12,20 +12,12 @@ import React, {
 import { Canvas, useCanvasRef } from '@shopify/react-native-skia';
 import { View } from 'react-native';
 
-import {
-  setPlatformAPI,
-  // DEFAULT_FONT_FAMILY as zrenderFontFamily,
-} from 'zrender/lib/core/platform';
-// import { DEFAULT_FONT_FAMILY } from './utils/font';
-import { measureText } from '../utils/platform';
 import { GestureHandler } from '../components/GestureHandler';
 import { dispatchEventsToZRender } from '../components/events';
 import type { ChartElement, DispatchEvents, SkiaChartProps } from '../types';
 
 export { SkiaRender } from './SkiaRender';
 export * from '../types';
-
-setPlatformAPI({ measureText });
 
 function SkiaComponent(
   props: SkiaChartProps,
