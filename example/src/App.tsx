@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useEffect, useRef } from 'react';
-import { StyleSheet, View, Dimensions } from 'react-native';
+import { StyleSheet, View, Dimensions, Platform } from 'react-native';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 import {
   SVGRenderer,
@@ -69,11 +69,14 @@ function SvgComponent({ option }: any) {
 
   return <SvgChart ref={svgRef} useRNGH />;
 }
-
+const fontFamily = Platform.select({
+  ios: 'PingFang SC',
+  android: 'sans-serif',
+});
 const option = {
   xAxis: {
     type: 'category',
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    data: ['周一', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
   },
   yAxis: {
     type: 'value',
@@ -91,6 +94,9 @@ const option = {
       type: 'line',
     },
   ],
+  textStyle: {
+    fontFamily,
+  },
 };
 function App() {
   return (
