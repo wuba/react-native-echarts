@@ -26,8 +26,6 @@ import mapStyleToAttrs from 'zrender/lib/svg/mapStyleToAttrs';
 import {
   Skia,
   Path as SkiaPath,
-  Text as SkiaText,
-  matchFont,
   Shadow,
   useImage,
   Image,
@@ -39,6 +37,9 @@ import {
   SkPath,
   SkiaProps,
   ImageProps,
+  Paragraph,
+  FontWeight,
+  FontSlant,
 } from '@shopify/react-native-skia';
 import React from 'react';
 
@@ -347,6 +348,35 @@ function SkiaImage({ href, children, ...attrs }: CustomImageProps) {
   );
 }
 
+const createFontSlant = (fontStyle: TSpanStyleProps['fontStyle']) => {
+  switch (fontStyle) {
+    case 'italic':
+      return FontSlant.Italic;
+    case 'oblique':
+      return FontSlant.Oblique;
+    default:
+      return FontSlant.Upright;
+  }
+};
+
+const createFontWeight = (fontWeight: TSpanStyleProps['fontWeight']) => {
+  if (typeof fontWeight === 'string') {
+    switch (fontWeight) {
+      case 'normal':
+        return FontWeight.Normal;
+      case 'bold':
+        return FontWeight.Bold;
+      case 'bolder':
+        return FontWeight.ExtraBold;
+      case 'lighter':
+        return FontWeight.Light;
+      default:
+        return parseInt(fontWeight, 10);
+    }
+  }
+  return fontWeight;
+};
+
 export function brushSVGTSpan(
   el: TSpan,
   scope: BrushScope
@@ -364,42 +394,52 @@ export function brushSVGTSpan(
     textBaseline,
   } = el.style;
   if (!text) return null;
-  const font = matchFont({
-    fontFamily,
-    fontSize,
-    fontStyle,
-    fontWeight: fontWeight as any,
-  });
   const attrs: SVGVNodeAttrs = {};
   const { id } = el;
   const transform = getTransform(el.transform);
   setStyleAttrs(attrs, el.style, el, scope);
-  const { width: textWidth, y: textY } = font.measureText(text);
+
+  const para = Skia.ParagraphBuilder.Make({})
+    .pushStyle({
+      heightMultiplier: 1,
+      fontFamilies: [fontFamily],
+      fontSize:
+        typeof fontSize === 'string' ? parseInt(fontSize, 10) : fontSize,
+      color: typeof fill === 'string' ? Skia.Color(fill) : undefined,
+      fontStyle: {
+        weight: createFontWeight(fontWeight),
+        slant: createFontSlant(fontStyle),
+      },
+    })
+    .addText(text)
+    .build();
+  para.layout(Infinity);
+  const textHeight = para.getHeight();
+  const textWidth = para.getLongestLine();
   const adjustX =
     textAlign === 'center'
-      ? textWidth / 2
+      ? -textWidth / 2
       : textAlign === 'start' || textAlign === 'left'
         ? 0
-        : textWidth;
+        : -textWidth;
   const adjustY =
     textBaseline === 'middle'
-      ? textY / 2
-      : textBaseline === 'bottom'
-        ? textY
-        : 0;
+      ? -textHeight / 2
+      : textBaseline === 'top'
+        ? 0
+        : -textHeight;
   if (attrs['fill-opacity'] !== undefined) {
     attrs.opacity = attrs['fill-opacity'];
   }
   return (
-    <SkiaText
+    <Paragraph
+      key={id}
       {...attrs}
       transform={transform}
-      key={id}
-      x={x - adjustX}
-      y={y - adjustY}
-      text={text}
-      font={font}
-      color={typeof fill === 'string' ? fill : undefined}
+      paragraph={para}
+      x={x + adjustX}
+      y={y + adjustY}
+      width={Math.ceil(textWidth)}
     />
   );
 }
