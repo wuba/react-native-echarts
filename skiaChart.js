@@ -1,2 +1,2 @@
-export * from './lib/module/skiaChart';
-export { default } from './lib/module/skiaChart';
+export * from './lib/module/skia/skiaChart';
+export { default } from './lib/module/skia/skiaChart';
