@@ -1,1 +1,0 @@
-{"version":3,"file":"skiaChart.d.ts","sourceRoot":"","sources":["../../src/skiaChart.tsx"],"names":[],"mappings":"AAAA,OAAO,KAA0D,MAAM,OAAO,CAAC;AAa/E,OAAO,EAAE,WAAW,EAAE,MAAM,eAAe,CAAC;AAI5C,UAAU,SAAS;IACjB,GAAG,CAAC,EAAE,MAAM,CAAC;IACb,KAAK,CAAC,EAAE,MAAM,CAAC;IACf,MAAM,CAAC,EAAE,MAAM,CAAC;IAChB,OAAO,CAAC,EAAE,OAAO,CAAC;CACnB;;AAuDD,wBAA+C"}
