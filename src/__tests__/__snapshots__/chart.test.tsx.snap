@@ -363,7 +363,7 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "middle",
             }
@@ -429,7 +429,7 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "middle",
             }
@@ -495,7 +495,7 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
           fillOpacity={0.5}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "20px",
               "textAnchor": "middle",
             }
@@ -775,7 +775,7 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
             fillOpacity={1}
             font={
               {
-                "fontFamily": "Helvetica Neue",
+                "fontFamily": "sans-serif",
                 "fontSize": "12px",
                 "textAnchor": "middle",
               }
@@ -830,7 +830,7 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
             fillOpacity={0.5}
             font={
               {
-                "fontFamily": "Helvetica Neue",
+                "fontFamily": "sans-serif",
                 "fontSize": "20px",
                 "textAnchor": "middle",
               }
@@ -926,7 +926,7 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
             fillOpacity={1}
             font={
               {
-                "fontFamily": "Helvetica Neue",
+                "fontFamily": "sans-serif",
                 "fontSize": "12px",
                 "textAnchor": "middle",
               }
@@ -1260,7 +1260,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -1315,7 +1315,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -1370,7 +1370,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -1425,7 +1425,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -1480,7 +1480,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -1535,7 +1535,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "middle",
             }
@@ -1594,7 +1594,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "middle",
             }
@@ -1959,7 +1959,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -2014,7 +2014,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -2069,7 +2069,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -2124,7 +2124,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -2179,7 +2179,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -2234,7 +2234,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "middle",
             }
@@ -2293,7 +2293,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "middle",
             }
@@ -2753,7 +2753,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -2808,7 +2808,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -2863,7 +2863,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -2918,7 +2918,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -2973,7 +2973,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -3028,7 +3028,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "middle",
             }
@@ -3087,7 +3087,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           fillOpacity={1}
           font={
             {
-              "fontFamily": "Helvetica Neue",
+              "fontFamily": "sans-serif",
               "fontSize": "12px",
               "textAnchor": "middle",
             }
