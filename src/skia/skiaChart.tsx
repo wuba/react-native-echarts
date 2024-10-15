@@ -16,7 +16,7 @@ import { GestureHandler } from '../components/GestureHandler';
 import { dispatchEventsToZRender } from '../components/events';
 import type { ChartElement, DispatchEvents, SkiaChartProps } from '../types';
 
-export { SkiaRender } from './SkiaRender';
+export { SkiaRenderer } from './SkiaRenderer';
 export * from '../types';
 
 function SkiaComponent(

@@ -1,2 +1,2 @@
 export { default } from '../web/chart';
-export { SkiaRender } from './SkiaRender';
+export { SkiaRenderer } from './SkiaRenderer';

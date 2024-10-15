@@ -5,7 +5,7 @@ import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 import {
   SVGRenderer,
   SvgChart,
-  SkiaRender,
+  SkiaRenderer,
   SkiaChart,
 } from '@wuba/react-native-echarts';
 import * as echarts from 'echarts/core';
@@ -22,7 +22,7 @@ echarts.use([
   TooltipComponent,
   GridComponent,
   SVGRenderer,
-  SkiaRender,
+  SkiaRenderer,
   // ...
   BarChart,
   LineChart,
