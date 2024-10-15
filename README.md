@@ -118,7 +118,7 @@ import SvgChart, { SVGRenderer } from '@wuba/react-native-echarts/svgChart';
 ```
 or
 ```js
-import SkiaChart, { SVGRenderer } from '@wuba/react-native-echarts/skiaChart';
+import SkiaChart, { SkiaRenderer } from '@wuba/react-native-echarts/skiaChart';
 ```
 
 ## Contributing
