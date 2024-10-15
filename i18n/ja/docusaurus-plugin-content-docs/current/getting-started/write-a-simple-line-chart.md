@@ -8,20 +8,20 @@ sidebar_position: 3
 
 ブラウザでの表示を確認するには、[echartsエディター](https://echarts.apache.org/examples/en/editor.html?c=line-simple)にアクセスし、設定を変更して変化を確認してみてください。
 
-1. echarts、@wuba/react-native-echarts、reactをインポートします。ここでは、SkiaChartとSVGRendererのみをインポートしています。
+1. echarts、@wuba/react-native-echarts、reactをインポートします。ここでは、SkiaChartとSkiaRendererのみをインポートしています。
 
 ```tsx
 import React, { useRef, useEffect } from 'react';
 import * as echarts from 'echarts/core';
 import { LineChart } from 'echarts/charts';
 import { GridComponent } from 'echarts/components';
-import { SVGRenderer, SkiaChart } from '@wuba/react-native-echarts';
+import { SkiaRenderer, SkiaChart } from '@wuba/react-native-echarts';
 ```
 
 2. echarts.useを使用して、レンダラーとチャートを登録します。
 
 ```tsx
-echarts.use([SVGRenderer, LineChart, GridComponent]);
+echarts.use([SkiaRenderer, LineChart, GridComponent]);
 ```
 
 3. SkiaChartのためのrefを作成します。
@@ -57,7 +57,7 @@ const option = {
 
 ```tsx
 let chart = echarts.init(skiaRef.current, 'light', {
-  renderer: 'svg',
+  renderer: 'skia',
   width: 400,
   height: 400,
 });
@@ -79,9 +79,9 @@ import React, { useRef, useEffect } from 'react';
 import * as echarts from 'echarts/core';
 import { LineChart } from 'echarts/charts';
 import { GridComponent } from 'echarts/components';
-import { SVGRenderer, SkiaChart } from '@wuba/react-native-echarts';
+import { SkiaRenderer, SkiaChart } from '@wuba/react-native-echarts';
 
-echarts.use([SVGRenderer, LineChart, GridComponent]);
+echarts.use([SkiaRenderer, LineChart, GridComponent]);
 
 export default function App() {
   const skiaRef = useRef<any>(null);
@@ -104,7 +104,7 @@ export default function App() {
     let chart: any;
     if (skiaRef.current) {
       chart = echarts.init(skiaRef.current, 'light', {
-        renderer: 'svg',
+        renderer: 'skia',
         width: 400,
         height: 400,
       });
@@ -123,6 +123,6 @@ export default function App() {
 | --- | --- |
 | ![ios](./ios-line.png) | ![android](./android-line.jpg) |
 
-react-native-svgを使用する場合は、SkiaChartをSvgChartに置き換えてください。
+react-native-svgを使用する場合は、SkiaChartをSvgChartに置き換えてください、レンダラーとして「svg」を使用します。
 
 次に、@wuba/react-native-echartsで使用できるさまざまな設定を[echartsの例](https://echarts.apache.org/examples/en/index.html)から見つけることができます。

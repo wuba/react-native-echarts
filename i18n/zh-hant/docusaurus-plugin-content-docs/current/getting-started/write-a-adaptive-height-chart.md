@@ -14,13 +14,13 @@ import { StyleSheet, View, Dimensions } from "react-native";
 import * as echarts from "echarts/core";
 import { LineChart } from "echarts/charts";
 import { GridComponent } from "echarts/components";
-import { SVGRenderer, SkiaChart } from "@wuba/react-native-echarts";
+import { SkiaRenderer, SkiaChart } from "@wuba/react-native-echarts";
 ```
 
 2. 使用 echarts.use 註冊渲染器和圖表。
 
 ```tsx
-echarts.use([SVGRenderer, LineChart, GridComponent]);
+echarts.use([SkiaRenderer, LineChart, GridComponent]);
 ```
 
 3. 為 SkiaChart 元件建立一個參考，並使用 View 容器將其包裝起來。 使用 onLayout 獲取容器的寬度和高度，以便以後分配給 ECharts 圖表。
@@ -82,7 +82,7 @@ const option = {
 
 ```tsx
 let chart = echarts.init(skiaRef.current, "light", {
-  renderer: "svg",
+  renderer: "skia",
   width: chartWidth,
   height: chartHeight,
 });
@@ -135,9 +135,9 @@ import { StyleSheet, View, Dimensions } from "react-native";
 import * as echarts from "echarts/core";
 import { LineChart } from "echarts/charts";
 import { GridComponent } from "echarts/components";
-import { SVGRenderer, SkiaChart } from "@wuba/react-native-echarts";
+import { SkiaRenderer, SkiaChart } from "@wuba/react-native-echarts";
 
-echarts.use([SVGRenderer, LineChart, GridComponent]);
+echarts.use([SkiaRenderer, LineChart, GridComponent]);
 
 export default function App() {
   const skiaRef = useRef<any>(null);
@@ -195,7 +195,7 @@ export default function App() {
     let chart: any;
     if (skiaRef.current) {
       chart = echarts.init(skiaRef.current, "light", {
-        renderer: "svg",
+        renderer: "skia",
         width: chartWidth,
         height: chartHeight,
       });
@@ -251,6 +251,6 @@ const styles = StyleSheet.create({
 | ------------------------ | -------------------------------- |
 | ![ios](./ios_rotate.gif) | ![android](./android_rotate.gif) |
 
-如果您想使用 react-native-skia，只需將 SvgChart 替換為 SkiaChart。
+如果您想使用 react-native-svg，只需將 SkiaChart 替換為 SvgChart，然後使用 `svg` 作為渲染器。
 
 有關更多圖表配置，請參閱 [echarts 文件](https://echarts.apache.org/en/option.html#title)。

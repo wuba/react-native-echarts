@@ -419,7 +419,7 @@ const styles = StyleSheet.create({
 | ------------------------------ | -------------------------------------- |
 | ![ios](./dynamic-data-ios.gif) | ![android](./dynamic-data-android.gif) |
 
-react-native-skiaを使用する場合は、SvgChartをSkiaChartに置き換えてください。
+react-native-skiaを使用する場合は、SvgChartをSkiaChartに置き換えてください、そして、レンダラーとして「skia」を使用します。
 
 より詳細なチャートの設定については、[echartsのドキュメント](https://echarts.apache.org/en/option.html#title)を参照してください。
 

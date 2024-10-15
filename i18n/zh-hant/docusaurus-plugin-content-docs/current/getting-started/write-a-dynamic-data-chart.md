@@ -419,6 +419,6 @@ const styles = StyleSheet.create({
 | ------------------------------ | -------------------------------------- |
 | ![ios](./dynamic-data-ios.gif) | ![android](./dynamic-data-android.gif) |
 
-如果您想使用 react-native-skia，只需將 SvgChart 替換為 SkiaChart。
+如果您想使用 react-native-skia，只需將 SvgChart 替換為 SkiaChart，然後使用 `skia` 作為渲染器。
 
 有關更多圖表配置，請參閱 [echarts 文檔](https://echarts.apache.org/en/option.html#title)。

@@ -4,9 +4,9 @@
 // under Apache License 2.0.
 import { useRef, useEffect } from 'react';
 import { StyleSheet, View, Dimensions } from 'react-native';
-import { SVGRenderer, SkiaChart, echarts } from '@wuba/react-native-echarts';
+import { SkiaRenderer, SkiaChart, echarts } from '@wuba/react-native-echarts';
 
-echarts.use([SVGRenderer]);
+echarts.use([SkiaRenderer]);
 
 const E_HEIGHT = 400;
 const E_WIDTH = Dimensions.get('window').width;
@@ -32,7 +32,7 @@ export default function App() {
     let chart: any;
     if (skiaRef.current) {
       chart = echarts.init(skiaRef.current, 'light', {
-        renderer: 'svg',
+        renderer: 'skia',
         width: E_WIDTH,
         height: E_HEIGHT,
       });

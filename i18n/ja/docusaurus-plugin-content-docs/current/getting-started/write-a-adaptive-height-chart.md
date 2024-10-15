@@ -14,13 +14,13 @@ import { StyleSheet, View, Dimensions } from "react-native";
 import * as echarts from "echarts/core";
 import { LineChart } from "echarts/charts";
 import { GridComponent } from "echarts/components";
-import { SVGRenderer, SkiaChart } from "@wuba/react-native-echarts";
+import { SkiaRenderer, SkiaChart } from "@wuba/react-native-echarts";
 ```
 
 2. echarts.useを使用してレンダラとチャートを登録します。
 
 ```tsx
-echarts.use([SVGRenderer, LineChart, GridComponent]);
+echarts.use([SkiaRenderer, LineChart, GridComponent]);
 ```
 
 3. SkiaChartコンポーネントのためのRefを作成し、Viewコンテナでそれをラップします。後でEChartsのチャートに割り当てるために、onLayoutを使用してコンテナの幅と高さを取得します。
@@ -82,7 +82,7 @@ const option = {
 
 ```tsx
 let chart = echarts.init(skiaRef.current, "light", {
-  renderer: "svg",
+  renderer: "skia",
   width: chartWidth,
   height: chartHeight,
 });
@@ -135,9 +135,9 @@ import { StyleSheet, View, Dimensions } from "react-native";
 import * as echarts from "echarts/core";
 import { LineChart } from "echarts/charts";
 import { GridComponent } from "echarts/components";
-import { SVGRenderer, SkiaChart } from "@wuba/react-native-echarts";
+import { SkiaRenderer, SkiaChart } from "@wuba/react-native-echarts";
 
-echarts.use([SVGRenderer, LineChart, GridComponent]);
+echarts.use([SkiaRenderer, LineChart, GridComponent]);
 
 export default function App() {
   const skiaRef = useRef<any>(null);
@@ -195,7 +195,7 @@ export default function App() {
     let chart: any;
     if (skiaRef.current) {
       chart = echarts.init(skiaRef.current, "light", {
-        renderer: "svg",
+        renderer: "skia",
         width: chartWidth,
         height: chartHeight,
       });
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
 | ------------------------ | -------------------------------- |
 | ![ios](./ios_rotate.gif) | ![android](./android_rotate.gif) |
 
-react-native-skiaを使用したい場合は、SvgChartをSkiaChartに置き換えてください。
+react-native-svgを使用したい場合は、SkiaChartをSvgChartに置き換えてください、そして、レンダラーとして「svg」を使用します。
 
 より詳細なチャートの設定については、[echartsのドキュメント](https://echarts.apache.org/en/option.html#title)を参照してください。
 

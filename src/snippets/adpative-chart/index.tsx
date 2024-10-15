@@ -5,9 +5,9 @@
 
 import { useState, useRef, useEffect } from "react";
 import { StyleSheet, View, Dimensions } from "react-native";
-import { SVGRenderer, SkiaChart, echarts } from "@wuba/react-native-echarts";
+import { SkiaRenderer, SkiaChart, echarts } from "@wuba/react-native-echarts";
 
-echarts.use([SVGRenderer]);
+echarts.use([SkiaRenderer]);
 
 export default function App() {
     const skiaRef = useRef<any>(null);
@@ -65,7 +65,7 @@ export default function App() {
       let chart: any;
       if (skiaRef.current) {
         chart = echarts.init(skiaRef.current, "light", {
-          renderer: "svg",
+          renderer: "skia",
           width: chartWidth,
           height: chartHeight,
         });

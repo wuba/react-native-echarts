@@ -14,13 +14,13 @@ import { StyleSheet, View, Dimensions } from "react-native";
 import * as echarts from "echarts/core";
 import { LineChart } from "echarts/charts";
 import { GridComponent } from "echarts/components";
-import { SVGRenderer, SkiaChart } from "@wuba/react-native-echarts";
+import { SkiaRenderer, SkiaChart } from "@wuba/react-native-echarts";
 ```
 
 2. Use echarts.use to register renderers and charts.
 
 ```tsx
-echarts.use([SVGRenderer, LineChart, GridComponent]);
+echarts.use([SkiaRenderer, LineChart, GridComponent]);
 ```
 
 3. Create a Ref for the SkiaChart component and use a View container to wrap it. Use onLayout to obtain the container's width and height for later assignment to the ECharts chart.
@@ -82,7 +82,7 @@ const option = {
 
 ```tsx
 let chart = echarts.init(skiaRef.current, "light", {
-  renderer: "svg",
+  renderer: "skia",
   width: chartWidth,
   height: chartHeight,
 });
@@ -135,9 +135,9 @@ import { StyleSheet, View, Dimensions } from "react-native";
 import * as echarts from "echarts/core";
 import { LineChart } from "echarts/charts";
 import { GridComponent } from "echarts/components";
-import { SVGRenderer, SkiaChart } from "@wuba/react-native-echarts";
+import { SkiaRenderer, SkiaChart } from "@wuba/react-native-echarts";
 
-echarts.use([SVGRenderer, LineChart, GridComponent]);
+echarts.use([SkiaRenderer, LineChart, GridComponent]);
 
 export default function App() {
   const skiaRef = useRef<any>(null);
@@ -195,7 +195,7 @@ export default function App() {
     let chart: any;
     if (skiaRef.current) {
       chart = echarts.init(skiaRef.current, "light", {
-        renderer: "svg",
+        renderer: "skia",
         width: chartWidth,
         height: chartHeight,
       });
@@ -251,6 +251,6 @@ You should see the following screen:
 | ------------------------ | -------------------------------- |
 | ![ios](./ios_rotate.gif) | ![android](./android_rotate.gif) |
 
-If you want to use the react-native-skia，just replace the SvgChart with SkiaChart。
+If you want to use the react-native-svg，just replace the SkiaChart with SvgChart and use 'svg' as renderer.
 
 For more chart configuration, please refer to [echarts documentation](https://echarts.apache.org/en/option.html#title).

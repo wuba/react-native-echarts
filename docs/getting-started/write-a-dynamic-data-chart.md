@@ -419,6 +419,6 @@ You should see the following screen:
 | ------------------------------ | -------------------------------------- |
 | ![ios](./dynamic-data-ios.gif) | ![android](./dynamic-data-android.gif) |
 
-If you want to use the react-native-skia，just replace the SvgChart with SkiaChart。
+If you want to use the react-native-skia，just replace the SvgChart with SkiaChart and use 'skia' as renderer.
 
 For more chart configuration, please refer to [echarts documentation](https://echarts.apache.org/en/option.html#title).

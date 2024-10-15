@@ -8,20 +8,20 @@ sidebar_position: 3
 
 为了看看它在浏览器中的样子，你可以访问 [echarts 编辑器](https://echarts.apache.org/examples/en/editor.html?c=line-simple)，并尝试修改配置，看看有什么变化。
 
-1. 导入 echarts、@wuba/react-native-echarts、react。这里我只导入了 SkiaChart 和 SVGRenderer。
+1. 导入 echarts、@wuba/react-native-echarts、react。这里我只导入了 SkiaChart 和 SkiaRenderer。
 
 ```tsx
 import React, { useRef, useEffect } from 'react';
 import * as echarts from 'echarts/core';
 import { LineChart } from 'echarts/charts';
 import { GridComponent } from 'echarts/components';
-import { SVGRenderer, SkiaChart } from '@wuba/react-native-echarts';
+import { SkiaRenderer, SkiaChart } from '@wuba/react-native-echarts';
 ```
 
 2. 使用 echarts.use 来注册渲染器和图表。
 
 ```tsx
-echarts.use([SVGRenderer, LineChart, GridComponent]);
+echarts.use([SkiaRenderer, LineChart, GridComponent]);
 ```
 
 3. 为 SkiaChart 组件创建一个 Ref。
@@ -57,7 +57,7 @@ const option = {
 
 ```tsx
 let chart = echarts.init(skiaRef.current, 'light', {
-  renderer: 'svg',
+  renderer: 'skia',
   width: 400,
   height: 400,
 });
@@ -78,9 +78,9 @@ import React, { useRef, useEffect } from 'react';
 import * as echarts from 'echarts/core';
 import { LineChart } from 'echarts/charts';
 import { GridComponent } from 'echarts/components';
-import { SVGRenderer, SkiaChart } from '@wuba/react-native-echarts';
+import { SkiaRenderer, SkiaChart } from '@wuba/react-native-echarts';
 
-echarts.use([SVGRenderer, LineChart, GridComponent]);
+echarts.use([SkiaRenderer, LineChart, GridComponent]);
 
 export default function App() {
   const skiaRef = useRef<any>(null);
@@ -103,7 +103,7 @@ export default function App() {
     let chart: any;
     if (skiaRef.current) {
       chart = echarts.init(skiaRef.current, 'light', {
-        renderer: 'svg',
+        renderer: 'skia',
         width: 400,
         height: 400,
       });
@@ -121,6 +121,6 @@ export default function App() {
 | --- | --- |
 | ![ios](./ios-line.png) | ![android](./android-line.jpg) |
 
-如果你想使用 react-native-svg，只需将 SkiaChart 替换为 SvgChart。
+如果你想使用 react-native-svg，只需将 SkiaChart 替换为 SvgChart，并使用 “svg” 作为渲染器。
 
 接下来你可以从 [echarts 示例](https://echarts.apache.org/examples/zh/index.html) 中找到更多在 @wuba/react-native-echarts 中使用的配置。
