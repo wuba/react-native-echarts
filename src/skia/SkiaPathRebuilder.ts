@@ -1,6 +1,9 @@
 import { PathRebuilder } from 'zrender/lib/core/PathProxy';
 import { SkPath, Skia } from '@shopify/react-native-skia';
+import { isAroundZero } from './helper';
 
+const PI = Math.PI;
+const PI2 = Math.PI * 2;
 export default class SkiaPathRebuilder implements PathRebuilder {
   private path: SkPath;
 
@@ -50,24 +53,41 @@ export default class SkiaPathRebuilder implements PathRebuilder {
     rotation: number,
     startAngle: number,
     endAngle: number,
-    counterclockwise: boolean = false
+    anticlockwise: boolean = false
   ) {
-    const useSmallArc = Math.abs(endAngle - startAngle) <= Math.PI;
+    let dTheta = endAngle - startAngle;
+    const clockwise = !anticlockwise;
+
+    const dThetaPositive = Math.abs(dTheta);
+    const isCircle =
+      isAroundZero(dThetaPositive - PI2) ||
+      (clockwise ? dTheta >= PI2 : -dTheta >= PI2);
+
+    const useSmallArc = Math.abs(endAngle - startAngle) <= PI;
 
     const endX = x + radiusX * Math.cos(endAngle);
     const endY = y + radiusY * Math.sin(endAngle);
 
-    const xAxisRotateInDegrees = (rotation * 180) / Math.PI;
-
-    this.path.arcToRotated(
-      radiusX,
-      radiusY,
-      xAxisRotateInDegrees,
-      useSmallArc,
-      counterclockwise,
-      endX,
-      endY
-    );
+    const xAxisRotateInDegrees = (rotation * 180) / PI;
+    if (isCircle) {
+      const ovalRect = {
+        x: x - radiusX,
+        y: y - radiusY,
+        width: radiusX * 2,
+        height: radiusY * 2,
+      };
+      this.path.addOval(ovalRect, anticlockwise);
+    } else {
+      this.path.arcToRotated(
+        radiusX,
+        radiusY,
+        xAxisRotateInDegrees,
+        useSmallArc,
+        anticlockwise,
+        endX,
+        endY
+      );
+    }
   }
 
   rect(x: number, y: number, width: number, height: number): void {
