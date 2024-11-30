@@ -149,6 +149,14 @@ function SvgEle(props: SVGVEleProps) {
           const key = parts[0]?.trim();
           let value = parts[1]?.trim();
           if (key) {
+            // echart里默认字体sans-serif，ios无法识别
+            if (
+              Platform.OS === 'ios' &&
+              key === 'font-family' &&
+              value === 'sans-serif'
+            ) {
+              value = 'Helvetica Neue';
+            }
             attrs[toCamelCase(key)] = value;
           }
         });
