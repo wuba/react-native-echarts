@@ -9,7 +9,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/wuba/react-native-echarts/pulls)
 [![license](https://img.shields.io/github/license/wuba/react-native-echarts.svg?style=flat)](https://github.com/wuba/react-native-echarts/blob/main/LICENSE)
 
-[简体中文](./README_CN.md) | [English](./README.md) | [日本語](./README_JP.md)
+[简体中文](./README_CN.md) | [English](./README.md) | [日本語](./README_JP.md) | [繁體中文](./README_TW.md)
 
 [React Native](https://reactnative.dev/) version of [Apache Echarts](https://github.com/apache/echarts), based on [react-native-svg](https://github.com/software-mansion/react-native-svg) and [react-native-skia](https://github.com/shopify/react-native-skia). This awesome library offers significantly improved performance compared to WebView-based solutions.
 
