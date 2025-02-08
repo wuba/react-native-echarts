@@ -13,7 +13,7 @@
 
 [React Native](https://reactnative.dev/) バージョンの [Apache Echarts](https://github.com/apache/echarts)、[react-native-svg](https://github.com/software-mansion/react-native-svg) と [react-native-skia](https://github.com/shopify/react-native-skia) に基づいています。WebViewベースのソリューションと比較して、顕著なパフォーマンス向上を提供します。
 
-[公式サイトで完全なドキュメントを確認できます](https://wuba.github.io/react-native-echarts/zh-Hans/)。
+[公式サイトで完全なドキュメントを確認できます](https://wuba.github.io/react-native-echarts/ja/)。
 
 ## 概要
 
