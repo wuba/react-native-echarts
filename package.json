@@ -1,6 +1,6 @@
 {
   "name": "@wuba/react-native-echarts",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Echarts for react native.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -56,11 +56,11 @@
     "@arkweid/lefthook": "^0.7.7",
     "@commitlint/config-conventional": "^19.2.2",
     "@react-native-community/eslint-config": "^3.2.0",
-    "@react-native/babel-preset": "0.74.83",
+    "@react-native/babel-preset": "0.76.7",
     "@release-it/conventional-changelog": "^8.0.1",
     "@shopify/react-native-skia": "1.5.0",
     "@testing-library/react-native": "^12.5.0",
-    "@types/jest": "^29.5.11",
+    "@types/jest": "^29.5.14",
     "@types/react": "~18.3.1",
     "@types/react-test-renderer": "^18.0.7",
     "commitlint": "^19.3.0",
@@ -92,6 +92,17 @@
     "react-native-gesture-handler": "*",
     "react-native-svg": "*",
     "zrender": "*"
+  },
+  "peerDependenciesMeta": {
+    "@shopify/react-native-skia": {
+      "optional": true
+    },
+    "react-native-gesture-handler": {
+      "optional": true
+    },
+    "react-native-svg": {
+      "optional": true
+    }
   },
   "engines": {
     "node": ">= 14.0.0"
