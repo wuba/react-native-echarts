@@ -243,7 +243,7 @@ function SvgComponent(
     () => Number((svgNode?.attrs?.height || style?.height) ?? 0),
     [svgNode?.attrs?.height, style?.height]
   );
-  const zrenderId = useRef<number>();
+  const zrenderId = useRef<number | undefined>(undefined);
 
   const dispatchEvents = useCallback<DispatchEvents>(
     (types, nativeEvent, eventArgs) => {
