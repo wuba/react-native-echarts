@@ -35,7 +35,7 @@ function SkiaComponent(
   const [children, setChildren] = useState<ReactElement[]>([]);
   const [width, setWidth] = useState<number>(initialWidth ?? 0);
   const [height, setHeight] = useState<number>(initialHeight ?? 0);
-  const zrenderId = useRef<number>();
+  const zrenderId = useRef<number | undefined>(undefined);
   const canvasRef = useCanvasRef?.();
 
   const dispatchEvents = useCallback<DispatchEvents>(

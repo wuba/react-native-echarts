@@ -56,13 +56,13 @@
     "@arkweid/lefthook": "^0.7.7",
     "@commitlint/config-conventional": "^19.2.2",
     "@react-native-community/eslint-config": "^3.2.0",
-    "@react-native/babel-preset": "0.76.7",
+    "@react-native/babel-preset": "0.79.1",
     "@release-it/conventional-changelog": "^8.0.1",
-    "@shopify/react-native-skia": "1.5.0",
+    "@shopify/react-native-skia": "2.0.0-next.2",
     "@testing-library/react-native": "^12.5.0",
     "@types/jest": "^29.5.14",
-    "@types/react": "~18.3.1",
-    "@types/react-test-renderer": "^18.0.7",
+    "@types/react": "~19.1.2",
+    "@types/react-test-renderer": "19.1.0",
     "commitlint": "^19.3.0",
     "del-cli": "^5.0.0",
     "echarts": "^5.5.0",
@@ -73,12 +73,12 @@
     "jest-image-snapshot": "^6.4.0",
     "pod-install": "^0.2.2",
     "prettier": "^3.2.5",
-    "react": "18.3.1",
-    "react-native": "0.76.7",
+    "react": "19.0.0",
+    "react-native": "0.79.2",
     "react-native-builder-bob": "^0.23.2",
-    "react-native-gesture-handler": "~2.20.2",
-    "react-native-svg": "15.8.0",
-    "react-test-renderer": "^18.3.1",
+    "react-native-gesture-handler": "~2.24.0",
+    "react-native-svg": "15.11.2",
+    "react-test-renderer": "19.1.0",
     "release-it": "^17.2.1",
     "sharp": "^0.33.5",
     "typescript": "^5.0.4",
@@ -103,6 +103,9 @@
     "react-native-svg": {
       "optional": true
     }
+  },
+  "resolutions": {
+    "tslib": "^2.6.1"
   },
   "engines": {
     "node": ">= 14.0.0"
