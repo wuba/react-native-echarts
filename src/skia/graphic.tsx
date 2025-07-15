@@ -47,7 +47,9 @@ function isImageLike(val: unknown): val is HTMLImageElement {
   return val != null && typeof val === 'object' && isString((val as any).src);
 }
 function isCanvasLike(val: unknown): val is HTMLCanvasElement {
-  return val != null && typeof val === 'object' && isFunction((val as any).toDataURL);
+  return (
+    val != null && typeof val === 'object' && isFunction((val as any).toDataURL)
+  );
 }
 
 type SVGVNodeAttrs = Record<

@@ -18,7 +18,12 @@ import { dispatchEventsToZRender } from '../components/events';
 import { SVGRenderer } from '../svg/SVGRenderer';
 import * as echarts from 'echarts/core';
 import type { EChartsType } from 'echarts/core';
-import type { RNGestureHandlerGesture, ChartElement, DefaultRNGestures, DispatchEvents } from '../types';
+import type {
+  RNGestureHandlerGesture,
+  ChartElement,
+  DefaultRNGestures,
+  DispatchEvents,
+} from '../types';
 import { BarChart, LineChart, GraphChart, ScatterChart } from 'echarts/charts';
 import {
   PanGesture,
@@ -110,7 +115,7 @@ function getOptionTwo() {
     animation: false,
     tooltip: {},
     animationDurationUpdate: 1500,
-    animationEasingUpdate: 'quinticInOut' as any,  // Temporarily cast to any for test
+    animationEasingUpdate: 'quinticInOut' as any, // Temporarily cast to any for test
     series: [
       {
         type: 'graph',
@@ -257,7 +262,7 @@ function Chart({
   gesture,
   handleGesture = true,
 }: {
-  Component: React.ComponentType<any>;  // Keep as any to allow both SkiaChartProps and SVGChartProps with ref
+  Component: React.ComponentType<any>; // Keep as any to allow both SkiaChartProps and SVGChartProps with ref
   calls?: ChartCall[];
   useRNGH?: boolean;
   gesture?: RNGestureHandlerGesture;
@@ -499,7 +504,10 @@ Components.forEach((Component) => {
         <RNGHChart
           Component={Component}
           useRNGH
-          gesture={(defaultGestures: DefaultRNGestures, dispatchEvents: DispatchEvents) => {
+          gesture={(
+            defaultGestures: DefaultRNGestures,
+            dispatchEvents: DispatchEvents
+          ) => {
             gesture(defaultGestures, dispatchEvents);
             return defaultGestures[0];
           }}
