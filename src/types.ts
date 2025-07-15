@@ -21,7 +21,7 @@ export type HandlerName =
 export type DispatchEvents = (
   types: HandlerName[],
   nativeEvent: any,
-  eventArgs?: any
+  eventArgs?: Record<string, unknown>
 ) => void;
 
 export type DefaultRNGestures = [PanGesture, PinchGesture, TapGesture];
