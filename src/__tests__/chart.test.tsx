@@ -17,6 +17,13 @@ import SVGComponent from '../svg/svgChart';
 import { dispatchEventsToZRender } from '../components/events';
 import { SVGRenderer } from '../svg/SVGRenderer';
 import * as echarts from 'echarts/core';
+import type { EChartsType } from 'echarts/core';
+import type {
+  RNGestureHandlerGesture,
+  ChartElement,
+  DefaultRNGestures,
+  DispatchEvents,
+} from '../types';
 import { BarChart, LineChart, GraphChart, ScatterChart } from 'echarts/charts';
 import {
   PanGesture,
@@ -108,7 +115,7 @@ function getOptionTwo() {
     animation: false,
     tooltip: {},
     animationDurationUpdate: 1500,
-    animationEasingUpdate: 'quinticInOut',
+    animationEasingUpdate: 'quinticInOut' as any, // Temporarily cast to any for test
     series: [
       {
         type: 'graph',
@@ -244,8 +251,8 @@ function zoomElement(pan: ReactTestInstance, x: number, y: number) {
 }
 
 interface ChartCall {
-  call: (chart: any) => void;
-  snapshot?: (data: string) => any;
+  call: (chart: EChartsType) => void;
+  snapshot?: (data: string) => Promise<Buffer>;
 }
 
 function Chart({
@@ -255,15 +262,15 @@ function Chart({
   gesture,
   handleGesture = true,
 }: {
-  Component: React.ComponentType<any>;
+  Component: React.ComponentType<any>; // Keep as any to allow both SkiaChartProps and SVGChartProps with ref
   calls?: ChartCall[];
   useRNGH?: boolean;
-  gesture?: any;
+  gesture?: RNGestureHandlerGesture;
   handleGesture?: boolean;
 }) {
-  const ref = useRef<any>(null);
+  const ref = useRef<(ChartElement & any) | null>(null);
   useEffect(() => {
-    let chart: any;
+    let chart: EChartsType | undefined;
     if (ref.current) {
       // @ts-ignore
       chart = echarts.init(ref.current, 'light', {
@@ -273,17 +280,19 @@ function Chart({
       });
       (async () => {
         for (const call of calls) {
-          call.call(chart);
-          if (call.snapshot) {
-            await new Promise((resolve) =>
-              setTimeout(async () => {
-                const result = call.snapshot?.(chart.getDataURL());
-                if (result instanceof Promise) {
-                  await result;
-                }
-                resolve(undefined);
-              }, 0)
-            );
+          if (chart) {
+            call.call(chart);
+            if (call.snapshot) {
+              await new Promise((resolve) =>
+                setTimeout(async () => {
+                  const result = call.snapshot?.(chart!.getDataURL());
+                  if (result instanceof Promise) {
+                    await result;
+                  }
+                  resolve(undefined);
+                }, 0)
+              );
+            }
           }
         }
       })();
@@ -314,7 +323,7 @@ Components.forEach((Component) => {
           Component={Component}
           calls={[
             {
-              call: (chart: any) => {
+              call: (chart: EChartsType) => {
                 chart.setOption(getOption('line'));
               },
               snapshot,
@@ -333,13 +342,13 @@ Components.forEach((Component) => {
         <Chart
           calls={[
             {
-              call: (chart: any) => {
+              call: (chart: EChartsType) => {
                 act(() => chart.setOption(getOption()));
               },
               snapshot,
             },
             {
-              call: (chart: any) => {
+              call: (chart: EChartsType) => {
                 const id = chart.getZr().id;
                 act(() =>
                   dispatchEventsToZRender(
@@ -373,7 +382,7 @@ Components.forEach((Component) => {
           handleGesture={false}
           calls={[
             {
-              call: (chart: any) => {
+              call: (chart: EChartsType) => {
                 chart.setOption(getOption('scatter'));
               },
               snapshot,
@@ -393,7 +402,7 @@ Components.forEach((Component) => {
           Component={Component}
           calls={[
             {
-              call: (chart: any) => {
+              call: (chart: EChartsType) => {
                 chart.setOption(getOptionTwo());
               },
               snapshot,
@@ -435,7 +444,7 @@ Components.forEach((Component) => {
           useRNGH
           calls={[
             {
-              call: (chart: any) => {
+              call: (chart: EChartsType) => {
                 chart.setOption(getOptionTwo());
               },
               snapshot,
@@ -495,9 +504,12 @@ Components.forEach((Component) => {
         <RNGHChart
           Component={Component}
           useRNGH
-          gesture={(...args: any) => {
-            gesture(...args);
-            return args[0];
+          gesture={(
+            defaultGestures: DefaultRNGestures,
+            dispatchEvents: DispatchEvents
+          ) => {
+            gesture(defaultGestures, dispatchEvents);
+            return defaultGestures[0];
           }}
         />
       );

@@ -9,6 +9,8 @@ import {
   SkiaChart,
 } from '@wuba/react-native-echarts';
 import * as echarts from 'echarts/core';
+import type { EChartsOption } from 'echarts';
+import type { ChartElement } from '@wuba/react-native-echarts';
 import { BarChart, LineChart } from 'echarts/charts';
 import {
   TitleComponent,
@@ -31,11 +33,11 @@ echarts.use([
 const E_HEIGHT = 250;
 const E_WIDTH = Dimensions.get('screen').width;
 
-function SkiaComponent({ option }: any) {
-  const skiaRef = useRef<any>(null);
+function SkiaComponent({ option }: { option: EChartsOption }) {
+  const skiaRef = useRef<(ChartElement & any) | null>(null);
 
   useEffect(() => {
-    let chart: any;
+    let chart: echarts.EChartsType | undefined;
     if (skiaRef.current) {
       chart = echarts.init(skiaRef.current, 'light', {
         // @ts-ignore
@@ -51,11 +53,11 @@ function SkiaComponent({ option }: any) {
   return <SkiaChart ref={skiaRef} />;
 }
 
-function SvgComponent({ option }: any) {
-  const svgRef = useRef<any>(null);
+function SvgComponent({ option }: { option: EChartsOption }) {
+  const svgRef = useRef<(ChartElement & any) | null>(null);
 
   useEffect(() => {
-    let chart: any;
+    let chart: echarts.EChartsType | undefined;
     if (svgRef.current) {
       chart = echarts.init(svgRef.current, 'light', {
         renderer: 'svg',
@@ -75,29 +77,29 @@ const fontFamily = Platform.select({
 });
 const option = {
   xAxis: {
-    type: 'category',
+    type: 'category' as const,
     data: ['周一', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
   },
   yAxis: {
-    type: 'value',
+    type: 'value' as const,
   },
   tooltip: {
-    trigger: 'axis',
+    trigger: 'axis' as const,
   },
   series: [
     {
       data: [120, 200, 150, 80, 70, 110, 130],
-      type: 'bar',
+      type: 'bar' as const,
     },
     {
       data: [220, 100, 180, 160, 150, 120, 110],
-      type: 'line',
+      type: 'line' as const,
     },
   ],
   textStyle: {
     fontFamily,
   },
-};
+} as EChartsOption;
 function App() {
   return (
     <View style={styles.container}>

@@ -43,11 +43,13 @@ import {
 } from '@shopify/react-native-skia';
 import React from 'react';
 
-function isImageLike(val: any): val is HTMLImageElement {
-  return val && isString(val.src);
+function isImageLike(val: unknown): val is HTMLImageElement {
+  return val != null && typeof val === 'object' && isString((val as any).src);
 }
-function isCanvasLike(val: any): val is HTMLCanvasElement {
-  return val && isFunction(val.toDataURL);
+function isCanvasLike(val: unknown): val is HTMLCanvasElement {
+  return (
+    val != null && typeof val === 'object' && isFunction((val as any).toDataURL)
+  );
 }
 
 type SVGVNodeAttrs = Record<
