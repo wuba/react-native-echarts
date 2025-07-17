@@ -115,6 +115,7 @@ function toCamelCase(str: string) {
 
 interface SVGVEleProps {
   node: SVGVNode;
+  key?: string;
   touchStart?: any;
   touchMove?: any;
   touchEnd?: any;
