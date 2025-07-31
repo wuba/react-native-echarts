@@ -65,7 +65,7 @@
     "@types/react-test-renderer": "19.1.0",
     "commitlint": "^19.3.0",
     "del-cli": "^5.0.0",
-    "echarts": "^5.5.0",
+    "echarts": "^6.0.0",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
@@ -82,7 +82,7 @@
     "release-it": "^17.2.1",
     "sharp": "^0.33.5",
     "typescript": "^5.0.4",
-    "zrender": "^5.5.0"
+    "zrender": "^6.0.0"
   },
   "peerDependencies": {
     "@shopify/react-native-skia": "*",
