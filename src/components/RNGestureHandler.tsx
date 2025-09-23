@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { View } from 'react-native';
 import type { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { styles } from './styles';

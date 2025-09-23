@@ -1,28 +1,31 @@
-import Displayable from 'zrender/lib/graphic/Displayable';
-import { BrushScope } from './core';
+import Displayable from 'zrender/lib/graphic/Displayable.js';
+import type { BrushScope } from './core';
 import { DEFAULT_FONT_FAMILY, DEFAULT_FONT_SIZE } from '../utils/font';
-import Path, { PathStyleProps } from 'zrender/lib/graphic/Path';
-import ZRImage, { ImageStyleProps } from 'zrender/lib/graphic/Image';
-import TSpan, { TSpanStyleProps } from 'zrender/lib/graphic/TSpan';
-import { MatrixArray } from 'zrender/lib/core/matrix';
-import { GradientObject } from 'zrender/lib/graphic/Gradient';
+import Path from 'zrender/lib/graphic/Path.js';
+import type { PathStyleProps } from 'zrender/lib/graphic/Path.js';
+import ZRImage from 'zrender/lib/graphic/Image.js';
+import type { ImageStyleProps } from 'zrender/lib/graphic/Image.js';
+import TSpan from 'zrender/lib/graphic/TSpan.js';
+import type { TSpanStyleProps } from 'zrender/lib/graphic/TSpan.js';
+import type { MatrixArray } from 'zrender/lib/core/matrix.js';
+import type { GradientObject } from 'zrender/lib/graphic/Gradient.js';
 import {
   isString,
   isFunction,
   logError,
   retrieve2,
 } from 'zrender/lib/core/util';
-import { getLineDash } from 'zrender/lib/canvas/dashStyle';
+import { getLineDash } from 'zrender/lib/canvas/dashStyle.js';
 import {
   isGradient,
   isPattern,
   hasShadow,
   isRadialGradient,
   isLinearGradient,
-} from 'zrender/lib/svg/helper';
+} from 'zrender/lib/svg/helper.js';
 import SkiaPathRebuilder from './SkiaPathRebuilder';
-import { ReactElement } from 'react';
-import mapStyleToAttrs from 'zrender/lib/svg/mapStyleToAttrs';
+import type { ReactElement } from 'react';
+import mapStyleToAttrs from 'zrender/lib/svg/mapStyleToAttrs.js';
 import {
   Skia,
   Path as SkiaPath,
@@ -32,16 +35,17 @@ import {
   LinearGradient,
   RadialGradient,
   processTransform3d,
-  Transforms3d,
   Matrix4,
-  SkPath,
-  SkiaProps,
-  ImageProps,
   Paragraph,
   FontWeight,
   FontSlant,
 } from '@shopify/react-native-skia';
-import React from 'react';
+import type {
+  Transforms3d,
+  SkPath,
+  SkiaProps,
+  ImageProps,
+} from '@shopify/react-native-skia';
 
 function isImageLike(val: unknown): val is HTMLImageElement {
   return val != null && typeof val === 'object' && isString((val as any).src);

@@ -1,17 +1,16 @@
-import { PatternObject } from 'zrender/lib/graphic/Pattern';
-import { GradientObject } from 'zrender/lib/graphic/Gradient';
-import { BrushScope } from './core';
-import Displayable from 'zrender/lib/graphic/Displayable';
-import Path from 'zrender/lib/graphic/Path';
-import { PainterBase } from 'zrender/lib/PainterBase';
+import type { PatternObject } from 'zrender/lib/graphic/Pattern.js';
+import type { GradientObject } from 'zrender/lib/graphic/Gradient.js';
+import type { BrushScope } from './core';
+import Displayable from 'zrender/lib/graphic/Displayable.js';
+import Path from 'zrender/lib/graphic/Path.js';
+import type { PainterBase } from 'zrender/lib/PainterBase.js';
 import type Storage from 'zrender/lib/Storage';
 import { logError } from 'zrender/lib/core/util';
-import { isGradient, isPattern } from 'zrender/lib/svg/helper';
+import { isGradient, isPattern } from 'zrender/lib/svg/helper.js';
 import { createBrushScope } from './core';
 import { brush, getClipPath, setGradient } from './graphic';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { Group, Rect } from '@shopify/react-native-skia';
-import React from 'react';
 let svgId = 0;
 
 interface SVGPainterOption {

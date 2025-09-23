@@ -1,7 +1,7 @@
 {
-  "name": "example",
+  "name": "@wuba/react-native-echarts-example",
   "version": "1.0.0",
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "index.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -9,26 +9,27 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@expo/webpack-config": "~19.0.1",
-    "@shopify/react-native-skia": "2.0.0-next.4",
+    "@expo/metro-runtime": "~6.1.2",
+    "@shopify/react-native-skia": "2.2.12",
     "echarts": "^6.0.0",
-    "expo": "~53.0.19",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "react-native": "0.79.5",
-    "react-native-gesture-handler": "~2.24.0",
-    "react-native-reanimated": "~3.17.3",
-    "react-native-svg": "15.11.2",
-    "react-native-web": "^0.20.0",
+    "expo": "~54.0.10",
+    "expo-status-bar": "~3.0.8",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-native": "0.81.4",
+    "react-native-gesture-handler": "~2.28.0",
+    "react-native-reanimated": "~4.1.0",
+    "react-native-svg": "15.12.1",
+    "react-native-web": "~0.21.0",
+    "react-native-worklets": "^0.5.1",
     "zrender": "^6.0.0"
   },
+  "private": true,
   "devDependencies": {
-    "@babel/core": "^7.24.0",
-    "babel-loader": "^8.2.3",
-    "babel-plugin-module-resolver": "^4.1.0"
+    "react-native-builder-bob": "^0.40.13",
+    "react-native-monorepo-config": "^0.1.9"
   },
   "resolutions": {
     "tslib": "^2.6.1"
-  },
-  "private": true
+  }
 }

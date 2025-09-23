@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { RNGestureHandler } from './RNGestureHandler';
 import { PanResponderHandler } from './PanResponderHandler';
 import type { DispatchEvents, GestureProps } from '../types';

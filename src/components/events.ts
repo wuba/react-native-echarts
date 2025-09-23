@@ -1,5 +1,5 @@
 import type { HandlerName } from '../types';
-import { getInstance } from 'zrender/lib/zrender';
+import { getInstance } from 'zrender/lib/zrender.js';
 
 const noop = () => {};
 

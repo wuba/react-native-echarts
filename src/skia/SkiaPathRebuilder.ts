@@ -1,5 +1,6 @@
-import { PathRebuilder } from 'zrender/lib/core/PathProxy';
-import { SkPath, Skia } from '@shopify/react-native-skia';
+import type { PathRebuilder } from 'zrender/lib/core/PathProxy.js';
+import { Skia } from '@shopify/react-native-skia';
+import type { SkPath } from '@shopify/react-native-skia';
 import { isAroundZero } from './helper';
 
 const PI = Math.PI;

@@ -10,7 +10,7 @@ declare global {
   }
 }
 import React, { useEffect, useRef } from 'react';
-import { ReactTestInstance } from 'react-test-renderer';
+import type { ReactTestInstance } from 'react-test-renderer';
 import { render, fireEvent, act } from '@testing-library/react-native';
 import SkiaComponent from '../skia/skiaChart';
 import SVGComponent from '../svg/svgChart';
@@ -26,12 +26,14 @@ import type {
 } from '../types';
 import { BarChart, LineChart, GraphChart, ScatterChart } from 'echarts/charts';
 import {
-  PanGesture,
   Gesture,
-  PinchGesture,
   State,
-  TapGesture,
   gestureHandlerRootHOC,
+} from 'react-native-gesture-handler';
+import type {
+  PanGesture,
+  PinchGesture,
+  TapGesture,
 } from 'react-native-gesture-handler';
 import {
   fireGestureHandler,
