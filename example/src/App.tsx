@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useEffect, useRef } from 'react';
 import { StyleSheet, View, Dimensions, Platform } from 'react-native';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';

@@ -22,8 +22,7 @@ import Svg, {
   Mask,
 } from 'react-native-svg';
 
-import React, {
-  ForwardedRef,
+import {
   useState,
   useImperativeHandle,
   forwardRef,
@@ -33,12 +32,14 @@ import React, {
   useCallback,
 } from 'react';
 
+import type { ForwardedRef } from 'react';
+
 import { Platform, View, Image as RNImage } from 'react-native';
 
 import {
   setPlatformAPI,
   // DEFAULT_FONT_FAMILY as zrenderFontFamily,
-} from 'zrender/lib/core/platform';
+} from 'zrender/lib/core/platform.js';
 import { measureText } from '../utils/platform';
 // import { DEFAULT_FONT_FAMILY } from './utils/font';
 import { GestureHandler } from '../components/GestureHandler';
@@ -209,7 +210,9 @@ function SvgEle(props: SVGVEleProps) {
   }
   return (
     <Tag key={node.key} {...attrs}>
-      {children?.map((child) => <SvgEle key={child.key} node={child} />)}
+      {children?.map((child) => (
+        <SvgEle key={child.key} node={child} />
+      ))}
     </Tag>
   );
 }
@@ -224,7 +227,9 @@ function SvgRoot(props: SVGVEleProps) {
       height={height as string}
       viewBox={viewBox as string}
     >
-      {children?.map((child) => <SvgEle key={child.key} node={child} />)}
+      {children?.map((child) => (
+        <SvgEle key={child.key} node={child} />
+      ))}
     </Svg>
   );
 }

@@ -1,13 +1,12 @@
-import React, {
-  ForwardedRef,
+import {
   useState,
   useImperativeHandle,
   forwardRef,
   memo,
   useCallback,
   useRef,
-  ReactElement,
 } from 'react';
+import type { ForwardedRef, ReactElement } from 'react';
 
 import { Canvas, useCanvasRef } from '@shopify/react-native-skia';
 import { View } from 'react-native';

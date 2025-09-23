@@ -1,10 +1,7 @@
 import { View } from 'react-native';
-import React, { useMemo } from 'react';
-import {
-  PanResponder,
-  PanResponderInstance,
-  NativeTouchEvent,
-} from 'react-native';
+import { useMemo } from 'react';
+import { PanResponder } from 'react-native';
+import type { PanResponderInstance, NativeTouchEvent } from 'react-native';
 import { styles } from './styles';
 import type { DispatchEvents } from '../types';
 
