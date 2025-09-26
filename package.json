@@ -10,6 +10,16 @@
       "types": "./lib/typescript/src/index.d.ts",
       "default": "./lib/module/index.js"
     },
+    "./skiaChart": {
+      "source": "./src/skia/skiaChart.tsx",
+      "types": "./lib/typescript/src/skia/skiaChart.d.ts",
+      "default": "./lib/module/skia/skiaChart.js"
+    },
+    "./svgChart": {
+      "source": "./src/svg/svgChart.tsx",
+      "types": "./lib/typescript/src/svg/svgChart.d.ts",
+      "default": "./lib/module/svg/svgChart.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [
