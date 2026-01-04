@@ -28,6 +28,11 @@ const xmlCodeMap = new Map([
   [62, '&gt;'],
 ]);
 
+/**
+ * Gets the Unicode code point at the specified index in a string.
+ * Provides a fallback for environments that don't support String.prototype.codePointAt.
+ * Handles surrogate pairs correctly to get the full Unicode code point.
+ */
 const getCodePoint =
   String.prototype.codePointAt != null
     ? (str: string, index: number) => str.codePointAt(index)!
@@ -41,6 +46,14 @@ const getCodePoint =
             0x10000
           : str.charCodeAt(index);
 
+/**
+ * Encodes all non-ASCII characters and special XML characters using XML entities.
+ * Special characters (<, >, &, ", ') are encoded as named entities.
+ * Non-ASCII characters are encoded as numeric hexadecimal references (e.g., &#xfc;).
+ *
+ * @param str - The string to encode
+ * @returns The encoded string with XML entities
+ */
 function encodeXML(str: string): string {
   let ret = '';
   let lastIdx = 0;
