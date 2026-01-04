@@ -191,7 +191,6 @@
     "version": "0.54.3"
   },
   "dependencies": {
-    "@xmldom/xmldom": "^0.8.6",
-    "entities": "^4.4.0"
+    "@xmldom/xmldom": "^0.8.6"
   }
 }

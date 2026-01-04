@@ -1,7 +1,6 @@
 // source from https://github.com/ecomfe/zrender/blob/master/src/svg/core.ts
 // under BSD-3-Clause license
 // add some patch for skia
-import { encodeXML } from 'entities';
 
 export type SVGVNodeAttrs = Record<
   string,
@@ -16,6 +15,52 @@ export interface SVGVNode {
   // For patching
   elm?: Node;
   key: string;
+}
+
+// Custom implementation of encodeXML to avoid issues with deprecated methods in entities package
+// This is based on the entities package implementation but uses substring instead of substr
+const xmlReplacer = /["&'<>$\x80-\uFFFF]/g;
+const xmlCodeMap = new Map([
+  [34, '&quot;'],
+  [38, '&amp;'],
+  [39, '&apos;'],
+  [60, '&lt;'],
+  [62, '&gt;'],
+]);
+
+const getCodePoint =
+  String.prototype.codePointAt != null
+    ? (str: string, index: number) => str.codePointAt(index)!
+    : // http://mathiasbynens.be/notes/javascript-encoding#surrogate-formulae
+      (str: string, index: number) =>
+        // eslint-disable-next-line no-bitwise
+        (str.charCodeAt(index) & 0xfc00) === 0xd800
+          ? (str.charCodeAt(index) - 0xd800) * 0x400 +
+            str.charCodeAt(index + 1) -
+            0xdc00 +
+            0x10000
+          : str.charCodeAt(index);
+
+function encodeXML(str: string): string {
+  let ret = '';
+  let lastIdx = 0;
+  let match;
+  while ((match = xmlReplacer.exec(str)) !== null) {
+    const i = match.index;
+    const char = str.charCodeAt(i);
+    const next = xmlCodeMap.get(char);
+    if (next !== undefined) {
+      ret += str.substring(lastIdx, i) + next;
+      lastIdx = i + 1;
+    } else {
+      ret += `${str.substring(lastIdx, i)}&#x${getCodePoint(str, i).toString(16)};`;
+      // Increase by 1 if we have a surrogate pair
+      // eslint-disable-next-line no-bitwise
+      lastIdx = xmlReplacer.lastIndex += Number((char & 0xfc00) === 0xd800);
+    }
+  }
+  // Use substring instead of deprecated substr
+  return ret + str.substring(lastIdx);
 }
 
 function createElementOpen(name: string, attrs?: SVGVNodeAttrs) {
