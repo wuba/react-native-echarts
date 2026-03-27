@@ -29,7 +29,7 @@ export const GestureHandler = memo(function GestureHandler({
 
 try {
   RNGH = require('react-native-gesture-handler');
-} catch (error) {
+} catch {
   console.warn(
     'react-native-gesture-handler is not installed. Falling back to PanResponder.'
   );

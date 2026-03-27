@@ -1,7 +1,34 @@
 // source from https://github.com/ecomfe/zrender/blob/master/src/svg/core.ts
 // under BSD-3-Clause license
 // add some patch for skia
-import { encodeXML } from 'entities';
+
+const XML_ESCAPES: Record<string, string> = {
+  '"': '&quot;',
+  '&': '&amp;',
+  "'": '&apos;',
+  '<': '&lt;',
+  '>': '&gt;',
+};
+
+function encodeXML(input: string) {
+  let result = '';
+
+  for (const char of input) {
+    const escaped = XML_ESCAPES[char];
+    if (escaped) {
+      result += escaped;
+      continue;
+    }
+
+    const codePoint = char.codePointAt(0);
+    result +=
+      codePoint != null && codePoint > 0x7f
+        ? `&#x${codePoint.toString(16)};`
+        : char;
+  }
+
+  return result;
+}
 
 export type SVGVNodeAttrs = Record<
   string,
