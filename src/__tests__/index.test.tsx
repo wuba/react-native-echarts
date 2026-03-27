@@ -1,6 +1,3 @@
-/**
- * @jest-environment @shopify/react-native-skia/jestEnv.mjs
- */
 // tests for basic props
 import { render } from '@testing-library/react-native';
 import SkiaComponent from '../skia/skiaChart';

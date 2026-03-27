@@ -8,7 +8,12 @@ import {
 } from 'react';
 import type { ForwardedRef, ReactElement } from 'react';
 
-import { Canvas, useCanvasRef } from '@shopify/react-native-skia';
+import {
+  Canvas,
+  Group,
+  drawAsImage,
+  useCanvasRef,
+} from '@shopify/react-native-skia';
 import { View } from 'react-native';
 
 import { GestureHandler } from '../components/GestureHandler';
@@ -17,6 +22,12 @@ import type { ChartElement, DispatchEvents, SkiaChartProps } from '../types';
 
 export { SkiaRenderer } from './SkiaRenderer';
 export * from '../types';
+
+function encodeSnapshot(
+  image: { encodeToBase64: () => string } | null | undefined
+) {
+  return image ? `data:image/png;base64,${image.encodeToBase64()}` : null;
+}
 
 function SkiaComponent(
   props: SkiaChartProps,
@@ -34,6 +45,9 @@ function SkiaComponent(
   const [children, setChildren] = useState<ReactElement[]>([]);
   const [width, setWidth] = useState<number>(initialWidth ?? 0);
   const [height, setHeight] = useState<number>(initialHeight ?? 0);
+  const childrenRef = useRef<ReactElement[]>([]);
+  const widthRef = useRef<number>(initialWidth ?? 0);
+  const heightRef = useRef<number>(initialHeight ?? 0);
   const zrenderId = useRef<number | undefined>(undefined);
   const canvasRef = useCanvasRef?.();
 
@@ -52,26 +66,50 @@ function SkiaComponent(
       elm: {
         setAttribute: (name: string, value: any) => {
           if (name === 'width') {
+            widthRef.current = value;
             setWidth(value);
           }
           if (name === 'height') {
+            heightRef.current = value;
             setHeight(value);
           }
         },
         setAttributeNS: (_name: string, _value: any) => {},
         removeAttribute: (_name: string) => {},
         patch: (elms: ReactElement[]) => {
-          // console.log('patch', elms);
+          childrenRef.current = elms;
           setChildren(elms);
         },
         setZrenderId: (id: number) => {
           zrenderId.current = id;
         },
         makeImageSnapshot: () => {
-          const image = canvasRef?.current?.makeImageSnapshot();
-          return image
-            ? `data:image/png;base64,${image.encodeToBase64()}`
-            : null;
+          return encodeSnapshot(canvasRef?.current?.makeImageSnapshot?.());
+        },
+        makeImageSnapshotAsync: async () => {
+          const canvasImage =
+            await canvasRef?.current?.makeImageSnapshotAsync?.();
+          if (canvasImage) {
+            return encodeSnapshot(canvasImage);
+          }
+
+          if (
+            !widthRef.current ||
+            !heightRef.current ||
+            childrenRef.current.length === 0
+          ) {
+            return null;
+          }
+
+          const image = await drawAsImage(
+            <Group>{childrenRef.current}</Group>,
+            {
+              width: widthRef.current,
+              height: heightRef.current,
+            }
+          );
+
+          return encodeSnapshot(image);
         },
       },
       viewprot: {},
