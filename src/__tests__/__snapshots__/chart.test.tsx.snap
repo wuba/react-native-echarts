@@ -11,6 +11,292 @@ exports[`SkiaChart Chart fire PanResponder tap & drag & pinch event correctly 5`
   testID="component"
 >
   <View
+    pointerEvents="auto"
+    style={
+      {
+        "height": 250,
+        "width": 430,
+      }
+    }
+  >
+    <skRect
+      color="transparent"
+      height={250}
+      width={430}
+      x={0}
+      y={0}
+    />
+    <skPath
+      color="#86878c"
+      end={1}
+      opacity={0.5}
+      path="[SkPath]"
+      start={0}
+      strokeWidth={6.006150297905054}
+      style="stroke"
+      transform={
+        [
+          {
+            "matrix": [
+              0.8324800000000001,
+              0,
+              0,
+              -239.71400000000006,
+              0,
+              0.8324800000000001,
+              0,
+              -124.74400000000003,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+    />
+    <skPath
+      color="#86878c"
+      end={1}
+      opacity={0.5}
+      path="[SkPath]"
+      start={0}
+      style="fill"
+      transform={
+        [
+          {
+            "matrix": [
+              -0.3282630677495771,
+              0.9445863424545354,
+              0,
+              37.335111541748006,
+              -0.9445863424545354,
+              -0.3282630677495771,
+              0,
+              114.79443541050364,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+    />
+    <skPath
+      color="#86878c"
+      end={1}
+      opacity={0.5}
+      path="[SkPath]"
+      start={0}
+      style="fill"
+      transform={
+        [
+          {
+            "matrix": [
+              -0.32826301374220823,
+              -0.9445863612231985,
+              0,
+              398.9648551170043,
+              0.9445863612231985,
+              -0.32826301374220823,
+              0,
+              114.79442382373944,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+    />
+    <skPath
+      color="green"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      style="fill"
+      transform={
+        [
+          {
+            "matrix": [
+              29.150000000000002,
+              0,
+              0,
+              10.029999999999973,
+              0,
+              29.150000000000002,
+              0,
+              125,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+    />
+    <skPath
+      color="blue"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      style="fill"
+      transform={
+        [
+          {
+            "matrix": [
+              29.150000000000002,
+              0,
+              0,
+              426.27,
+              0,
+              29.150000000000002,
+              0,
+              125,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+    />
+    <skParagraph
+      fill="#eee"
+      paint-order="stroke"
+      paragraph="[SkParagraph]"
+      stroke="green"
+      stroke-miterlimit={2}
+      stroke-width={2}
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              0,
+              0,
+              10.029999999999973,
+              0,
+              1,
+              0,
+              125,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={8}
+      x={-3.9420242309570312}
+      y={-6}
+    />
+    <skParagraph
+      fill="#ccc"
+      paint-order="stroke"
+      paragraph="[SkParagraph]"
+      stroke="blue"
+      stroke-miterlimit={2}
+      stroke-width={2}
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              0,
+              0,
+              426.27,
+              0,
+              1,
+              0,
+              125,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={8}
+      x={-3.9420242309570312}
+      y={-6}
+    />
+    <skParagraph
+      fill="#333"
+      fill-opacity={0.5}
+      opacity={0.5}
+      paint-order="stroke"
+      paragraph="[SkParagraph]"
+      stroke="rgb(255,255,255)"
+      stroke-miterlimit={2}
+      stroke-opacity={0.5}
+      stroke-width={2}
+      transform={
+        [
+          {
+            "matrix": [
+              0.9999999999999994,
+              3.204040711552069e-8,
+              0,
+              218.14998313693667,
+              -3.204040711552069e-8,
+              0.9999999999999994,
+              0,
+              77.36984970209522,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={50}
+      x={-24.919967651367188}
+      y={-20}
+    />
+  </View>
+  <View
     onMoveShouldSetResponder={[Function]}
     onMoveShouldSetResponderCapture={[Function]}
     onResponderEnd={[Function]}
@@ -57,6 +343,292 @@ exports[`SkiaChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
     testID="component"
   >
     <View
+      pointerEvents="auto"
+      style={
+        {
+          "height": 250,
+          "width": 430,
+        }
+      }
+    >
+      <skRect
+        color="transparent"
+        height={250}
+        width={430}
+        x={0}
+        y={0}
+      />
+      <skPath
+        color="#86878c"
+        end={1}
+        opacity={0.5}
+        path="[SkPath]"
+        start={0}
+        strokeWidth={6.056201550387597}
+        style="stroke"
+        transform={
+          [
+            {
+              "matrix": [
+                0.8255999999999999,
+                0,
+                0,
+                -236.07999999999996,
+                0,
+                0.8255999999999999,
+                0,
+                -122.67999999999998,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+              ],
+            },
+          ]
+        }
+      />
+      <skPath
+        color="#86878c"
+        end={1}
+        opacity={0.5}
+        path="[SkPath]"
+        start={0}
+        style="fill"
+        transform={
+          [
+            {
+              "matrix": [
+                -0.32657760007172393,
+                0.9451703926443069,
+                0,
+                39.71041015624999,
+                -0.9451703926443069,
+                -0.32657760007172393,
+                0,
+                114.52152892117499,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+              ],
+            },
+          ]
+        }
+      />
+      <skPath
+        color="#86878c"
+        end={1}
+        opacity={0.5}
+        path="[SkPath]"
+        start={0}
+        style="fill"
+        transform={
+          [
+            {
+              "matrix": [
+                -0.32657745639917624,
+                -0.9451704422863867,
+                0,
+                396.2895020440293,
+                0.9451704422863867,
+                -0.32657745639917624,
+                0,
+                114.52149858440694,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+              ],
+            },
+          ]
+        }
+      />
+      <skPath
+        color="blue"
+        end={1}
+        opacity={1}
+        path="[SkPath]"
+        start={0}
+        style="fill"
+        transform={
+          [
+            {
+              "matrix": [
+                30,
+                0,
+                0,
+                424.4,
+                0,
+                30,
+                0,
+                125,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+              ],
+            },
+          ]
+        }
+      />
+      <skParagraph
+        fill="#ccc"
+        paint-order="stroke"
+        paragraph="[SkParagraph]"
+        stroke="blue"
+        stroke-miterlimit={2}
+        stroke-width={2}
+        transform={
+          [
+            {
+              "matrix": [
+                1,
+                0,
+                0,
+                424.4,
+                0,
+                1,
+                0,
+                125,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+              ],
+            },
+          ]
+        }
+        width={8}
+        x={-3.9420242309570312}
+        y={-6}
+      />
+      <skParagraph
+        fill="#333"
+        fill-opacity={0.5}
+        opacity={0.5}
+        paint-order="stroke"
+        paragraph="[SkParagraph]"
+        stroke="rgb(255,255,255)"
+        stroke-miterlimit={2}
+        stroke-opacity={0.5}
+        stroke-width={2}
+        transform={
+          [
+            {
+              "matrix": [
+                0.9999999999999963,
+                8.507724862798222e-8,
+                0,
+                217.99995558489465,
+                -8.507724862798222e-8,
+                0.9999999999999963,
+                0,
+                77.66379844961429,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+              ],
+            },
+          ]
+        }
+        width={50}
+        x={-24.919967651367188}
+        y={-20}
+      />
+      <skPath
+        color="rgb(0,140,0)"
+        end={1}
+        opacity={1}
+        path="[SkPath]"
+        start={0}
+        style="fill"
+        transform={
+          [
+            {
+              "matrix": [
+                60,
+                0,
+                0,
+                11.600000000000023,
+                0,
+                60,
+                0,
+                125,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+              ],
+            },
+          ]
+        }
+      />
+      <skParagraph
+        fill="#eee"
+        paint-order="stroke"
+        paragraph="[SkParagraph]"
+        stroke="rgb(0,140,0)"
+        stroke-miterlimit={2}
+        stroke-width={2}
+        transform={
+          [
+            {
+              "matrix": [
+                1,
+                0,
+                0,
+                11.600000000000023,
+                0,
+                1,
+                0,
+                125,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+              ],
+            },
+          ]
+        }
+        width={8}
+        x={-3.9420242309570312}
+        y={-6}
+      />
+    </View>
+    <View
       collapsable={false}
       style={
         {
@@ -82,6 +654,311 @@ exports[`SkiaChart Chart fire dispatchEventsToZRender correctly 3`] = `
   }
   testID="component"
 >
+  <View
+    pointerEvents="auto"
+    style={
+      {
+        "height": 250,
+        "width": 430,
+      }
+    }
+  >
+    <skRect
+      color="transparent"
+      height={250}
+      width={430}
+      x={0}
+      y={0}
+    />
+    <skPath
+      color="#dbdee4"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      strokeWidth={1}
+      style="stroke"
+    />
+    <skPath
+      color="#dbdee4"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      strokeWidth={1}
+      style="stroke"
+    />
+    <skPath
+      color="#dbdee4"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      strokeWidth={1}
+      style="stroke"
+    />
+    <skPath
+      color="#dbdee4"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      strokeWidth={1}
+      style="stroke"
+    />
+    <skPath
+      color="#dbdee4"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      strokeWidth={1}
+      style="stroke"
+    />
+    <skPath
+      color="#54555a"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      strokeCap="round"
+      strokeWidth={1}
+      style="stroke"
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              -4.66973964754502e-16,
+              0,
+              56.5,
+              2.4492935982947064e-16,
+              1,
+              0,
+              170,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={8}
+      x={-7.8840484619140625}
+      y={-6}
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              -4.66973964754502e-16,
+              0,
+              56.5,
+              2.4492935982947064e-16,
+              1,
+              0,
+              143.75,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={16}
+      x={-15.768096923828125}
+      y={-6}
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              -4.66973964754502e-16,
+              0,
+              56.5,
+              2.4492935982947064e-16,
+              1,
+              0,
+              117.5,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={24}
+      x={-23.652145385742188}
+      y={-6}
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              -4.66973964754502e-16,
+              0,
+              56.50000000000001,
+              2.4492935982947064e-16,
+              1,
+              0,
+              91.25,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={24}
+      x={-23.652145385742188}
+      y={-6}
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              -4.66973964754502e-16,
+              0,
+              56.50000000000001,
+              2.4492935982947064e-16,
+              1,
+              0,
+              65,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={24}
+      x={-23.652145385742188}
+      y={-6}
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              0,
+              0,
+              145.125,
+              0,
+              1,
+              0,
+              178,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={27}
+      x={-13.128082275390625}
+      y={0}
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              0,
+              0,
+              306.375,
+              0,
+              1,
+              0,
+              178,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={23}
+      x={-11.130073547363281}
+      y={0}
+    />
+    <skPath
+      color="orange"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      style="fill"
+    />
+    <skPath
+      color="black"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      style="fill"
+    />
+  </View>
   <View
     onMoveShouldSetResponder={[Function]}
     onMoveShouldSetResponderCapture={[Function]}
@@ -119,6 +996,439 @@ exports[`SkiaChart Chart renders correctly 2`] = `
   testID="component"
 >
   <View
+    pointerEvents="auto"
+    style={
+      {
+        "height": 250,
+        "width": 430,
+      }
+    }
+  >
+    <skRect
+      color="transparent"
+      height={250}
+      width={430}
+      x={0}
+      y={0}
+    />
+    <skPath
+      color="#dbdee4"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      strokeWidth={1}
+      style="stroke"
+    />
+    <skPath
+      color="#dbdee4"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      strokeWidth={1}
+      style="stroke"
+    />
+    <skPath
+      color="#dbdee4"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      strokeWidth={1}
+      style="stroke"
+    />
+    <skPath
+      color="#dbdee4"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      strokeWidth={1}
+      style="stroke"
+    />
+    <skPath
+      color="#dbdee4"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      strokeWidth={1}
+      style="stroke"
+    />
+    <skPath
+      color="#54555a"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      strokeCap="round"
+      strokeWidth={1}
+      style="stroke"
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              -4.66973964754502e-16,
+              0,
+              56.5,
+              2.4492935982947064e-16,
+              1,
+              0,
+              170,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={8}
+      x={-7.8840484619140625}
+      y={-6}
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              -4.66973964754502e-16,
+              0,
+              56.5,
+              2.4492935982947064e-16,
+              1,
+              0,
+              143.75,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={16}
+      x={-15.768096923828125}
+      y={-6}
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              -4.66973964754502e-16,
+              0,
+              56.5,
+              2.4492935982947064e-16,
+              1,
+              0,
+              117.5,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={24}
+      x={-23.652145385742188}
+      y={-6}
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              -4.66973964754502e-16,
+              0,
+              56.50000000000001,
+              2.4492935982947064e-16,
+              1,
+              0,
+              91.25,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={24}
+      x={-23.652145385742188}
+      y={-6}
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              -4.66973964754502e-16,
+              0,
+              56.50000000000001,
+              2.4492935982947064e-16,
+              1,
+              0,
+              65,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={24}
+      x={-23.652145385742188}
+      y={-6}
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              0,
+              0,
+              145.125,
+              0,
+              1,
+              0,
+              178,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={27}
+      x={-13.128082275390625}
+      y={0}
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              0,
+              0,
+              306.375,
+              0,
+              1,
+              0,
+              178,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={23}
+      x={-11.130073547363281}
+      y={0}
+    />
+    <skGroup
+      clip="[SkClip]"
+    >
+      <skPath
+        color="orange"
+        end={1}
+        opacity={1}
+        path="[SkPath]"
+        start={0}
+        strokeJoin="bevel"
+        strokeWidth={2}
+        style="stroke"
+      />
+    </skGroup>
+    <skPath
+      color="#fff"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      style="fill"
+      transform={
+        [
+          {
+            "matrix": [
+              3,
+              0,
+              0,
+              145.125,
+              0,
+              3,
+              0,
+              107,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+    />
+    <skPath
+      color="orange"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      strokeWidth={0.6666666666666666}
+      style="stroke"
+      transform={
+        [
+          {
+            "matrix": [
+              3,
+              0,
+              0,
+              145.125,
+              0,
+              3,
+              0,
+              107,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+    />
+    <skPath
+      color="#fff"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      style="fill"
+      transform={
+        [
+          {
+            "matrix": [
+              3,
+              0,
+              0,
+              306.375,
+              0,
+              3,
+              0,
+              65,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+    />
+    <skPath
+      color="orange"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      strokeWidth={0.6666666666666666}
+      style="stroke"
+      transform={
+        [
+          {
+            "matrix": [
+              3,
+              0,
+              0,
+              306.375,
+              0,
+              3,
+              0,
+              65,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+    />
+  </View>
+  <View
     onMoveShouldSetResponder={[Function]}
     onMoveShouldSetResponderCapture={[Function]}
     onResponderEnd={[Function]}
@@ -153,7 +1463,361 @@ exports[`SkiaChart Chart renders correctly when handleGesture false 2`] = `
     }
   }
   testID="component"
-/>
+>
+  <View
+    pointerEvents="auto"
+    style={
+      {
+        "height": 250,
+        "width": 430,
+      }
+    }
+  >
+    <skRect
+      color="transparent"
+      height={250}
+      width={430}
+      x={0}
+      y={0}
+    />
+    <skPath
+      color="#dbdee4"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      strokeWidth={1}
+      style="stroke"
+    />
+    <skPath
+      color="#dbdee4"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      strokeWidth={1}
+      style="stroke"
+    />
+    <skPath
+      color="#dbdee4"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      strokeWidth={1}
+      style="stroke"
+    />
+    <skPath
+      color="#dbdee4"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      strokeWidth={1}
+      style="stroke"
+    />
+    <skPath
+      color="#dbdee4"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      strokeWidth={1}
+      style="stroke"
+    />
+    <skPath
+      color="#54555a"
+      end={1}
+      opacity={1}
+      path="[SkPath]"
+      start={0}
+      strokeCap="round"
+      strokeWidth={1}
+      style="stroke"
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              -4.66973964754502e-16,
+              0,
+              56.5,
+              2.4492935982947064e-16,
+              1,
+              0,
+              170,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={8}
+      x={-7.8840484619140625}
+      y={-6}
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              -4.66973964754502e-16,
+              0,
+              56.5,
+              2.4492935982947064e-16,
+              1,
+              0,
+              143.75,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={16}
+      x={-15.768096923828125}
+      y={-6}
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              -4.66973964754502e-16,
+              0,
+              56.5,
+              2.4492935982947064e-16,
+              1,
+              0,
+              117.5,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={24}
+      x={-23.652145385742188}
+      y={-6}
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              -4.66973964754502e-16,
+              0,
+              56.50000000000001,
+              2.4492935982947064e-16,
+              1,
+              0,
+              91.25,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={24}
+      x={-23.652145385742188}
+      y={-6}
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              -4.66973964754502e-16,
+              0,
+              56.50000000000001,
+              2.4492935982947064e-16,
+              1,
+              0,
+              65,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={24}
+      x={-23.652145385742188}
+      y={-6}
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              0,
+              0,
+              145.125,
+              0,
+              1,
+              0,
+              178,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={27}
+      x={-13.128082275390625}
+      y={0}
+    />
+    <skParagraph
+      fill="#54555a"
+      paragraph="[SkParagraph]"
+      transform={
+        [
+          {
+            "matrix": [
+              1,
+              0,
+              0,
+              306.375,
+              0,
+              1,
+              0,
+              178,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+      width={23}
+      x={-11.130073547363281}
+      y={0}
+    />
+    <skPath
+      color="orange"
+      end={1}
+      opacity={0.8}
+      path="[SkPath]"
+      start={0}
+      style="fill"
+      transform={
+        [
+          {
+            "matrix": [
+              5,
+              0,
+              0,
+              145.125,
+              0,
+              5,
+              0,
+              107,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+    />
+    <skPath
+      color="orange"
+      end={1}
+      opacity={0.8}
+      path="[SkPath]"
+      start={0}
+      style="fill"
+      transform={
+        [
+          {
+            "matrix": [
+              5,
+              0,
+              0,
+              306.375,
+              0,
+              5,
+              0,
+              65,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+            ],
+          },
+        ]
+      }
+    />
+  </View>
+</View>
 `;
 
 exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`] = `
@@ -215,20 +1879,15 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
         }
       >
         <RNSVGPath
-          d="M331.665 288.1361Q550 211.8639 768.3349 288.1361"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
+          d="M332.7997 287.7408Q550 212.2592 767.2002 287.7408"
+          fill={null}
           matrix={
             [
               0.832,
               0,
               0,
               0.832,
-              -167.114,
+              -239.714,
               -124.744,
             ]
           }
@@ -242,7 +1901,7 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
           }
           stroke={
             {
-              "payload": 4289374890,
+              "payload": 4287006604,
               "type": 0,
             }
           }
@@ -253,19 +1912,19 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
           d="M2.5 0A2.5 2.5 0 1 1 2.5 -0.0002"
           fill={
             {
-              "payload": 4289374890,
+              "payload": 4287006604,
               "type": 0,
             }
           }
           fillOpacity={0.5}
           matrix={
             [
-              -0.33,
-              -0.944,
-              0.944,
-              -0.33,
-              108.9905,
-              115.1236,
+              -0.328,
+              -0.945,
+              0.945,
+              -0.328,
+              37.3351,
+              114.7944,
             ]
           }
           propList={
@@ -279,19 +1938,19 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
           d="M0 0L13.3333 20L0 15L-13.3333 20L0 0Z"
           fill={
             {
-              "payload": 4289374890,
+              "payload": 4287006604,
               "type": 0,
             }
           }
           fillOpacity={0.5}
           matrix={
             [
-              -0.33,
-              0.944,
-              -0.944,
-              -0.33,
-              472.5094,
-              115.1235,
+              -0.328,
+              0.945,
+              -0.945,
+              -0.328,
+              398.9649,
+              114.7944,
             ]
           }
           propList={
@@ -311,11 +1970,11 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
           }
           matrix={
             [
-              28.15,
+              29.15,
               0,
               0,
-              28.15,
-              82.63,
+              29.15,
+              10.03,
               125,
             ]
           }
@@ -335,11 +1994,11 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
           }
           matrix={
             [
-              28.15,
+              29.15,
               0,
               0,
-              28.15,
-              498.87,
+              29.15,
+              426.27,
               125,
             ]
           }
@@ -363,7 +2022,7 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "middle",
             }
@@ -374,7 +2033,7 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
               0,
               0,
               1,
-              82.63,
+              10.03,
               125,
             ]
           }
@@ -429,7 +2088,7 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "middle",
             }
@@ -440,7 +2099,7 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
               0,
               0,
               1,
-              498.87,
+              426.27,
               125,
             ]
           }
@@ -495,7 +2154,7 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
           fillOpacity={0.5}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "20px",
               "textAnchor": "middle",
             }
@@ -506,7 +2165,7 @@ exports[`SvgChart Chart fire PanResponder tap & drag & pinch event correctly 5`]
               0,
               0,
               1,
-              290.75,
+              218.15,
               77.3698,
             ]
           }
@@ -651,13 +2310,8 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
           }
         >
           <RNSVGPath
-            d="M331.7596 288.1031Q550 211.8969 768.2404 288.1031"
-            fill={
-              {
-                "payload": 0,
-                "type": 0,
-              }
-            }
+            d="M334.0485 287.3081Q549.9999 212.692 765.9514 287.308"
+            fill={null}
             matrix={
               [
                 0.826,
@@ -665,7 +2319,7 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
                 0,
                 0.826,
                 -236.08,
-                -98.68,
+                -122.68,
               ]
             }
             propList={
@@ -678,7 +2332,7 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
             }
             stroke={
               {
-                "payload": 4289374890,
+                "payload": 4287006604,
                 "type": 0,
               }
             }
@@ -689,19 +2343,19 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
             d="M2.5 0A2.5 2.5 0 1 1 2.5 -0.0002"
             fill={
               {
-                "payload": 4289374890,
+                "payload": 4287006604,
                 "type": 0,
               }
             }
             fillOpacity={0.5}
             matrix={
               [
-                -0.33,
-                -0.944,
-                0.944,
-                -0.33,
-                37.8208,
-                139.1779,
+                -0.327,
+                -0.945,
+                0.945,
+                -0.327,
+                39.7104,
+                114.5215,
               ]
             }
             propList={
@@ -715,19 +2369,19 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
             d="M0 0L13.3333 20L0 15L-13.3333 20L0 0Z"
             fill={
               {
-                "payload": 4289374890,
+                "payload": 4287006604,
                 "type": 0,
               }
             }
             fillOpacity={0.5}
             matrix={
               [
-                -0.33,
-                0.944,
-                -0.944,
-                -0.33,
-                398.1793,
-                139.1779,
+                -0.327,
+                0.945,
+                -0.945,
+                -0.327,
+                396.2895,
+                114.5215,
               ]
             }
             propList={
@@ -741,18 +2395,18 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
             d="M1 0A1 1 0 1 1 1 -0.0001"
             fill={
               {
-                "payload": 4293821166,
+                "payload": 4278190335,
                 "type": 0,
               }
             }
             matrix={
               [
-                28,
+                30,
                 0,
                 0,
-                28,
+                30,
                 424.4,
-                149,
+                125,
               ]
             }
             propList={
@@ -768,14 +2422,14 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
             dy={[]}
             fill={
               {
-                "payload": 4281545523,
+                "payload": 4291611852,
                 "type": 0,
               }
             }
             fillOpacity={1}
             font={
               {
-                "fontFamily": "sans-serif",
+                "fontFamily": "Helvetica Neue",
                 "fontSize": "12px",
                 "textAnchor": "middle",
               }
@@ -787,16 +2441,27 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
                 0,
                 1,
                 424.4,
-                149,
+                125,
               ]
             }
             propList={
               [
                 "fill",
                 "fillOpacity",
+                "stroke",
+                "strokeWidth",
+                "strokeMiterlimit",
               ]
             }
             rotate={[]}
+            stroke={
+              {
+                "payload": 4278190335,
+                "type": 0,
+              }
+            }
+            strokeMiterlimit={2}
+            strokeWidth={0}
             x={[]}
             y={[]}
           >
@@ -830,7 +2495,7 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
             fillOpacity={0.5}
             font={
               {
-                "fontFamily": "sans-serif",
+                "fontFamily": "Helvetica Neue",
                 "fontSize": "20px",
                 "textAnchor": "middle",
               }
@@ -842,7 +2507,7 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
                 0,
                 1,
                 218,
-                101.6638,
+                77.6638,
               ]
             }
             propList={
@@ -892,18 +2557,18 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
             d="M1 0A1 1 0 1 1 1 -0.0001"
             fill={
               {
-                "payload": 4283564175,
+                "payload": 4278225920,
                 "type": 0,
               }
             }
             matrix={
               [
-                56,
+                60,
                 0,
                 0,
-                56,
+                60,
                 11.6,
-                149,
+                125,
               ]
             }
             propList={
@@ -919,14 +2584,14 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
             dy={[]}
             fill={
               {
-                "payload": 4291611852,
+                "payload": 4293848814,
                 "type": 0,
               }
             }
             fillOpacity={1}
             font={
               {
-                "fontFamily": "sans-serif",
+                "fontFamily": "Helvetica Neue",
                 "fontSize": "12px",
                 "textAnchor": "middle",
               }
@@ -938,7 +2603,7 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
                 0,
                 1,
                 11.6,
-                149,
+                125,
               ]
             }
             propList={
@@ -953,7 +2618,7 @@ exports[`SvgChart Chart fire RNGH tap & drag & pinch event correctly 5`] = `
             rotate={[]}
             stroke={
               {
-                "payload": 4283564175,
+                "payload": 4278225920,
                 "type": 0,
               }
             }
@@ -1056,13 +2721,8 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
         }
       >
         <RNSVGPath
-          d="M43 180.5L387 180.5"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
+          d="M64.5 170.5L387 170.5"
+          fill={null}
           propList={
             [
               "fill",
@@ -1071,19 +2731,14 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           }
           stroke={
             {
-              "payload": 4292929265,
+              "payload": 4292599524,
               "type": 0,
             }
           }
         />
         <RNSVGPath
-          d="M43 150.5L387 150.5"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
+          d="M64.5 144.5L387 144.5"
+          fill={null}
           propList={
             [
               "fill",
@@ -1092,19 +2747,14 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           }
           stroke={
             {
-              "payload": 4292929265,
+              "payload": 4292599524,
               "type": 0,
             }
           }
         />
         <RNSVGPath
-          d="M43 120.5L387 120.5"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
+          d="M64.5 117.5L387 117.5"
+          fill={null}
           propList={
             [
               "fill",
@@ -1113,19 +2763,14 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           }
           stroke={
             {
-              "payload": 4292929265,
+              "payload": 4292599524,
               "type": 0,
             }
           }
         />
         <RNSVGPath
-          d="M43 90.5L387 90.5"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
+          d="M64.5 91.5L387 91.5"
+          fill={null}
           propList={
             [
               "fill",
@@ -1134,19 +2779,14 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           }
           stroke={
             {
-              "payload": 4292929265,
+              "payload": 4292599524,
               "type": 0,
             }
           }
         />
         <RNSVGPath
-          d="M43 60.5L387 60.5"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
+          d="M64.5 65.5L387 65.5"
+          fill={null}
           propList={
             [
               "fill",
@@ -1155,19 +2795,14 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           }
           stroke={
             {
-              "payload": 4292929265,
+              "payload": 4292599524,
               "type": 0,
             }
           }
         />
         <RNSVGPath
-          d="M43 180.5L387 180.5"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
+          d="M64.5 170.5L387 170.5"
+          fill={null}
           propList={
             [
               "fill",
@@ -1177,74 +2812,11 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           }
           stroke={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           strokeLinecap={1}
-        />
-        <RNSVGPath
-          d="M43.5 180L43.5 185"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
-          propList={
-            [
-              "fill",
-              "stroke",
-            ]
-          }
-          stroke={
-            {
-              "payload": 4285427833,
-              "type": 0,
-            }
-          }
-        />
-        <RNSVGPath
-          d="M215.5 180L215.5 185"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
-          propList={
-            [
-              "fill",
-              "stroke",
-            ]
-          }
-          stroke={
-            {
-              "payload": 4285427833,
-              "type": 0,
-            }
-          }
-        />
-        <RNSVGPath
-          d="M387.5 180L387.5 185"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
-          propList={
-            [
-              "fill",
-              "stroke",
-            ]
-          }
-          stroke={
-            {
-              "payload": 4285427833,
-              "type": 0,
-            }
-          }
         />
         <RNSVGText
           alignmentBaseline="middle"
@@ -1253,14 +2825,14 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -1271,8 +2843,8 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
               0,
               0,
               1,
-              35,
-              180,
+              56.5,
+              170,
             ]
           }
           propList={
@@ -1308,14 +2880,14 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -1326,8 +2898,8 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
               0,
               0,
               1,
-              35,
-              150,
+              56.5,
+              143.75,
             ]
           }
           propList={
@@ -1363,14 +2935,14 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -1381,8 +2953,8 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
               0,
               0,
               1,
-              35,
-              120,
+              56.5,
+              117.5,
             ]
           }
           propList={
@@ -1418,14 +2990,14 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -1436,8 +3008,8 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
               0,
               0,
               1,
-              35,
-              90,
+              56.5,
+              91.25,
             ]
           }
           propList={
@@ -1473,14 +3045,14 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -1491,8 +3063,8 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
               0,
               0,
               1,
-              35,
-              60,
+              56.5,
+              65,
             ]
           }
           propList={
@@ -1528,14 +3100,14 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "middle",
             }
@@ -1546,8 +3118,8 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
               0,
               0,
               1,
-              129,
-              188,
+              145.125,
+              178,
             ]
           }
           propList={
@@ -1587,14 +3159,14 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "middle",
             }
@@ -1605,8 +3177,8 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
               0,
               0,
               1,
-              301,
-              188,
+              306.375,
+              178,
             ]
           }
           propList={
@@ -1640,7 +3212,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           />
         </RNSVGText>
         <RNSVGPath
-          d="M241.66 180l118.68 0l0 -120l-118.68 0Z"
+          d="M250.7438 170l111.2625 0l0 -105l-111.2625 0Z"
           fill={
             {
               "payload": 4294944000,
@@ -1654,7 +3226,7 @@ exports[`SvgChart Chart fire dispatchEventsToZRender correctly 3`] = `
           }
         />
         <RNSVGPath
-          d="M69.66 180l118.68 0l0 -72l-118.68 0Z"
+          d="M89.4937 170l111.2625 0l0 -63l-111.2625 0Z"
           fill={
             {
               "payload": 4278190080,
@@ -1755,13 +3327,8 @@ exports[`SvgChart Chart renders correctly 2`] = `
         }
       >
         <RNSVGPath
-          d="M43 180.5L387 180.5"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
+          d="M64.5 170.5L387 170.5"
+          fill={null}
           propList={
             [
               "fill",
@@ -1770,19 +3337,14 @@ exports[`SvgChart Chart renders correctly 2`] = `
           }
           stroke={
             {
-              "payload": 4292929265,
+              "payload": 4292599524,
               "type": 0,
             }
           }
         />
         <RNSVGPath
-          d="M43 150.5L387 150.5"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
+          d="M64.5 144.5L387 144.5"
+          fill={null}
           propList={
             [
               "fill",
@@ -1791,19 +3353,14 @@ exports[`SvgChart Chart renders correctly 2`] = `
           }
           stroke={
             {
-              "payload": 4292929265,
+              "payload": 4292599524,
               "type": 0,
             }
           }
         />
         <RNSVGPath
-          d="M43 120.5L387 120.5"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
+          d="M64.5 117.5L387 117.5"
+          fill={null}
           propList={
             [
               "fill",
@@ -1812,19 +3369,14 @@ exports[`SvgChart Chart renders correctly 2`] = `
           }
           stroke={
             {
-              "payload": 4292929265,
+              "payload": 4292599524,
               "type": 0,
             }
           }
         />
         <RNSVGPath
-          d="M43 90.5L387 90.5"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
+          d="M64.5 91.5L387 91.5"
+          fill={null}
           propList={
             [
               "fill",
@@ -1833,19 +3385,14 @@ exports[`SvgChart Chart renders correctly 2`] = `
           }
           stroke={
             {
-              "payload": 4292929265,
+              "payload": 4292599524,
               "type": 0,
             }
           }
         />
         <RNSVGPath
-          d="M43 60.5L387 60.5"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
+          d="M64.5 65.5L387 65.5"
+          fill={null}
           propList={
             [
               "fill",
@@ -1854,19 +3401,14 @@ exports[`SvgChart Chart renders correctly 2`] = `
           }
           stroke={
             {
-              "payload": 4292929265,
+              "payload": 4292599524,
               "type": 0,
             }
           }
         />
         <RNSVGPath
-          d="M43 180.5L387 180.5"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
+          d="M64.5 170.5L387 170.5"
+          fill={null}
           propList={
             [
               "fill",
@@ -1876,74 +3418,11 @@ exports[`SvgChart Chart renders correctly 2`] = `
           }
           stroke={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           strokeLinecap={1}
-        />
-        <RNSVGPath
-          d="M43.5 180L43.5 185"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
-          propList={
-            [
-              "fill",
-              "stroke",
-            ]
-          }
-          stroke={
-            {
-              "payload": 4285427833,
-              "type": 0,
-            }
-          }
-        />
-        <RNSVGPath
-          d="M215.5 180L215.5 185"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
-          propList={
-            [
-              "fill",
-              "stroke",
-            ]
-          }
-          stroke={
-            {
-              "payload": 4285427833,
-              "type": 0,
-            }
-          }
-        />
-        <RNSVGPath
-          d="M387.5 180L387.5 185"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
-          propList={
-            [
-              "fill",
-              "stroke",
-            ]
-          }
-          stroke={
-            {
-              "payload": 4285427833,
-              "type": 0,
-            }
-          }
         />
         <RNSVGText
           alignmentBaseline="middle"
@@ -1952,14 +3431,14 @@ exports[`SvgChart Chart renders correctly 2`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -1970,8 +3449,8 @@ exports[`SvgChart Chart renders correctly 2`] = `
               0,
               0,
               1,
-              35,
-              180,
+              56.5,
+              170,
             ]
           }
           propList={
@@ -2007,14 +3486,14 @@ exports[`SvgChart Chart renders correctly 2`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -2025,8 +3504,8 @@ exports[`SvgChart Chart renders correctly 2`] = `
               0,
               0,
               1,
-              35,
-              150,
+              56.5,
+              143.75,
             ]
           }
           propList={
@@ -2062,14 +3541,14 @@ exports[`SvgChart Chart renders correctly 2`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -2080,8 +3559,8 @@ exports[`SvgChart Chart renders correctly 2`] = `
               0,
               0,
               1,
-              35,
-              120,
+              56.5,
+              117.5,
             ]
           }
           propList={
@@ -2117,14 +3596,14 @@ exports[`SvgChart Chart renders correctly 2`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -2135,8 +3614,8 @@ exports[`SvgChart Chart renders correctly 2`] = `
               0,
               0,
               1,
-              35,
-              90,
+              56.5,
+              91.25,
             ]
           }
           propList={
@@ -2172,14 +3651,14 @@ exports[`SvgChart Chart renders correctly 2`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -2190,8 +3669,8 @@ exports[`SvgChart Chart renders correctly 2`] = `
               0,
               0,
               1,
-              35,
-              60,
+              56.5,
+              65,
             ]
           }
           propList={
@@ -2227,14 +3706,14 @@ exports[`SvgChart Chart renders correctly 2`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "middle",
             }
@@ -2245,8 +3724,8 @@ exports[`SvgChart Chart renders correctly 2`] = `
               0,
               0,
               1,
-              129,
-              188,
+              145.125,
+              178,
             ]
           }
           propList={
@@ -2286,14 +3765,14 @@ exports[`SvgChart Chart renders correctly 2`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "middle",
             }
@@ -2304,8 +3783,8 @@ exports[`SvgChart Chart renders correctly 2`] = `
               0,
               0,
               1,
-              301,
-              188,
+              306.375,
+              178,
             ]
           }
           propList={
@@ -2339,7 +3818,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
           />
         </RNSVGText>
         <RNSVGGroup
-          clipPath="zr8-c0"
+          clipPath="zr0-c0"
           fill={
             {
               "payload": 4278190080,
@@ -2348,13 +3827,8 @@ exports[`SvgChart Chart renders correctly 2`] = `
           }
         >
           <RNSVGPath
-            d="M129 108L301 60"
-            fill={
-              {
-                "payload": 0,
-                "type": 0,
-              }
-            }
+            d="M145.125 107L306.375 65"
+            fill={null}
             propList={
               [
                 "fill",
@@ -2365,7 +3839,7 @@ exports[`SvgChart Chart renders correctly 2`] = `
             }
             stroke={
               {
-                "payload": 4294901760,
+                "payload": 4294944000,
                 "type": 0,
               }
             }
@@ -2383,26 +3857,28 @@ exports[`SvgChart Chart renders correctly 2`] = `
           }
           matrix={
             [
-              2,
+              3,
               0,
               0,
-              2,
-              129,
-              108,
+              3,
+              145.125,
+              107,
             ]
           }
           propList={
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
             {
-              "payload": 4294901760,
+              "payload": 4294944000,
               "type": 0,
             }
           }
+          strokeWidth={0.6666666666666666}
         />
         <RNSVGPath
           d="M1 0A1 1 0 1 1 1 -0.0001"
@@ -2414,26 +3890,28 @@ exports[`SvgChart Chart renders correctly 2`] = `
           }
           matrix={
             [
-              2,
+              3,
               0,
               0,
-              2,
-              301,
-              60,
+              3,
+              306.375,
+              65,
             ]
           }
           propList={
             [
               "fill",
               "stroke",
+              "strokeWidth",
             ]
           }
           stroke={
             {
-              "payload": 4294901760,
+              "payload": 4294944000,
               "type": 0,
             }
           }
+          strokeWidth={0.6666666666666666}
         />
       </RNSVGGroup>
       <RNSVGDefs>
@@ -2444,10 +3922,10 @@ exports[`SvgChart Chart renders correctly 2`] = `
               "type": 0,
             }
           }
-          name="zr8-c0"
+          name="zr0-c0"
         >
           <RNSVGPath
-            d="M42 59l346 0l0 122l-346 0Z"
+            d="M63 64l326 0l0 107l-326 0Z"
             fill={
               {
                 "payload": 4278190080,
@@ -2549,13 +4027,8 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
         }
       >
         <RNSVGPath
-          d="M43 180.5L387 180.5"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
+          d="M64.5 170.5L387 170.5"
+          fill={null}
           propList={
             [
               "fill",
@@ -2564,19 +4037,14 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           }
           stroke={
             {
-              "payload": 4292929265,
+              "payload": 4292599524,
               "type": 0,
             }
           }
         />
         <RNSVGPath
-          d="M43 150.5L387 150.5"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
+          d="M64.5 144.5L387 144.5"
+          fill={null}
           propList={
             [
               "fill",
@@ -2585,19 +4053,14 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           }
           stroke={
             {
-              "payload": 4292929265,
+              "payload": 4292599524,
               "type": 0,
             }
           }
         />
         <RNSVGPath
-          d="M43 120.5L387 120.5"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
+          d="M64.5 117.5L387 117.5"
+          fill={null}
           propList={
             [
               "fill",
@@ -2606,19 +4069,14 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           }
           stroke={
             {
-              "payload": 4292929265,
+              "payload": 4292599524,
               "type": 0,
             }
           }
         />
         <RNSVGPath
-          d="M43 90.5L387 90.5"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
+          d="M64.5 91.5L387 91.5"
+          fill={null}
           propList={
             [
               "fill",
@@ -2627,19 +4085,14 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           }
           stroke={
             {
-              "payload": 4292929265,
+              "payload": 4292599524,
               "type": 0,
             }
           }
         />
         <RNSVGPath
-          d="M43 60.5L387 60.5"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
+          d="M64.5 65.5L387 65.5"
+          fill={null}
           propList={
             [
               "fill",
@@ -2648,19 +4101,14 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           }
           stroke={
             {
-              "payload": 4292929265,
+              "payload": 4292599524,
               "type": 0,
             }
           }
         />
         <RNSVGPath
-          d="M43 180.5L387 180.5"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
+          d="M64.5 170.5L387 170.5"
+          fill={null}
           propList={
             [
               "fill",
@@ -2670,74 +4118,11 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           }
           stroke={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           strokeLinecap={1}
-        />
-        <RNSVGPath
-          d="M43.5 180L43.5 185"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
-          propList={
-            [
-              "fill",
-              "stroke",
-            ]
-          }
-          stroke={
-            {
-              "payload": 4285427833,
-              "type": 0,
-            }
-          }
-        />
-        <RNSVGPath
-          d="M215.5 180L215.5 185"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
-          propList={
-            [
-              "fill",
-              "stroke",
-            ]
-          }
-          stroke={
-            {
-              "payload": 4285427833,
-              "type": 0,
-            }
-          }
-        />
-        <RNSVGPath
-          d="M387.5 180L387.5 185"
-          fill={
-            {
-              "payload": 0,
-              "type": 0,
-            }
-          }
-          propList={
-            [
-              "fill",
-              "stroke",
-            ]
-          }
-          stroke={
-            {
-              "payload": 4285427833,
-              "type": 0,
-            }
-          }
         />
         <RNSVGText
           alignmentBaseline="middle"
@@ -2746,14 +4131,14 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -2764,8 +4149,8 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
               0,
               0,
               1,
-              35,
-              180,
+              56.5,
+              170,
             ]
           }
           propList={
@@ -2801,14 +4186,14 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -2819,8 +4204,8 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
               0,
               0,
               1,
-              35,
-              150,
+              56.5,
+              143.75,
             ]
           }
           propList={
@@ -2856,14 +4241,14 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -2874,8 +4259,8 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
               0,
               0,
               1,
-              35,
-              120,
+              56.5,
+              117.5,
             ]
           }
           propList={
@@ -2911,14 +4296,14 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -2929,8 +4314,8 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
               0,
               0,
               1,
-              35,
-              90,
+              56.5,
+              91.25,
             ]
           }
           propList={
@@ -2966,14 +4351,14 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "end",
             }
@@ -2984,8 +4369,8 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
               0,
               0,
               1,
-              35,
-              60,
+              56.5,
+              65,
             ]
           }
           propList={
@@ -3021,14 +4406,14 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "middle",
             }
@@ -3039,8 +4424,8 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
               0,
               0,
               1,
-              129,
-              188,
+              145.125,
+              178,
             ]
           }
           propList={
@@ -3080,14 +4465,14 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           dy={[]}
           fill={
             {
-              "payload": 4285427833,
+              "payload": 4283716954,
               "type": 0,
             }
           }
           fillOpacity={1}
           font={
             {
-              "fontFamily": "sans-serif",
+              "fontFamily": "Helvetica Neue",
               "fontSize": "12px",
               "textAnchor": "middle",
             }
@@ -3098,8 +4483,8 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
               0,
               0,
               1,
-              301,
-              188,
+              306.375,
+              178,
             ]
           }
           propList={
@@ -3136,7 +4521,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           d="M1 0A1 1 0 1 1 1 -0.0001"
           fill={
             {
-              "payload": 4294967040,
+              "payload": 4294944000,
               "type": 0,
             }
           }
@@ -3147,8 +4532,8 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
               0,
               0,
               5,
-              129,
-              108,
+              145.125,
+              107,
             ]
           }
           propList={
@@ -3162,7 +4547,7 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
           d="M1 0A1 1 0 1 1 1 -0.0001"
           fill={
             {
-              "payload": 4294967040,
+              "payload": 4294944000,
               "type": 0,
             }
           }
@@ -3173,8 +4558,8 @@ exports[`SvgChart Chart renders correctly when handleGesture false 2`] = `
               0,
               0,
               5,
-              301,
-              60,
+              306.375,
+              65,
             ]
           }
           propList={

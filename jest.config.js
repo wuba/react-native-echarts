@@ -1,5 +1,6 @@
 module.exports = {
   preset: 'react-native',
+  testEnvironment: '<rootDir>/jest.skia-env.js',
   modulePathIgnorePatterns: [
     '<rootDir>/example/node_modules',
     '<rootDir>/lib/',
@@ -7,10 +8,7 @@ module.exports = {
   transformIgnorePatterns: [
     'node_modules/(?!(react-native|react-native.*|@react-native.*|@?react-navigation.*|@shopify/react-native-skia|zrender|echarts)/)',
   ],
-  setupFiles: [
-    '@shopify/react-native-skia/jestSetup.js',
-    'react-native-gesture-handler/jestSetup.js',
-    './jestSetup.js',
-  ],
+  setupFiles: ['react-native-gesture-handler/jestSetup.js'],
+  setupFilesAfterEnv: ['./jest.skia-setup.js', './jestSetup.js'],
   testTimeout: 10000,
 };
