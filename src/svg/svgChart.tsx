@@ -259,6 +259,15 @@ function SvgComponent(
     []
   );
 
+  const containerStyle = useMemo(
+    () => ({
+      ...style,
+      width,
+      height,
+    }),
+    [height, style, width]
+  );
+
   useImperativeHandle(
     ref,
     () => ({
@@ -267,7 +276,7 @@ function SvgComponent(
         setAttributeNS: (_name: string, _value: any) => {},
         removeAttribute: (_name: string) => {},
         patch: (_oldVnode: SVGVNode, vnode: SVGVNode) => {
-          setSvgNode(vnode);
+          setSvgNode((prevNode) => (prevNode === vnode ? prevNode : vnode));
         },
         setZrenderId: (id: number) => {
           zrenderId.current = id;
@@ -285,7 +294,7 @@ function SvgComponent(
   );
 
   return svgNode ? (
-    <View testID="component" style={{ ...style, width, height }}>
+    <View testID="component" style={containerStyle}>
       <SvgRoot node={svgNode} />
       {handleGesture ? (
         <GestureHandler dispatchEvents={dispatchEvents} {...gestureProps} />

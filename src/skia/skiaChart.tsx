@@ -5,6 +5,7 @@ import {
   memo,
   useCallback,
   useRef,
+  useMemo,
 } from 'react';
 import type { ForwardedRef, ReactElement } from 'react';
 
@@ -22,6 +23,12 @@ import type { ChartElement, DispatchEvents, SkiaChartProps } from '../types';
 
 export { SkiaRenderer } from './SkiaRenderer';
 export * from '../types';
+
+type RenderState = {
+  children: ReactElement[];
+  width: number;
+  height: number;
+};
 
 function encodeSnapshot(
   image: { encodeToBase64: () => string } | null | undefined
@@ -42,9 +49,11 @@ function SkiaComponent(
   } = props;
   const initialWidth = inlineWidth || (style?.width as number);
   const initialHeight = inlineHeight || (style?.height as number);
-  const [children, setChildren] = useState<ReactElement[]>([]);
-  const [width, setWidth] = useState<number>(initialWidth ?? 0);
-  const [height, setHeight] = useState<number>(initialHeight ?? 0);
+  const [renderState, setRenderState] = useState<RenderState>({
+    children: [],
+    width: initialWidth ?? 0,
+    height: initialHeight ?? 0,
+  });
   const childrenRef = useRef<ReactElement[]>([]);
   const widthRef = useRef<number>(initialWidth ?? 0);
   const heightRef = useRef<number>(initialHeight ?? 0);
@@ -60,25 +69,54 @@ function SkiaComponent(
     []
   );
 
+  const updateRenderState = useCallback((patch: Partial<RenderState>) => {
+    setRenderState((prevState) => {
+      const nextState = {
+        ...prevState,
+        ...patch,
+      };
+
+      if (
+        prevState.width === nextState.width &&
+        prevState.height === nextState.height &&
+        prevState.children === nextState.children
+      ) {
+        return prevState;
+      }
+
+      return nextState;
+    });
+  }, []);
+
+  const surfaceStyle = useMemo(
+    () => ({
+      ...style,
+      width: renderState.width,
+      height: renderState.height,
+    }),
+    [renderState.height, renderState.width, style]
+  );
+
   useImperativeHandle(
     ref,
     () => ({
       elm: {
         setAttribute: (name: string, value: any) => {
-          if (name === 'width') {
+          if (name === 'width' && widthRef.current !== value) {
             widthRef.current = value;
-            setWidth(value);
+            updateRenderState({ width: value });
           }
-          if (name === 'height') {
+          if (name === 'height' && heightRef.current !== value) {
             heightRef.current = value;
-            setHeight(value);
+            updateRenderState({ height: value });
           }
         },
         setAttributeNS: (_name: string, _value: any) => {},
         removeAttribute: (_name: string) => {},
         patch: (elms: ReactElement[]) => {
+          if (childrenRef.current === elms) return;
           childrenRef.current = elms;
-          setChildren(elms);
+          updateRenderState({ children: elms });
         },
         setZrenderId: (id: number) => {
           zrenderId.current = id;
@@ -116,22 +154,18 @@ function SkiaComponent(
       dispatchEvents,
       getChartSize: () => {
         return {
-          width: initialWidth,
-          height: initialHeight,
+          width: widthRef.current,
+          height: heightRef.current,
         };
       },
     }),
-    [dispatchEvents, initialWidth, initialHeight, canvasRef]
+    [dispatchEvents, canvasRef, updateRenderState]
   );
 
   return (
-    <View testID="component" style={{ ...style, width, height }}>
-      <Canvas
-        style={{ ...style, width, height }}
-        pointerEvents="auto"
-        ref={canvasRef}
-      >
-        {children}
+    <View testID="component" style={surfaceStyle}>
+      <Canvas style={surfaceStyle} pointerEvents="auto" ref={canvasRef}>
+        {renderState.children}
       </Canvas>
       {handleGesture ? (
         <GestureHandler dispatchEvents={dispatchEvents} {...gestureProps} />
