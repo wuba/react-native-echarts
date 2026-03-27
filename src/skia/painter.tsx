@@ -37,6 +37,10 @@ export class SkiaPainter implements PainterBase {
   private _height: number;
   private _svgDom: any;
   private _backgroundColor: SVGPainterBackgroundColor = 'none';
+  private _backgroundDirty = true;
+  private _surfaceDirty = true;
+  private _hasRendered = false;
+  private _lastDisplayables: Displayable[] = [];
   constructor(
     root: RootProps,
     storage: Storage,
@@ -57,7 +61,11 @@ export class SkiaPainter implements PainterBase {
     return this.type;
   }
   setBackgroundColor(backgroundColor: SVGPainterBackgroundColor): void {
+    if (this._backgroundColor === backgroundColor) {
+      return;
+    }
     this._backgroundColor = backgroundColor;
+    this._backgroundDirty = true;
   }
   getViewportRoot: () => HTMLElement = () => {
     return this.root as HTMLElement;
@@ -67,8 +75,25 @@ export class SkiaPainter implements PainterBase {
       return { offsetLeft: 0, offsetTop: 0 };
     };
   refresh(): void {
-    const scope = createBrushScope(this._id);
     const list = this.storage.getDisplayList(true);
+    const hasDirtyDisplayable = list.some((displayable) => displayable.__dirty);
+    const sameDisplayList =
+      list.length === this._lastDisplayables.length &&
+      list.every(
+        (displayable, index) => displayable === this._lastDisplayables[index]
+      );
+
+    if (
+      this._hasRendered &&
+      sameDisplayList &&
+      !this._backgroundDirty &&
+      !this._surfaceDirty &&
+      !hasDirtyDisplayable
+    ) {
+      return;
+    }
+
+    const scope = createBrushScope(this._id);
     const width = this._width;
     const height = this._height;
     let children: ReactElement[] = [];
@@ -82,6 +107,10 @@ export class SkiaPainter implements PainterBase {
     this._paintList(list, scope, children);
     // @ts-ignore
     this.root.elm.patch(children);
+    this._backgroundDirty = false;
+    this._surfaceDirty = false;
+    this._hasRendered = true;
+    this._lastDisplayables = list.slice();
   }
   _paintList(list: Displayable[], scope: BrushScope, out?: ReactElement[]) {
     const clipPathsGroupsStack: any[] = [];
@@ -172,6 +201,7 @@ export class SkiaPainter implements PainterBase {
     if (this._width !== width || this._height !== height) {
       this._width = width;
       this._height = height;
+      this._surfaceDirty = true;
       this._svgDom.setAttribute('width', width);
       this._svgDom.setAttribute('height', height);
     }
