@@ -1,6 +1,6 @@
 {
   "name": "@wuba/react-native-echarts",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Echarts for React Native.",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
