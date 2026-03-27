@@ -31,6 +31,7 @@ export class SkiaPainter implements PainterBase {
   type: string = 'svg';
   root: HTMLElement;
   storage: Storage;
+  private _displayableCache = new WeakMap<Displayable, ReactElement[]>();
   private _id: string;
   private _width: number;
   private _height: number;
@@ -90,54 +91,49 @@ export class SkiaPainter implements PainterBase {
     let prevClipPaths: Path[] | undefined = [];
     let clipGroupNodeIdx = 0;
     for (const displayable of list) {
-      if (!displayable.invisible) {
-        const clipPaths = displayable.__clipPaths;
-        const len = (clipPaths && clipPaths.length) || 0;
-        const prevLen = (prevClipPaths && prevClipPaths.length) || 0;
-        let lca;
-        // Find the lowest common ancestor
-        for (lca = Math.max(len - 1, prevLen - 1); lca >= 0; lca--) {
-          if (
-            clipPaths &&
-            prevClipPaths &&
-            clipPaths[lca] === prevClipPaths[lca]
-          ) {
-            break;
-          }
+      if (displayable.invisible) {
+        displayable.__dirty = 0;
+        continue;
+      }
+      const clipPaths = displayable.__clipPaths;
+      const len = (clipPaths && clipPaths.length) || 0;
+      const prevLen = (prevClipPaths && prevClipPaths.length) || 0;
+      let lca;
+      // Find the lowest common ancestor
+      for (lca = Math.max(len - 1, prevLen - 1); lca >= 0; lca--) {
+        if (
+          clipPaths &&
+          prevClipPaths &&
+          clipPaths[lca] === prevClipPaths[lca]
+        ) {
+          break;
         }
-        // pop the stack
-        for (let i = prevLen - 1; i > lca; i--) {
-          clipPathsGroupsStackDepth--;
-          // svgEls.push(closeGroup);
-          currentClipPathGroup =
-            clipPathsGroupsStack[clipPathsGroupsStackDepth - 1];
-        }
-        // Pop clip path group for clipPaths not match the previous.
-        for (let i = lca + 1; i < len; i++) {
-          const clip = clipPaths && getClipPath(clipPaths[i], scope);
-          const g = {
-            id: 'clip-g-' + clipGroupNodeIdx++,
-            clip,
-            children: [],
-            index: out?.length,
-          };
-          clipPathsGroupsStack[clipPathsGroupsStackDepth++] = g;
-          outGroups.push(g);
-          currentClipPathGroup = g;
-        }
-        prevClipPaths = clipPaths;
-        const ret = brush(displayable, scope);
-        if (ret) {
-          if (ret instanceof Array) {
-            (currentClipPathGroup ? currentClipPathGroup.children : out)?.push(
-              ...ret
-            );
-          } else {
-            (currentClipPathGroup ? currentClipPathGroup.children : out)?.push(
-              ret
-            );
-          }
-        }
+      }
+      // pop the stack
+      for (let i = prevLen - 1; i > lca; i--) {
+        clipPathsGroupsStackDepth--;
+        currentClipPathGroup =
+          clipPathsGroupsStack[clipPathsGroupsStackDepth - 1];
+      }
+      // Pop clip path group for clipPaths not match the previous.
+      for (let i = lca + 1; i < len; i++) {
+        const clip = clipPaths && getClipPath(clipPaths[i], scope);
+        const g = {
+          id: 'clip-g-' + clipGroupNodeIdx++,
+          clip,
+          children: [],
+          index: out?.length,
+        };
+        clipPathsGroupsStack[clipPathsGroupsStackDepth++] = g;
+        outGroups.push(g);
+        currentClipPathGroup = g;
+      }
+      prevClipPaths = clipPaths;
+      const ret = this._getDisplayableNodes(displayable, scope);
+      if (ret.length > 0) {
+        (currentClipPathGroup ? currentClipPathGroup.children : out)?.push(
+          ...ret
+        );
       }
     }
     for (let i = outGroups.length - 1; i >= 0; i--) {
@@ -150,6 +146,23 @@ export class SkiaPainter implements PainterBase {
         </Group>
       );
     }
+  }
+  private _getDisplayableNodes(
+    displayable: Displayable,
+    scope: BrushScope
+  ): ReactElement[] {
+    const cached = this._displayableCache.get(displayable);
+    if (!displayable.__dirty && cached) {
+      return cached;
+    }
+
+    const ret = brush(displayable, scope);
+    const nodes = ret ? (ret instanceof Array ? ret : [ret]) : [];
+
+    this._displayableCache.set(displayable, nodes);
+    displayable.__dirty = 0;
+
+    return nodes;
   }
   clear(): void {}
   toDataURL(): string {
