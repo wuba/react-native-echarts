@@ -7412,9 +7412,9 @@ __metadata:
   linkType: hard
 
 "fetch-nodeshim@npm:^0.4.6":
-  version: 0.4.9
-  resolution: "fetch-nodeshim@npm:0.4.9"
-  checksum: 8766869fdaf7812961ef50c47beb294cd9c82da018226fb3970d731d43d4cb0e32865d90e84fb94bf0a8af36e31748f6a5af6103062219cf603e957fdf1fc1bb
+  version: 0.4.10
+  resolution: "fetch-nodeshim@npm:0.4.10"
+  checksum: 9dee2d308c45dcb9cfad3fbdf346b7d4c813662fadeaad34845d4f0b159ec6aa252003e1e32b049beac550755401049fb4f13a33860c1c18f9fb4d1738049435
   languageName: node
   linkType: hard
 
