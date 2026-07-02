@@ -13,11 +13,13 @@
     "./skiaChart": {
       "source": "./src/skia/skiaChart.tsx",
       "types": "./lib/typescript/src/skia/skiaChart.d.ts",
+      "browser": "./lib/module/skia/skiaChart.web.js",
       "default": "./lib/module/skia/skiaChart.js"
     },
     "./svgChart": {
       "source": "./src/svg/svgChart.tsx",
       "types": "./lib/typescript/src/svg/svgChart.d.ts",
+      "browser": "./lib/module/svg/svgChart.web.js",
       "default": "./lib/module/svg/svgChart.js"
     },
     "./package.json": "./package.json"
