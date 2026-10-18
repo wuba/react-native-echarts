@@ -24,6 +24,7 @@ import {
   isLinearGradient,
 } from 'zrender/lib/svg/helper.js';
 import SkiaPathRebuilder from './SkiaPathRebuilder';
+import { dashPath } from './helper';
 import type { ReactElement } from 'react';
 import mapStyleToAttrs from 'zrender/lib/svg/mapStyleToAttrs.js';
 import {
@@ -186,7 +187,6 @@ export function buildPath(
   }
   const pathVersion = path.getVersion();
   const elExt = el as PathWithSVGBuildPath;
-  const __svgPathVersion = elExt.__svgPathVersion;
   let svgPathBuilder = elExt.__svgPathBuilder;
   if (
     elExt.__svgPathVersion !== pathVersion ||
@@ -201,11 +201,9 @@ export function buildPath(
     elExt.__svgPathVersion = pathVersion;
     elExt.__svgPathStrokePercent = strokePercent;
   }
-  const p = svgPathBuilder.getPath();
-  if (transform && !__svgPathVersion) {
-    p?.transform(processTransform3d(transform));
-  }
-  return p;
+  return svgPathBuilder.getPath(
+    transform ? processTransform3d(transform) : undefined
+  );
 }
 
 export function brushSVGPath(
@@ -245,10 +243,18 @@ export function brushSVGPath(
   }
   if (attrs.stroke && attrs['stroke-width'] !== 0) {
     const effects: ReactElement[] = [];
+    let strokePath = p;
     if (shadow) effects.push(shadow);
     if (style.lineDash) {
       const [lineDash, lineDashOffset] = getLineDash(el);
-      if (lineDash) p.dash(lineDash[0] || 0, lineDash[1] || 0, lineDashOffset);
+      if (lineDash) {
+        strokePath = dashPath(
+          p,
+          lineDash[0] || 0,
+          lineDash[1] || 0,
+          lineDashOffset
+        );
+      }
     }
     const strokeColor =
       typeof attrs.stroke === 'string' ? attrs.stroke : undefined;
@@ -264,7 +270,7 @@ export function brushSVGPath(
         strokeWidth={(attrs['stroke-width'] as number) ?? 1}
         transform={transform}
         key={`s-${el.id}`}
-        path={p}
+        path={strokePath}
         color={strokeColor}
         style="stroke"
       >
