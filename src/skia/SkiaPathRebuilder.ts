@@ -1,15 +1,59 @@
 import type { PathRebuilder } from 'zrender/lib/core/PathProxy.js';
 import { Skia } from '@shopify/react-native-skia';
-import type { SkPath } from '@shopify/react-native-skia';
+import type { InputMatrix, SkPath, SkRect } from '@shopify/react-native-skia';
 import { isAroundZero } from './helper';
+
+// Keep the shared mutable API local: older Skia versions do not export
+// SkPathBuilder, while newer versions no longer expose these methods on SkPath.
+interface MutablePath {
+  moveTo(x: number, y: number): void;
+  lineTo(x: number, y: number): void;
+  cubicTo(
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number,
+    x3: number,
+    y3: number
+  ): void;
+  quadTo(x1: number, y1: number, x2: number, y2: number): void;
+  addOval(rect: SkRect, anticlockwise?: boolean): void;
+  arcToRotated(
+    radiusX: number,
+    radiusY: number,
+    rotation: number,
+    useSmallArc: boolean,
+    anticlockwise: boolean,
+    x: number,
+    y: number
+  ): void;
+  addRect(rect: SkRect): void;
+  close(): void;
+  reset(): void;
+  rewind?(): void;
+  transform(matrix: InputMatrix): void;
+  build?(): SkPath;
+}
+
+interface PathBuilderFactory {
+  Make(): MutablePath & { build(): SkPath };
+  MakeFromPath(path: SkPath): MutablePath & { build(): SkPath };
+}
 
 const PI = Math.PI;
 const PI2 = Math.PI * 2;
 export default class SkiaPathRebuilder implements PathRebuilder {
-  private path: SkPath;
+  private path: MutablePath;
+  private pathBuilder: PathBuilderFactory | undefined;
 
   constructor() {
-    this.path = Skia.Path.Make();
+    const skia = Skia as typeof Skia & {
+      PathBuilder?: PathBuilderFactory;
+    };
+    this.pathBuilder = skia.PathBuilder;
+    this.path = this.pathBuilder
+      ? this.pathBuilder.Make()
+      : (Skia.Path.Make() as SkPath & MutablePath);
   }
 
   moveTo(x: number, y: number): void {
@@ -109,10 +153,29 @@ export default class SkiaPathRebuilder implements PathRebuilder {
   }
 
   rewind(): void {
-    this.path.rewind();
+    if (this.path.rewind) {
+      this.path.rewind();
+    } else {
+      this.path.reset();
+    }
   }
 
-  getPath(): SkPath {
-    return this.path;
+  getPath(transform?: InputMatrix): SkPath {
+    const path = this.path.build
+      ? this.path.build()
+      : (this.path as SkPath & MutablePath);
+    if (!transform) {
+      return path;
+    }
+
+    // Transform a copy so cached geometry can be reused with another transform.
+    if (this.pathBuilder) {
+      const builder = this.pathBuilder.MakeFromPath(path);
+      builder.transform(transform);
+      return builder.build();
+    }
+    const transformedPath = path.copy() as SkPath & MutablePath;
+    transformedPath.transform(transform);
+    return transformedPath;
   }
 }
